@@ -180,8 +180,8 @@ header {
 .input-box label {
   position: absolute;
   top: 50%;
-  left: 6px;
-  transform: translate(-50%);
+  left: 5px;
+  transform: translateY(-50%);
   font-size: 1em;
   color: #162938;
   font-weight: 500;
