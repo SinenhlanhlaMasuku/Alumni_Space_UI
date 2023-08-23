@@ -40,28 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-  
-  
-  
-   /*const wrapper = document.querySelector('.wrapper'); 
-   const loginLink = document.querySelector('.login-link'); 
-  const registerLink = document.querySelector('.register-link'); 
-  const btnPopup = document.querySelector('.btnLogin-popup'); 
-  const iconClose = document.querySelector('.icon-close'); 
-  
-  registerLink.addEventListener('click', () => {
-    wrapper.classList.add('active');
-  });
-  
-  loginLink.addEventListener('click', () => {
-    wrapper.classList.add('active');
-  });
-  
-  btnPopup.addEventListener('click', () => {
-    wrapper.classList.add('active-popup');
-  });
-  
-  iconClose.addEventListener('click', () => {
-    wrapper.classList.remove('active-popup');
-  }); 
-   */
+
+ function auth(){
+  var email=document.getElementById('email').Value;
+  var password=document.getElementById('password').value;
+    
+  //conditions
+  if(email=='admin@gmail.com' && password=='Admin')
+    { 
+      alert("Login Successfully");
+      window.location.assign('landingPage.html');
+      
+    }
+    else
+    {
+      alert("invalid information");
+      return;
+    }
+  }
