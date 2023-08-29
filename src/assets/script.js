@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   var password=document.getElementById('password').value;
     
   //conditions
-  if(email=='admin@gmail.com' && password=='Admin')
+  if(email=='219093063@tut4life.ac.za' && password=='Sinehlanhla@1')
     { 
       alert("Login Successfully");
       window.location.assign('landingPage.html');
