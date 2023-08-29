@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h2 class="logo">Alumin-Space_UI</h2>
+        <h2 class="logo">TUT_ALUMNI_SPACE</h2>
         <nav class="navigation">
             <a href="#">Home</a>
             <a href="#">About</a>
@@ -23,7 +23,7 @@
     <div class="wrapper">
         <i class="fa fa-times" aria-hidden="true"></i>
         <div class="form-box login">
-            <h2>Login</h2>
+            <h2>Student Login</h2>
             <form action="#">
                 <div class="input-box">
                     <input type="email" id="email" required>
@@ -39,17 +39,17 @@
                 </div>
                 <button onclick="auth()" class="btn">Login</button>
                 <div class="login-register">
-                    <p>Don't have an account? <a href="#" class="Register-link">Register</a></p>
+                    <p>Log in as Admin <a href="#" class="Register-link">Click_Here</a></p>
                 </div>
             </form>
         </div>
         <div class="form-box register">
-            <h2>Registration</h2>
+            <h2>Admin Login</h2>
             <form action="#">
-                <div class="input-box">
+               <!--<div class="input-box">
                     <input type="text" required>
                     <label>Username</label>
-                </div>
+                </div>--> 
                 <div class="input-box">
                     <input type="email" required>
                     <label>Email</label>
@@ -59,12 +59,19 @@
                     <label>Password</label>
                 </div>
                 <div class="remember-forgot">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button onclick="auth()" class="btn">Login</button>
+                <div class="login-register">
+                <!-- <div class="remember-forgot">
                     <label><input type="checkbox">I Agree to terms and conditions</label>
                 </div>
                 <button type="submit" class="btn">Register</button>
                 <div class="login-register">
                     <p>Already have an account? <a href="#" class="login-link">Login</a></p>
-                </div>
+                </div> -->
+              </div>
             </form>
         </div>
     </div>
