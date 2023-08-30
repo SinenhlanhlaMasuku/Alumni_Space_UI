@@ -11,7 +11,7 @@ export class AppComponent {
 
   email = '';
   password = '';
-
+  fullname = '';
   constructor(private http: HttpClient) {}
 
   onLogin() {
@@ -21,6 +21,17 @@ export class AppComponent {
       // Clear the form fields after successful submission
       this.email = '';
       this.password = '';
+    });
+  }
+
+  onSubmit() {
+    const formData = { fullname: this.fullname, email: this.email, password: this.password };
+    this.http.post('http://localhost:3001/api/register', formData).subscribe((response) => {
+      console.log('Data sent to server:', response);
+      // Clear the form fields after successful submission
+      this.email = '';
+      this.password = '';
+      this.fullname = '';
     });
   }
 }

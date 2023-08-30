@@ -25,7 +25,7 @@ app.post('/api/register', (req, res) => {
   console.log('Received data:', receivedData);
 
   // Handle the data on the server as needed
-  console.log('Full Name:', receivedData.name);
+  console.log('Full Name:', receivedData.fullname);
   console.log('Sutdent Email:', receivedData.email);
   console.log('Password:', receivedData.password);
 

@@ -40,21 +40,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
- function auth(){
-  var email=document.getElementById('email').Value;
-  var password=document.getElementById('password').value;
-    
-  //conditions
-  if(email=='219093063@tut4life.ac.za' && password=='Sinehlanhla@1')
-    { 
-      alert("Login Successfully");
-      window.location.assign('landingPage.html');
-      
-    }
-    else
-    {
-      alert("invalid information");
-      return;
-    }
-  }
