@@ -1,5 +1,4 @@
 const express = require('express');
-const postgres = require('postgres');
 const { Client } = require('pg');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -7,14 +6,13 @@ const cors = require('cors');
 const app = express();
 const port = 3001;
 
-const client = new Client(dbConfig);
-const dbConfig = {
+const client = new Client({
   host: 'localhost',
   port: 5432,
   database: 'pgAdmin',
-  user: 'ppostgres',
+  user: 'postgres',
   password: '123',
-};
+});
 
 client.connect()
 
@@ -52,7 +50,7 @@ app.post('/api/register', (req, res) => {
   insertDetailsSQL = "INSERT INTO ALUMNI_SPACE_UI(fullname,email,password) " + " VALUES ($1,$2,$3)";
 
   // Query insert into Alumni_Space_Account
-  client.query(insertDetailsSQL, function (err, result) {
+  client.query(insertDetailsSQL,[receivedData.fullname, receivedData.email, receivedData.password ],function (err, result) {
     if (err) {
       console.error(err);
       res.send("An error occurred during registration.");
