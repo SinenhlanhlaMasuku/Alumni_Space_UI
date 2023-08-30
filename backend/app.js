@@ -21,18 +21,26 @@ app.use(cors());
 
 
 app.post('/api/login', (req, res) => {
-  const receivedData = req.body;
-  console.log('Received data:', receivedData);
+    const receivedData = req.body;
+    console.log('Received data:', receivedData);
 
-  // Handle the data on the server as needed
-  console.log('Email:', receivedData.email);
-  console.log('Password:', receivedData.password);
+    const selectUserSQL = "SELECT * FROM alumni_space_ui WHERE email = $1 AND password = $2";
 
-  // Send a response back to the client
-  res.status(200).json({ message: 'Data received on the server', data: receivedData });
-
-  //DATABASE INTERACTION STARTS HERE
+    client.query(selectUserSQL, [receivedData.email, receivedData.password], (err, result) => {
+      if (err) {
+        console.error('Error during login:', err);
+        res.status(500).json({ message: 'An error occurred during login.' });
+    } else {
+        if (result.rows.length === 0) {
+            res.status(401).json({ message: 'Invalid email or password' });
+        } else {
+            console.log('Login successful!');
+            res.status(200).json({ message: 'Login successful!' });
+        }
+    }
+    });
 });
+
 
 app.post('/api/register', (req, res) => {
   const receivedData = req.body;
