@@ -16,7 +16,7 @@ export class AppComponent {
 
   onLogin() {
     const formData = { name: this.email, surname: this.password };
-    this.http.post('http://localhost:3000/api/login', formData).subscribe((response) => {
+    this.http.post('http://localhost:3001/api/login', formData).subscribe((response) => {
       console.log('Data sent to server:', response);
       // Clear the form fields after successful submission
       this.email = '';
