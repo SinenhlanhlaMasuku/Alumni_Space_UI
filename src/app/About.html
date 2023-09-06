@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="AboutUsApp">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <link rel="stylesheet" href="about.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="AboutUsController">
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <section class="team-section">
+        <h2>Our Team</h2>
+        
+            <ul ng-repeat="member in teamMembers">
+                <div class="team-member">
+                    <img ng-src="{{ member.image }}" alt="{{ member.name }}">
+                    <h3>{{ member.name }}</h3>
+                    <p>{{ member.role }}</p>
+                </div>
+        </ul>
+    </section>
+
+    <section class="mission-section">
+        <h2>Our Mission</h2>
+        <p>{{ missionStatement }}</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Alumni_SpaceUI</p>
+    </footer>
+
+    <script>
+        var app = angular.module('AboutUsApp', []);
+
+        app.controller('AboutUsController', function ($scope) {
+            $scope.teamMembers = [
+                {
+                    name: 'Sihle ',
+                    role: 'Developer',
+                    image: 'Sihle.jpg'
+                },
+                {
+                    name: 'Sneh ',
+                    role: 'Developer',
+                    image: 'Sneh.jpg'
+                },
+                {
+                    name: 'Themba ',
+                    role: 'Developer',
+                    image: 'bob.jpg'
+                },
+                {
+                    name: 'Innocent',
+                    role: 'Scrum Master',
+                    image: 'Innocent.jpg'
+                },
+                {
+                    name: 'Xolly',
+                    role: 'BA & Tester',
+                    image: 'Xolly.jpg' 
+                },
+                {
+                    name: 'Patience',
+                    role: 'Developer',
+                    image: 'Patience.jpg'
+                },
+                {
+                    name: 'Kgaogelo',
+                    role: 'BA & Tester',
+                    image: 'Kgaogelo.jpg' 
+                },
+                {
+                    name: 'Berlina',
+                    role: 'Developer',
+                    image: 'Berlina.jpg'
+                },
+                {
+                    name: 'Kefentse',
+                    role: 'Developer',
+                    image: 'Kefentse.jpg'
+                }
+            ];
+
+            $scope.missionStatement = "Our aim is to bridge the gab between industries and High institutions, so we provide internally Work-Intergrated Leaarning and available TUT vacancies.";
+        });
+    </script>
+</body>
+</html>

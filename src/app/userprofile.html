@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="UserProfileApp">
+<head>
+    <title>User Profile</title>
+    <!-- Include AngularJS library -->
+    <link rel="stylesheet" href="userprofile.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="UserProfileController">
+    <h1>User Profile</h1>
+    
+    <!-- Display user information -->
+    <div class="wrapper">
+        <h2>{{ user.name }}</h2>
+        <p>Email: {{ user.email }}</p>
+        <p>Location: {{ user.location }}</p>
+        <p>Qualification: {{user.Qualification}}</p>
+        <p>Experience: {{user.Experience}}</p>
+        <p>Employment Status: {{user.Employment_Status}}</p>
+    </div>
+    
+    <!-- Edit user information form -->
+    <div class="wrapper2">
+        <h2>Edit Profile</h2>
+        <form ng-submit="updateProfile()">
+            <label>Name:</label>
+            <input type="text" ng-model="user.name" required><br>
+            
+            <label>Email:</label>
+            <input type="email" ng-model="user.email" required><br>
+            
+            <label>Location:</label>
+            <input type="text" ng-model="user.location"><br>
+            <label>Qualification:</label>
+            <input type="text" ng-model ="user.Qualification"><br>
+            <label>Experience:</label>
+            <input type="text" ng-model ="user.Experience"><br>
+            <label>Employment Status:</label>
+            <input type="text" ng-model ="user.Employment_Status"><br>
+
+            
+            <button type="submit">Update Profile</button>
+        </form>
+    </div>
+
+    <script>
+        // Define the AngularJS application
+        var app = angular.module('UserProfileApp', []);
+
+        // Define the controller for the user profile page
+        app.controller('UserProfileController', function ($scope) {
+            // Sample user data
+            $scope.user = {
+                name: 'Sihle Mhlongo',
+                email: 'sihle@example.com',
+                location: 'Soshanguve',
+                Qualification: 'NDITSF1',
+                Experience: '2yrs',
+                Employment_Status: 'Not Employed'
+            };
+
+            // Function to update the user profile
+            $scope.updateProfile = function () {
+                // You can send an HTTP request to update the user profile data on the server.
+                // For simplicity, we'll just display an alert here.
+                alert('Profile updated successfully');
+            };
+        });
+    </script>
+</body>
+</html>
