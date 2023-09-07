@@ -8,5 +8,7 @@ app.controller('ForgotPasswordController', function() {
         // Typically, you would make an HTTP request to a server to send a reset email
         // For this example, we'll simulate a success message
         vm.successMessage = 'Password reset instructions sent to ' + vm.email;
+		
     };
 });
+

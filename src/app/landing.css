@@ -4,13 +4,13 @@ body {
     margin: 0;
     padding: 0;
 
-      /*  display: flex;
+       /* display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;*/
         background-image: url('../assets/alumni.jpeg');
-       /* background-size: cover;
-        background-position: center;*/
+       background-size: cover;
+      /*  background-position: center;*/
 
 
 }
@@ -18,7 +18,7 @@ body {
 header {
     background-color: #0077b5;
     color: #ffffff;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
 }
 
@@ -43,7 +43,7 @@ nav li {
     max-width: 800px;
     margin: 20px auto;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 50px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -51,4 +51,6 @@ nav li {
 .profile img {
     max-width: 100px;
     border-radius: 50%;
+	background-image: url('../assets/alumni.prof.jpeg');
+	
 }
