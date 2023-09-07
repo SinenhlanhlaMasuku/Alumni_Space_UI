@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   email = '';
   password = '';
   fullname = '';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   onLogin() {
     const formData = { email: this.email, password: this.password };
@@ -24,6 +25,7 @@ export class AppComponent {
 
       if(response.message === 'Login successful!' ){
         console.log('Hi mubi');
+        this.router.navigate(['/home']);
       }
     });
   }
