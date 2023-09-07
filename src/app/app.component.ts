@@ -25,7 +25,7 @@ export class AppComponent {
 
       if(response.message === 'Login successful!' ){
         console.log('Hi mubi');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/homepage']);
       }
     });
   }
