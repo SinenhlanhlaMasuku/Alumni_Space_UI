@@ -4,7 +4,7 @@ body {
     padding: 0;
 }
 .wrapper {
-    background-color: goldenrod;
+    background-color:turquoise;
     padding: 20px;
     border: 1px solid #ccc;
     margin: 20px;
@@ -28,7 +28,7 @@ body {
     align-content: space-between;
 }
 .wrapper2{
-    background-color: goldenrod;
+    background-color:turquoise;
     padding: 20px;
     border: 1px solid #ccc;
     margin: 20px;
