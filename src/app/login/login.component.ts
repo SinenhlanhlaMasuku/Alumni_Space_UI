@@ -24,7 +24,8 @@ export class LoginComponent {
       this.password = '';
 
       if(response.message === 'Login successful!' ){
-        console.log('Hi mubi');
+        console.log(response.result[0].fullname);
+        localStorage.setItem('name',response.result[0].fullname.toString());
         this.router.navigate(['/homepage']);
       }
     });
