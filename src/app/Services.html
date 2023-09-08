@@ -15,9 +15,22 @@
     <section class="services-section">
         <ul ng-repeat="service in services">
                 <div class="service">
-                    <h2>{{ service.name }}</h2>
-                    <p>{{ service.description }}</p>
+
                     
+
+                    <h2>Web Development</h2>
+                    <p>We create stunning websites and web applications tailored to your needs.</p>
+                    
+                
+                    <h2>Connect you to a job</h2>
+                   <p> Our main goal is to provide available vacancies for alumni who seek for jobs.</p>
+                    
+                
+                    <h2>Digital Marketing</h2>
+                    <p>We help you reach your target audience through effective online marketing strategies.</p>
+                    
+
+
                 </div>
         </ul>
     </section>
@@ -26,28 +39,5 @@
         <p>&copy; 2023 Alumni_SpaceUI</p>
     </footer>
 
-    <script>
-        var app = angular.module('ServicesApp', []);
-
-        app.controller('ServicesController', function ($scope) {
-            $scope.services = [
-                {
-                    name: 'Web Development',
-                    description: 'We create stunning websites and web applications tailored to your needs.',
-                    
-                },
-                {
-                    name: 'Connect you to a job',
-                    description: 'Our main goal is to provide available vacancies for alumni who seek for jobs.',
-                    
-                },
-                {
-                    name: 'Digital Marketing',
-                    description: 'We help you reach your target audience through effective online marketing strategies.',
-                    
-                }
-            ];
-        });
-    </script>
 </body>
 </html>
