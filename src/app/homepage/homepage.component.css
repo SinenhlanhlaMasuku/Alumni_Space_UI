@@ -8,7 +8,7 @@ body {
         justify-content: center;
         align-items: center;
         min-height: 100vh;*/
-        background-image: url('../assets/alumni.jpeg');
+        background-image: url('../homepage/alumni.jpeg');
        background-size: cover;
       /*  background-position: center;*/
 
@@ -51,6 +51,6 @@ nav li {
 .profile img {
     max-width: 100px;
     border-radius: 50%;
-	background-image: url('../assets/alumni.prof.jpeg');
+	background-image: url('../homepage/alumni.prof.jpeg');
 	
 }
