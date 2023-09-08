@@ -10,6 +10,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ServicesComponent } from './services/services.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     HomepageComponent,
     LoginComponent,
     UserProfileComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ServicesComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
