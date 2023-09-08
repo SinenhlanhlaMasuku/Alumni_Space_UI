@@ -1,45 +1,63 @@
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    background-position: center
+
+
 }
+ body .h1{
+  color: #fff;
+   justify-content: center;
+  align-items: center;
+  position: fixed;
+  
+
+ }
 .wrapper {
-    background-color:turquoise;
+    background-color: transparent;
     padding: 20px;
     border: 1px solid #ccc;
     margin: 20px;
     justify-content: center;
     align-content: center;
-    /*background-image: image('background.jpg');*/
-}
+}  
 .wrapper h2{
     text-decoration: none;
     text-transform: uppercase;
-    color: blueviolet;
+    color: white;
     text-align: center;
+    font-size: xx-large;
 }
 .wrapper p{
     text-decoration: none;
     text-transform: lowercase;
     color: white;
     text-align: center;
+    font-size: large;
 }
 .wrapper input{
     align-content: space-between;
 }
 .wrapper2{
-    background-color:turquoise;
+    background-color: transparent;
     padding: 20px;
     border: 1px solid #ccc;
     margin: 20px;
+    
+}
+.wrapper2 label input{
+    position: center;
     justify-content: center;
     align-content: center;
-}
-
-header {
-    background-color: #333;
     color: #fff;
+}
+header {
+    background-color: transparent;
+    color: blue;
     text-align: center;
+     align-items: center;
     padding: 20px;
 }
 
@@ -55,6 +73,12 @@ header {
 .team-member img {
     max-width: 100px;
     border-radius: 50%;
+}
+button{
+  height: 100;
+  width: 80;
+  color: blue;
+
 }
 
 footer {
