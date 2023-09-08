@@ -10,7 +10,8 @@
       margin: 0;
       padding: 0;
       background-image: url('../assets/servicesPic.jpeg');
-      
+      background-size: cover;
+      background-position: center;
   }
   
   header {
