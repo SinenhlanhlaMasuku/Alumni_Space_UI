@@ -13,6 +13,7 @@ export class LoginComponent {
   email = '';
   password = '';
   fullname = '';
+  surname = '';
   constructor(private http: HttpClient, private router: Router) {}
 
   onLogin() {
@@ -32,13 +33,14 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    const formData = { fullname: this.fullname, email: this.email, password: this.password };
+    const formData = { fullname: this.fullname,surname: this.surname, email: this.email, password: this.password };
     this.http.post('http://localhost:3000/api/register', formData).subscribe((response) => {
       console.log('Data sent to server:', response);
       // Clear the form fields after successful submission
       this.email = '';
       this.password = '';
       this.fullname = '';
+      this.surname = '';
     });
   }
 }
