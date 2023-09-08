@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="AboutUsApp">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <link rel="stylesheet" href="about.component.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="AboutUsController">
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <section class="team-section">
+        <h2>Our Team</h2>
+        
+            <ul ng-repeat="member in teamMembers">
+                <div class="team-member">
+
+                    <h3>Sihle</h3>
+                    <img src="Sihle.jpg"><br>
+                    <p>Role: Developer</p>
+                    <h3>Sinenhlanhla</h3>
+                    <img src="Sneh.jpg"><br>
+                    <p>Role: Developer</p>
+                    <h3>nnocent</h3>
+                    <img src="Master.jpg"><br>
+                    <p>Role: Developer</p>
+                    <h3>Themba</h3>
+                    <img src="Themba.jpg"><br>
+                    <p>Role: Developer</p>
+                    <h3>Patience</h3>
+                    <img src="Patience.jpg"><br>
+                    <p>Role: Developer</p>
+                    <h3>Kgaogelo</h3>
+                    <img src="Kgaogelo.jpg"><br>
+                    <p>Role: Developer</p>
+                    <h3>Xolie</h3>
+                    <img src="Xolly.jpg"><br>
+                    <p>Role: Developer</p>
+                    <h3>Berlina</h3>
+                    <img src="Berlinah.jpg"><br>
+                    <p>Role: Developer</p>
+                    <h3>Kefense</h3>
+                    <img src="Kfentse.jpg"><br>
+                    <p>Role: Developer</p>
+                </div>
+        </ul>
+    </section>
+
+    <section class="mission-section">
+        <h2>Our Mission</h2>
+       <!---- <p>{{ missionStatement }}</p>-->
+        <p> "Our aim is to bridge the gab between industries and High institutions, so we provide internally Work-Intergrated Leaarning and available TUT vacancies."</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Alumni_SpaceUI</p>
+    </footer>
+</body>
+</html>
+

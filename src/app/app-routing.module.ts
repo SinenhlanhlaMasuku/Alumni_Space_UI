@@ -7,7 +7,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ServicesComponent } from './services/services.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ContactsComponent } from './contacts/contacts.component';
-
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'contacts', component: ContactsComponent },
-
+  { path: 'about', component: AboutComponent },
 ];
 
 @NgModule({

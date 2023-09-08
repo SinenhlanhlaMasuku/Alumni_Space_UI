@@ -13,6 +13,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ServicesComponent } from './services/services.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     ForgotPasswordComponent,
     ServicesComponent,
     ResetPasswordComponent,
-    ContactsComponent
+    ContactsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
