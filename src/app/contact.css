@@ -1,0 +1,40 @@
+/* styles.css */
+
+/* Reset default margin and padding */
+body, ul, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-image: url('../assets/aboutPic.jpg');
+    font-size: xx-large;
+}
+
+/* Style the header */
+header {
+   /* background-color: #00eeff;*/
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: xx-large;
+}
+
+/* Style the main content */
+main {
+    padding: 20px;
+}
+
+/* Style sections */
+section {
+    margin-bottom: 20px;
+}
+
+/* Style headings */
+h1, h2 {
+    color: #333;
+}
+
+/* Style paragraph text */
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
