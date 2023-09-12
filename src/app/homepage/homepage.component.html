@@ -3,54 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>alumni-Dashboard</title>
-    <link rel="stylesheet" href="./homepage.component.css">
-    <script defer src="scripts/dashboard.js"></script>
-    
+    <link rel="stylesheet" href="homepage.component.css">
 </head>
 <body>
-
     <header>
-
-        <div class="logo-box">
-            <img src="../../assets/tutlogo.jpeg"width="160">
-        </div>
-       
-        <div class="user-info-box">
-	    <h1>Welcome Student {{name}}</h1>
-		 </div>
-        
-
+        <h1>Welcome {{ name }} </h1>
     </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">My Network</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">My Profile</a></li>
+        </ul>
+    </nav>
+    <!--<div class="profile">
+        <img src="alumni.prof.jpeg" alt="User Profile Picture">
+        <h2>SINENHLANHLA MASUKU</h2>
+        <p>FULL-STACK DEVELOPER</p>
+        <p>PRETORIA</p>
+        <p>Summary:I am a full-stack developer, seeking a role that will help me gain experience and improve my skills. i am a hard working person both in team and solo</p> 
+     </div>  
+     <div class="sack_Of_B"> -->
+      
 
-    <main>
 
-        <div class="nav-bar">
-            <div class="nav-btn-box">
-                <input type="button" value="Home" class="btn" id="home-button">
-            </div>
-            <div class="nav-btn-box">
-                <a routerLink="/my-network" class="btn" id="profile-button">My Network</a>
-            </div>
-            <div class="nav-btn-box">
-                
-                <a routerLink="/jobs" class="btn" id="help-button">Jobs</a>
-            </div>
-           <div class="nav-btn-box">
-                <input type="button" value="Messages" class="btn" id="about-button">
-            </div> 
-			
-
-            <div class="nav-btn-box">
-                <a routerLink="/alumni/profile/view-profile" class="btn" id="logout-button">Profile</a>
-            </div>
-        </div>
-
-        <div class="section-box" id="home-section"> </div>
-
-         
-
-    </main>
-    
 </body>
 </html>
