@@ -42,3 +42,18 @@ export class LoginComponent {
     });
   }
 }
+// Add a click event listener to the "Student" and "Admin" links
+const studentLink = document.getElementById("student");
+const adminLink = document.getElementById("admin");
+
+if (studentLink && adminLink) {
+    studentLink.addEventListener("click", () => {
+        // Handle Student login logic here
+        console.log("Student login clicked");
+    });
+
+    adminLink.addEventListener("click", () => {
+        // Handle Admin login logic here
+        console.log("Admin login clicked");
+    });
+}
