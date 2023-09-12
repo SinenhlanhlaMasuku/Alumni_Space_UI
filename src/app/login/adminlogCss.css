@@ -40,7 +40,9 @@ header {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
+  font-size: x-large;
   margin-left: 40px;
+  background-color: rgb(112, 197, 212);
 }
 
 .navigation a::after {
@@ -87,22 +89,75 @@ header {
   color: #162938;
 
 }
-.dropdown_login
-{
-  width: 0;
-  height: 0;
-  position: absolute;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid #fff;
-  right: 155px;
-  top: 70px;
+/* Styles for the login container */
+.login-container {
+  text-align: center;
+  margin-top: 100px;
 }
+
+/* Styles for the dropdown button */
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Styles for the dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Styles for the dropdown links */
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown when the button is hovered */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Styles for the login button */
+#btnLogin-popup {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#btnLogin-popup:hover {
+  background-color: #45a049;
+}
+.btnLogin-popup{
+  width: 10vh;
+  height: 5vh;
+  border-radius: 2px;
+}
+
 
 .wrapper {
   position: relative;
   width: 400px;
-  height: 440px;
+  height: 600px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;

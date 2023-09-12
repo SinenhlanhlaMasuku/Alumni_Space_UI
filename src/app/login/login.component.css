@@ -40,7 +40,9 @@ header {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
+  font-size: x-large;
   margin-left: 40px;
+  background-color: rgb(112, 197, 212);
 }
 
 .navigation a::after {
@@ -146,7 +148,9 @@ header {
   background-color: #45a049;
 }
 .btnLogin-popup{
-
+  width: 10vh;
+  height: 5vh;
+  border-radius: 2px;
 }
 
 
