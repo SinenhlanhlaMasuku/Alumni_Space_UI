@@ -8,12 +8,14 @@ import { ServicesComponent } from './services/services.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
-import{AdminLoginComponent} from './admin-login/admin-login.component';
-import{SuccessComponent} from './success/success.component';
+import {AdminLoginComponent} from './admin-login/admin-login.component';
+import {SuccessComponent} from './success/success.component';
+import {AdminHomeComponent} from './admin-home/admin-home.component';
 
 //adminLogin
 const routes: Routes = [
-  { path: '', component: LoginComponent },{ path: '#', component: LoginComponent },
+  { path: '', component: LoginComponent },
+  { path: 'adminHome', component: AdminHomeComponent },
   { path: 'adminLogin', component: AdminLoginComponent },
   { path: 'success', component: SuccessComponent },
   { path: 'homepage', component: HomepageComponent },
