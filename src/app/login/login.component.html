@@ -13,17 +13,19 @@
         <h2 class="logo">TUT_ALUMNI_SPACE</h2>
         <nav class="navigation">
             <a href="home.html">Home</a>
-            <a routerLink="/about">About</a>
-            <a routerLink="/services">Services</a>
-            <a routerLink="/contacts">Contact</a>
-            <button class="btnLogin-popup">Login</button>
+            <a href="About.html">About</a>
+            <a href="Services.html">Services</a>
+            <a href="contacts.html">Contact</a>
+            
         </nav>
-         <div class ="dropdown_login">
-            <ul>
-                <li><a href="#">Student Login</a></li>
-                <li><a href="#">Admin Login</a></li>
-            </ul>
-         </div>
+        <div class="dropdown">
+          <button class="btnLogin-popup">Login</button>
+         <!-- <button class="dropbtn">Select User Type</button> -->
+          <div class="dropdown-content">
+              <a routerLink="/" id="student">Student</a>
+              <a routerLink="/adminLogin" id="admin">Admin</a>
+          </div>
+        </div>
     </header>
 
     <div class="wrapper">
@@ -33,7 +35,7 @@
             <form (ngSubmit)="onLogin()">
                 <div class="input-box">
                     <input type="email" id="email" [(ngModel)]="email" name="email" required>
-                    <label>Email:</label>
+                    <label>Student Email</label>
                 </div>
                 <div class="input-box">
                     <input type="password" id="password" [(ngModel)]="password" name="password" required>
@@ -54,12 +56,12 @@
             <form (ngSubmit)="onSubmit()">
               <div class="input-box">
                 <input type="text" required [(ngModel)]="fullname" name="fullname">
-                <label>Full Name</label>
+                <label>Name</label>
               </div>
-             <div class="input-box">
-                <input type="text" required [(ngModel)]="surname" name="surname">
+              <div class="input-box">
+                <input type="email" required [(ngModel)]="surname" name="surname">
                 <label>Surname</label>
-              </div> 
+              </div>
               <div class="input-box">
                 <input type="email" required [(ngModel)]="email" name="email">
                 <label>Student Email</label>
@@ -86,4 +88,3 @@
     
 </body>
 </html>
-

@@ -14,6 +14,8 @@ import { ServicesComponent } from './services/services.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { AboutComponent } from './about/about.component';
     ServicesComponent,
     ResetPasswordComponent,
     ContactsComponent,
-    AboutComponent
+    AboutComponent,
+    AdminLoginComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,
