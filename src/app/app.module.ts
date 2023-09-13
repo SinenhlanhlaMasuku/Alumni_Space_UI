@@ -16,6 +16,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { SuccessComponent } from './success/success.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SuccessComponent } from './success/success.component';
     ContactsComponent,
     AboutComponent,
     AdminLoginComponent,
-    SuccessComponent
+    SuccessComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,
