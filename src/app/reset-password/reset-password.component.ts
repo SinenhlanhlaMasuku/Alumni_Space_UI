@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./reset-password.component.css']
 })
 export class ResetPasswordComponent {
-
+  email: string = '';
+  
+  ngOnInit() {
+    const storedEmail = localStorage.getItem('email');
+    
+    if (storedEmail) {
+      // Update the 'name' property if 'name' is found in localStorage
+      this.email = storedEmail;
+    }
+  }
 }
