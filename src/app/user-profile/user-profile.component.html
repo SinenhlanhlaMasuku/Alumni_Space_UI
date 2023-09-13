@@ -1,1 +1,50 @@
-<p>user-profile works!</p>
+<!DOCTYPE html>
+<html ng-app="UserProfileApp">
+<head>
+    <title>User Profile</title>
+    <!-- Include AngularJS library -->
+    <link rel="stylesheet" href="./user-profile.component.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="UserProfileController">
+    
+    <!-- Display user information -->
+    <div class="wrapper">
+        <h2>Alumni Details</h2>
+        <p>Name:</p>
+        <p>Email: </p>
+        <p>Location: </p>
+        <p>Qualification: </p>
+        <p>Experience: </p>
+        <p>Employment Status: </p>
+    </div>
+    
+    <!-- Edit user information form -->
+    <div class="wrapper2">
+        <h2>Edit Profile</h2>
+        <form ng-submit="updateProfile()">
+            <label>Name:</label>
+            <input type="text" ng-model="user.name" required><br>
+            
+            <label>Email:</label>
+            <input type="email" ng-model="user.email" required><br>
+            
+            <label>Location:</label>
+            <input type="text" ng-model="user.location"><br>
+            <label>Qualification:</label>
+            <input type="text" ng-model ="user.Qualification"><br>
+            <label>Experience:</label>
+            <input type="text" ng-model ="user.Experience"><br>
+            <label>Employment Status:</label>
+            <input type="text" ng-model ="user.Employment_Status"><br>
+
+            
+            <button type="submit">Update Profile</button>
+        </form>
+    </div>
+     
+</body>
+<footer>
+    <p>&copy; 2023 Alumni_SpaceUI</p>
+ </footer>
+</html>
