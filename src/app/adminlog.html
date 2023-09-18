@@ -1,11 +1,11 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website for in-service training and current TUT vacancies</title>
-    <link rel="stylesheet" href="app.component.css">
+    <link rel="stylesheet" href="adminlog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>
 <body>
@@ -16,16 +16,17 @@
             <a href="About.html">About</a>
             <a href="Services.html">Services</a>
             <a href="contacts.html">Contact</a>
-            
+          <!-- <button class="btnLogin-popup">Login</button> -->
         </nav>
-        <div class="dropdown">
-          <button class="btnLogin-popup">Login</button>
-       <!--   <button class="dropbtn">Select User Type</button> -->
-          <div class="dropdown-content">
-              <a href="#" id="student">Student</a>
-              <a href="adminlog.html" id="admin">Admin</a>
-          </div>
+      </nav>
+      <div class="dropdown">
+        <button class="btnLogin-popup">Login</button>
+       <!-- <button class="dropbtn">Select User Type</button> -->
+        <div class="dropdown-content">
+            <a href="app.component.html" id="student">Student</a>
+            <a href="#" id="admin">Admin</a>
         </div>
+      </div>
     </header>
 
     <div class="wrapper">
@@ -35,7 +36,7 @@
             <form (ngSubmit)="onLogin()">
                 <div class="input-box">
                     <input type="email" id="email" [(ngModel)]="email" name="email" required>
-                    <label>Student Email</label>
+                    <label>Staff Email</label>
                 </div>
                 <div class="input-box">
                     <input type="password" id="password" [(ngModel)]="password" name="password" required>
@@ -43,15 +44,15 @@
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox"> Remember me</label>
-                    <a routerLink="/forgot-password">Forgot Password?</a>
+                    <a href="forgot-password.html">Forgot Password?</a>
                 </div>
                 <button class="btn" type="submit">Login</button>
                 <div class="login-register">
-                    <p>Don't have an account?<a href="#" class="Register-link">Register</a></p>
+                   <!--    <p>Don't have an account?<a href="#" class="Register-link">Register</a></p>  -->
                 </div>
             </form>
         </div>
-        <div class="form-box register">
+       <!-- <div class="form-box register">
             <h2>Registration</h2>
             <form (ngSubmit)="onSubmit()">
               <div class="input-box">
@@ -60,7 +61,7 @@
               </div>
               <div class="input-box">
                 <input type="email" required [(ngModel)]="email" name="email">
-                <label>Student Email</label>
+                <label>Staff Email</label>
               </div>
               <div class="input-box">
                 <input type="password" required [(ngModel)]="password" name="password">
@@ -76,12 +77,10 @@
             </form>
           </div>
           
-    </div>
-
+    </div>-->
 
     <script src="./script.js"></script>
     <script type ="module" src="https://unpkg.com/ionicons@s5.2/dist/ionicons.esm.js"></script>
     
 </body>
-</html> 
-
+</html>
