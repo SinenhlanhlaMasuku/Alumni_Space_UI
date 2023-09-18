@@ -3,25 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alumni-Dashboard</title>
     <link rel="stylesheet" href="homepage.component.css">
+    <script defer src="scripts/dashboard.js"></script>
 </head>
 <body>
+
     <header>
-        <h1>Welcome {{ name }} </h1>
+
+        <div class="logo-box">
+            <img src="tutlogo.jpeg"width="60">
+        </div>
+       
+        <div class="user-info-box">
+	    <h1>Welcome Student</h1>
+		 </div>
+         
+
     </header>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">My Network</a></li>
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Messages</a></li>
-            <li><a href="#">Search</a></li>
-            <li><a href="#">My Profile</a></li>
-        </ul>
-    </nav>
- 
-      
 
+    <main>
 
+        <div class="nav-bar">
+            <div class="nav-btn-box">
+                <input type="button" value="Home" class="btn" id="home-button">
+            </div>
+            <div class="nav-btn-box">
+                <input type="button" value="My Network" class="btn" id="profile-button">
+            </div>
+            <div class="nav-btn-box">
+                <input type="button" value="Jobs" class="btn" id="help-button">
+            </div>
+           <div class="nav-btn-box">
+                <input type="button" value="Messages" class="btn" id="about-button">
+            </div> 
+			
+
+            <div class="nav-btn-box">
+                <input type="button" value="profile" class="btn" id="logout-button">
+            </div>
+        </div>
+
+        <div class="section-box" id="home-section">
+
+    </div>
+    </main>
+    
 </body>
 </html>
