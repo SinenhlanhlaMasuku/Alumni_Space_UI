@@ -248,7 +248,7 @@ header {
   position: absolute;
   top: 50%;
   left: 5px;
-  transform: translateY(-50%);
+  transform: translateY(-70%);
   font-size: 1em;
   color: #7eb2da;
   font-weight: 500;
@@ -271,6 +271,7 @@ header {
   color: #7dbbeb;
   font-weight: 600;
   padding: 0 35px 0 5px;
+  transform: translateY(30%);
 }
 
 .input-box .icon {
