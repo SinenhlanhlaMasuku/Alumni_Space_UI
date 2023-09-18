@@ -166,3 +166,21 @@ display: none;
 left: -190px;
 
 }
+footer{
+ background-color: #e3f2fd;
+position: relative;
+width: auto;
+height: auto;
+left: auto;
+right: auto;
+padding: auto;
+
+
+}
+footer p{
+
+font-size: xx-large;
+text-align: center;
+color: black;
+
+}
