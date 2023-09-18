@@ -39,9 +39,21 @@
             </div> 
 			
 
-            <div class="nav-btn-box">
+          <!-- <div class="nav-btn-box">
                 <input type="button" value="profile" class="btn" id="logout-button">
+            </div>  -->
+            <div class="nav-btn-box">
+                <input type="button" value="profile" class="btn" id="logout-button" onclick="navigateToProfilePage()">
             </div>
+            
+            <script>
+                function navigateToProfilePage() {
+                    // Replace 'destination-page.html' with the actual URL of the page you want to link to
+                    window.location.href = '/user-profile/user-profile.html';
+                }
+            </script>
+            
+
         </div>
 
         <div class="section-box" id="home-section">
