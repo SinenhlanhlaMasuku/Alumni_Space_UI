@@ -31,9 +31,7 @@ export class ResetPasswordComponent {
       this.password = '';
 
       if(response.message === 'Login successful!' ){
-        console.log(response.result[0].name);
-        localStorage.setItem('name',response.result[0].name.toString());
-        this.router.navigate(['/homepage']);
+        this.router.navigate(['/success-password-change']);
       }
       
     });

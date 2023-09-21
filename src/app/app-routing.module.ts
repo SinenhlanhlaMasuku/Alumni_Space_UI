@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import {AdminLoginComponent} from './admin-login/admin-login.component';
 import {SuccessComponent} from './success/success.component';
 import {AdminHomeComponent} from './admin-home/admin-home.component';
+import {SuccessPasswordChangeComponent} from './success-password-change/success-password-change.component';
 
 //adminLogin
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'homepage', component: HomepageComponent },
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'success-password-change', component: SuccessPasswordChangeComponent },
   { path: 'services', component: ServicesComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'contacts', component: ContactsComponent },
