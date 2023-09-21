@@ -28,6 +28,8 @@ export class LoginComponent {
         console.log(response.result[0].name);
         localStorage.setItem('name',response.result[0].name.toString());
         this.router.navigate(['/homepage']);
+      }else{
+        this.router.navigate(['/forgot-password']);
       }
       
     });

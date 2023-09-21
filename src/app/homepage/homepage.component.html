@@ -3,32 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="homepage.component.css">
+    <title>alumni-Dashboard</title>
+    <!--<link rel="stylesheet" href="./homepage.component.css"> -->
+    <script defer src="scripts/dashboard.js"></script>
+    <style>
+        :root {
+    --accent1: rgba(10, 10, 10, 0.5);
+    --accent2: white;
+    --accent3: #1e62ae;
+    --accent4: #9ed4f3;
+    --shadow: 0px 0px 10px rgba(100, 100, 100, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+Body {
+    /*width: 100vw;
+    height: 100vh;*/
+}
+
+header {
+    width: 100%;
+    height: 15%;
+    box-shadow: var(--shadow);
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    height: 90%;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.logo-box {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+	/*background-color: flex;
+	background-color : blue;*/
+}
+
+/*.name-email-box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#name-text {
+    color: var(--accent3);
+}
+
+#email-text {
+    color: var(--accent1);
+}*/
+
+.nav-bar {
+    /* background-color: var(--accent3); */
+    width: 15%;
+    height: 98%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+}
+
+.nav-btn-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn {
+    width: 100%;
+    height: 36px;
+    cursor: pointer;
+    background-color: var(--accent2);
+    box-shadow: var(--shadow);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.35s;
+    color: var(--accent1);
+    outline: none;
+}
+
+.btn:hover {
+    background-color: var(--accent3);
+    color: var(--accent2);
+    transform: scale(1.1);
+}
+.about-button{
+   width: 100%;
+    height: 36px;
+    cursor: pointer;
+    background-color: var(--accent2);
+    box-shadow: var(--shadow);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.35s;
+    color: var(--accent1);
+    outline: none;	
+	
+}
+.about-button:hover {
+	background-color: var(--accent3);
+    color: var(--accent2);
+    transform: scale(1.1);
+}
+.section-box {
+    background-color: transparent;
+    width: 88%;
+    height: 98%;
+    gap: 20px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+#help-section {display: none;}
+
+.inner-section {
+    background-color: transparent;
+    padding: 0px;
+    width: 50%;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: var(--shadow);
+}
+
+.topic {
+    width: 100%;
+    text-align: left;
+    color: var(--accent2);
+    background-color: var(--accent3);
+    padding: 20px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.inner-section p {
+    color: var(--accent1);
+    width: 100%;
+    font-size: 20px;
+    padding: 0px 20px;
+}
+
+.topic2 {
+    background-color: transparent;
+    color: var(--accent3);
+    padding: 0px;
+}
+
+.sub-topic {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    color: var(--accent3);
+}
+
+.list-container {
+    padding: 0px 20px;
+}
+
+    </style>
 </head>
 <body>
+
     <header>
-        <h1>Welcome {{ name }} </h1>
+
+        <div class="logo-box">
+            <img src="tutlogo.jpeg"width="160">
+        </div>
+       
+        <div class="user-info-box">
+	    <h1>Welcome Student {{name}}</h1>
+		 </div>
+        
+
     </header>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">My Network</a></li>
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Messages</a></li>
-            <li><a href="#">Search</a></li>
-            <li><a routerLink="/user-profile">My Profile</a></li>
-        </ul>
-    </nav>
-    <!--<div class="profile">
-        <img src="alumni.prof.jpeg" alt="User Profile Picture">
-        <h2>SINENHLANHLA MASUKU</h2>
-        <p>FULL-STACK DEVELOPER</p>
-        <p>PRETORIA</p>
-        <p>Summary:I am a full-stack developer, seeking a role that will help me gain experience and improve my skills. i am a hard working person both in team and solo</p> 
-     </div>  
-     <div class="sack_Of_B"> -->
-      
 
+    <main>
 
+        <div class="nav-bar">
+            <div class="nav-btn-box">
+                <input type="button" value="Home" class="btn" id="home-button">
+            </div>
+            <div class="nav-btn-box">
+                <input type="button" value="My Network" class="btn" id="profile-button">
+            </div>
+            <div class="nav-btn-box">
+                <input type="button" value="Jobs" class="btn" id="help-button">
+            </div>
+           <div class="nav-btn-box">
+                <input type="button" value="Messages" class="btn" id="about-button">
+            </div> 
+			
+
+            <div class="nav-btn-box">
+                <input type="button" value="profile" class="btn" id="logout-button">
+            </div>
+        </div>
+
+        <div class="section-box" id="home-section"> </div>
+
+         
+
+    </main>
+    
 </body>
 </html>
