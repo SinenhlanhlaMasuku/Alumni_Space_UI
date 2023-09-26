@@ -27,7 +27,7 @@ export class ResetPasswordComponent {
   resetPassword() {
     const formData = { email: this.email, password: this.password, confirmPassword: this.confirmPassword };
     if (formData.confirmPassword != formData.password) {
-      this.errorMessage = 'MXM';
+      this.errorMessage = 'Passwords do not match';
     } else {
       this.http.put('http://localhost:3000/forgot-password', formData).subscribe((response: any) => {
         console.log('Data sent to server:', response);
