@@ -10,12 +10,14 @@ import { Router } from '@angular/router';
 export class ResetPasswordComponent {
   email: string = '';
   password = '';
+  confirmPassword = '';
+  errorMessage = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
-  
+  constructor(private http: HttpClient, private router: Router) { }
+
   ngOnInit() {
     const storedEmail = localStorage.getItem('email');
-    
+
     if (storedEmail) {
       // Update the 'name' property if 'name' is found in localStorage
       this.email = storedEmail;
@@ -23,17 +25,22 @@ export class ResetPasswordComponent {
   }
 
   resetPassword() {
-    const formData = { email: this.email, password: this.password };
-    this.http.put('http://localhost:3000/forgot-password', formData).subscribe((response: any) => {
-      console.log('Data sent to server:', response);
-      // Clear the form fields after successful submission
-      this.email = '';
-      this.password = '';
+    const formData = { email: this.email, password: this.password, confirmPassword: this.confirmPassword };
+    if (formData.confirmPassword != formData.password) {
+      this.errorMessage = 'MXM';
+    } else {
+      this.http.put('http://localhost:3000/forgot-password', formData).subscribe((response: any) => {
+        console.log('Data sent to server:', response);
+        // Clear the form fields after successful submission
+        this.email = '';
+        this.password = '';
 
-      if(response.message === 'Login successful!' ){
-        this.router.navigate(['/success-password-change']);
-      }
-      
-    });
+        if (response.message === 'Login successful!') {
+          this.router.navigate(['/success-password-change']);
+        }
+      });
+    }
   }
+
+
 }
