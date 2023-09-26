@@ -1,5 +1,5 @@
 {
-  "name": "alumni-space-ui",
+  "name": "tut-alumni-space-ui-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -18,16 +18,20 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
-    "@fortawesome/fontawesome-free": "^6.4.2",
-    "bootstrap": "^5.3.1",
+    "@coreui/angular": "^4.5.16",
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.1",
+    "bootstrap5": "^1.1.9",
+    "chart.js": "^4.4.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^16.2.0",
-    "@angular/cli": "~16.2.0",
+    "@angular-devkit/build-angular": "^16.2.3",
+    "@angular/cli": "~16.2.3",
     "@angular/compiler-cli": "^16.2.0",
+    "@types/chart.js": "^2.9.38",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
