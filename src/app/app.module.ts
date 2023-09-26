@@ -18,6 +18,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { SuccessComponent } from './success/success.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { SuccessPasswordChangeComponent } from './success-password-change/success-password-change.component';
+import { JobsComponent } from './jobs/jobs.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SuccessPasswordChangeComponent } from './success-password-change/succes
     AdminLoginComponent,
     SuccessComponent,
     AdminHomeComponent,
-    SuccessPasswordChangeComponent
+    SuccessPasswordChangeComponent,
+    JobsComponent
   ],
   imports: [
     BrowserModule,

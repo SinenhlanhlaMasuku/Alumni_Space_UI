@@ -12,6 +12,7 @@ import {AdminLoginComponent} from './admin-login/admin-login.component';
 import {SuccessComponent} from './success/success.component';
 import {AdminHomeComponent} from './admin-home/admin-home.component';
 import {SuccessPasswordChangeComponent} from './success-password-change/success-password-change.component';
+import { JobsComponent } from './jobs/jobs.component';
 
 //adminLogin
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'jobs', component: JobsComponent },
 ];
 
 @NgModule({
