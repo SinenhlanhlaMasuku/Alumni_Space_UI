@@ -19,6 +19,7 @@ import { SuccessComponent } from './success/success.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { SuccessPasswordChangeComponent } from './success-password-change/success-password-change.component';
 import { JobsComponent } from './jobs/jobs.component';
+import { AddJobsComponent } from './add-jobs/add-jobs.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { JobsComponent } from './jobs/jobs.component';
     SuccessComponent,
     AdminHomeComponent,
     SuccessPasswordChangeComponent,
-    JobsComponent
+    JobsComponent,
+    AddJobsComponent
   ],
   imports: [
     BrowserModule,

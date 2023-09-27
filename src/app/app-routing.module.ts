@@ -13,6 +13,7 @@ import {SuccessComponent} from './success/success.component';
 import {AdminHomeComponent} from './admin-home/admin-home.component';
 import {SuccessPasswordChangeComponent} from './success-password-change/success-password-change.component';
 import { JobsComponent } from './jobs/jobs.component';
+import { AddJobsComponent } from './add-jobs/add-jobs.component';
 
 //adminLogin
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'contacts', component: ContactsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'jobs', component: JobsComponent },
+  { path: 'add-jobs', component: AddJobsComponent }
 ];
 
 @NgModule({
