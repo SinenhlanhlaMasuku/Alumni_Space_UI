@@ -18,9 +18,8 @@
             left: 0;
         }
 
-        
-         /* Style for the icons container */
-         .icons-container {
+        /* Style for the icons container */
+        .icons-container {
             position: absolute;
             top: 0;
             right: 0;
@@ -37,12 +36,13 @@
             transition: color 0.3s ease; 
         }
 
-         /* Style for the icons when clicked (purple color) */
-         .icons-container a.clicked {
+        /* Style for the icons when clicked (purple color) */
+        .icons-container a.clicked {
             color: purple;
         }
-         /* Style for the red asterisk */
-         .red-asterisk {
+
+        /* Style for the red asterisk */
+        .red-asterisk {
             color: red;
         }
        
@@ -64,15 +64,11 @@
                  <a href="#" class="settings-icon">
                     <i class="fas fa-cog fa-2x"></i>
                 </a>
-
-                
-
-                
             </div>
         </div>
     </header>
-     <!-- Back button -->
      
+    <!-- Back button -->
     <div class="container mt-3" style="margin-left: 50px;">
         <a href="#" class="btn btn-primary text-white">
             <i class="fas fa-arrow-left"></i> Back
@@ -86,13 +82,13 @@
                 <input type="text" class="form-control" [(ngModel)]="job_title"  name="job_title" id="jobTitle" required>
             </div>
             <div class="form-group">
-                <label for="organization"><b>Organization</b><span class="red-asterisk">*</span></label>
-                <input type="text" class="form-control" id="organization" name="organization" required>
+                <label for="organization"><b>Organization:</b><span class="red-asterisk">*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="Organisation"  name="Organisation" id="organization"required>
             </div>
 
             <div class="form-group">
-                <label for="location"><b>Location</b><span class="red-asterisk">*</span></label>
-                <select class="form-control" id="location" name="location" required>
+                <label for="location"><b>Location:</b><span class="red-asterisk">*</span></label>
+                <select class="form-control" [(ngModel)]="location"  name="location" id="location"  required>
                     <option value="location">Location</option>
                     <option value="Soshanguve">Soshanguve</option>
                     <option value="Emalahleni">Emalahleni</option>
@@ -102,10 +98,9 @@
                 </select>
             </div>
 
-          
             <div class="form-group">
-                <label for="workPlaceType"><b>Workplace Type</b><span class="red-asterisk">*</span></label>
-                <select class="form-control" id="workPlaceType" name="workPlaceType" required>
+                <label for="workPlaceType"><b>Workplace Type:</b><span class="red-asterisk">*</span></label>
+                <select class="form-control" [(ngModel)]="workplace_type"  name="workplace_type" id="workPlaceType" required>
                     <option value="workPlaceType">Choose workplace type</option>
                     <option value="Onsite">Onsite</option>
                     <option value="Hybrid">Hybrid</option>
@@ -114,8 +109,8 @@
             </div>
 
             <div class="form-group">
-                <label for="jobType"><b>Job Type</b><span class="red-asterisk">*</span></label>
-                <select class="form-control" id="jobType" name="jobType" required>
+                <label for="jobType"><b>Job Type:</b><span class="red-asterisk">*</span></label>
+                <select class="form-control" [(ngModel)]="job_type"  name="job_type" id="jobType"  required>
                     <option value="jobType">Choose the job type</option>
                     <option value="Full-time">Full-time</option>
                     <option value="Part-time">Part-time</option>
@@ -127,12 +122,22 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="jobDescription"><b>Job Description</b><span class="red-asterisk">*</span></label>
-                <textarea class="form-control" id="jobDescription" name="jobDescription" rows="4" required></textarea>
+                <label for="jobDescription"><b>Job Description:</b><span class="red-asterisk">*</span></label>
+                <textarea class="form-control" [(ngModel)]="job_description"  name="job_description" id="jobDescription"  rows="4" required></textarea>
             </div>
 
             <div class="form-group">
-                <label for="image">Upload Comapany logo :</label>
+                <label for="deadline"><b>Deadline:</b></label>
+                <input type="date" class="form-control" [(ngModel)]="deadline"  name="deadline" id="deadline">
+            </div>
+
+            <div class="form-group">
+                <label for="jobPostedOn"><b>Job Posted On:</b></label>
+                <input type="date" class="form-control" [(ngModel)]="date_posted"  name="date_posted" id="jobPostedOn">
+            </div>
+
+            <div class="form-group">
+                <label for="image">Upload Company Logo:</label>
                 <input type="file" class="form-control-file" id="image" accept="image/*">
                 <img src="" id="image-preview" alt="Image Preview" style="max-width: 100%; display: none;">
             </div>

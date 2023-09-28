@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,  OnInit} from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-jobs',
   templateUrl: './jobs.component.html',
@@ -16,6 +18,18 @@ import { Component } from '@angular/core';
 'assets/css/nice-select.css',
 'assets/css/style.css']
 })
-export class JobsComponent {
+export class JobsComponent implements OnInit {
+  name: string = '';
+  //jobs: Job[] = [];
 
+  constructor(private http: HttpClient, private router: Router) {}
+
+  //constructor(private jobService: Job) {}
+
+  ngOnInit() {
+    this.http.get('http://localhost:3000/api/jobs' ).subscribe((response: any) => {
+      console.log('Data sent to server:', response);
+    // Fetch jobs using the service
+    //this.jobs = this.jobService.getJobs();
+  }
 }
