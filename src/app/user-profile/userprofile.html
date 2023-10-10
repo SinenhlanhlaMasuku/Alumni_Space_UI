@@ -189,7 +189,7 @@
           <div class="profile-edit">
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">Name:</span>
-              <input type="text" style="width: 200px;" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="name" ng-model="vm.user.name" required>
+              <input type="text" " style="width: 200px;" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="name" ng-model="vm.user.name" required>
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
@@ -221,7 +221,7 @@
             </div>
             <div class="input-group">
               <span class="input-group-text">Alumni Bio:</span>
-              <textarea class="form-control" aria-label="With textarea"></textarea>
+              <textarea class="form-control" id="Alumni-bio" aria-label="With textarea"></textarea>
             </div>
         </form>
           
@@ -230,7 +230,7 @@
                    <form ng-submit="vm.uploadFile()">
                       <h6>Certificates:</h6>
                         <div class="input-group">
-                          <input type="file" class="form-control" id="academic_record" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                          <input type="file" class="form-control" id="certificates" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                           <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Save</button>
                         </div>
                                <br>
@@ -275,8 +275,8 @@ app.controller('AcademicRecordController', function() {n
             
             <hr>
             
-            <button type="submit" class="btn btn-outline-info" style="margin-left: 500px;">Save Changes</button>
-            <button type="button" class="btn btn-outline-secondary" ng-click="vm.cancelEdit()">Cancel</button>
+            <button type="submit" class="btn btn-outline-info" id="saveProfileinfo" style="margin-left: 500px;">Save Changes</button>
+            <button type="button" class="btn btn-outline-secondary">Cancel</button>
         </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
