@@ -1,0 +1,9 @@
+.text-center{
+    transform: translateY(-400px);
+}
+.navbar-brand{
+    padding-left: 80vh;
+}
+.image{
+    padding-left: 150vh;
+}
