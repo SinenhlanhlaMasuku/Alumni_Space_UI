@@ -20,6 +20,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { SuccessPasswordChangeComponent } from './success-password-change/success-password-change.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { AddJobsComponent } from './add-jobs/add-jobs.component';
+import { MyNetworkComponent } from './my-network/my-network.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AddJobsComponent } from './add-jobs/add-jobs.component';
     AdminHomeComponent,
     SuccessPasswordChangeComponent,
     JobsComponent,
-    AddJobsComponent
+    AddJobsComponent,
+    MyNetworkComponent
   ],
   imports: [
     BrowserModule,

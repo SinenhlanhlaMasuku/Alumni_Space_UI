@@ -208,18 +208,18 @@
         <div class="wrapper position-relative" ng-show="vm.isProfile" style="margin-left: auto; margin-right: auto;">
             <div class="user-info">
                 <div class="image">
-                    <img src="../../assets/Sneh.jpg" alt="User Avatar" width="150" height="150">
+                    <img src="../..//assets/Sneh.jpg" alt="User Avatar" width="150" height="150">
                 </div>
 
-                <h2>Name: </h2>
-                <p>Email: </p>
-                <p>Location: </p>
-                <p>Qualification: </p>
-                <p>Skills: </p>
-                <p>Experience: </p>
-                <p>Employment Status: </p>
-                <p>Academic Transcript: </p>
-                <p>Interest: </p>
+                <h2>Name: {{ vm.user.name }}</h2>
+                <p>Email: {{ vm.user.email }}</p>
+                <p>Location: {{ vm.user.location }}</p>
+                <p>Qualification:{{ vm.user.Qualification }} </p>
+                <p>Skills: {{ vm.user.Skills }}</p>
+                <p>Experience: {{ vm.user.Experience }}</p>
+                <p>Employment Status: {{ vm.user.Employment_Status }}</p>
+                <p>Academic Transcript: {{ vm.user.Academic_Transcript }}</p>
+                <p>Interest: {{vm.user.Interest}}</p>
             </div>
             <div class="edit-profile">
                 <hr>
@@ -301,8 +301,8 @@
             </div>
 
 
-            <div class="success-message" ng-show="vm.uploadSuccess"></div>
-            <div class="error-message" ng-show="vm.uploadError"></div>
+            <div class="success-message" ng-show="vm.uploadSuccess">{{ vm.uploadSuccess }}</div>
+            <div class="error-message" ng-show="vm.uploadError">{{ vm.uploadError }}</div>
 
 
             <hr>

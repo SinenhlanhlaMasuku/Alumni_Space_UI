@@ -1,89 +1,9 @@
-
-body {
-  
-    background-image: url('./background.jpg');
-    background-size: cover;
-    background-position: center
-
-
+.text-center{
+    transform: translateY(-400px);
 }
- body .h1{
-  color: #fff;
-   justify-content: center;
-  align-items: center;
-  position: fixed;
-  
-
- }
-.wrapper {
-    background-color: transparent;
-    padding: 20px;
-    border: 1px solid #ccc;
-    margin: 20px;
-    justify-content: center;
-    align-content: center;
-}  
-.wrapper h2{
-    text-decoration: none;
-    text-transform: uppercase;
-    color: white;
-    text-align: center;
-    font-size: xx-large;
+.navbar-brand{
+    padding-left: 80vh;
 }
-.wrapper p{
-    text-decoration: none;
-    text-transform: lowercase;
-    color: white;
-    text-align: center;
-    font-size: large;
-}
-.wrapper input{
-    align-content: space-between;
-}
-.wrapper2{
-    background-color: transparent;
-    padding: 20px;
-    border: 1px solid #ccc;
-    margin: 20px;
-    
-}
-.wrapper2 label input{
-    position: center;
-    justify-content: center;
-    align-content: center;
-    color: #fff;
-}
-header {
-    background-color: transparent;
-    color: blue;
-    text-align: center;
-     align-items: center;
-    padding: 20px;
-}
-
-.team-section, .mission-section {
-    padding: 20px;
-}
-
-.team-member {
-    text-align: center;
-    margin: 20px;
-}
-
-.team-member img {
-    max-width: 100px;
-    border-radius: 50%;
-}
-button{
-  height: 100;
-  width: 80;
-  color: blue;
-
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
+.image{
+    padding-left: 150vh;
 }
