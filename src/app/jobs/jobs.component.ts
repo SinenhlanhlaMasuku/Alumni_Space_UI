@@ -36,5 +36,10 @@ export class JobsComponent {
     this.num = this.jobs.length;
   });
   }
+
+  //
+  search(){
+    
+  }
   
 }
