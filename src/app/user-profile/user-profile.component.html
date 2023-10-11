@@ -211,8 +211,8 @@
                     <img src="../../assets/Sneh.jpg" alt="User Avatar" width="150" height="150">
                 </div>
 
-                <h2>Name: </h2>
-                <p>Email: </p>
+                <h2>Name: {{profile.name}}</h2>
+                <p>Email: {{profile.email}}</p>
                 <p>Location: </p>
                 <p>Qualification: </p>
                 <p>Skills: </p>
@@ -235,16 +235,16 @@
         <div class="edit-form">
             <h2>Edit Profile</h2>
             <hr>
-            <form ng-submit="vm.saveProfile()">
+            <form (ngSubmit)="saveProfile()">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Name:</span>
                     <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" id="name" ng-model="vm.user.name" required>
+                        aria-describedby="inputGroup-sizing-default" id="name" [(ngModel)]="profile.name" name="name" required>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
                     <input type="text" id="alumni_email" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" ng-model="vm.user.email" required>
+                        aria-describedby="inputGroup-sizing-default" [(ngModel)]="profile.email" name="email" required>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Location:</span>
@@ -276,6 +276,8 @@
                     <input type="text" id="alumni_interest" class="form-control" aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default" ng-model="vm.user.Interest">
                 </div>
+
+                <button type="submit" class="btn btn-outline-info">Save Changes</button>
             </form>
 
             <div class="card" id="cards" style="margin: 10px;">
@@ -307,39 +309,16 @@
 
             <hr>
 
-            <button type="submit" class="btn btn-outline-info">Save Changes</button>
+
             <button type="button" class="btn btn-outline-secondary" ng-click="vm.cancelEdit()">Cancel</button>
         </div>
     </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-            crossorigin="anonymous"></script>
-        <script src="userprofile.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-        <script>
-            var app = angular.module('academicRecordApp', []);
-
-            app.controller('AcademicRecordController', function () {
-                var vm = this;
-
-                vm.selectedFile = null;
-                vm.uploadSuccess = null;
-                vm.uploadError = null;
-
-                vm.uploadFile = function () {
-                    // Simulate file upload success or error
-                    if (vm.selectedFile) {
-                        vm.uploadSuccess = 'File uploaded successfully: ' + vm.selectedFile.name;
-                        vm.selectedFile = null; // Clear the selected file
-                        vm.uploadError = null;
-                    } else {
-                        vm.uploadSuccess = null;
-                        vm.uploadError = 'Please select a valid file.';
-                    }
-                };
-            });
-
-        </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="userprofile.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </body>
+
 </html>
