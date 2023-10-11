@@ -1,4 +1,5 @@
 // Function to save user input
+import { EventEmitter } from "@angular/core";
 function saveProfile() {
     // Get input values from the form
     const firstName = document.getElementById("name").value;

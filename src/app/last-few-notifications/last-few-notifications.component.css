@@ -1,0 +1,49 @@
+.notifications {
+    .notifications-wrapper {
+        overflow: auto;
+        height: 185px;
+        padding: 20px;
+    }
+
+    .title {
+        padding: 20px;
+        padding-bottom: 5px;
+        text-align: center;
+        color: #333333;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .notification {
+        display: flex;
+        align-items: center;
+        padding: 5px 20px;
+        border-bottom: 1px solid #666666;
+
+        .subject {
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 790px;
+        }
+
+        .more-info {
+            display: flex;
+            padding: 10px;
+            font-size: 16px;
+            width: 790px;
+            margin-top: 4px;
+            .message{
+                width: 490;
+            }
+            .date{
+                font-size: 14px;
+                color: rgb(93, 93, 93);
+                width: 290;
+                margin-left: 10%;
+            }
+
+
+        }
+    }
+}
