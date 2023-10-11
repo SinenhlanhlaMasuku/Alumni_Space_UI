@@ -1,0 +1,40 @@
+/* .text-center{
+    transform: translateY(-400px);
+    margin-left: 10px;
+} */
+.profile{
+    margin-top: 7px;
+
+}
+
+.topH h1{
+   margin-top: 2px;
+   padding-top: 50px;
+   text-align: center;
+}
+.user-info{
+    margin-left: 50px;
+    margin-right: 50px;
+    border-color: black;
+    border-style: double;
+} 
+.user-info p{
+    margin-left: 100px;
+}   
+.edit-profile{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 400px;
+}
+.edit-form{
+    padding-left: 20vh;
+    padding-right: 20vh;
+}
+.edit-form h2{
+    text-align: center;
+}
+.profile-edit{
+   border-style: double;
+   border-color: black;
+}
+
