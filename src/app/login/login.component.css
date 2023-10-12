@@ -11,7 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url('./alumni.jpeg');
+  background-image: url('../..//assets/tutBuilding.png');
   background-size: cover;
   background-position: center;
 }
@@ -37,12 +37,12 @@ header {
 .navigation a {
   position: relative;
   font-size: 1.1em;
-  color: #fff;
+  color: #000000;
   text-decoration: none;
   font-weight: 500;
   font-size: x-large;
   margin-left: 40px;
-  background-color: rgb(112, 197, 212);
+  background-color: #fff;
 }
 
 .navigation a::after {
