@@ -1,0 +1,30 @@
+<div class="profile">
+    <!-- <h1 class="text-center">Alumni Profile</h1> -->
+    <div class="wrapper position-relative" ng-show="vm.isProfile" style="margin-left: auto; margin-right: auto;">
+        <hr>
+        <h1 class="text-center">Alumni Profile</h1>
+        <hr>
+        <div class="user-info">
+            <div class="image">
+                <a href="#"><img src="#" alt="alumni-pic" width="30%"
+                        height="30%" style="border-radius: 5%; float: right;"></a>
+            </div>
+
+            <p>Name: {{ alumni.Name }}</p>
+            <p>Location: {{ alumni.Location }}</p>
+            <p>Qualification: {{ alumni.Qualification }} </p>
+            <p>Skills: {{ alumni.Skills }}</p>
+            <p>Experience: {{ alumni.Experience }}</p>
+            <p>Employment Status: {{ alumni.Employment_Status }}</p>
+            <p>Academic Transcript: {{ alumni.Academic_Transcript }}</p>
+            <p>Interest: {{alumni.Interest}}</p>
+            <p>Bio : {{alumni.Bio}}</p>
+        </div>
+        <div class="edit-profile">
+            <hr>
+            <!-- <button type="button" class="btn btn-primary" ng-click="vm.editProfile()">Edit Profile</button> -->
+            <button #edit type="submit" style="margin-left: 45%" class="btn btn-outline-info"routerLink="/alumni/profile/edit-profile">Edit
+                Profile</button>
+        </div>
+    </div>
+</div>

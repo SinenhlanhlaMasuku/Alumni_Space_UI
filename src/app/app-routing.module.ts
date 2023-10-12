@@ -32,7 +32,11 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'jobs', component: JobsComponent },
   { path: 'add-jobs', component: AddJobsComponent },
-  {path: 'my-network', component: MyNetworkComponent}
+  {path: 'my-network', component: MyNetworkComponent},
+
+
+  //Alumni
+  {path: 'alumni',loadChildren: () => import('./alumni/alumni.module').then((m) => m.AlumniModule),},
 ];
 
 @NgModule({

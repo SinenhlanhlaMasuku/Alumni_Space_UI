@@ -26,7 +26,11 @@ export class LoginComponent {
 
       if(response.message === 'Login successful!' ){
         console.log(response.result[0].name);
+        console.log(response.account_id);
+        //store user details to localStorage
         localStorage.setItem('name',response.result[0].name.toString());
+        localStorage.setItem('account_id',response.account_id);
+
         this.router.navigate(['/homepage']);
       }else{
         this.router.navigate(['/forgot-password']);

@@ -1,0 +1,98 @@
+<div class="wrapper2" style="margin-left: auto; margin-right: auto;">
+
+
+    <div class="edit-form">
+        <h2>Edit Profile</h2>
+        <hr>
+        <form ng-submit="vm.saveProfile()">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Name:</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" id="name" ng-model="vm.user.name" required>
+            </div>
+            <!-- <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
+              <input type="text" id="alumni_email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" ng-model="vm.user.email" required>
+            </div> -->
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Location:</span>
+                <input type="text" id="alumni_location" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" ng-model="vm.user.location">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Qualification:</span>
+                <input type="text" id="alumni_qualification" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" ng-model="vm.user.Qualification">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Skills:</span>
+                <input type="text" id="alumni_skills" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" ng-model="vm.user.Skills">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Experience:</span>
+                <input type="text" id="alumni_experience" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" ng-model="vm.user.Experience">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Employment Status:</span>
+                <input type="text" id="alumni_employ_status" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" ng-model="vm.user.Employment_Status">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Interest:</span>
+                <input type="text" id="alumni_interest" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" ng-model="vm.user.Interest">
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group form-group-textarea mb-md-0">
+                    <!-- Message input-->
+                    <span class="input-group-text" id="inputGroup-sizing-default">Bio:</span>
+                    <textarea class="form-control" id="alumni_Bio" placeholder="Your Message *"
+                        data-sb-validations="required"></textarea>
+                    <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                </div>
+            </div>
+        </form>
+
+        <div class="card" id="cards" style="margin: 10px;">
+            <div class="upload-form">
+                <form ng-submit="vm.uploadFile()">
+                    <h6>Academic Record:</h6>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="academic_record"
+                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Save</button>
+                    </div>
+                    <br>
+                    <h6>Upload profile picture:</h6>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="profile_picture"
+                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Save</button>
+                    </div>
+                    <br>
+                    <h6>Upload certificate:</h6>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="aumni_certificate"
+                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Save</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+        <button type="submit" class="btn btn-outline-info" ng-click="vm.saveProfile()">Save Changes</button>
+        <button type="button" style="margin-left: 10px;" class="btn btn-outline-secondary"
+            ng-click="vm.cancelEdit()">Cancel</button>
+        <hr>
+        <div class="view-profile">
+            <button #view style="margin-left: 45%" class="btn btn-outline-info" routerLink="/alumni/profile/view-profile">View
+                Profile</button>
+        </div>
+    </div>
+    <hr>
+</div>
