@@ -23,7 +23,7 @@ export class JobsComponent {
   name: string = '';
   num: number = 0 ;
   jobs: any[] = [];
-
+  
   constructor(private http: HttpClient, private router: Router) {}
 
   //constructor(private jobService: Job) {}
@@ -38,7 +38,21 @@ export class JobsComponent {
   }
 
   //
-  search(){
+  searchJobs(){
+   var job_type = 'Full-time';
+    var location = 'Emalahleni';
+    var date_posted = '2023-10-26';
+    
+    const formData  = {job_type, location, date_posted};
+    this.http.post('http://localhost:3000/api/search/jobs',formData).subscribe((response: any) => {
+      console.log("Button clicked");
+      //console.log('Data sent to server:', response);
+    // Fetch jobs using the service
+    this.jobs = response.result;
+    this.num = this.jobs.length;
+    
+    
+  });
     
   }
   
