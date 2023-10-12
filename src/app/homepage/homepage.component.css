@@ -16,6 +16,7 @@
 html, body {
     /*width: 100vw;
     height: 100vh;*/
+    margin: 1;
 }
 
 header {
@@ -125,7 +126,7 @@ main {
     outline: none;	
 	
 }
-..about-button:hover {
+.about-button:hover {
 	background-color: var(--accent3);
     color: var(--accent2);
     transform: scale(1.1);

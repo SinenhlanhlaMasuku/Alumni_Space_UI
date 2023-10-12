@@ -10,17 +10,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ServicesComponent } from './services/services.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { AboutComponent } from './about/about.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { SuccessComponent } from './success/success.component';
-import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { SuccessPasswordChangeComponent } from './success-password-change/success-password-change.component';
-import { JobsComponent } from './jobs/jobs.component';
-import { AddJobsComponent } from './add-jobs/add-jobs.component';
-import { MyNetworkComponent } from './my-network/my-network.component';
+import { ServicesPageComponent } from './services-page/services-page.component';
 
 @NgModule({
   declarations: [
@@ -29,17 +19,7 @@ import { MyNetworkComponent } from './my-network/my-network.component';
     LoginComponent,
     UserProfileComponent,
     ForgotPasswordComponent,
-    ServicesComponent,
-    ResetPasswordComponent,
-    ContactsComponent,
-    AboutComponent,
-    AdminLoginComponent,
-    SuccessComponent,
-    AdminHomeComponent,
-    SuccessPasswordChangeComponent,
-    JobsComponent,
-    AddJobsComponent,
-    MyNetworkComponent
+    ServicesPageComponent
   ],
   imports: [
     BrowserModule,
