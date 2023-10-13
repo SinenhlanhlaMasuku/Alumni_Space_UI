@@ -17,12 +17,12 @@
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Location:</span>
                 <input type="text" id="alumni_location" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default" ng-model="vm.user.location">
+                    aria-describedby="inputGroup-sizing-default" [(ngModel)]="alumni.Location" name="alumni.Location">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Qualification:</span>
                 <input type="text" id="alumni_qualification" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default" ng-model="vm.user.Qualification">
+                    aria-describedby="inputGroup-sizing-default" [(ngModel)]="alumni.Qualification" name="alumni.Qualification">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Skills:</span>
@@ -37,12 +37,12 @@
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Employment Status:</span>
                 <input type="text" id="alumni_employ_status" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default" ng-model="vm.user.Employment_Status">
+                    aria-describedby="inputGroup-sizing-default" [(ngModel)]="alumni.Employment_Status" name="alumni.Employment_Status">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Interest:</span>
                 <input type="text" id="alumni_interest" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default" ng-model="vm.user.Interest">
+                    aria-describedby="inputGroup-sizing-default"  [(ngModel)]="alumni.Interest" name="alumni.Interest">
             </div>
 
             <div class="col-md-6">
@@ -50,7 +50,7 @@
                     <!-- Message input-->
                     <span class="input-group-text" id="inputGroup-sizing-default">Bio:</span>
                     <textarea class="form-control" id="alumni_Bio" placeholder="Your Message *"
-                        data-sb-validations="required"></textarea>
+                        data-sb-validations="required"  [(ngModel)]="alumni.Bio" name="alumni.Bio"></textarea>
                     <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                 </div>
             </div>

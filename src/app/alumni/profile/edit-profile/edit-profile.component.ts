@@ -43,28 +43,15 @@ export class EditProfileComponent {
     //get user_id
     const user_id = localStorage.getItem('account_id');
       
-    const formData = {user_id,skills: this.alumni.Skills,experience: this.alumni.Experience,};
+    const formData = {user_id,skills: this.alumni.Skills,experience: this.alumni.Experience, interest:this.alumni.Interest, bio:this.alumni.Bio, location:this.alumni.Location,qualification: this.alumni.Qualification,employment_status: this.alumni.Employment_Status};
       
       
 
       //pass data into the server
       this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
-      // Clear the form fields after successful submission
-      //this.email = '';
-      //this.password = '';
+      
 
-      /*if(response.message === 'Login successful!' ){
-        console.log(response.result[0].name);
-        console.log(response.account_id);
-        //store user details to localStorage
-        localStorage.setItem('name',response.result[0].name.toString());
-        localStorage.setItem('account_id',response.account_id);
-
-        this.router.navigate(['/homepage']);
-      }else{
-        this.router.navigate(['/forgot-password']);
-      }*/
       
     });
 
