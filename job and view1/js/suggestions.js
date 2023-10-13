@@ -1,0 +1,20 @@
+let suggestions = [
+    "Web developer",
+    "CodingLab",
+    "Front-end developer",
+    "Back-end developer",
+    "Software engineer",
+    "designer",
+    "Blogger",
+    "Business analyst",
+    "Data analyst",
+    "system analyst",
+    "Tester",
+    "Freelancer",
+    "Receptionist ",
+    "Designer",
+    "Developer",
+    "Web Designer",
+    "Web Developer",
+   
+];
