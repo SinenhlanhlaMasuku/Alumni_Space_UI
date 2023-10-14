@@ -29,16 +29,32 @@
                 <input type="text" id="alumni_skills" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" [(ngModel)]="alumni.Skills" name="alumni.Skills">
             </div>
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Experience:</span>
                 <input type="text" id="alumni_experience" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" [(ngModel)]="alumni.Experience" name="alumni.Experience">
-            </div>
-            <div class="input-group mb-3">
+            </div> -->
+            <span class="input-group-text" id="inputGroup-sizing-default">Experience:</span>
+            <select class="form-select" id="employment_status" aria-label="Default select example">
+                <option selected>Select experience</option>
+                <option value="1">0- 6 months</option>
+                <option value="2">1 year</option>
+                <option value="3">2 years</option>
+                <option value="4">3 years or above</option>
+                <option value="5">none of the above</option>
+              </select>
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Employment Status:</span>
                 <input type="text" id="alumni_employ_status" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" [(ngModel)]="alumni.Employment_Status" name="alumni.Employment_Status">
-            </div>
+            </div> -->
+            <span class="input-group-text" style="width: 20vh;" id="inputGroup-sizing-default">Employment Status:</span>
+            <select class="form-select" id="employment_status" aria-label="Default select example">
+                <option selected>Select employment status</option>
+                <option value="1">Employed</option>
+                <option value="2">Unemployed</option>
+                <option value="3">None</option>
+              </select>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Interest:</span>
                 <input type="text" id="alumni_interest" class="form-control" aria-label="Sizing example input"
