@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FileService } from '../../../file.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -27,6 +28,7 @@ export class EditProfileComponent {
           Interest: "",
           Bio : "",
   }
+  selectedFile: File | null = null; 
 
   ngOnInit() {
     const storedName = localStorage.getItem('name');
@@ -37,7 +39,7 @@ export class EditProfileComponent {
     }
   }
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router,private fileService: FileService) {}
 
   saveProfile(){
     //get user_id
@@ -59,5 +61,26 @@ export class EditProfileComponent {
       
       console.log(formData);
       console.log(user_id);
+  }
+
+  onFileSelected(event: any) {
+    // Capture the selected file(s) and store them in a property
+    this.selectedFile = event.target.files[0];
+  }
+
+  uploadFile() {
+    if (this.selectedFile) {
+      // Create a FormData object and append the file
+      const formData = new FormData();
+      formData.append('file', this.selectedFile);
+
+      // Send the FormData to the service for uploading to the server
+      this.fileService.uploadFile(formData).subscribe(response => {
+        // Handle the response from the server
+      });
+    } else {
+      // Handle the case where no file is selected
+      console.log('No file selected.');
+    }
   }
 }

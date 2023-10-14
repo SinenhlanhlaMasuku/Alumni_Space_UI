@@ -58,11 +58,10 @@
 
         <div class="card" id="cards" style="margin: 10px;">
             <div class="upload-form">
-                <form ng-submit="vm.uploadFile()">
+                <form (ngSubmit)="uploadFile()">
                     <h6>Academic Record:</h6>
                     <div class="input-group">
-                        <input type="file" class="form-control" id="academic_record"
-                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <input type="file" class="form-control" id="academic_record" (change)="onFileSelected($event)">
                         <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Save</button>
                     </div>
                     <br>
