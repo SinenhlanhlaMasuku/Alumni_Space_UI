@@ -5,10 +5,14 @@
         <h2>Edit Profile</h2>
         <hr>
         <form (ngSubmit)="saveProfile()">
+            <!-- <div *ngIf="message">
+                <h3>Saving Profile</h3>
+                <p>{{ message }}</p>
+                </div>  -->
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Name:</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default" id="name" value="{{alumni.Name}}" required readonly>
+                    aria-describedby="inputGroup-sizing-default" [(ngModel)]="alumni.Name" name="alumni.Name">
             </div>
             <!-- <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
@@ -103,7 +107,7 @@
 
         <button type="submit" class="btn btn-outline-info" ng-click="vm.saveProfile()">Save Changes</button>
         <button type="button" style="margin-left: 10px;" class="btn btn-outline-secondary"
-            ng-click="cancelEdit()">Cancel</button>
+            (click)="cancelEdit()">Cancel</button>
         </form>
         <hr>
         <div class="view-profile">
@@ -111,5 +115,10 @@
                 Profile</button>
         </div>
     </div>
+
+    <div *ngIf="message" class="message">
+        <h6>Saving Profile</h6>
+        <p>{{ message }}</p>
+        </div>
     <hr>
 </div>

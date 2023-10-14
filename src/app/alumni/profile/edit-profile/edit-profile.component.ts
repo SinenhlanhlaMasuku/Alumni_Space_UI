@@ -27,7 +27,7 @@ export class EditProfileComponent {
           Interest: "",
           Bio : "",
   }
-
+ message: string ='';
   ngOnInit() {
     const storedName = localStorage.getItem('name');
     
@@ -50,18 +50,22 @@ export class EditProfileComponent {
       //pass data into the server
       this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
+     // console.log('.......saving..')
       
-
-      
+     
     });
 
 
       
       console.log(formData);
       console.log(user_id);
+      this.message = 'Saving profile...';
+      this.message += `\nFull Name: ${this.alumni.Name}`;
+      this.message += `\nLocation: ${this.alumni.Location}`;
+
   }
   cancelEdit(){
-    confirm("Are you sure you want to cancel editing profile?", );
+    console.log('Are you sure you want to cancel editing profile?')
     
   }
   saveAcademicRecord(){
@@ -73,6 +77,8 @@ export class EditProfileComponent {
   }
    
  saveCertificate(){
-  console.log('certificate saved successfully!')
+    console.log('certificate saved successfully!')
  }
+
+
 }
