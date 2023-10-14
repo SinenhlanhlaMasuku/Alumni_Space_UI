@@ -60,4 +60,19 @@ export class EditProfileComponent {
       console.log(formData);
       console.log(user_id);
   }
+  cancelEdit(){
+    confirm("Are you sure you want to cancel editing profile?", );
+    
+  }
+  saveAcademicRecord(){
+     console.log('academic record saved successfully!')
+  }
+
+  saveProfilePic(){
+    console.log('profile picture saved successfully!')
+  }
+   
+ saveCertificate(){
+  console.log('certificate saved successfully!')
+ }
 }

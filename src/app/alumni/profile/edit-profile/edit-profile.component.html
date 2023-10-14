@@ -79,21 +79,21 @@
                     <div class="input-group">
                         <input type="file" class="form-control" id="academic_record"
                             aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Save</button>
+                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveAcademicRecord()">Save</button>
                     </div>
                     <br>
                     <h6>Upload profile picture:</h6>
                     <div class="input-group">
                         <input type="file" class="form-control" id="profile_picture"
                             aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Save</button>
+                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveProfilePic()">Save</button>
                     </div>
                     <br>
                     <h6>Upload certificate:</h6>
                     <div class="input-group">
                         <input type="file" class="form-control" id="aumni_certificate"
                             aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Save</button>
+                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveProfilePic()">Save</button>
                     </div>
 
                 </form>
@@ -103,7 +103,7 @@
 
         <button type="submit" class="btn btn-outline-info" ng-click="vm.saveProfile()">Save Changes</button>
         <button type="button" style="margin-left: 10px;" class="btn btn-outline-secondary"
-            ng-click="vm.cancelEdit()">Cancel</button>
+            ng-click="cancelEdit()">Cancel</button>
         </form>
         <hr>
         <div class="view-profile">
