@@ -29,7 +29,7 @@ export class EditProfileComponent {
   }
  message: string ='';
   ngOnInit() {
-    const storedName = localStorage.getItem('name');
+    const storedName = localStorage.getItem('Name');
     
     if (storedName) {
       // Update the 'name' property if 'name' is found in localStorage
@@ -59,7 +59,7 @@ export class EditProfileComponent {
       
       console.log(formData);
       console.log(user_id);
-      this.message = 'Saving profile...';
+      this.message = 'profile saved!';
       this.message += `\nFull Name: ${this.alumni.Name}`;
       this.message += `\nLocation: ${this.alumni.Location}`;
 
