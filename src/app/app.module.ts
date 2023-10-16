@@ -11,6 +11,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ServicesPageComponent } from './services-page/services-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,14 @@ import { ServicesPageComponent } from './services-page/services-page.component';
     HomepageComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ServicesPageComponent
+    ServicesPageComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, // Add FormsModule
-    HttpClientModule, // Add HttpClientModule
+    HttpClientModule, BrowserAnimationsModule, // Add HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

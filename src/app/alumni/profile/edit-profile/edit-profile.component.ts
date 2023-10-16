@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from 'src/app/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-edit-profile',
@@ -14,6 +16,8 @@ export class EditProfileComponent {
   viewProfile(view: HTMLButtonElement){
     this.service.viewProfile();
   }*/
+
+  constructor(public dialog: MatDialog) {}
 
   //variables
   alumni = {
@@ -62,6 +66,18 @@ export class EditProfileComponent {
       this.message = 'profile saved!';
       this.message += `\nFull Name: ${this.alumni.Name}`;
       this.message += `\nLocation: ${this.alumni.Location}`;
+
+
+        //using confirmation dialog to confirm user saving profile
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          // Call the save profile function here
+          //this.confirmSave();
+          this.saveProfile();
+        }
+      });
 
   }
   cancelEdit(){
