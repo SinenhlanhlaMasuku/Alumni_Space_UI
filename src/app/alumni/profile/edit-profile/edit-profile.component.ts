@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FileService } from '../../../file.service';
+import {MatDialog} from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-edit-profile',
@@ -16,6 +17,8 @@ export class EditProfileComponent {
     this.service.viewProfile();
   }*/
 
+  
+
   //variables
   alumni = {
           Name: "",
@@ -28,10 +31,17 @@ export class EditProfileComponent {
           Interest: "",
           Bio : "",
   }
-  selectedFile: File | null = null; 
+ message: string ='';
+ 
+ isButtonSaveAR: boolean = false;
+ isBtnSaveProfPic: boolean = false;
+ isBtnSaveCertificate: boolean = false;
+ AcademicRChosen: boolean = false;
+ profilePicChosen: boolean = false;
+ certificateChosen: boolean = false;
 
   ngOnInit() {
-    const storedName = localStorage.getItem('name');
+    const storedName = localStorage.getItem('Name');
     
     if (storedName) {
       // Update the 'name' property if 'name' is found in localStorage
@@ -39,8 +49,21 @@ export class EditProfileComponent {
     }
   }
 
-  constructor(private http: HttpClient, private router: Router,private fileService: FileService) {}
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {}
+  //using confirmation dialog to confirm user saving profile
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+     width: '400px',
+     
+     data: {}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.saveProfile(); // Call the saveProfile function when the dialog is confirmed
+      }
+    });
+  }
   saveProfile(){
     //get user_id
     const user_id = localStorage.getItem('account_id');
@@ -52,35 +75,77 @@ export class EditProfileComponent {
       //pass data into the server
       this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
+     // console.log('.......saving..')
       
-
-      
+     
     });
 
-
+    this.openDialog();
       
       console.log(formData);
       console.log(user_id);
-  }
+      this.message = 'profile saved!';
+      // this.message += `\nFull Name: ${this.alumni.Name}`;
+      // this.message += `\nLocation: ${this.alumni.Location}`;
 
-  onFileSelected(event: any) {
-    // Capture the selected file(s) and store them in a property
-    this.selectedFile = event.target.files[0];
-  }
 
-  uploadFile() {
-    if (this.selectedFile) {
-      // Create a FormData object and append the file
-      const formData = new FormData();
-      formData.append('file', this.selectedFile);
+        
 
-      // Send the FormData to the service for uploading to the server
-      this.fileService.uploadFile(formData).subscribe(response => {
-        // Handle the response from the server
-      });
+      // dialogRef.afterClosed().subscribe(result => {
+      //   if (result) {
+      //     // Call the save profile function here
+      //     //this.confirmSave();
+      //     this.saveProfile();
+      //   }
+      // });
+
+     }
+  
+   //function to handle academic record selection
+   onAcademicRecChange(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      this.AcademicRChosen = true;
     } else {
-      // Handle the case where no file is selected
-      console.log('No file selected.');
+      this.AcademicRChosen = false;
     }
   }
+
+  //function to handle profile picture selection
+  onProfilePicChange(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      this.profilePicChosen = true;
+    } else {
+      this.profilePicChosen = false;
+    }
+  }
+  //function to handle certificate selection
+  onCertificateChange(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      this.certificateChosen = true;
+    } else {
+      this.certificateChosen = false;
+    }
+  }
+
+  cancelEdit(){
+    console.log('Are you sure you want to cancel editing profile?')
+    
+  }
+  saveAcademicRecord(){
+     console.log('academic record saved successfully!')
+     this.isButtonSaveAR = true;
+
+  }
+
+  saveProfilePic(){
+    console.log('profile picture saved successfully!')
+    this.isBtnSaveProfPic = true;
+  }
+   
+ saveCertificate(){
+    console.log('certificate saved successfully!')
+    this.isBtnSaveCertificate = true;
+ }
+
+
 }

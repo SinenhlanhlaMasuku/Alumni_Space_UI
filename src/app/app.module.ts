@@ -4,7 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
@@ -46,6 +49,7 @@ import { MyNetworkComponent } from './my-network/my-network.component';
     AppRoutingModule,
     FormsModule, // Add FormsModule
     HttpClientModule, // Add HttpClientModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
