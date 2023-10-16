@@ -17,9 +17,18 @@ export class EditProfileComponent {
     this.service.viewProfile();
   }*/
 
+  //variables
+  message: string ='';
+ 
+  isButtonSaveAR: boolean = false;
+  isBtnSaveProfPic: boolean = false;
+  isBtnSaveCertificate: boolean = false;
+  AcademicRChosen: boolean = false;
+  profilePicChosen: boolean = false;
+  certificateChosen: boolean = false;
   
 
-  //variables
+  
   alumni = {
           Name: "",
           Location: "",
@@ -31,14 +40,7 @@ export class EditProfileComponent {
           Interest: "",
           Bio : "",
   }
- message: string ='';
  
- isButtonSaveAR: boolean = false;
- isBtnSaveProfPic: boolean = false;
- isBtnSaveCertificate: boolean = false;
- AcademicRChosen: boolean = false;
- profilePicChosen: boolean = false;
- certificateChosen: boolean = false;
 
   ngOnInit() {
     const storedName = localStorage.getItem('Name');
@@ -65,87 +67,95 @@ export class EditProfileComponent {
     });
   }
   saveProfile(){
-    //get user_id
-    const user_id = localStorage.getItem('account_id');
-      
-    const formData = {user_id,skills: this.alumni.Skills,experience: this.alumni.Experience, interest:this.alumni.Interest, bio:this.alumni.Bio, location:this.alumni.Location,qualification: this.alumni.Qualification,employment_status: this.alumni.Employment_Status};
-      
-      
 
-      //pass data into the server
-      this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
-      console.log('Data sent to server:', response);
-     // console.log('.......saving..')
+              //open confirmatiom dialog
+               this.openDialog();
+              //get user_id
+         const user_id = localStorage.getItem('account_id');
       
-     
-    });
-
-    this.openDialog();
-      
-      console.log(formData);
-      console.log(user_id);
-      this.message = 'profile saved!';
-      // this.message += `\nFull Name: ${this.alumni.Name}`;
-      // this.message += `\nLocation: ${this.alumni.Location}`;
-
-
-        
-
-      // dialogRef.afterClosed().subscribe(result => {
-      //   if (result) {
-      //     // Call the save profile function here
-      //     //this.confirmSave();
-      //     this.saveProfile();
-      //   }
-      // });
+         const formData = {user_id,skills: this.alumni.Skills,experience: this.alumni.Experience, interest:this.alumni.Interest, bio:this.alumni.Bio, location:this.alumni.Location,qualification: this.alumni.Qualification,employment_status: this.alumni.Employment_Status};
+         //pass data into the server
+           this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
+           console.log('Data sent to server:', response); });
+           console.log(formData);
+           console.log(user_id);
+          this.message = 'profile saved!';
 
      }
   
-   //function to handle academic record selection
-   onAcademicRecChange(event: any) {
-    if (event.target.files && event.target.files.length > 0) {
-      this.AcademicRChosen = true;
-    } else {
-      this.AcademicRChosen = false;
-    }
-  }
+      //function to handle academic record selection
+        onAcademicRecChange(event: any)
+         {
+            if (event.target.files && event.target.files.length > 0) 
+               {
+                 this.AcademicRChosen = true;
+               }  
+             else {
+                 this.AcademicRChosen = false;
+                  }
+          }
 
-  //function to handle profile picture selection
-  onProfilePicChange(event: any) {
-    if (event.target.files && event.target.files.length > 0) {
-      this.profilePicChosen = true;
-    } else {
-      this.profilePicChosen = false;
-    }
-  }
-  //function to handle certificate selection
-  onCertificateChange(event: any) {
-    if (event.target.files && event.target.files.length > 0) {
-      this.certificateChosen = true;
-    } else {
-      this.certificateChosen = false;
-    }
-  }
+     //function to handle profile picture selection
+         onProfilePicChange(event: any) 
+         {
+           if (event.target.files && event.target.files.length > 0) {
+                 this.profilePicChosen = true;
+             } else {
+                 this.profilePicChosen = false;
+                    }
+         }
+        //function to handle certificate selection
+            onCertificateChange(event: any) 
+            {
+                if (event.target.files && event.target.files.length > 0) {
+              this.certificateChosen = true;
+                 } else {
+                  this.certificateChosen = false;
+                 }
+            }
 
-  cancelEdit(){
-    console.log('Are you sure you want to cancel editing profile?')
+            cancelEdit()
+            {
+              this.alumni = {
+                Name: "",
+                Location: "",
+                Qualification:"" ,
+                Skills: "",
+                Experience: "",
+                Employment_Status: "",
+                Academic_Transcript: "",
+                Interest: "",
+                Bio : "",
+              }
+              
+              this.isButtonSaveAR = false;
+                this.isBtnSaveProfPic  = false;
+                this.isBtnSaveCertificate = false;
+                this.AcademicRChosen  = false;
+                this.profilePicChosen = false;
+                this.certificateChosen = false;
+                console.log('editing profile cancelled!')
+                this.message ='....cancelled!';
     
-  }
-  saveAcademicRecord(){
-     console.log('academic record saved successfully!')
-     this.isButtonSaveAR = true;
+            }
+            saveAcademicRecord()
+            {
+                  console.log('academic record saved successfully!')
+                  this.isButtonSaveAR = true;
 
-  }
+            }
 
-  saveProfilePic(){
-    console.log('profile picture saved successfully!')
-    this.isBtnSaveProfPic = true;
-  }
+            saveProfilePic()
+            {
+                console.log('profile picture saved successfully!')
+                this.isBtnSaveProfPic = true;
+            }
    
- saveCertificate(){
-    console.log('certificate saved successfully!')
-    this.isBtnSaveCertificate = true;
- }
+            saveCertificate()
+            {
+              console.log('certificate saved successfully!')
+              this.isBtnSaveCertificate = true;
+            }
 
 
 }
