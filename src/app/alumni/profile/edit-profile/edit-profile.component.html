@@ -81,9 +81,8 @@
                 <form ng-submit="vm.uploadFile()">
                     <h6>Academic Record:</h6>
                     <div class="input-group">
-                        <input type="file" class="form-control" id="academic_record"
-                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveAcademicRecord()">Save</button>
+                        <input type="file" (change)="onAcademicRecChange($event)" class="form-control" id="academic_record" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <button [disabled]="!AcademicRChosen" class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveAcademicRecord()">Save</button>
                          
                         <div *ngIf="isButtonSaveAR" class="confirmation">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" color="green" height="40" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
@@ -94,9 +93,8 @@
                     <br>
                     <h6>Upload profile picture:</h6>
                     <div class="input-group">
-                        <input type="file" class="form-control" id="profile_picture"
-                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveProfilePic()">Save</button>
+                        <input type="file" (change)="onProfilePicChange($event)" class="form-control" id="profile_picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <button [disabled]="!profilePicChosen" class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveProfilePic()">Save</button>
                 
                     <div *ngIf="isBtnSaveProfPic" class="confirmation">
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" color="green" height="40" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
@@ -107,9 +105,8 @@
                     <br>
                     <h6>Upload certificate:</h6>
                     <div class="input-group">
-                        <input type="file" class="form-control" id="aumni_certificate"
-                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveCertificate()">Save</button>
+                        <input type="file" (change)="onCertificateChange($event)" class="form-control" id="aumni_certificate" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <button [disabled]="!certificateChosen" class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveCertificate()">Save</button>
                     
                         <div *ngIf="isBtnSaveCertificate" class="confirmation">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" color="green" height="40" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">

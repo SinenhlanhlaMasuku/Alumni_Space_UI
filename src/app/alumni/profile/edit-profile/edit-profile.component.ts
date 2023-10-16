@@ -36,6 +36,10 @@ export class EditProfileComponent {
  isButtonSaveAR: boolean = false;
  isBtnSaveProfPic: boolean = false;
  isBtnSaveCertificate: boolean = false;
+ AcademicRChosen: boolean = false;
+ profilePicChosen: boolean = false;
+ certificateChosen: boolean = false;
+
   ngOnInit() {
     const storedName = localStorage.getItem('Name');
     
@@ -84,6 +88,33 @@ export class EditProfileComponent {
       // });
 
   }
+  
+   //function to handle academic record selection
+   onAcademicRecChange(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      this.AcademicRChosen = true;
+    } else {
+      this.AcademicRChosen = false;
+    }
+  }
+
+  //function to handle profile picture selection
+  onProfilePicChange(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      this.profilePicChosen = true;
+    } else {
+      this.profilePicChosen = false;
+    }
+  }
+  //function to handle certificate selection
+  onCertificateChange(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      this.certificateChosen = true;
+    } else {
+      this.certificateChosen = false;
+    }
+  }
+
   cancelEdit(){
     console.log('Are you sure you want to cancel editing profile?')
     
