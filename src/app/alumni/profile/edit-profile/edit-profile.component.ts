@@ -17,7 +17,7 @@ export class EditProfileComponent {
     this.service.viewProfile();
   }*/
 
-  //constructor(public dialog: MatDialog) {}
+  
 
   //variables
   alumni = {
@@ -49,8 +49,21 @@ export class EditProfileComponent {
     }
   }
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {}
+  //using confirmation dialog to confirm user saving profile
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+     width: '400px',
+     
+     data: {}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.saveProfile(); // Call the saveProfile function when the dialog is confirmed
+      }
+    });
+  }
   saveProfile(){
     //get user_id
     const user_id = localStorage.getItem('account_id');
@@ -67,17 +80,16 @@ export class EditProfileComponent {
      
     });
 
-
+    this.openDialog();
       
       console.log(formData);
       console.log(user_id);
       this.message = 'profile saved!';
-      this.message += `\nFull Name: ${this.alumni.Name}`;
-      this.message += `\nLocation: ${this.alumni.Location}`;
+      // this.message += `\nFull Name: ${this.alumni.Name}`;
+      // this.message += `\nLocation: ${this.alumni.Location}`;
 
 
-        //using confirmation dialog to confirm user saving profile
-      // const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+        
 
       // dialogRef.afterClosed().subscribe(result => {
       //   if (result) {
@@ -87,7 +99,7 @@ export class EditProfileComponent {
       //   }
       // });
 
-  }
+     }
   
    //function to handle academic record selection
    onAcademicRecChange(event: any) {

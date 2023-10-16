@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ServicesPageComponent } from './services-page/services-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule} from '@angular/material/button';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
@@ -28,6 +30,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     AppRoutingModule,
     FormsModule, // Add FormsModule
     HttpClientModule, BrowserAnimationsModule, // Add HttpClientModule
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
