@@ -17,7 +17,7 @@ export class EditProfileComponent {
     this.service.viewProfile();
   }*/
 
-  constructor(public dialog: MatDialog) {}
+  //constructor(public dialog: MatDialog) {}
 
   //variables
   alumni = {
@@ -32,6 +32,10 @@ export class EditProfileComponent {
           Bio : "",
   }
  message: string ='';
+ 
+ isButtonSaveAR: boolean = false;
+ isBtnSaveProfPic: boolean = false;
+ isBtnSaveCertificate: boolean = false;
   ngOnInit() {
     const storedName = localStorage.getItem('Name');
     
@@ -69,15 +73,15 @@ export class EditProfileComponent {
 
 
         //using confirmation dialog to confirm user saving profile
-      const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+      // const dialogRef = this.dialog.open(ConfirmationDialogComponent);
 
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          // Call the save profile function here
-          //this.confirmSave();
-          this.saveProfile();
-        }
-      });
+      // dialogRef.afterClosed().subscribe(result => {
+      //   if (result) {
+      //     // Call the save profile function here
+      //     //this.confirmSave();
+      //     this.saveProfile();
+      //   }
+      // });
 
   }
   cancelEdit(){
@@ -86,14 +90,18 @@ export class EditProfileComponent {
   }
   saveAcademicRecord(){
      console.log('academic record saved successfully!')
+     this.isButtonSaveAR = true;
+
   }
 
   saveProfilePic(){
     console.log('profile picture saved successfully!')
+    this.isBtnSaveProfPic = true;
   }
    
  saveCertificate(){
     console.log('certificate saved successfully!')
+    this.isBtnSaveCertificate = true;
  }
 
 
