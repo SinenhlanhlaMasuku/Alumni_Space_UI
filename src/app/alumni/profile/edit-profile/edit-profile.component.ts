@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/confirmation-dialog/confirmation-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-edit-profile',
@@ -51,7 +53,7 @@ export class EditProfileComponent {
     }
   }
 
-  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {}
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog, private snackBar: MatSnackBar) {}
   //using confirmation dialog to confirm user saving profile
   openDialog(): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -63,9 +65,22 @@ export class EditProfileComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.saveProfile(); // Call the saveProfile function when the dialog is confirmed
+        this.showSnackbar('Profile saved successfully!');
       }
+      
+    });
+
+  }
+  //snackbar for displaying success / error messages
+
+  showSnackbar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 2000, // Duration the snackbar is shown in milliseconds
     });
   }
+  
+
+
   saveProfile(){
 
               //open confirmatiom dialog

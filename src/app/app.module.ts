@@ -14,6 +14,7 @@ import { ServicesPageComponent } from './services-page/services-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule} from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     FormsModule, // Add FormsModule
     HttpClientModule, BrowserAnimationsModule, // Add HttpClientModule
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

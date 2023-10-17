@@ -121,19 +121,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     
         <button type="submit" class="btn btn-outline-info" (click)="saveProfile()">Save Changes</button>
-        <button type="button" style="margin-left: 10px;" class="btn btn-outline-secondar" (click)="cancelEdit()">Cancel</button>
+        <button type="button" style="margin-left: 10px;" class="btn btn-outline-secondary" (click)="cancelEdit()">Cancel</button>
         </form>
         <hr>
         <div class="view-profile">
             <button #view style="margin-left: 45%" class="btn btn-outline-info" routerLink="/alumni/profile/view-profile">View Profile</button>
         </div>
     </div>
-
-    <!--displaying success message if confirmation is yes-->
-    <div *ngIf="message" class="message">
-             <p>{{ message }}</p>
-        </div> 
-
-
     <hr>
 </div>
