@@ -4,11 +4,8 @@
     <div class="edit-form">
         <h2>Edit Profile</h2>
         <hr>
-        <form (ngSubmit)="saveProfile()">
-            <!-- <div *ngIf="message">
-                <h3>Saving Profile</h3>
-                <p>{{ message }}</p>
-                </div>  -->
+        <form>
+            <!--(ngSubmit)=""saveProfile()-->
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Name:</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
@@ -28,16 +25,37 @@
                 <input type="text" id="alumni_qualification" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" [(ngModel)]="alumni.Qualification" name="alumni.Qualification">
             </div>
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Skills:</span>
                 <input type="text" id="alumni_skills" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" [(ngModel)]="alumni.Skills" name="alumni.Skills">
+            </div> -->
+            <!--new skills field-->
+            <div class="input-group mb-3">
+               <!--<label for="skills">Skills:</label><br>-->
+               <span class="input-group-text" id="inputGroup-sizing-default">Skills:</span> 
+                <input type="text" id="skills" name="alumni.skills" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default" [(ngModel)]="newSkill">
+                <button (click)="addNewSkill()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg> Add More</button>
+              </div>
+              <!--add more skills-->
+              <div *ngFor="let skill of skills">
+                <div class="input-group mb-3" style="width: 20vh; margin-left: 80%;">
+                <input type="text" id="skills" name="skills" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default" [value]="skills">
+                
+              </div>
             </div>
             <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Experience:</span>
                 <input type="text" id="alumni_experience" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" [(ngModel)]="alumni.Experience" name="alumni.Experience">
             </div> -->
+
+            <div class="input-group mb-3">
             <span class="input-group-text" style="width: 25vh;" id="inputGroup-sizing-default">Experience:</span>
             <select class="form-select" id="employment_status" aria-label="Default select example" [(ngModel)]="alumni.Experience" name="alumni.Experience">
                 <option selected>Select experience</option>
@@ -47,11 +65,14 @@
                 <option value="4">3 years or above</option>
                 <option value="5">none of the above</option>
               </select>
+            </div>
             <!-- <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Employment Status:</span>
                 <input type="text" id="alumni_employ_status" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default" [(ngModel)]="alumni.Employment_Status" name="alumni.Employment_Status">
             </div> -->
+
+            <div class="input-group mb-3">
             <span class="input-group-text" style="width: 25vh;" id="inputGroup-sizing-default">Employment Status:</span>
             <select class="form-select" id="employment_status" aria-label="Default select example" [(ngModel)]="alumni.Employment_Status" name="alumni.Employment_Status">
                 <option selected>Select employment status</option>
@@ -59,6 +80,8 @@
                 <option value="2">Unemployed</option>
                 <option value="3">None</option>
               </select>
+            </div>
+
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Interest:</span>
                 <input type="text" id="alumni_interest" class="form-control" aria-label="Sizing example input"

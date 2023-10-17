@@ -28,6 +28,9 @@ export class EditProfileComponent {
   AcademicRChosen: boolean = false;
   profilePicChosen: boolean = false;
   certificateChosen: boolean = false;
+  skills: string[] = []; // array to hold skills
+  newSkill: string = ''; // Input for new skills
+
   
 
   
@@ -35,7 +38,7 @@ export class EditProfileComponent {
           Name: "",
           Location: "",
           Qualification:"" ,
-          Skills: "",
+          Skills:  "",
           Experience: "",
           Employment_Status: "",
           Academic_Transcript: "",
@@ -97,7 +100,13 @@ export class EditProfileComponent {
           this.message = 'profile saved!';
 
      }
-  
+     //add new skill
+     addNewSkill() {
+      if (this.newSkill !== '') {
+        this.skills.push(this.newSkill);
+        this.newSkill = ''; // Reset the input field after adding the skill
+      }
+    }
       //function to handle academic record selection
         onAcademicRecChange(event: any)
          {
@@ -141,6 +150,7 @@ export class EditProfileComponent {
                 Academic_Transcript: "",
                 Interest: "",
                 Bio : "",
+                
               }
               
               this.isButtonSaveAR = false;
