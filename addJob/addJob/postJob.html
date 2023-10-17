@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Posting Form</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     
+    <!-- Link to Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        /* Style for the logo */
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Style for the icons container */
+        .icons-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        /* Style for the icons */
+        .icons-container a {
+            color: white;
+            font-size: 30px;
+            margin-right: 20px; 
+            transition: color 0.3s ease; 
+        }
+
+        /* Style for the icons when clicked (purple color) */
+        .icons-container a.clicked {
+            color: purple;
+        }
+
+        /* Style for the red asterisk */
+        .red-asterisk {
+            color: red;
+        }
+       
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white p-3" style="height: 120px;">
+        <div class="container">
+            <img src="tutLogo.png" alt="tutLogo.png" class="logo">
+
+            <!-- Icons container with settings and notification icons -->
+            <div class="icons-container">
+                <!--  Notification icon -->
+                <a href="#" class="notification-icon">
+                    <i class="fas fa-bell fa-2x"></i>
+                </a>
+
+                 <!--  Settings icon -->
+                 <a href="#" class "settings-icon">
+                    <i class="fas fa-cog fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+     
+    <!-- Back button -->
+    <div class="container mt-3" style="margin-left: 50px;">
+        <a href="addJob.html" class="btn btn-primary text-white">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+    </div>
+    <div class="container mt-5">
+        <h1 class="mb-4">Post a job</h1>
+        <form id="jobPostForm" enctype="multipart/form-data"> <!-- Important: enctype attribute for file uploads -->
+            <div class="form-group">
+                <label for="jobTitle"><b>Job Title:</b><span class="red-asterisk">*</span></label>
+                <input type="text" class="form-control" id="jobTitle" required>
+            </div>
+            <div class="form-group">
+                <label for="organization"><b>Organization:</b><span class="red-asterisk">*</span></label>
+                <input type="text" class="form-control" id="organization" name="organization" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location"><b>Location:</b><span class="red-asterisk">*</span></label>
+                <select class="form-control" id="location" name="location" required>
+                    <option value="location">Location</option>
+                    <option value="Soshanguve">Soshanguve</option>
+                    <option value="Emalahleni">Emalahleni</option>
+                    <option value="Polokwane">Polokwane</option>
+                    <option value="Mbhombela">Mbhombela</option>
+                    <option value="Pretoria">Pretoria</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="workPlaceType"><b>Workplace Type:</b><span class="red-asterisk">*</span></label>
+                <select class="form-control" id="workPlaceType" name="workPlaceType" required>
+                    <option value="workPlaceType">Choose workplace type</option>
+                    <option value="Onsite">Onsite</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="Remote">Remote</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="jobType"><b>Job Type:</b><span class="red-asterisk">*</span></label>
+                <select class="form-control" id="jobType" name="jobType" required>
+                    <option value="jobType">Choose the job type</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Temporary">Temporary</option>
+                    <option value="Other">Other</option>
+                    <option value="Volunteer">Volunteer</option>
+                    <option value="Internship">Internship</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="jobDescription"><b>Job Description:</b><span class="red-asterisk">*</span></label>
+                <textarea class="form-control" id="jobDescription" name="jobDescription" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="deadline"><b>Deadline:</b></label>
+                <input type="date" class="form-control" id="deadline">
+            </div>
+
+            <div class="form-group">
+                <label for="jobPostedOn"><b>Job Posted On:</b></label>
+                <input type="date" class="form-control" id="jobPostedOn">
+            </div>
+            
+
+            <div class="form-group">
+                <label for="image">Upload Company Logo:</label>
+                <input type="file" class="form-control-file" id="image" accept="image/*">
+                <img src="" id="image-preview" alt="Image Preview" style="max-width: 100%; display: none;">
+            </div>
+            <div class="form-group">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#successModal">Post Job</button>
+            
+
+
+        </div>
+         <!-- Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Job successfully posted</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modalCloseButton">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Your job has been posted successfully.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     </form>
+    </div>
+
+    <!-- Include Bootstrap and JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+   
+    <script>
+        $(document).ready(function() {
+    // Handle file input change for image preview
+    $("#image").change(function() {
+        readURL(this);
+    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                // Display the image preview
+                $("#image-preview").attr("src", e.target.result).show();
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // Handle form submission
+    $("#jobPostForm").submit(function(event) {
+        event.preventDefault(); // Prevent the form from submitting traditionally
+
+        // Capture the form input values
+        const jobTitle = $("#jobTitle").val();
+        const organization = $("#organization").val();
+        const location = $("#location").val();
+        const workPlaceType = $("#workPlaceType").val();
+        const jobType = $("#jobType").val();
+        const jobDescription = $("#jobDescription").val();
+        const deadline = $("#deadline").val();
+        const jobPostedOn = $("#jobPostedOn").val();
+
+        // Create a new row for the job details
+        const newRow = `
+            <tr>
+                <td>${jobTitle}</td>
+                <td>${organization}</td>
+                <td>${location}</td>
+                <td>${workPlaceType}</td>
+                <td>${jobType}</td>
+                <td>${jobDescription}</td>
+                <td>${deadline}</td>
+                <td>${jobPostedOn}</td>
+            </tr>
+        `;
+
+        // Append the new row to the job table on addJob.html
+        // You can send the job details as query parameters or use a data store to save them
+        // Then, redirect to the addJob.html page
+        window.location.href = `addJob.html?jobDetails=${encodeURI(newRow)}`;
+    });
+
+    // Handle modal close button click
+    $("#successModal").on('hidden.bs.modal', function () {
+            // Navigate back to "addJob.html" when the modal is closed
+            window.location.href = "addJob.html";
+        });
+});
+
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            // ... Your existing JavaScript code ...
+
+            // Hide the Bootstrap toast when the "Delete" button is clicked
+            $("#deleteButton").click(function() {
+                // Hide the toast if it's currently shown
+                $(".toast").toast("hide");
+
+                // Show the custom modal
+                $("#deleteModal").modal("show");
+            });
+
+    });
+</script>
+<script>
+    // Function to format the current date as yyyy-mm-dd (compatible with the input type=date)
+    function getCurrentDate() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    $(document).ready(function() {
+        // Set the "Job Posted On" input field to the current date
+        $('#jobPostedOn').val(getCurrentDate());
+
+        // ... Your other JavaScript code ...
+
+        // Hide the Bootstrap toast when the "Delete" button is clicked
+        $("#deleteButton").click(function() {
+            // Hide the toast if it's currently shown
+            $(".toast").toast("hide");
+
+            // Show the custom modal
+            $("#deleteModal").modal("show");
+        });
+    });
+</script>
+</body>
+</html>
