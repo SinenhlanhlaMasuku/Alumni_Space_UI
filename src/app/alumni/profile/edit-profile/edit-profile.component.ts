@@ -30,7 +30,8 @@ export class EditProfileComponent {
   certificateChosen: boolean = false;
   skills: string[] = []; // array to hold skills
   newSkill: string = ''; // Input for new skills
-
+  certificates: File[] = [];
+  certificateNames: string[] =[]
   
 
   
@@ -79,6 +80,9 @@ export class EditProfileComponent {
   showSnackbar(message: string) {
     this.snackBar.open(message, 'Close', {
       duration: 2000, // Duration the snackbar is shown in milliseconds
+      verticalPosition: 'top', // Set the vertical position to 'top'
+      horizontalPosition: 'center', // Set the horizontal position to 'center'
+      panelClass: ['snackbar'], // Add your custom class for styling
     });
   }
   
@@ -129,13 +133,22 @@ export class EditProfileComponent {
                     }
          }
         //function to handle certificate selection
-            onCertificateChange(event: any) 
+            onCertificateChange(event: any, index: number) 
             {
                 if (event.target.files && event.target.files.length > 0) {
-              this.certificateChosen = true;
+                   const file = event.target.files[0] as File;
+                   this.certificates[index] = file;
+                   this.certificateChosen = true;
+                   this.certificateNames[index] = file.name;
                  } else {
                   this.certificateChosen = false;
                  }
+            }
+            //adding new certifacate
+            addCertificateField() {
+              this.certificates.push(new File([], ''));
+              this.certificateNames.push('');
+             
             }
 
             cancelEdit()
