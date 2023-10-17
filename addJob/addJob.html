@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Management</title>
+    <style>
+        /* Basic CSS for styling the table */
+
+        /* Your custom CSS styles here */
+        /* ... (your existing styles) ... */
+        body, header {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Centering header content vertically and horizontally */
+        header {
+            background-color: white;
+            /* White background */
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            margin-left: 20px;
+            /* Margin for the logo to the left */
+        }
+
+        .nav {
+            margin-right: 20px;
+            /* Margin for the navigation links to the right */
+            color: white;
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+            /* Use a web-safe font family */
+            font-size: 50px;
+            /* Font size for the title */
+            background-color: blue;
+            /* Blue background behind the title */
+            color: white;
+            /* Text color for the title */
+            padding: 10px 20px;
+            /* Add padding to create space around the title */
+            margin: 0;
+            /* Remove default margin to center it */
+            text-align: center;
+        }
+
+        /* Styling for the body */
+        body {
+            background: url('campus.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Styles for the main content area */
+        .main {
+            width: 100%;
+            text-align: center;
+            /* Center text horizontally */
+            position: relative;
+            /* Added to allow positioning of the background image */
+        }
+
+        /* Styles for the blue square 
+        .box {
+            margin-top: 200px;
+            width: 500px;
+            height: 500px;
+            background-color: white;
+            padding: 30px;
+            margin: 20px auto;
+            text-align: center;
+            color: blue;
+        }*/
+
+        .labels {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .labels > div {
+            width: calc(33.33% - 10px);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Make the "Add Job" button blue */
+        #add-job {
+
+            display: block;
+            width: 200px; /* Adjust the width as needed */
+            height: 50px; /* Adjust the height as needed */
+            margin: 0 auto; /* Center horizontally */
+            background-color: blue;
+            color: white;
+            font-size: 20px; /* Adjust the font size as needed */
+            border: none;
+            border-radius: 5px;
+        }
+        #add-job:hover {
+            background-color: #0066cc; /* Darker blue on hover */
+        }
+
+        /* Make the "Edit" button green */
+        .edit-button {
+            background-color: green;
+            color: white;
+        }
+
+        /* Make the "Delete" button red */
+        .delete-button {
+            background-color: red;
+            color: white;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 10px; /* Smaller padding */
+            border: 1px solid #888;
+            width: 30%; /* Smaller width */
+            text-align: center;
+        }
+
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="tutlogo.png" width="100">
+    </div>
+    <div class="nav">
+        <a href="#"><b>Home</b></a>
+        <a href="#"><b>Profile</b></a>
+        <a href="#"><b>My Network</b></a>
+        <a href="#"><b>Opportunities</b></a>
+        <a href="#"><b>Events</b> |</a>
+        <a href="#"><b>Notifications</b></a>
+        <a href="#"><b>Logout</b></a>
+    </div>
+</header>
+<h1>Add Job</h1>
+
+<p></p>
+<p></p>
+<p></p>
+      <a href="postJob.html">
+        <button id="add-job" type="submit" style="background-color: blue; color: white;" >Add Job</button>
+        </a>
+        <p></p>
+        <p></p>
+        <p></p>
+    <table id="job-table">
+        <thead>
+        <tr>
+            <th>Job Title</th>
+            <th>Organization</th>
+            <th>Location</th>
+            <th>Workplace Type</th>
+            <th>Job Type</th>
+            <th>Job Description</th>
+            <th>Deadline</th>
+            <th>Job Posted On</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <!-- Job entries will be inserted here -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="delete-modal">
+    <div class="modal-content">
+        <p>Are you sure you want to delete this job?</p>
+        <div class="modal-buttons">
+            <button id="confirm-delete" style="background-color: red; color: white;">Yes</button>
+            <button id="cancel-delete">No</button>
+        </div>
+    </div>
+</div>
+<script>
+    // Function to parse query parameters from the URL
+    function getQueryVariable(variable) {
+        const query = window.location.search.substring(1);
+        const vars = query.split('&');
+        for (let i = 0; i < vars.length; i++) {
+            const pair = vars[i].split('=');
+            if (decodeURIComponent(pair[0]) === variable) {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+        return null;
+    }
+
+    // Retrieve the job details from the query parameter
+    const jobDetails = getQueryVariable("jobDetails");
+
+    // Append the job details to the job table
+    if (jobDetails) {
+        // Assuming you have a table with ID "job-table" on the page
+        $("#job-table tbody").append(decodeURI(jobDetails));
+    }
+</script>
+
+
+<script>
+    const jobForm = document.getElementById('job-form');
+    const titleInput = document.getElementById('title');
+    const descriptionInput = document.getElementById('description');
+    const jobTable = document.getElementById('job-table');
+    const deleteModal = document.getElementById('delete-modal');
+    const confirmDeleteButton = document.getElementById('confirm-delete');
+    const cancelDeleteButton = document.getElementById('cancel-delete');
+
+    let jobIdCounter = 1;
+    let selectedJobId = null;
+
+    jobForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const title = titleInput.value;
+        const description = descriptionInput.value;
+
+        if (title && description) {
+            addJob(title, description);
+            titleInput.value = '';
+            descriptionInput.value = '';
+        }
+    });
+
+    function addJob(title, description) {
+        const row = jobTable.insertRow();
+        const cell1 = row.insertCell(0);
+        const cell2 = row.insertCell(1);
+        const cell3 = row.insertCell(2);
+
+        cell1.innerHTML = title;
+        cell2.innerHTML = description;
+        cell3.innerHTML = `
+            <button class="edit-button" onclick="editJob(${jobIdCounter})">Edit</button>
+            <button class="delete-button" onclick="confirmDelete(${jobIdCounter})">Delete</button>
+        `;
+
+        row.setAttribute('data-id', jobIdCounter);
+        jobIdCounter++;
+    }
+
+    function editJob(jobId) {
+        const row = jobTable.querySelector(`[data-id="${jobId}"]`);
+        const title = row.cells[0].innerHTML;
+        const description = row.cells[1].innerHTML;
+
+        titleInput.value = title;
+        descriptionInput.value = description;
+
+        selectedJobId = jobId;
+
+        showDeleteModal();
+    }
+
+    function confirmDelete(jobId) {
+        selectedJobId = jobId;
+        showDeleteModal();
+    }
+
+    function showDeleteModal() {
+        deleteModal.style.display = 'block';
+    }
+
+    function hideDeleteModal() {
+        deleteModal.style.display = 'none';
+    }
+
+    confirmDeleteButton.addEventListener('click', function () {
+        if (selectedJobId !== null) {
+            deleteJob(selectedJobId);
+            hideDeleteModal();
+        }
+    });
+
+    cancelDeleteButton.addEventListener('click', function () {
+        selectedJobId = null;
+        hideDeleteModal();
+    });
+
+    function deleteJob(jobId) {
+        const row = jobTable.querySelector(`[data-id="${jobId}"]`);
+        jobTable.deleteRow(row.rowIndex);
+    }
+</script>
+
+<!-- Inside addJob.html -->
+<!-- Add this JavaScript code at the bottom, before closing the </body> tag -->
+
+</body>
+</html>
