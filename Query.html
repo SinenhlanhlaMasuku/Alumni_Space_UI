@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Queries</title>
+  <style>
+    body {
+      background: url('yytf (2).jpeg');
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: black;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative; /* Added this line */
+    }
+
+    .logo img {
+      position: absolute;
+      top: 15px; /* Adjust this value to control the vertical position */
+      left: 20px;
+      width: 100px;
+      height: 95px;
+    }
+
+    .question {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: white;
+      font-style: normal;
+      margin-top: 0%;
+      padding-right: 15%;
+      text-align: center; /* Added this line to center align the text */
+    }
+
+    .user-question {
+      background-color: gainsboro;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      text-align: center; /* Added this line to center align the input field */
+    }
+
+    #user-question-input {
+      width: 45%;
+      height: 55%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-style: italic;
+      display: block; /* Added this line to make it a block-level element */
+      margin: 20px auto; /* Adjust this value to control vertical spacing */
+    }
+
+    #ask-button {
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      width: 15%;
+      font-style: italic;
+      margin: 0 auto; /* Added this line to center the button */
+      display: block; /* Added this line to make it a block-level element */
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ask A Question :-)</h1>
+    <div class="logo">
+      <img src="images.jpeg" width="200" height="150" alt="TUT logo"/>
+    </div>
+  </header>
+
+  <div class="question">
+    <h2>Hello, how can we help you?</h2>
+  </div>
+
+  <div class="user-question">
+    <input type="text" id="user-question-input" placeholder="Ask your question..." required="">
+    <button id="ask-button">Ask</button>
+  </div>
+
+  <!-- Modal for success message -->
+  <div id="success-modal" class="modal">
+    <div class="modal-content">
+      <p>Question successfully asked</p>
+      <button id="close-modal-button">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Function to display the success modal
+    function showSuccessModal() {
+      const modal = document.getElementById('success-modal');
+      modal.style.display = 'block';
+    }
+
+    // Function to close the modal
+    function closeSuccessModal() {
+      const modal = document.getElementById('success-modal');
+      modal.style.display = 'none';
+    }
+
+    // Event listener for the "Ask" button
+    const askButton = document.getElementById('ask-button');
+    askButton.addEventListener('click', function() {
+      // Perform any necessary actions here
+      // For now, let's just show the success modal
+      showSuccessModal();
+    });
+
+    // Event listener for the "Close" button in the modal
+    const closeModalButton = document.getElementById('close-modal-button');
+    closeModalButton.addEventListener('click', function() {
+      // Close the success modal
+      closeSuccessModal();
+    });
+  </script>
+</body>
+</html>
