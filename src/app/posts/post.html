@@ -630,48 +630,18 @@ Header END -->
 						</li> -->
 
 						<li class="nav-item">
-							<a class="nav-link bg-light py-1 px-2 mb-0" href="#!" onclick="openActivityInput()">
-							  <i class="bi bi-emoji-smile-fill text-warning pe-2"></i>Feeling / Activity
+							<a class="nav-link bg-light py-1 px-2 mb-0" href="#!" onclick="openFileInput()">
+							  <i class="bi bi-camera-reels-fill text-info pe-2"></i>Feeling /Activity
 							</a>
 						  </li>
 						  
-						  <!-- Add a hidden input form within a modal -->
-						  <div class="modal fade" id="modalCreateFeed" tabindex="-1" aria-labelledby="modalCreateFeedLabel" aria-hidden="true">
-							<div class="modal-dialog">
-							  <div class="modal-content">
-								<div class="modal-header">
-								  <h5 class="modal-title" id="modalCreateFeedLabel">Share Your Activity</h5>
-								  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-								</div>
-								<div class="modal-body">
-								  <form>
-									<div class="mb-3">
-									  <label for="activityDescription" class="form-label">What activity are you doing?</label>
-									  <input type="text" class="form-control" id="activityDescription" placeholder="Enter your activity">
-									</div>
-								  </form>
-								</div>
-								<div class="modal-footer">
-								  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								  <button type="button" class="btn btn-primary" onclick="submitActivity()">Share</button>
-								</div>
-							  </div>
-							</div>
-						  </div>
+						  <!-- Add the hidden file input element -->
+						  <input type="file" id="fileInput" style="display: none;" accept="video/*">
 						  
 						  <script>
-							// JavaScript function to open the activity input form
-							function openActivityInput() {
-							  $('#modalCreateFeed').modal('show');
-							}
-						  
-							// JavaScript function to handle the submission of the activity
-							function submitActivity() {
-							  const activityDescription = document.getElementById('activityDescription').value;
-							  // Process and store the activity description as needed
-							  // You can send it to a server or perform other actions here
-							  // Close the modal if necessary
-							  $('#modalCreateFeed').modal('hide');
+							// JavaScript function to trigger the file input dialog
+							function openFileInput() {
+							  document.getElementById("fileInput").click();
 							}
 						  </script>
 						  
