@@ -511,7 +511,7 @@ Header END -->
 			<!-- Main content START -->
 			<div class="col-md-8 col-lg-6 vstack gap-4">
 
-				<!-- Story START -->
+				<!-- Story START 
         <div class="d-flex gap-2 mb-n3">
 					<div class="position-relative">
 						<div class="card border border-2 border-dashed h-150px px-4 px-sm-5 shadow-none d-flex align-items-center justify-content-center text-center">
@@ -520,7 +520,28 @@ Header END -->
 								<h6 class="mt-2 mb-0 small">Post a Story</h6>
 							</div>
 						</div>
-					</div>
+					</div> -->
+
+					<div class="d-flex gap-2 mb-n3">
+						<div class="position-relative">
+						  <div class="card border border-2 border-dashed h-150px px-4 px-sm-5 shadow-none d-flex align-items-center justify-content-center text-center">
+							<div>
+							  <!-- Add an input element for file upload and a label -->
+							  <input type="file" id="fileInput" style="display: none;" accept="image/*">
+							  <label for="fileInput" class="stretched-link btn btn-light rounded-circle icon-md" onclick="openFileSelection()"><i class="fa-solid fa-plus"></i></label>
+							  <h6 class="mt-2 mb-0 small">Post a Story</h6>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					  
+					  <script>
+						// JavaScript function to open the file selection dialog
+						function openFileSelection() {
+						  document.getElementById("fileInput").click();
+						}
+					  </script>
+					  
 
 					<!-- Stories -->
 					<div id="stories" class="storiesWrapper stories-square stories user-icon carousel scroll-enable"></div>
@@ -541,18 +562,120 @@ Header END -->
 					</div>
 					<!-- Share feed toolbar START -->
 					<ul class="nav nav-pills nav-stack small fw-normal">
-						<li class="nav-item">
+		<!--			<li class="nav-item">
 							<a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto"> <i class="bi bi-image-fill text-success pe-2"></i>Photo</a>
-						</li>
+						</li> -->
+
 						<li class="nav-item">
+							<a class="nav-link bg-light py-1 px-2 mb-0" href="#!" onclick="openFileInput()">
+							  <i class="bi bi-image-fill text-success pe-2"></i>Photo
+							</a>
+						  </li>
+						  
+						  <!-- Add the hidden file input element -->
+						  <input type="file" id="fileInput" style="display: none;" accept="image/*">
+						  
+						  <script>
+							// JavaScript function to trigger the file input dialog
+							function openFileInput() {
+							  document.getElementById("fileInput").click();
+							}
+						  </script>
+						  
+
+
+			<!--		<li class="nav-item">
 							<a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionVideo"> <i class="bi bi-camera-reels-fill text-info pe-2"></i>Video</a>
-						</li>
+						</li> -->
+
 						<li class="nav-item">
+							<a class="nav-link bg-light py-1 px-2 mb-0" href="#!" onclick="openFileInput()">
+							  <i class="bi bi-camera-reels-fill text-info pe-2"></i>Video
+							</a>
+						  </li>
+						  
+						  <!-- Add the hidden file input element -->
+						  <input type="file" id="fileInput" style="display: none;" accept="video/*">
+						  
+						  <script>
+							// JavaScript function to trigger the file input dialog
+							function openFileInput() {
+							  document.getElementById("fileInput").click();
+							}
+						  </script>
+
+
+		<!--			<li class="nav-item">
 							<a href="#" class="nav-link bg-light py-1 px-2 mb-0" data-bs-toggle="modal" data-bs-target="#modalCreateEvents"> <i class="bi bi-calendar2-event-fill text-danger pe-2"></i>Event </a>
-						</li>
+						</li> -->
+
 						<li class="nav-item">
+							<a class="nav-link bg-light py-1 px-2 mb-0" href="#!" onclick="openFileInput()">
+							  <i class="bi bi-camera-reels-fill text-info pe-2"></i>Event
+							</a>
+						  </li>
+						  
+						  <!-- Add the hidden file input element -->
+						  <input type="file" id="fileInput" style="display: none;" accept="video/*">
+						  
+						  <script>
+							// JavaScript function to trigger the file input dialog
+							function openFileInput() {
+							  document.getElementById("fileInput").click();
+							}
+						  </script>
+
+		<!--			<li class="nav-item">
 							<a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#modalCreateFeed"> <i class="bi bi-emoji-smile-fill text-warning pe-2"></i>Feeling /Activity</a>
-						</li>
+						</li> -->
+
+						<li class="nav-item">
+							<a class="nav-link bg-light py-1 px-2 mb-0" href="#!" onclick="openActivityInput()">
+							  <i class="bi bi-emoji-smile-fill text-warning pe-2"></i>Feeling / Activity
+							</a>
+						  </li>
+						  
+						  <!-- Add a hidden input form within a modal -->
+						  <div class="modal fade" id="modalCreateFeed" tabindex="-1" aria-labelledby="modalCreateFeedLabel" aria-hidden="true">
+							<div class="modal-dialog">
+							  <div class="modal-content">
+								<div class="modal-header">
+								  <h5 class="modal-title" id="modalCreateFeedLabel">Share Your Activity</h5>
+								  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+								  <form>
+									<div class="mb-3">
+									  <label for="activityDescription" class="form-label">What activity are you doing?</label>
+									  <input type="text" class="form-control" id="activityDescription" placeholder="Enter your activity">
+									</div>
+								  </form>
+								</div>
+								<div class="modal-footer">
+								  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								  <button type="button" class="btn btn-primary" onclick="submitActivity()">Share</button>
+								</div>
+							  </div>
+							</div>
+						  </div>
+						  
+						  <script>
+							// JavaScript function to open the activity input form
+							function openActivityInput() {
+							  $('#modalCreateFeed').modal('show');
+							}
+						  
+							// JavaScript function to handle the submission of the activity
+							function submitActivity() {
+							  const activityDescription = document.getElementById('activityDescription').value;
+							  // Process and store the activity description as needed
+							  // You can send it to a server or perform other actions here
+							  // Close the modal if necessary
+							  $('#modalCreateFeed').modal('hide');
+							}
+						  </script>
+						  
+
 						<li class="nav-item dropdown ms-lg-auto">
 							<a class="nav-link bg-light py-1 px-2 mb-0" href="#" id="feedActionShare" data-bs-toggle="dropdown" aria-expanded="false">
 								<i class="bi bi-three-dots"></i>
