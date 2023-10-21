@@ -1,0 +1,130 @@
+header {
+    background-color: white;
+    width: 100%;
+    position: sticky;
+    justify-content: space-between; /* Push the logo and menu to opposite ends */
+    align-items: center;
+    z-index: 100;
+    display: flex;
+    padding: 10px; /* Adjusted padding for spacing */
+    
+}
+
+.logo {
+    display: flex; /* Display logo and text container in a row */
+    align-items: center; /* Vertically center logo and text */
+}
+
+.logo img {
+    height: 95px;
+    margin-right: 10px; /* Add some space between the logo and text */
+}
+
+.text-container p {
+    font-size: 18px;
+    margin: 0; /* Remove margin for the text */
+    color: blue;
+}
+.nav-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+/* Additional styles for the navigation menu items */
+.nav-menu ul li {
+    display: inline-block;
+}
+
+.nav-menu ul li a {
+    color: black;
+    font-size: 17px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+#addedImageContainer{
+    padding-bottom: 20px;
+}
+
+#navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#navbar ul li {
+    display: inline-block;
+    margin-right: 10px; /* Optional: Add space between list items */
+}
+
+#navbar ul li a {
+    text-decoration: none; /* Remove underlines from links */
+}
+
+/* Optional: Style the active link differently */
+#navbar ul li a.active {
+    font-weight: bold;
+}
+.align-items-center {
+    align-items: center!important;
+}
+.justify-content-between {
+    justify-content: space-between!important;
+}
+.d-flex {
+    display: flex!important;
+}
+h1 {
+    text-align: center;
+    color: #feb900;
+}
+
+/*fOOTER STYLING*/
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 15%;
+    background: #364d59;
+    color: #efefef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer div {
+    text-align: center;
+}
+.col-1{
+    color: black;
+  
+
+}
+.col-2 {
+    color: gold;
+    flex-grow: 2;
+}
+
+.footer div h3 {
+    font-weight: 300;
+   
+    letter-spacing: 1px;
+}
+
+.col-1 h2,
+        .col-2 h3 {
+            margin: 0; /* Remove default margin */
+            display: inline; /* Make them inline */
+        }
+
