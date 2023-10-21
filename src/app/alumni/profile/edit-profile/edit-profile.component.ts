@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/confirmation-dialog/confirmation-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -193,6 +193,9 @@ export class EditProfileComponent {
             {
               console.log('certificate saved successfully!')
               this.isBtnSaveCertificate = true;
+            }
+            returnHome(){
+              this.router.navigate(['/home']);
             }
 
 
