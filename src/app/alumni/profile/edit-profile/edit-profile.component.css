@@ -4,6 +4,9 @@ body .h1 {
     align-items: center;
     position: fixed;
 }
+.edit-form h2{
+    text-align: center;
+}
 
 .card {
     padding: 10px 10px 10px;
@@ -99,4 +102,9 @@ body .h1 {
 .top-button button{
    margin-right: -100%;
    margin-top: 1px;
+   color: blue;
+   border-radius: 50%;
+   border-color: #ccc;
+   border-style: double;
+   border-spacing: 20px;
 }
