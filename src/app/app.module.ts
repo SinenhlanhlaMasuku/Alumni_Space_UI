@@ -26,7 +26,8 @@ import { LastFewNotificationsComponent } from './homepage/Admin-home/last-few-no
 //import { FontAwesomeModule } from '.@fortawesome/angular-fontawesome';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'angular-highcharts';
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+//import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer'; // Import PdfViewerModule from ng2-pdf-viewer
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     MatSnackBarModule,
     FontAwesomeModule,
     ChartModule,
-    NgxExtendedPdfViewerModule
+    //NgxExtendedPdfViewerModule
+    PdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -32,7 +32,8 @@ export class EditProfileComponent {
   newSkill: string = ''; // Input for new skills
   certificates: File[] = [];
   certificateNames: string[] =[]
-  
+  fileTypeError: string = '';
+  fileTypeError2: string = '';
 
   
   alumni = {
@@ -67,14 +68,16 @@ export class EditProfileComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
+      if (result == true) {
         this.saveProfile(); // Call the saveProfile function when the dialog is confirmed
         this.showSnackbar('Profile saved successfully!');
+        //this.dialog.exit("true");
       }
       
     });
 
   }
+  
   //snackbar for displaying success / error messages
 
   showSnackbar(message: string) {
@@ -91,7 +94,7 @@ export class EditProfileComponent {
   saveProfile(){
 
               //open confirmatiom dialog
-               this.openDialog();
+               //this.openDialog();
               //get user_id
          const user_id = localStorage.getItem('account_id');
       
@@ -102,13 +105,22 @@ export class EditProfileComponent {
            console.log(formData);
            console.log(user_id);
           this.message = 'profile saved!';
+          this.openDialog();
+          //alert('Do you really want to save profile?')
+          //this.showSnackbar('Profile saved successfully!');
+          
+
 
      }
      //add new skill
      addNewSkill() {
-      if (this.newSkill !== '') {
+      
+      if (this.newSkill.trim() !== '') {
+        const arrayLength = this.skills.length;
+        // this.skills.splice(1, arrayLength);
         this.skills.push(this.newSkill);
         this.newSkill = ''; // Reset the input field after adding the skill
+        
       }
     }
       //function to handle academic record selection
@@ -131,6 +143,19 @@ export class EditProfileComponent {
              } else {
                  this.profilePicChosen = false;
                     }
+                    const file: File = event.target.files[0];
+                    const fileType = file.type;
+                   const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+
+                    if (!allowedTypes.includes(fileType)) {
+                        this.fileTypeError = 'Invalid file type. Please select a JPG, JPEG, or PNG file.';
+                       // Reset the file input if needed
+                        event.target.value = null;
+                   } else {
+                        this.fileTypeError = ''; // Reset the error message if the file type is valid
+                              // File type is valid, proceed with the file upload or other actions
+                               // Your code here
+                }
          }
         //function to handle certificate selection
             onCertificateChange(event: any, index: number) 
@@ -142,6 +167,20 @@ export class EditProfileComponent {
                    this.certificateNames[index] = file.name;
                  } else {
                   this.certificateChosen = false;
+                 }
+
+                 const file: File = event.target.files[0];
+                 const fileType = file.type;
+                 const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+
+                 if (!allowedTypes.includes(fileType)) {
+                    this.fileTypeError2 = 'Invalid file type. Please select a DOCX or PDF file.';
+                    // Reset the file input if needed
+                    event.target.value = null;
+                 } else {
+                       this.fileTypeError2 = 'correct file!'; // Reset the error message if the file type is valid
+                                                   // File type is valid, proceed with the file upload or other actions
+                                     // Your code here
                  }
             }
             //adding new certifacate

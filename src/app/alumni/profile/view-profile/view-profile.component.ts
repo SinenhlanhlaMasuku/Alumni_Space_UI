@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 //import { UserProfileService } from '../user-profile.service';
-//import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+// import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @Component({
   selector: 'app-view-profile',
@@ -19,8 +19,18 @@ export class ViewProfileComponent {
     Employment_Status: "Employment_Status placeholder",
     Academic_Transcript: "Academic_Transcript placeholder",
     Interest: "Interest placeholder",
-    Bio: "Bio placeholder",
+    Bio: "bio placeholder",
+    
   }
+
+  certificates: string[] =[ 'assets/certificate1.pdf',
+  'assets/certificate2.pdf',
+'assets/certifacate3.pdf']; 
+ 
+ certificateNames: string[] =[];
+ academicTranscripts: any[] = ['transcript1','transcript2', 'transcript3'];
+  icounter = 0;
+
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -59,11 +69,20 @@ export class ViewProfileComponent {
       this.alumni.Name = storedName;
     }
   }
-
-
-  /*constructor(@Inject(UserProfileService) private service : UserProfileService){
+  deleteCertificate(index: number){
+    // this.certificateNames[i].delete()
+    if (index !== -1) {
+      this.certificates.splice(index, 1); // Remove the certificate at the specified index
+      this.certificateNames.splice(index, 1); // Remove the corresponding name at the same index
+      //this.fileTypeError.splice(index, 1); // Remove the error message at the same index
+    }
   }
-  editProfile(view: HTMLButtonElement){
-    this.service.editProfile();
-  }*/
+  deleteAcademicrecord(index: number){
+    if (index !== -1) {
+      this.icounter = this.icounter + 1;
+      this.academicTranscripts.splice(index, this.icounter); // Remove the academic transcript at the specified index
+      this.icounter++;
+     alert('deleted successfully!')
+    }
+  }
 }
