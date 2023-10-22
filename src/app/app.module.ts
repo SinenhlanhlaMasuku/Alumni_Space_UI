@@ -27,7 +27,10 @@ import { LastFewNotificationsComponent } from './homepage/Admin-home/last-few-no
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'angular-highcharts';
 //import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
-import { PdfViewerModule } from 'ng2-pdf-viewer'; // Import PdfViewerModule from ng2-pdf-viewer
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
+import { MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +48,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer'; // Import PdfViewerModule from
     JobsStatsComponent,
     EventsStatsComponent,
     LastFewNotificationsComponent,
+    TrackAlumniComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer'; // Import PdfViewerModule from
     FontAwesomeModule,
     ChartModule,
     //NgxExtendedPdfViewerModule
-    PdfViewerModule
+    PdfViewerModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
