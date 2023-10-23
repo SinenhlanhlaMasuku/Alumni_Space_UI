@@ -31,6 +31,29 @@ export class LoginComponent {
       this.fullname = '';
     });
   }
+
+  onSend(){
+    const formData = { email: this.email, password: this.password };
+    this.http.post('http://localhost:5000/api/login', formData).subscribe((response: any) => {
+      console.log('Data sent to server:', response);
+      // Clear the form fields after successful submission
+      this.email = '';
+      this.password = '';
+
+      if(response.message === 'Login successful!' ){
+        console.log(response.result[0].name);
+        console.log(response.account_id);
+        //store user details to localStorage
+        localStorage.setItem('name',response.result[0].name.toString());
+        localStorage.setItem('account_id',response.account_id);
+
+        this.router.navigate(['/homepage']);
+      }else{
+        this.router.navigate(['/forgot-password']);
+      }
+      
+    });
+  }
 }
 // Add a click event listener to the "Student" and "Admin" links
 const studentLink = document.getElementById("student");

@@ -6,7 +6,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AdminHomeComponent } from './homepage/Admin-home/admin-home/admin-home.component';
 import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
 
-
 const routes: Routes = [
   { path: 'ew', component: LoginComponent },
   { path: 'home', component: HomepageComponent },
