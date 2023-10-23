@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule} from '@angular/material/button';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -29,7 +29,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     FormsModule,
     MatDialogModule,
     MatButtonModule,
-    BrowserAnimationsModule,
+    //BrowserAnimationsModule,
     RouterModule.forChild([
       { path: 'view-profile',component: ViewProfileComponent },
       { path: 'edit-profile',component: EditProfileComponent },
