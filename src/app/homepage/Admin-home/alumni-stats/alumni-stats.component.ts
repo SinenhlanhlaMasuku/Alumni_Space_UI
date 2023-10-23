@@ -37,7 +37,10 @@ export class AlumniStatsComponent {
     },
     xAxis: {
      
-      categories: this.months
+      categories: this.months,
+      title: {
+        text: 'Months'
+      }
     },
     yAxis: {
        title: {

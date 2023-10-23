@@ -1,17 +1,31 @@
 <!-- <p>track-alumni works!</p> -->
-<app-navbar></app-navbar>
+     <app-navbar></app-navbar>
 <div class="container-fluid">
-    <div class="header">
-        <h1>Alumni statistics</h1>
+  <hr> 
+  <div class="header">
+        <h1>Alumni Statistics</h1>
     </div>
     <hr>
- <div class="top-content">
+    <div class="alumni-toggler">
+      <button type="button" class="btn btn-primary" (click)="toggleAlumniStatsChart()">
+        {{ showAlumniStats ? 'Hide Alumni Stats' : 'View Alumni Stats' }}
+      </button>
+     </div>
+ <div  *ngIf="showAlumniStats" class="top-content">
      <app-alumni-stats></app-alumni-stats>
  </div> 
  <div class="header">
+  <hr>
     <h1>List of Alumni</h1>
+    <hr>
 </div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> 
+   <div class="alumni-toggler">
+    <button type="button" class="btn btn-primary" (click)="toggleAlumniTable()">
+      {{ showAlumniTable ? 'Hide Alumni Table' : 'View Alumni Table' }}
+    </button>
+   </div>
+  <div class="alumni-table">
+    <table *ngIf="showAlumniTable" mat-table [dataSource]="dataSource" class="mat-elevation-z8"> 
         <!-- Position Column -->
   <ng-container matColumnDef="alumni_Id">
     <th mat-header-cell *matHeaderCellDef> Alumni_Id </th>
@@ -70,4 +84,5 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+  </div>
 </div>

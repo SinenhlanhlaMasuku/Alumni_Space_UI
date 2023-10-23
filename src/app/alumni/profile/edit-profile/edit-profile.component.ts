@@ -68,12 +68,15 @@ export class EditProfileComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result == true) {
-        this.saveProfile(); // Call the saveProfile function when the dialog is confirmed
-        this.showSnackbar('Profile saved successfully!');
-        //this.dialog.exit("true");
+      if (result == false) {
+        //  this.saveProfile(); // Call the saveProfile function when the dialog is confirmed
+         this.showSnackbar('Profile saved successfully!');
+        
       }
-      
+      else{
+        // this.saveProfile(); // Call the saveProfile function when the dialog is confirmed
+        this.showSnackbar('Not saved');
+      }
     });
 
   }
@@ -104,7 +107,7 @@ export class EditProfileComponent {
            console.log('Data sent to server:', response); });
            console.log(formData);
            console.log(user_id);
-          this.message = 'profile saved!';
+          // this.message = 'profile saved!';
           this.openDialog();
           //alert('Do you really want to save profile?')
           //this.showSnackbar('Profile saved successfully!');
@@ -116,7 +119,7 @@ export class EditProfileComponent {
      addNewSkill() {
       
       if (this.newSkill.trim() !== '') {
-        const arrayLength = this.skills.length;
+        // const arrayLength = this.skills.length;
         // this.skills.splice(1, arrayLength);
         this.skills.push(this.newSkill);
         this.newSkill = ''; // Reset the input field after adding the skill

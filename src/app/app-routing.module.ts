@@ -5,7 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AdminHomeComponent } from './homepage/Admin-home/admin-home/admin-home.component';
 import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
-
+import { LastFewNotificationsComponent } from './homepage/Admin-home/last-few-notifications/last-few-notifications.component';
 
 const routes: Routes = [
   { path: 'ew', component: LoginComponent },
@@ -15,7 +15,8 @@ const routes: Routes = [
   //{ path: 'servicesPage', component: ServicesPageComponent},
   { path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule) },
   { path: 'adminHome', component: AdminHomeComponent },
-  { path: 'trackAlumni', component: TrackAlumniComponent}
+  { path: 'trackAlumni', component: TrackAlumniComponent},
+  { path: 'adminNotifications', component: LastFewNotificationsComponent}
 ];
 
 @NgModule({

@@ -1,4 +1,6 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-last-few-notifications',
@@ -6,6 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./last-few-notifications.component.css']
 })
 export class LastFewNotificationsComponent {
+  
+  // MatDialog: DialogRef;
+
   notifications = [
     {
       id:1,
@@ -38,4 +43,11 @@ export class LastFewNotificationsComponent {
       date: "12-oct-2023",
     },
   ]
+  showNotification(){
+    
+    alert('Notification viewed!');
+    //pop-up dialog to open
+ 
+  }
+
 }

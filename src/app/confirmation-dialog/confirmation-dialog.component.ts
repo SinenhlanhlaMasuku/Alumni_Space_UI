@@ -20,10 +20,10 @@ export class ConfirmationDialogComponent implements OnInit{
     this.dialogRef.close(confirm);
   }
   onConfirmClick(): void {
-    this.dialogRef.close(true);
+    this.dialogRef.close(false);
   }
 
   onCancelClick(): void {
-    this.dialogRef.close(false);
+    this.dialogRef.close(true);
   } 
 }

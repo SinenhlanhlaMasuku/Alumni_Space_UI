@@ -1,7 +1,8 @@
 <div class="notifications">
     <div class="title">Recent notifications</div>
     <div class="notifications-wrapper">
-        <div class="notification" *ngFor="let notification of notifications">
+        <div class="notification" *ngFor="let notification of notifications"  (click)="showNotification()">
+        
             <div class="subject">{{ notification.subject }}</div>
             <div class="more-info">
                 <div class="message">{{notification.message}}</div>

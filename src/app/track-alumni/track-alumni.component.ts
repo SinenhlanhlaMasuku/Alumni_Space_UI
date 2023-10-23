@@ -23,6 +23,16 @@ export class TrackAlumniComponent {
 //      this.modalRef.content.closeBtnName = 'Close';
 // }
 
+showAlumniTable: boolean = false;
+showAlumniStats: boolean = false;
+
+toggleAlumniTable() {
+  this.showAlumniTable = !this.showAlumniTable;
+}
+
+toggleAlumniStatsChart(){
+ this.showAlumniStats = ! this.showAlumniStats;
+}
 
 }
 export interface AlumniElement {
