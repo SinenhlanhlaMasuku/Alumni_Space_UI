@@ -1,12 +1,12 @@
-.online-status {
+/* .online-status {
   position: absolute;
-  /* Position the indicator */
+   Position the indicator 
   top: 22px;
-  /* Adjust top position as needed */
+   Adjust top position as needed 
   left: 22px;
-  /* Adjust left position as needed */
+  Adjust left position as needed 
   z-index: 1;
-  /* Ensure the indicator is above the image */
+   Ensure the indicator is above the image 
 }
 
 .notification-badge {
@@ -14,25 +14,25 @@
   bottom: 0;
   right: 0;
   background-color: red;
-  /* Background color of the badge */
+   Background color of the badge 
   color: white;
-  /* Text color of the badge */
+  Text color of the badge 
   border-radius: 50%;
-  /* Make it a circle */
+   Make it a circle 
   width: 20px;
-  /* Adjust the width and height as needed */
+  Adjust the width and height as needed 
   height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Custom CSS to style the icon container */
+ Custom CSS to style the icon container 
 .icon-container {
   position: relative;
-  /* Create a relative container for positioning */
+   Create a relative container for positioning 
   display: inline-block;
-  /* Ensure that it respects the content's size */
+   Ensure that it respects the content's size 
   width: 37px;
   height: 37px;
 }
@@ -45,9 +45,9 @@
   border: 1px solid #ccc;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
   display: flex;
-  /* <-------------- changes */
+  ------------- changes 
   flex-direction: row;
-  /* <-------------- changes */
+  -------------- changes 
   max-width: 100%;
   align-items: center;
 }
@@ -56,9 +56,9 @@
   padding: 0 20px 20px;
   flex-grow: 1;
   display: block;
-  /* <-------------- changes */
+  ------------ changes 
   flex-direction: column;
-  /* <-------------- changes */
+  -------------- changes 
   font-size: 20px;
   margin-top: 10px;
 }
@@ -96,4 +96,42 @@
 
 .nav-link .active {
   color: blue;
+} */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+   padding: 10px; 
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  border: 3px solid white;
+}
+.navbar a{
+  margin-top: 20px;
+}
+.navbar-content {
+  display: flex;
+}
+
+.navbar-link {
+  /* margin-top: 20px; */
+  margin: 10px;
+  text-decoration: none;
+  color: hwb(180 0% 98% / 0.856);
+  font-weight: bold;
+  height: 50px;
+  border-color: #e3f2fd;
+  border-style: ridge;
+}
+.tut-logo{
+  width: 70px;
+  /* border-radius: 50%; */
+  /* border: 2px solid blue; */
+  height: 50px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 15px;
 }

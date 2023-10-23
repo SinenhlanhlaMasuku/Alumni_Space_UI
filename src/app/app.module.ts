@@ -30,6 +30,7 @@ import { ChartModule } from 'angular-highcharts';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
 import { MatTableModule} from '@angular/material/table';
+import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { MatTableModule} from '@angular/material/table';
     EventsStatsComponent,
     LastFewNotificationsComponent,
     TrackAlumniComponent,
+    ImageViewerComponent,
   ],
   imports: [
     BrowserModule,

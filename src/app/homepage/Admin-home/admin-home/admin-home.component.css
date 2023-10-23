@@ -41,15 +41,15 @@
         margin: 10px;
         box-shadow: 5px 5px 5px #939393;
         &.left{
-            width: 670px;
+            width: 600px;
             @media only screen and (max-width: 1200px) {
                 width: 570px;
             }
         }
         &.right{
-            width: 670px;
+            width: 500px;
             @media only screen and (max-width: 1600px) {
-                width: 570px;
+                width: 470px;
             }
             @media only screen and (max-width: 1500px) {
                 width: 470px;

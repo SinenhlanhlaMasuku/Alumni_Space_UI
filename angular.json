@@ -90,15 +90,19 @@
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
-              "node_modules/bootstrap5/src/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
-            "scripts": ["node_modules/bootstrap/src/js/bootstrap.bundle.min.js",
-            "node_modules/chart.js",
-            "node_modules/highcharts/highcharts.js",
-            "node_modules/highcharts/highmaps.js",
-             "node_modules/highcharts/highstock.js"
+            "scripts": [
+              "node_modules/bootstrap/src/js/bootstrap.bundle.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/chart.js",
+              "node_modules/highcharts/highcharts.js",
+              "node_modules/highcharts/highmaps.js",
+              "node_modules/highcharts/highstock.js"
             
           ]
           }
