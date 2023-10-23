@@ -17,20 +17,21 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   onLogin() {
+    //data to pass to back-end
     const formData = { email: this.email, password: this.password };
-    this.http.post('http://localhost:3000/api/login', formData).subscribe((response: any) => {
+    //
+    this.http.post('http://localhost:5000/auth/login', formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
       // Clear the form fields after successful submission
       this.email = '';
       this.password = '';
 
-      if(response.message === 'Login successful!' ){
-        console.log(response.result[0].name);
-        console.log(response.account_id);
-        //store user details to localStorage
-        localStorage.setItem('name',response.result[0].name.toString());
-        localStorage.setItem('account_id',response.account_id);
-
+      
+      if(response){
+        //recieve data from server
+        console.log(response.password);
+        console.log(response.role);
+        ;
         this.router.navigate(['/homepage']);
       }else{
         this.router.navigate(['/forgot-password']);
@@ -39,41 +40,10 @@ export class LoginComponent {
     });
   }
 
-  /*onLogin() {
-    const formData = { email: this.email, password: this.password };
-    this.http.post('http://localhost:3000/api/login', formData, { observe: 'response' }).subscribe((response: any) => {
-        console.log('Response from server:', response);
-  
-        // Clear the form fields after submission
-        this.email = '';
-        this.password = '';
-  
-        if (response.status === 200) {
-          // Handle successful login
-          console.log('User logged in as:', response.body.result[0].name);
-          localStorage.setItem('name', response.body.result.name);
-          this.router.navigate(['/homepage']);
-        } else if (response.status === 401) {
-          // Handle invalid login
-          console.log('Invalid email or password');
-          this.router.navigate(['/forgot-password']);
-        } else {
-          // Handle other errors
-          console.log('An error occurred during login:', response.statusText);
-          // You can add additional error handling logic here if needed
-        }
-      },
-      (error) => {
-        // Handle network or other errors
-        console.error('An error occurred:', error);
-        // You can add specific error handling logic here if needed
-      }
-    );
-  } */
 
   onSubmit() {
     const formData = { fullname: this.fullname,surname: this.surname, email: this.email, password: this.password };
-    this.http.post('http://localhost:3000/api/register', formData).subscribe((response: any) => {
+    this.http.post('http://localhost:5000/auth/register', formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
       // Clear the form fields after successful submission
       this.email = '';
