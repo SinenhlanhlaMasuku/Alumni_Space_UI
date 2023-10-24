@@ -4,6 +4,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { counter } from '@fortawesome/fontawesome-svg-core';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { EMPTY } from 'rxjs';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -58,15 +59,22 @@ newEmail: string ='';
    
 SaveAdminProfile(){
   const nameSize = this.newName.length;
-  this.adminFname = this.newName.substring(0, this.newName.indexOf(' '));
-  this.adminLname = this.newName.substring(this.newName.indexOf(' '), nameSize);
-  this.contact_No = this.newcontact_No;
-  this.email = this.newEmail;
-  this.address = this.newAddress;
-  this.adminFnLletter = this.adminFname.substring(0, 1) + this.adminLname.substring(1, 2);
+  if(this.newName.length != 0){
+     this.adminFname = this.newName.substring(0, this.newName.indexOf(' '));
+     this.adminLname = this.newName.substring(this.newName.indexOf(' '), nameSize);
+     this.contact_No = this.newcontact_No;
+     this.email = this.newEmail;
+    this.address = this.newAddress;
+    this.adminFnLletter = this.adminFname.substring(0, 1) + this.adminLname.substring(1, 2);
 
   this.showSnackbar('Admin Profile saved successfully!');
   this.isEditAdminProf = !this.isEditAdminProf;
+  }else
+  {
+     this.showSnackbar('please fill the missing fields!');
+  }
+  
+  
 }
  
 }
