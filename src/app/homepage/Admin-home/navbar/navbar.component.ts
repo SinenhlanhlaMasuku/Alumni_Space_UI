@@ -63,6 +63,8 @@ SaveAdminProfile(){
   this.contact_No = this.newcontact_No;
   this.email = this.newEmail;
   this.address = this.newAddress;
+  this.adminFnLletter = this.adminFname.substring(0, 1) + this.adminLname.substring(1, 2);
+
   this.showSnackbar('Admin Profile saved successfully!');
   this.isEditAdminProf = !this.isEditAdminProf;
 }
