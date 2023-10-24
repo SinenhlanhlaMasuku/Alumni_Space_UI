@@ -4,6 +4,9 @@ body .h1 {
     align-items: center;
     position: fixed;
 }
+.edit-form h2{
+    text-align: center;
+}
 
 .card {
     padding: 10px 10px 10px;
@@ -72,4 +75,36 @@ body .h1 {
 
     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
     width: 70%;
+    margin-bottom: 10px;
+}
+.message{
+    background-color: #fff;
+    margin-top: 20px;
+
+}
+.message h6{
+  text-align: center;
+}
+.message p{
+ text-align: center;
+ color: green;
+ font-size: larger;
+}
+.confirmation{
+    margin-left: 100%;
+    /* width: 20px;
+    height: 20px; */
+}
+/* .snackbar{
+    margin-top: 6px;
+    background-color: #fff;
+} */
+.top-button button{
+   margin-right: -100%;
+   margin-top: 1px;
+   color: blue;
+   border-radius: 50%;
+   border-color: #ccc;
+   border-style: double;
+   border-spacing: 20px;
 }
