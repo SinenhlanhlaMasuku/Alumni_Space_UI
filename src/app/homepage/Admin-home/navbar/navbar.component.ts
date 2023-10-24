@@ -23,7 +23,7 @@ export class NavbarComponent {
  adminFnLletter: string = this.adminFname.substring(0,1) + this.adminLname.substring(0,1);
  contact_No: string = '0867867879';
  address: string ='245 burger str, Pretoria';
- email: string ='admin@tutalimni.com';
+ email: string ='admin@tutalumni.com';
   ShowAdminProfile(){
             
     this.isAdminProf = !this.isAdminProf;
