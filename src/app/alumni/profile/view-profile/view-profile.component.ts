@@ -11,15 +11,15 @@ import { Router } from '@angular/router';
 })
 export class ViewProfileComponent {
   alumni = {
-    Name: "name placeholder",
-    Location: "location placeholder",
+    Name: "Name placeholder",
+    Location: "Location placeholder",
     Qualification: "Qualification placeholder",
     Skills: "Skills placeholder",
     Experience: " Experience placeholder",
     Employment_Status: "Employment_Status placeholder",
     Academic_Transcript: "Academic_Transcript placeholder",
     Interest: "Interest placeholder",
-    Bio: "bio placeholder",
+    Bio: "Bio placeholder",
     
   }
 

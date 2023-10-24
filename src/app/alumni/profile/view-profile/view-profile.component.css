@@ -15,7 +15,11 @@
    
 }
 .user-cred{
-    margin-top: -325px;
+    margin-top: -200px;
+    
+}
+.user-cred p{
+    font-size: 20px;
 
 }
 .user-bio{
