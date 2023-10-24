@@ -13,13 +13,12 @@ var currentRoom="default";
 io.on('connection', (socket) => {
   console.log('a user connected');
   socket.join(currentRoom);
-  socket.broadcast.emit("message","User is online");
-
   socket.on('message', (message) => {
     console.log(message);
     //Sent as soon as a user conne
     io.to(message.room).emit('message',message);
   });
+  
 
   socket.on('leaveRoom', (room) => {
     socket.leave(room);

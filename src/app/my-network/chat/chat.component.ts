@@ -11,7 +11,7 @@ import { ChatServiceService } from 'src/app/chat-service.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
-  newMessage: Message={date: new Date().toLocaleString(),room:"default",sender:"ChatBot",text:""};
+  newMessage: Message={date: new Date().toLocaleString(),room:"",sender:"ChatBot",text:""};
   messageList: Message[] = [];
   date: string= new Date().toLocaleString();
   currentDate:string='';
@@ -21,6 +21,7 @@ export class ChatComponent {
   filtedUsers:User[]=[]
   _filterText:string='';
   groupName:string="";
+  sender:string=this.chatService.socket.id;
 
 
   
@@ -55,10 +56,15 @@ export class ChatComponent {
     this.chatService.getNewMessage().subscribe((message: Message) => {
       message.room=this.room;
       message.date=this.getCurentDate();
-      message.sender="messageYou";
+      if(message.sender == this.chatService.socket.id ){
+        message.sender="messageYou"
+      }else{
+        message.sender="messageThem"
+      }
       this.messageList.push(message);
     })
     this.filtedUsers=this.contacts;
+    
 
     
   }
@@ -69,9 +75,13 @@ export class ChatComponent {
 
   }
   sendMessage() {
-    this.newMessage.room=this.room;
-    this.chatService.sendMessage(this.newMessage);
-    this.newMessage.text='';
+    if(this.newMessage.text != ""){
+      this.newMessage.room=this.room;
+      this.newMessage.sender=this.chatService.socket.id;
+      this.chatService.sendMessage(this.newMessage);
+      this.newMessage.text='';
+    }
+
  
   }
   selectContact(name:string){
