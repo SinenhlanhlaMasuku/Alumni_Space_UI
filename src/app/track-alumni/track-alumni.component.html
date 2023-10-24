@@ -1,11 +1,11 @@
 <!-- <p>track-alumni works!</p> -->
      <app-navbar></app-navbar>
 <div class="container-fluid">
-  <hr> 
+  
   <div class="header">
         <h1>Alumni Statistics</h1>
     </div>
-    <hr>
+    
     <div class="alumni-toggler">
       <button type="button" class="btn btn-primary" (click)="toggleAlumniStatsChart()">
         {{ showAlumniStats ? 'Hide Alumni Stats' : 'View Alumni Stats' }}
@@ -15,9 +15,9 @@
      <app-alumni-stats></app-alumni-stats>
  </div> 
  <div class="header">
-  <hr>
+ 
     <h1>List of Alumni</h1>
-    <hr>
+   
 </div>
    <div class="alumni-toggler">
     <button type="button" class="btn btn-primary" (click)="toggleAlumniTable()">
@@ -85,4 +85,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
+
+     <!-- <app-top-widgets></app-top-widgets> -->
+     <app-last-few-notifications></app-last-few-notifications>
 </div>

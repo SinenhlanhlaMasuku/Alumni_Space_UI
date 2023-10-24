@@ -23,11 +23,12 @@ import { AlumniStatsComponent } from './homepage/Admin-home/alumni-stats/alumni-
 import { JobsStatsComponent } from './homepage/Admin-home/jobs-stats/jobs-stats.component';
 import { EventsStatsComponent } from './homepage/Admin-home/events-stats/events-stats.component';
 import { LastFewNotificationsComponent } from './homepage/Admin-home/last-few-notifications/last-few-notifications.component';
-//import { FontAwesomeModule } from '.@fortawesome/angular-fontawesome';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'angular-highcharts';
 //import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+// import { ViewProfileComponent } from './alumni/profile/view-profile/view-profile.component';
+// import { EditProfileComponent } from './alumni/profile/edit-profile/edit-profile.component';
 import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
 import { MatTableModule} from '@angular/material/table';
 import { ImageViewerComponent } from './image-viewer/image-viewer.component';
@@ -51,6 +52,9 @@ import { ImageViewerComponent } from './image-viewer/image-viewer.component';
     LastFewNotificationsComponent,
     TrackAlumniComponent,
     ImageViewerComponent,
+    // ViewProfileComponent,
+    // EditProfileComponent
+
   ],
   imports: [
     BrowserModule,

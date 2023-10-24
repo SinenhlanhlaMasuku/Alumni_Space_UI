@@ -1,15 +1,15 @@
 .top-section{
     @media only screen and (max-width: 1600px) {
-        width: 1280px;
+        width: 830px;
     }
     @media only screen and (max-width: 1500px) {
-        width: 1180px;
+        width: 780px;
     }
     @media only screen and (max-width: 1400px) {
-        width: 1080px;
+        width: 500px;
     }
     @media only screen and (max-width: 1200px) {
-        width: 980px;
+        width: 250px;
     }
 }
 .main-container{
@@ -47,18 +47,18 @@
             }
         }
         &.right{
-            width: 500px;
+            width: 300px;
             @media only screen and (max-width: 1600px) {
-                width: 470px;
+                width: 500px;
             }
             @media only screen and (max-width: 1500px) {
-                width: 470px;
+                width: 270px;
             }
             @media only screen and (max-width: 1400px) {
-                width: 370px;
+                width: 270px;
             }
             @media only screen and (max-width: 1200px) {
-                width: 370px;
+                width: 270px;
             }
         }
     }
