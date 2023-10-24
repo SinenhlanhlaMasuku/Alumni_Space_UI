@@ -263,27 +263,28 @@
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">Name:</span>
               <input type="text" class="form-control" aria-label="Sizing example input"
-               aria-describedby="inputGroup-sizing-default" placeholder="{{adminFname}} {{adminLname}}">
+               aria-describedby="inputGroup-sizing-default" [(ngModel)]="newName" name="newName" placeholder="{{adminFname}} {{adminLname}}">
             </div>
+            <!-- newcontact_No -->
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">contact-no:</span>
             <input type="text" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" placeholder="{{contact_No}}">
+            aria-describedby="inputGroup-sizing-default" [(ngModel)]="newcontact_No" name="newcontact_No" placeholder="{{contact_No}}">
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">address:</span>
             <input type="text" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" placeholder="{{address}}">
+            aria-describedby="inputGroup-sizing-default" [(ngModel)]="newAddress" name="newAddress" placeholder="{{address}}">
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">email:</span>
             <input type="text" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default" placeholder="{{email}}">
+            aria-describedby="inputGroup-sizing-default" [(ngModel)]="newEmail" name="newEmail" placeholder="{{email}}">
             </div>
               <div class="editAdmniP-buttons">
-                  <button type="button" class="btn btn-success">Save profile</button>
+                  <button type="button" class="btn btn-success" (click)="SaveAdminProfile()">Save profile</button>
               </div>
           </div>
 

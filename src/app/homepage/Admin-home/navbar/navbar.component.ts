@@ -2,12 +2,16 @@ import { Component } from '@angular/core';
 import { LastFewNotificationsComponent } from '../last-few-notifications/last-few-notifications.component';
 import { ThisReceiver } from '@angular/compiler';
 import { counter } from '@fortawesome/fontawesome-svg-core';
+// import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+
+  constructor(private snackBar: MatSnackBar) {}
 
   notificatinId: number=0;
   // notification_Date: string ='23-Oct-2023';
@@ -25,6 +29,11 @@ export class NavbarComponent {
  contact_No: string = '0867867879';
  address: string ='245 burger str, Pretoria';
  email: string ='admin@tutalumni.com';
+
+newName: string ='';
+newcontact_No: string='';
+newAddress: string='';
+newEmail: string ='';
   
  ShowAdminProfile(){
             
@@ -32,11 +41,30 @@ export class NavbarComponent {
     // this.isEditAdminProf = this.isEditAdminProf;
    
   }
+  showSnackbar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 2000, // Duration the snackbar is shown in milliseconds
+      verticalPosition: 'top', // Set the vertical position to 'top'
+      horizontalPosition: 'center', // Set the horizontal position to 'center'
+      panelClass: ['snackbar'], // Add your custom class for styling
+    });
+  }
 
   editAdminProfile(){
     this.isEditAdminProf = !this.isEditAdminProf;
     this.isAdminProf = this.isAdminProf;
     // this.isAdminProf = !this.isEditAdminProf;
   }
+   
+SaveAdminProfile(){
+  const nameSize = this.newName.length;
+  this.adminFname = this.newName.substring(0, this.newName.indexOf(' '));
+  this.adminLname = this.newName.substring(this.newName.indexOf(' '), nameSize);
+  this.contact_No = this.newcontact_No;
+  this.email = this.newEmail;
+  this.address = this.newAddress;
+  this.showSnackbar('Admin Profile saved successfully!');
+  this.isEditAdminProf = !this.isEditAdminProf;
+}
  
 }
