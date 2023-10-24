@@ -1,0 +1,130 @@
+body{
+    background-color: white;
+    background-image: none;
+
+}
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+  
+ 
+  
+
+}
+
+.chat-list {
+    
+    background: #c5cae9;
+    border-radius: 16px;
+    border-left: none;
+
+}
+
+
+html * {
+    font-family: 'Poppins';
+}
+
+input {
+    width: 100%;
+    padding: 6px 15px 6px 15px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    font-size: medium;
+    border-left: none;
+}
+
+
+h1 {
+    margin: 0;
+}
+
+
+
+#myInput {
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+
+    margin-bottom: 12px;
+}
+
+#contactsList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  
+}
+#contactsList li{
+    width: 100%;
+}
+
+#contactsList li a {
+    border-bottom:3px;
+    border-bottom-style:solid;
+    border-bottom-color: #ddd;
+
+    margin-top: -1px;
+    /* Prevent double borders */
+    background-color: white;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+
+    color: black;
+    display: block
+}
+
+#contactsList li a:hover:not(.header) {
+    background-color: #eee;
+}
+
+.my-network-header{
+  
+    display: inline-flexbox;
+}
+.my-network-header a{
+    float: right;
+    width: 100%;
+    text-align: right;
+    padding-right: 50px;
+    text-decoration: none;
+    color: black;; 
+    
+}
+.search-input input{
+    background-color: black;
+    color:white;
+    
+    
+}
+::placeholder{
+    color: white;
+}
+li{
+border-left: none;
+} 
+.profile-pic :hover{
+border-color:blue ;
+}
+.profile-pic {
+
+width: 45px;
+height: 45px;
+border: solid;
+border-radius: 50%;
+border-color:green ;
+float: left;
+margin-right: 15px;
+
+
+background-image: url("profilePic.png");
+background-size: cover;
+background-repeat: no-repeat;
+}

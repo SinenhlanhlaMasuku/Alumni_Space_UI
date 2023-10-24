@@ -1,0 +1,56 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+
+    <title>My Network</title>
+  
+
+
+
+</head>
+
+<body>
+
+   
+<div class="container">
+        
+     
+            <div class="search-input" (keyup)="myFunction()">
+                <input type="text" id="myInput"  placeholder="Networks" title="Type in a name" ngModel="term">
+            </div>
+            <div class="my-network-header">
+                <h2>
+                    <a  routerLink="group-chat" >New Group</a>
+                </h2>
+                <h2 >BroadcastList</h2>
+
+    
+
+            </div>
+            <div class="contactsList">
+                <div *ngFor="let user of users">
+                    <ul id="contactsList" >
+                        
+                        <li (click)="selectContact(user.name)"><div class="profile-pic"></div><a routerLink="chat" >{{user.name}}</a></li>
+                    </ul> 
+                  </div>
+
+            </div>
+<router-outlet>
+
+</router-outlet>
+
+
+
+     
+    </div>
+
+
+</body>
+
+</html>
+

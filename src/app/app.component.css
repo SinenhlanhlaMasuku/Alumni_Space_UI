@@ -1,17 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  
   min-height: 100vh;
-  background-image: url('./alumni.jpeg');
+
   background-size: cover;
   background-position: center;
 }
@@ -32,6 +24,13 @@ header {
   font-size: 2em;
   color: #fff;
   user-select: none;
+}
+header{
+  overflow: hidden;
+  background-color: #3498db;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
 }
 
 .navigation a {

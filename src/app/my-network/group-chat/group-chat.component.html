@@ -1,0 +1,223 @@
+<!--  Chat in fewer than 10 lines of JavaScript code using PubNub JavaScript SDK -->
+<!--  This demo also contains helper and UI code.  For beginning of PubNub code, scroll down to "Begin count:..." -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ 
+  <!--  Fonts -->
+
+  <title>Group Chat</title>
+  <!--  Code syntax highlighting -->
+
+  <!--  Interactive demo only -->
+  <script type="text/javascript"
+    src="https://darryncampbell-pubnub.github.io/pubnub-demo-utils/js/interactive-demo-interface/v2/demo-interface.js"
+    defer></script>
+</head>
+
+<body>
+
+  <H1><span id="selectedContact"> TUT Alumni</span> Group Chat</H1>
+  <div class="chat-container">
+    <div class="col m4">
+        <p>My Groups</p>
+        <hr>
+        <div class="onlinebox">
+            <span>
+                <input type="text" placeholder="Search Group ...." id="searchGroup" onkeypress="showList()">
+            </span>
+            
+            <hr>
+            <span>
+                <input type="text" placeholder="Group Name" id="newGroupInput"><input type="button" value="Create" onclick="addGroup()"><input type="button" value="Join" onclick="changeGroup()">
+            </span>
+
+          <select id="myGroups" name="myGroups">
+            
+            <option value="TUT Alumni" onclick="changeGroup()">TUT Alumni</option >
+
+          </select>
+
+        </div>
+    </div>
+  <div class="flex-container">
+
+    <div id="outputDiv" class="flex-child">
+    </div>
+
+  </div>
+  <input id="input" placeholder="Type your message and press enter" />
+
+  
+  </div>
+
+
+
+  <!--  Begin count: lines of code to create a chat app with the PubNub SDK (count ;)-->
+  <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.7.2.0.min.js"></script>
+  <script>var countTx = 0, countRx = 0, id = 'user_' + Math.random();
+    (function () {
+      var pubnub = new PubNub({publishKey: 'demo', subscribeKey: 'demo', userId: id}); // Your PubNub keys here. Get them from https://dashboard.pubnub.com.
+      var box = document.getElementById("outputDiv"), input = document.getElementById("input"), channel = '10chat';
+      pubnub.subscribe({channels: [channel]}); // Subscribe to a channel.
+      pubnub.addListener({
+        message: function (m) {
+          box.innerHTML += newRow(m.message, m.publisher);
+          box.scrollTop = box.scrollHeight;
+        }
+      });
+      input.addEventListener('keypress', function (e) {
+        (e.keyCode || e.charCode) === 13 && input.value != "" && pubnub.publish({ // Publish new message when enter is pressed. 
+          channel: channel, message: input.value, x: (input.value = '')
+        });
+      });
+    })();
+    // End count: lines of code to create a chat app with the PubNub SDK. 
+
+    hljs.highlightAll();
+
+    function newRow(m, publisher) {
+      var date = "<br><span class='messageTime'>" + new Date().toLocaleString() + "</span>";
+      var you = "";
+      var messageClass = "messageThem";
+      var message = ('' + m).replace(/[<>]/g, '');
+
+      if (id === publisher) {
+        you = "<span class='youText'> {{user.name}}</span>";
+        messageClass = "messageYou"
+        // Interactive Demo only
+        actionCompleted({action: 'Send a message'});
+        countTx++;
+        if (countTx == 5) {
+          // Interactive Demo only
+          actionCompleted({action: 'Send 5 messages', debug: true});
+        }
+      }
+      else {
+        // Interactive Demo only
+        actionCompleted({action: 'Open the app in another tab and receive a message'});
+        countRx++;
+        if (countRx == 3) {
+          // Interactive Demo only
+          actionCompleted({action: 'Receive 3 messages', debug: true});
+        }
+      }
+      return "<div class='" + messageClass + "'>" + message + you + date + "</div>"
+    }
+    function addGroup(){
+        var list = document.getElementById("myGroups");
+        var name = document.getElementById("newGroupInput").value;
+        list.innerHTML+="<option  value='"+name+"' onclick='changeGroup()'>"+name+"</option >";
+        document.getElementById("newGroupInput").value="";
+       
+ 
+    }
+    function changeGroup(){
+        var name = document.getElementById("myGroups").value;
+        document.getElementById("selectedContact").innerHTML=name;
+
+    }
+  </script>
+</body>
+<style>
+    .flex-container {
+    display: flex;
+    float: right;
+    width: 50%;
+}
+.onlinebox{
+    display: flex;
+    background-color: #c2d3e9;
+    border-style: solid;
+    border-color: black;
+    float: left;
+    width: 40%;
+
+
+}
+.flex-child {
+    flex: 1;
+}
+
+.code-block {
+    display: none;
+    font-size: small;
+}
+
+.flex-child:first-child {
+    flex: 2;
+    margin-right: 10px;
+    margin-top:9px;
+    background-color: rgb(249, 249, 249);
+    flex-direction:column;
+    max-height: 510px;
+    height:510px;
+    overflow:auto;
+} 
+
+@media (min-width: 768px) {
+    .code-block {
+        display: block;
+    }
+}
+
+html * {
+    font-family: 'Poppins';
+}
+
+input {
+    width: 100%;
+    padding: 6px 15px 6px 15px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    font-size: medium;
+}
+
+
+h1 {
+    margin: 0;
+}
+
+.messageYou {
+    width: 90%;
+    padding: 6px 20px;
+    margin: 8px;
+    background-color: #c2d3e9;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    box-sizing: border-box;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    float: right;
+}
+ul{
+    list-style-type: circle;
+}
+.messageThem {
+    width: 90%;
+    padding: 6px 20px;
+    margin: 8px;
+    background-color: #f3f3f3;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    box-sizing: border-box;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    float: left;
+}
+
+.youText {
+    float: right;
+}
+
+.messageTime {
+    font-size: x-small;
+    float: right;
+}
+</style>
+</html>

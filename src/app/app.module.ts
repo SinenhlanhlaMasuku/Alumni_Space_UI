@@ -10,6 +10,11 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import {ChatComponent} from'./my-network/chat/chat.component';
+import { MyNetworkComponent } from './my-network/my-network.component';
+import { GroupChatComponent } from './my-network/group-chat/group-chat.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
@@ -17,13 +22,20 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     HomepageComponent,
     LoginComponent,
     UserProfileComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ChatComponent,
+    MyNetworkComponent,
+    GroupChatComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, // Add FormsModule
-    HttpClientModule, // Add HttpClientModule
+    HttpClientModule,
+     // Add HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
