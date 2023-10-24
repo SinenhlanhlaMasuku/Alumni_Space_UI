@@ -90,9 +90,9 @@
             <span class="input-group-text" style="width: 25vh;" id="inputGroup-sizing-default">Employment Status:</span>
             <select class="form-select" id="employment_status" aria-label="Default select example" [(ngModel)]="alumni.Employment_Status" name="alumni.Employment_Status">
                 <option selected>Select employment status</option>
-                <option value="1">Employed</option>
-                <option value="2">Unemployed</option>
-                <option value="3">None</option>
+                <option value="employed">Employed</option>
+                <option value="unemployed">Unemployed</option>
+                <option value="none">None</option>
               </select>
             </div>
 
@@ -221,7 +221,7 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     
-        <button type="submit" class="btn btn-outline-info" (click)="saveProfile()">Save Changes</button>
+        <button type="submit" class="btn btn-outline-info" (click)="open()">Save Changes</button>
         <button type="button" style="margin-left: 10px;" class="btn btn-outline-danger" (click)="cancelEdit()">Cancel</button>
         </form>
         <hr>

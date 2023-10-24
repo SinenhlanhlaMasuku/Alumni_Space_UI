@@ -92,6 +92,9 @@ export class EditProfileComponent {
     });
   }
   
+  open(){
+    this.openDialog();
+  }
 
 
   saveProfile(){
@@ -111,8 +114,7 @@ export class EditProfileComponent {
           this.openDialog();
           //alert('Do you really want to save profile?')
           //this.showSnackbar('Profile saved successfully!');
-          
-
+  
 
      }
      //add new skill
