@@ -1,0 +1,8 @@
+.container {
+    background-color: hsla(195, 12%, 93%, 0.048);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 10px;
+    align-items: center;
+}

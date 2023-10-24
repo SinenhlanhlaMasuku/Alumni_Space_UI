@@ -1,0 +1,56 @@
+.notifications {
+    border: solid #fff;
+    width: 550px;
+    height: auto;
+    .notifications-wrapper {
+        overflow: auto;
+        /* height: 85px; */
+        padding: 20px;
+        
+        
+    }
+
+    .title {
+        padding: 10px;
+        padding-bottom: 5px;
+        text-align: center;
+        color: #333333;
+        font-size: 12px;
+        font-weight: bold;
+        padding-right: 6px;
+    }
+
+    .notification {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        border-bottom: 1px solid #666666;
+        
+
+        .subject {
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 600px;
+        }
+
+        .more-info {
+            display: flex;
+            padding: 10px;
+            font-size: 16px;
+            width: 700px;
+            margin-top: 4px;
+            .message{
+                width: 490;
+            }
+            .date{
+                font-size: 14px;
+                color: rgb(93, 93, 93);
+                width: 290;
+                margin-left: 10%;
+            }
+
+
+        }
+    }
+}

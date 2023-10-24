@@ -3,9 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>alumni-Dashboard</title>
+    <link rel="stylesheet" href="homepage.component.css">
+    <script defer src="scripts/dashboard.js"></script>
 </head>
 <body>
-    <h1>Login Successfully</h1>
+
+    <header>
+
+        <div class="logo-box">
+            <img src="assets/tutlogo.jpeg"width="160">
+        </div>
+       
+        <div class="user-info-box">
+	    <h1>Welcome Student</h1>
+		 </div>
+         
+
+    </header>
+
+    <main>
+
+        <div class="nav-bar">
+            <div class="nav-btn-box">
+                <input type="button" value="Home" class="btn" id="home-button">
+            </div>
+            <div class="nav-btn-box">
+                <input type="button" value="My Network" class="btn" id="profile-button">
+            </div>
+            <div class="nav-btn-box">
+                <input type="button" value="Jobs" class="btn" id="help-button">
+            </div>
+           <div class="nav-btn-box">
+                <input type="button" value="Messages" routerLink="#" class="btn" id="about-button">
+            </div> 
+
+          <!-- <div class="nav-btn-box">
+                <input type="button" value="profile" class="btn" id="logout-button">
+            </div>  -->
+            <div class="nav-btn-box">
+                <input type="button" value="profile"  class="btn" id="logout-button" routerLink="/alumni/profile/edit-profile">
+                <!-- onclick="navigateToProfilePage()" -->
+                <!-- <a routerLink="/alumni/profile/edit-profile"> Proff</a> -->
+            </div>
+            <div class="nav-btn-box">
+                <input type="button" value="AdminHome (tempNav)" class="btn" id="adminHome-button" routerLink="/adminHome">
+            </div>
+            
+            <script>
+                function navigateToProfilePage() {
+                    // Replace 'destination-page.html' with the actual URL of the page you want to link to
+                    window.location.href = '/user-profile/user-profile.html';
+                }
+            </script>
+            
+
+        </div>
+
+        <div class="section-box" id="home-section">
+
+    </div>
+    </main>
+    
 </body>
 </html>

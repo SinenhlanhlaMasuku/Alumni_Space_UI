@@ -1,0 +1,195 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminHome navigation</title>
+    <link rel="stylesheet" href="https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./admin-home.component.css">
+    <link rel="stylesheet" href="node_modules/simplebar/dist/simplebar.css">
+    <link rel="stylesheet" href="css/vendors/simplebar.css">-->
+    <!-- Main styles for this application
+    <link href="css/style.css" rel="stylesheet"> -->
+    <!-- We use those styles to show code examples, you should remove them in your application.
+    <link href="./admin-home.component.css" rel="stylesheet">
+    <link href="node_modules/@coreui/chartjs/dist/css/coreui-chartjs.css" rel="stylesheet">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+   <!-- <input type="checkbox" id="check"> -->
+   
+   <!-- <header> -->
+      <!-- <label for "check"> -->
+        <!-- <i class="fa fa-bars" id="side-nav_btn"></i> -->
+      <!-- </label> -->
+       <!-- <div class="left_side"> -->
+         <!-- <h3>Admin Home</h3> -->
+       <!-- </div> -->
+           
+   <!-- </header> -->
+   <header class="header header-sticky mb-4">
+   <nav class="navbar fixed-top"  style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <h2><a class="navbar-brand" href="#">Admin Home</a></h2>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Adminstrator</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body"  style="background-color: #e3f2fd;">
+          <div class="card">
+            <img src="Sihle.jpg" alt="...">
+            <div class="card-body">
+              <h3>Admin name</h3>
+              <p class="card-text">Role: Developer</p>
+              <!-- <ul class="header-nav ms-auto"> -->
+                <!-- <li class="nav-item"><a class="nav-link" href="#"> -->
+                    <!-- <svg class="icon icon-lg"> -->
+                      <!-- <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-bell"></use> -->
+                    <!-- </svg></a></li> -->
+                <!-- <li class="nav-item"><a class="nav-link" href="#"> -->
+                    <!-- <svg class="icon icon-lg"> -->
+                      <!-- <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-list-rich"></use> -->
+                    <!-- </svg></a></li> -->
+                <!-- <li class="nav-item"><a class="nav-link" href="#"> -->
+                    <!-- <svg class="icon icon-lg"> -->
+                      <!-- <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-envelope-open"></use> -->
+                    <!-- </svg></a></li> -->
+              <!-- </ul> -->
+            </div>
+        </div>
+          
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="AdminHome.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Track Alumni</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Add events</a>
+            </li> 
+            <li class="nav-item">
+              <a routerLink="/add-jobs">Add Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Track messages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="About.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">logout</a>
+            </li>
+
+            
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+   </header>
+  <div class="row" >
+    <div class="col-sm-6 col-lg-3">
+      <div class="card mb-4 text-white bg-primary">
+        <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+          <div>
+            <div class="fs-4 fw-semibold">26K <span class="fs-6 fw-normal">(-12.4%
+                )</span></div>
+            <div>Alumni</div>
+          </div>
+          
+        </div>
+        <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+          <canvas class="chart" id="card-chart1" height="70"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card mb-4 text-white bg-info">
+        <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+          <div>
+            <div class="fs-4 fw-semibold">100 
+              <span class="fs-6 fw-normal">
+                (40.9% active)
+              </span>
+            </div>
+            <div>Jobs</div>
+          </div>
+          
+        </div>
+        <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+          <canvas class="chart" id="card-chart2" height="70"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card mb-4 text-white bg-warning">
+        <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+          <div>
+            <div class="fs-4 fw-semibold">2K 
+              <span class="fs-6 fw-normal">(84.7% done)
+              </span>
+            </div>
+            <div>Events</div>
+          </div>
+          
+        </div>
+        <div class="c-chart-wrapper mt-3" style="height:70px;">
+          <canvas class="chart" id="card-chart3" height="70"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card mb-4 text-white bg-danger">
+        <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+          <div>
+            <div class="fs-4 fw-semibold">44K 
+              <span class="fs-6 fw-normal">
+                (-23.6%)
+              </span></div>
+            <div>Sessions</div>
+          </div>
+          
+        </div>
+        <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+          <canvas class="chart" id="card-chart4" height="70"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-->
+  </div>
+
+     
+      <!-- <div class="side-nav"> -->
+       <!-- <div class="logo"> -->
+       <!-- <img src="./tutlogo.png" alt="Admin Home" class="image"> -->
+       <!-- </div> -->
+        
+           <!-- <a href="adminportal.html"><span>Dashboard</span></a> -->
+           <!-- <a href="#"><span>Track Alumni</span></a> -->
+           <!-- <a href="#"><span>Add events</span></a> -->
+           <!-- <a href="#"><span>Add available jobs</span></a> -->
+           <!-- <a href="#"><span>Track messages</span></a> -->
+           <!-- <a href="About.html"><span>About</span></a> -->
+           <!-- <a href="#"><span>logout</span></a> -->
+      <!-- </div> -->
+     
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+
+</html>
+<!--<footer>
+  <p>&copy; 2023 Alumni_SpaceUI</p>
+</footer>-->

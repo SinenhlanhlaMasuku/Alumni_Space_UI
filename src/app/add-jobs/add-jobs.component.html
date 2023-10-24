@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Posting Form</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     
+    <!-- Link to Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        /* Style for the logo */
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Style for the icons container */
+        .icons-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        /* Style for the icons */
+        .icons-container a {
+            color: white;
+            font-size: 30px;
+            margin-right: 20px; 
+            transition: color 0.3s ease; 
+        }
+
+        /* Style for the icons when clicked (purple color) */
+        .icons-container a.clicked {
+            color: purple;
+        }
+
+        /* Style for the red asterisk */
+        .red-asterisk {
+            color: red;
+        }
+       
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white p-3" style="height: 120px;">
+        <div class="container">
+            <img src="tutLogo.png" alt="tutLogo.png" class="logo">
+
+            <!-- Icons container with settings and notification icons -->
+            <div class="icons-container">
+                <!--  Notification icon -->
+                <a href="#" class="notification-icon">
+                    <i class="fas fa-bell fa-2x"></i>
+                </a>
+
+                 <!--  Settings icon -->
+                 <a href="#" class="settings-icon">
+                    <i class="fas fa-cog fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+     
+    <!-- Back button -->
+    <div class="container mt-3" style="margin-left: 50px;">
+        <a href="#" class="btn btn-primary text-white">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+    </div>
+    <div class="container mt-5">
+        <h1 class="mb-4">Post a job</h1>
+        <form id="jobPostForm" enctype="multipart/form-data" (ngSubmit)='postJob()'> <!-- Important: enctype attribute for file uploads -->
+            <div class="form-group">
+                <label for="jobTitle"><b>Job Title:</b><span class="red-asterisk">*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="job_title"  name="job_title" id="jobTitle" required>
+            </div>
+            <div class="form-group">
+                <label for="organization"><b>Organization:</b><span class="red-asterisk">*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="Organisation"  name="Organisation" id="organization"required>
+            </div>
+
+            <div class="form-group">
+                <label for="location"><b>Location:</b><span class="red-asterisk">*</span></label>
+                <select class="form-control" [(ngModel)]="location"  name="location" id="location"  required>
+                    <option value="location">Location</option>
+                    <option value="Soshanguve">Soshanguve</option>
+                    <option value="Emalahleni">Emalahleni</option>
+                    <option value="Polokwane">Polokwane</option>
+                    <option value="Mbhombela">Mbhombela</option>
+                    <option value="Pretoria">Pretoria</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="workPlaceType"><b>Workplace Type:</b><span class="red-asterisk">*</span></label>
+                <select class="form-control" [(ngModel)]="workplace_type"  name="workplace_type" id="workPlaceType" required>
+                    <option value="workPlaceType">Choose workplace type</option>
+                    <option value="Onsite">Onsite</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="Remote">Remote</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="jobType"><b>Job Type:</b><span class="red-asterisk">*</span></label>
+                <select class="form-control" [(ngModel)]="job_type"  name="job_type" id="jobType"  required>
+                    <option value="jobType">Choose the job type</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Temporary">Temporary</option>
+                    <option value="Other">Other</option>
+                    <option value="Volunteer">Volunteer</option>
+                    <option value="Internship">Internship</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="jobDescription"><b>Job Description:</b><span class="red-asterisk">*</span></label>
+                <textarea class="form-control" [(ngModel)]="job_description"  name="job_description" id="jobDescription"  rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="deadline"><b>Deadline:</b></label>
+                <input type="date" class="form-control" [(ngModel)]="deadline"  name="deadline" id="deadline">
+            </div>
+
+            <div class="form-group">
+                <label for="jobPostedOn"><b>Job Posted On:</b></label>
+                <input type="date" class="form-control" [(ngModel)]="date_posted"  name="date_posted" id="jobPostedOn">
+            </div>
+
+            <div class="form-group">
+                <label for="image">Upload Company Logo:</label>
+                <input type="file" class="form-control-file" id="image" accept="image/*">
+                <img src="" id="image-preview" alt="Image Preview" style="max-width: 100%; display: none;">
+            </div>
+            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#successModal">Post Job</button>
+
+         <!-- Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Job successfully posted</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Your job has been posted successfully.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap and JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+   
+    <script>
+        $(document).ready(function() {
+    // Handle file input change for image preview
+    $("#image").change(function() {
+        readURL(this);
+    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                // Display the image preview
+                $("#image-preview").attr("src", e.target.result).show();
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // Handle form submission
+    $("#jobPostForm").submit(function(event) {
+        event.preventDefault(); // Prevent the form from submitting traditionally
+
+        // Rest of your form submission code here...
+
+        // Display a success message (you can customize this)
+        alert("Job posted successfully!");
+    });
+});
+
+    </script>
+    
+     <script>
+        // Add click event listeners to icons
+        const settingsIcon = document.querySelector('.settings-icon');
+        const notificationIcon = document.querySelector('.notification-icon');
+
+        settingsIcon.addEventListener('click', () => {
+            settingsIcon.classList.toggle('clicked');
+        });
+
+        notificationIcon.addEventListener('click', () => {
+            notificationIcon.classList.toggle('clicked');
+        });
+    </script>
+</body>
+</html>
