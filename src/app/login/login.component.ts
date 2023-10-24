@@ -27,12 +27,14 @@ export class LoginComponent {
       this.password = '';
 
       
-      if(response){
-        //recieve data from server
-        console.log(response.password);
-        console.log(response.role);
-        ;
-        this.router.navigate(['/homepage']);
+      if(response.message === 'Login successful!' ){
+        console.log(response.result[0].name);
+        console.log(response.account_id);
+        //store user details to localStorage
+        localStorage.setItem('name',response.result[0].name.toString());
+        localStorage.setItem('account_id',response.account_id);
+
+        this.router.navigate(['/home']);
       }else{
         this.router.navigate(['/forgot-password']);
       }

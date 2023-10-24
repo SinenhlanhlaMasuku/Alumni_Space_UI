@@ -70,7 +70,7 @@ export class EditProfileComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == false) {
-        //  this.saveProfile(); // Call the saveProfile function when the dialog is confirmed
+        this.saveProfile(); // Call the saveProfile function when the dialog is confirmed
         this.showSnackbar('Profile saved successfully!');
 
       }
@@ -100,23 +100,22 @@ export class EditProfileComponent {
 
   saveProfile() {
 
-    //open confirmatiom dialog
-    //this.openDialog();
     //get user_id
     const user_id = localStorage.getItem('account_id');
+      
+    const formData = {user_id,skills: this.alumni.Skills,experience: this.alumni.Experience, interest:this.alumni.Interest, bio:this.alumni.Bio, location:this.alumni.Location,qualification: this.alumni.Qualification,employment_status: this.alumni.Employment_Status};
+      
+      
 
-    const formData = { user_id, skills: this.alumni.Skills, experience: this.alumni.Experience, interest: this.alumni.Interest, bio: this.alumni.Bio, location: this.alumni.Location, qualification: this.alumni.Qualification, employment_status: this.alumni.Employment_Status };
-    //pass data into the server
-    this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
+      //pass data into the server
+      this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
+     // console.log('.......saving..')
+      
+     
     });
-    console.log(formData);
-    console.log(user_id);
-    // this.message = 'profile saved!';
-    this.openDialog();
-    //alert('Do you really want to save profile?')
-    //this.showSnackbar('Profile saved successfully!');
 
+    //this.openDialog();
 
   }
   //add new skill
@@ -155,14 +154,15 @@ export class EditProfileComponent {
       this.profilePicChosen = true;
 
       //save
+      /*
       const inputElement = event.target as HTMLInputElement;
-    if (inputElement.files && inputElement.files.length > 0) {
-      const image = inputElement.files[0];
-      this.profileService.uploadImage(image);
+      if (inputElement.files && inputElement.files.length > 0) {
+        const image = inputElement.files[0];
+        this.profileService.uploadImage(image);
 
-      // Navigate to the image view component
-      this.router.navigate(['/alumni/profile/view-profile']);
-    }
+        // Navigate to the image view component
+        this.router.navigate(['/alumni/profile/view-profile']);
+      }*/
     } else {
       this.profilePicChosen = false;
     }

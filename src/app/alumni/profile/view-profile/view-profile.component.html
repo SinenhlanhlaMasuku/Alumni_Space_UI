@@ -5,12 +5,18 @@
         <h1 class="text-center">Alumni Profile</h1>
         <hr>
         <div class="user-info">
-            <div class="image" *ngFor="let image of images">
+            <!--<div class="image" *ngFor="let image of images">
                 <a href="assets/Sihle.jpg"><img [src]="getSafeUrl(image)" alt="alumni-pic" width="20%"
                         height="25%" style="border-radius: 5%; float: right;"></a>
                         <br>
                         
-            </div>
+            </div> -->
+            <div class="image">
+              <a href="assets/Sihle.jpg"><img src="assets/Sihle.jpg" alt="alumni-pic" width="20%"
+                      height="25%" style="border-radius: 5%; float: right;"></a>
+                      <br>
+                      
+          </div>
             <div class="user-bio">
                 <p>Bio :<br> {{alumni.Bio}}</p>
             </div>

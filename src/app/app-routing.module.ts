@@ -8,8 +8,8 @@ import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
 import { LastFewNotificationsComponent } from './homepage/Admin-home/last-few-notifications/last-few-notifications.component';
 
 const routes: Routes = [
-  { path: 'ew', component: LoginComponent },
-  { path: '', component: HomepageComponent },
+  { path: '', component: LoginComponent },
+  { path: 'home', component: HomepageComponent },
   // { path: 'userprofile', component: UserProfileComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   //{ path: 'servicesPage', component: ServicesPageComponent},
