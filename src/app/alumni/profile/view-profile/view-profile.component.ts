@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ProfileService } from '../profile.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 //import { UserProfileService } from '../user-profile.service';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
@@ -23,16 +25,22 @@ export class ViewProfileComponent {
     
   }
 
-  certificates: string[] =[ 'assets/certificate1.pdf',
-  'assets/certificate2.pdf',
-'assets/certifacate3.pdf']; 
+  //certificates: string[] =[ 'assets/certificate1.pdf','assets/certificate2.pdf','assets/certifacate3.pdf']; 
+  certificates: File[] = [];
  
  certificateNames: string[] =[];
- academicTranscripts: any[] = ['transcript1','transcript2', 'transcript3'];
+ //academicTranscripts: any[] = ['transcript1','transcript2', 'transcript3'];
+ academicTranscripts: File[] = [];
   icounter = 0;
 
+  images: File[] = [];
 
-  constructor(private http: HttpClient, private router: Router) { }
+
+  constructor(private http: HttpClient, private router: Router, private ProfileService: ProfileService, private sanitizer: DomSanitizer) { 
+    this.academicTranscripts = this.ProfileService.getDocuments();
+    this.certificates = this.ProfileService.getCertificatess();
+    this.images = this.ProfileService.getImages();
+  }
 
   ngOnInit() {
     const storedName = localStorage.getItem('name');
@@ -84,5 +92,16 @@ export class ViewProfileComponent {
       this.icounter++;
      alert('deleted successfully!')
     }
+  }
+
+  viewDocument(document: File) {
+    // You can implement document viewing logic here.
+    // For simplicity, you can open the document in a new tab.
+    const fileURL = URL.createObjectURL(document);
+    window.open(fileURL, '_blank');
+  }
+  getSafeUrl(image: File): SafeUrl {
+    const objectURL = URL.createObjectURL(image);
+    return this.sanitizer.bypassSecurityTrustUrl(objectURL);
   }
 }

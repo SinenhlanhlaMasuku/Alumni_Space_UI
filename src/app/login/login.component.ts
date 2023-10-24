@@ -7,46 +7,31 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-
 export class LoginComponent {
   title = 'Alumni_Space_UI';
 
   email = '';
   password = '';
   fullname = '';
+  surname = '';
   constructor(private http: HttpClient, private router: Router) {}
 
   onLogin() {
-    //const formData = { email: this.email, password: this.password };
-    this.router.navigate(['/alumni/profile/view-profile']);
-  }
-
-  onSubmit() {
-    const formData = { fullname: this.fullname, email: this.email, password: this.password };
-    this.http.post('http://localhost:3000/api/register', formData).subscribe((response) => {
-      console.log('Data sent to server:', response);
-      // Clear the form fields after successful submission
-      this.email = '';
-      this.password = '';
-      this.fullname = '';
-    });
-  }
-
-  onSend(){
+    //data to pass to back-end
     const formData = { email: this.email, password: this.password };
-    this.http.post('http://localhost:5000/api/login', formData).subscribe((response: any) => {
+    //
+    this.http.post('http://localhost:3000/api/login', formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
       // Clear the form fields after successful submission
       this.email = '';
       this.password = '';
 
-      if(response.message === 'Login successful!' ){
-        console.log(response.result[0].name);
-        console.log(response.account_id);
-        //store user details to localStorage
-        localStorage.setItem('name',response.result[0].name.toString());
-        localStorage.setItem('account_id',response.account_id);
-
+      
+      if(response){
+        //recieve data from server
+        console.log(response.password);
+        console.log(response.role);
+        ;
         this.router.navigate(['/homepage']);
       }else{
         this.router.navigate(['/forgot-password']);
@@ -54,19 +39,25 @@ export class LoginComponent {
       
     });
   }
-}
-// Add a click event listener to the "Student" and "Admin" links
-const studentLink = document.getElementById("student");
-const adminLink = document.getElementById("admin");
 
-if (studentLink && adminLink) {
-    studentLink.addEventListener("click", () => {
-        // Handle Student login logic here
-        console.log("Student login clicked");
-    });
 
-    adminLink.addEventListener("click", () => {
-        // Handle Admin login logic here
-        console.log("Admin login clicked");
+  onSubmit() {
+    const formData = { fullname: this.fullname,surname: this.surname, email: this.email, password: this.password };
+    this.http.post('http://localhost:3000/api/register', formData).subscribe((response: any) => {
+      console.log('Data sent to server:', response);
+      // Clear the form fields after successful submission
+      this.email = '';
+      this.password = '';
+      this.fullname = '';
+      this.surname = '';
+
+      this.router.navigate(['/success']);
+
+      
+      /*if(response.status === 200){
+        this.router.navigate(['/success']);
+      }*/
     });
+  }
+
 }

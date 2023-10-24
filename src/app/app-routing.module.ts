@@ -9,7 +9,7 @@ import { LastFewNotificationsComponent } from './homepage/Admin-home/last-few-no
 
 const routes: Routes = [
   { path: 'ew', component: LoginComponent },
-  { path: 'home', component: HomepageComponent },
+  { path: '', component: HomepageComponent },
   // { path: 'userprofile', component: UserProfileComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   //{ path: 'servicesPage', component: ServicesPageComponent},
