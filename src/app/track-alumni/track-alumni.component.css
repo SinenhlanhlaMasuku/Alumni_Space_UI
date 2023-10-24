@@ -4,6 +4,7 @@
 }
 .header h1{
     text-align: center;
+
 }
 .round-image {
     border-radius: 50%;
@@ -13,8 +14,10 @@
     object-fit: cover;
 }
 .top-content{
-    margin-left: 20px;
-    margin-right: 20px;
+    /* margin-left: 20px; */
+    /* margin-right: 20px; */
+    padding-left: 40%;
+    width: 400px;
 
 }
 .alumni-table {

@@ -42,10 +42,10 @@ export class LastFewNotificationsComponent {
       message: "you are invited to the annu....",
       date: "12-oct-2023",
     },
-  ]
+  ];
   showNotification(){
     
-    alert('Notification viewed!');
+    // alert('Notification viewed!');
     //pop-up dialog to open
  
   }

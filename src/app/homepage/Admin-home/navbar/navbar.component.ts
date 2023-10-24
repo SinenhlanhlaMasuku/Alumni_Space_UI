@@ -17,6 +17,7 @@ export class NavbarComponent {
     // }
   // }
    isAdminProf: boolean = false;
+   isEditAdminProf: boolean = false;
  //adminFnLletter: string ='';
  adminFname: string ='Sihle';
  adminLname: string ='Mhlongo';
@@ -24,10 +25,18 @@ export class NavbarComponent {
  contact_No: string = '0867867879';
  address: string ='245 burger str, Pretoria';
  email: string ='admin@tutalumni.com';
-  ShowAdminProfile(){
+  
+ ShowAdminProfile(){
             
     this.isAdminProf = !this.isAdminProf;
+    // this.isEditAdminProf = this.isEditAdminProf;
    
+  }
+
+  editAdminProfile(){
+    this.isEditAdminProf = !this.isEditAdminProf;
+    this.isAdminProf = this.isAdminProf;
+    // this.isAdminProf = !this.isEditAdminProf;
   }
  
 }

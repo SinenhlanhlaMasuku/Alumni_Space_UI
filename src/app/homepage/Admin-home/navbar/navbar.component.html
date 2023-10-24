@@ -218,14 +218,14 @@
         <span class="notification-badge">{{notificatinId}}</span>
       </a> -->
         <div class="show-next-icon" (click)="ShowAdminProfile()">
-       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="blueviolet" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
         <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
       </svg>
         </div>
       <a>
         <div *ngIf="isAdminProf" class="card">
-        <div class="image-container">{{adminFnLletter}}</div>
+          <div class="image-container">{{adminFnLletter}}</div>
         <svg class="online-status" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
               class="bi bi-circle-fill" viewBox="0 0 16 16">
               <circle cx="5" cy="5" r="5" style="color: rgb(64, 255, 17);" />
@@ -247,11 +247,45 @@
             </svg>
             <span class="notification-badge">{{notificatinId}}</span>
           </div>
-
+           
           <div class="update-profilebtn">  
-              <button type="button" class="btn btn-success">edit profile</button>
+              <button type="button" class="btn btn-success" (click)="editAdminProfile()">edit profile</button>
           </div>
+          <div *ngIf="isEditAdminProf" class="card2">
+            
+            <div class="editP-header">
+              
+              <h1>Edit Profile</h1>
 
+            </div>
+            
+            
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Name:</span>
+              <input type="text" class="form-control" aria-label="Sizing example input"
+               aria-describedby="inputGroup-sizing-default" placeholder="{{adminFname}} {{adminLname}}">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">contact-no:</span>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" placeholder="{{contact_No}}">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">address:</span>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" placeholder="{{address}}">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">email:</span>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" placeholder="{{email}}">
+            </div>
+              <div class="editAdmniP-buttons">
+                  <button type="button" class="btn btn-success">Save profile</button>
+              </div>
+          </div>
 
         </div>
       </div>
