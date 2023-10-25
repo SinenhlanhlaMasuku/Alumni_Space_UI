@@ -33,6 +33,19 @@ import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
 import { MatTableModule} from '@angular/material/table';
 import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 
+//components
+import { ServicesComponent } from './services/services.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { AboutComponent } from './about/about.component';
+import {AdminLoginComponent} from './admin-login/admin-login.component';
+import {SuccessComponent} from './success/success.component';
+import {SuccessPasswordChangeComponent} from './success-password-change/success-password-change.component';
+import { JobsComponent } from './jobs/jobs.component';
+import { AddJobsComponent } from './add-jobs/add-jobs.component';
+import { AddPostsComponent } from './add-posts/add-posts.component';
+
+
 
 @NgModule({
   declarations: [
@@ -55,6 +68,16 @@ import { ImageViewerComponent } from './image-viewer/image-viewer.component';
     // ViewProfileComponent,
     // EditProfileComponent
 
+    JobsComponent,
+    AddJobsComponent,
+    SuccessPasswordChangeComponent,
+    SuccessComponent,
+    AdminLoginComponent,
+    AboutComponent,
+    ContactsComponent,
+    ResetPasswordComponent,
+    ServicesComponent,
+    AddPostsComponent,
   ],
   imports: [
     BrowserModule,
