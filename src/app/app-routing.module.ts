@@ -15,8 +15,10 @@ const routes: Routes = [
   {path:'',component:ContactComponent},
 
   //Call Alumni module
+  {path: 'alumni',loadChildren: () => import('./modules/alumni/alumni.module').then((m) => m.AlumniModule)},
 
   //Call Admni module
+  {path: 'alumni',loadChildren: () => import('./modules/alumni/alumni.module').then((m) => m.AlumniModule),},
 ];
 
 @NgModule({
