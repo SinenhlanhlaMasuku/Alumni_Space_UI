@@ -5,21 +5,21 @@
         <h1 class="text-center">Alumni Profile</h1>
         <hr>
         <div class="user-info">
-            <!--<div class="image" *ngFor="let image of images">
-                <a href="assets/Sihle.jpg"><img [src]="getSafeUrl(image)" alt="alumni-pic" width="20%"
-                        height="25%" style="border-radius: 5%; float: right;"></a>
+            <div class="image" *ngFor="let image of images">
+                <a href="assets/Sihle.jpg"><img [src]="getSafeUrl(image)" alt="alumni-pic" width="100px"
+                        height="100px" style="border-radius: 5%; float: right;"></a>
                         <br>
                         
-            </div> -->
-            <div class="image">
-              <a href="assets/Sihle.jpg"><img src="assets/Sihle.jpg" alt="alumni-pic" width="20%"
-                      height="25%" style="border-radius: 5%; float: right;"></a>
-                      <br>
+            <!-- </div>  -->
+            <!-- <div class="image">
+              <a href="assets/Sihle.jpg"><img src="assets/Sihle.jpg" alt="alumni-pic" width="100px"
+                      height="100px" style="border-radius: 5%; float: right;"></a>
+                      <br> -->
                       
           </div>
-            <div class="user-bio">
+            <!-- <div class="user-bio">
                 <p>Bio :<br> {{alumni.Bio}}</p>
-            </div>
+            </div> -->
                
                <div class="user-cred">
                    <p>Name: {{ alumni.Name }}</p>
@@ -29,6 +29,7 @@
                    <p>Experience: {{ alumni.Experience }}</p>
                    <p>Employment Status: {{ alumni.Employment_Status }}</p>
                    <p>Interest: {{alumni.Interest}}</p>
+                   <p>Bio :<br> {{alumni.Bio}}</p>
                </div>
             
             <div class="card-text ">
