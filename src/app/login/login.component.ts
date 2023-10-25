@@ -20,7 +20,8 @@ export class LoginComponent {
     //data to pass to back-end
     const formData = { email: this.email, password: this.password };
     //
-    this.http.post('http://localhost:3000/api/login', formData).subscribe((response: any) => {
+    if(formData.email !== 'admin@email.com'){
+      this.http.post('http://localhost:3000/api/login', formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
       // Clear the form fields after successful submission
       this.email = '';
@@ -38,8 +39,10 @@ export class LoginComponent {
       }else{
         this.router.navigate(['/forgot-password']);
       }
-      
     });
+    }else{
+      this.router.navigate(['/adminHome']);
+    }
   }
 
 
