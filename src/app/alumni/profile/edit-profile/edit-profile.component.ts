@@ -154,7 +154,7 @@ export class EditProfileComponent {
       this.profilePicChosen = true;
 
       //save
-      /*
+      
       const inputElement = event.target as HTMLInputElement;
       if (inputElement.files && inputElement.files.length > 0) {
         const image = inputElement.files[0];
@@ -162,7 +162,7 @@ export class EditProfileComponent {
 
         // Navigate to the image view component
         this.router.navigate(['/alumni/profile/view-profile']);
-      }*/
+      }
     } else {
       this.profilePicChosen = false;
     }
