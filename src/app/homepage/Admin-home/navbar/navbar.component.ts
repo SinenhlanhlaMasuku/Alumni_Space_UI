@@ -59,7 +59,7 @@ newEmail: string ='';
    
 SaveAdminProfile(){
   const nameSize = this.newName.length;
-  if(this.newName.length != 0){
+  if(this.newName.length != 0 && this.newcontact_No.length != 0 && this.newEmail.length != 0 && this.newAddress.length != 0){
      this.adminFname = this.newName.substring(0, this.newName.indexOf(' '));
      this.adminLname = this.newName.substring(this.newName.indexOf(' '), nameSize);
      this.contact_No = this.newcontact_No;

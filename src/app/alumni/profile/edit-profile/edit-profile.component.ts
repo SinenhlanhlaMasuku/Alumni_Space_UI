@@ -32,8 +32,9 @@ export class EditProfileComponent {
   newSkill: string = ''; // Input for new skills
   certificates: File[] = [];
   certificateNames: string[] =[]
-  fileTypeError: string = '';
-  fileTypeError2: string = '';
+  fileTypeErrorProfPic: string = '';
+  fileTypeErrorCertif: string = '';
+  fileTypeErrorAcadRec: string = '';
 
   
   alumni = {
@@ -93,7 +94,17 @@ export class EditProfileComponent {
   }
   
   open(){
-    this.openDialog();
+    // this.openDialog();
+    //input validation here
+    if(this.alumni.Name.length != 0 && this.alumni.Skills.length != 0 && this.alumni.Experience.length != 0 && this.alumni.Interest.length != 0 && this.alumni.Bio.length != 0 && this.alumni.Location.length != 0 && this.alumni.Qualification.length != 0 && this.alumni.Employment_Status.length != 0)
+    {
+       this.openDialog();
+
+    }
+    else{
+      this.showSnackbar("fill in the empty fields");
+    }
+    
   }
 
 
@@ -104,19 +115,26 @@ export class EditProfileComponent {
               //get user_id
          const user_id = localStorage.getItem('account_id');
       
-         const formData = {user_id,skills: this.alumni.Skills,experience: this.alumni.Experience, interest:this.alumni.Interest, bio:this.alumni.Bio, location:this.alumni.Location,qualification: this.alumni.Qualification,employment_status: this.alumni.Employment_Status};
+         const formData = {user_id,name: this.alumni.Name, skills: this.alumni.Skills,experience: this.alumni.Experience, interest:this.alumni.Interest, bio:this.alumni.Bio, location:this.alumni.Location,qualification: this.alumni.Qualification,employment_status: this.alumni.Employment_Status};
+         
+        //  if(formData.name.length != 0 && formData.skills.length != 0 && formData.experience.length != 0 && formData.interest.length != 0 && formData.bio.length != 0 && formData.location.length != 0 && formData.qualification.length != 0 && formData.employment_status.length != 0)
+        //  {
          //pass data into the server
            this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
            console.log('Data sent to server:', response); });
            console.log(formData);
            console.log(user_id);
           // this.message = 'profile saved!';
-          this.openDialog();
+           this.openDialog();
           //alert('Do you really want to save profile?')
           //this.showSnackbar('Profile saved successfully!');
-  
+        //  }
+        //  else{
+          //  this.showSnackbar("fill in the missing fields!");
+        //  }
 
      }
+     
      //add new skill
      addNewSkill() {
       
@@ -138,6 +156,20 @@ export class EditProfileComponent {
              else {
                  this.AcademicRChosen = false;
                   }
+
+                  const file: File = event.target.files[0];
+                 const fileType = file.type;
+                 const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+
+                 if (!allowedTypes.includes(fileType)) {
+                    this.fileTypeErrorAcadRec = 'Invalid file type. Please select a DOCX or PDF file.';
+                    // Reset the file input if needed
+                    event.target.value = null;
+                 } else {
+                       this.fileTypeErrorAcadRec = 'correct file!'; // Reset the error message if the file type is valid
+                                                   // File type is valid, proceed with the file upload or other actions
+                                     // Your code here
+                 }
           }
 
      //function to handle profile picture selection
@@ -153,11 +185,11 @@ export class EditProfileComponent {
                    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
 
                     if (!allowedTypes.includes(fileType)) {
-                        this.fileTypeError = 'Invalid file type. Please select a JPG, JPEG, or PNG file.';
+                        this.fileTypeErrorProfPic = 'Invalid file type. Please select a JPG, JPEG, or PNG file.';
                        // Reset the file input if needed
                         event.target.value = null;
                    } else {
-                        this.fileTypeError = ''; // Reset the error message if the file type is valid
+                        this.fileTypeErrorProfPic = ''; // Reset the error message if the file type is valid
                               // File type is valid, proceed with the file upload or other actions
                                // Your code here
                 }
@@ -179,11 +211,11 @@ export class EditProfileComponent {
                  const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
 
                  if (!allowedTypes.includes(fileType)) {
-                    this.fileTypeError2 = 'Invalid file type. Please select a DOCX or PDF file.';
+                    this.fileTypeErrorCertif = 'Invalid file type. Please select a DOCX or PDF file.';
                     // Reset the file input if needed
                     event.target.value = null;
                  } else {
-                       this.fileTypeError2 = 'correct file!'; // Reset the error message if the file type is valid
+                       this.fileTypeErrorCertif = 'correct file!'; // Reset the error message if the file type is valid
                                                    // File type is valid, proceed with the file upload or other actions
                                      // Your code here
                  }
