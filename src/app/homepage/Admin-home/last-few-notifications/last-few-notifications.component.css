@@ -1,24 +1,25 @@
 .notifications {
     border: solid #fff;
-    width: 550px;
+    width: auto; 
+    /* 550px; */
     height: auto;
-    .notifications-wrapper {
+    /* .notifications-wrapper {
         overflow: auto;
-        /* height: 85px; */
-        padding: 20px;
+        height: 85px;
+        padding: 10px;
         
         
-    }
+    } */
 
-    .title {
+    /* .title {
         padding: 10px;
         padding-bottom: 5px;
         text-align: center;
         color: #333333;
-        font-size: 12px;
+        font-size: 20px;
         font-weight: bold;
-        padding-right: 6px;
-    }
+        padding-right: 30px;
+    } */
 
     .notification {
         display: flex;
@@ -41,7 +42,7 @@
             width: 700px;
             margin-top: 4px;
             .message{
-                width: 490;
+                width: 490px;
             }
             .date{
                 font-size: 14px;
@@ -53,4 +54,20 @@
 
         }
     }
+}
+.notifications-wrapper {
+    /* overflow: auto; */
+    /* height: 85px; */
+    padding: 10px;
+    
+    
+}
+.title {
+    padding: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    color: #333333;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 30px;
 }
