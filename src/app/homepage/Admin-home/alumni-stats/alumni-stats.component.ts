@@ -30,7 +30,9 @@ export class AlumniStatsComponent {
   chart = new Chart({
     chart: {
       type: 'column',
-      height: 325,
+      height: 250,
+      width: 350,
+      
     },
     title: {
       text: 'Alumni stats'

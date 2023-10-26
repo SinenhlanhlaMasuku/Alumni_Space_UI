@@ -2,13 +2,13 @@
     <div class="title">Recent notifications</div>
     <div class="notifications-wrapper">
         <div class="notification" *ngFor="let notification of notifications"  (click)="showNotification()">
-            <hr>
+            <!-- <hr> -->
             <div class="subject">{{ notification.subject }}</div>
             <div class="more-info">
                 
                 <div class="message">{{notification.message}}</div>
                 <div class="date">{{notification.date}}</div>
-                <hr>
+                <!-- <hr> -->
             </div>
         </div>
     </div>
