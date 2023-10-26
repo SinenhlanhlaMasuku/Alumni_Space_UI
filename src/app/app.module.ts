@@ -53,7 +53,8 @@ import { ViewReportComponent } from './view-report/view-report.component';
     LastFewNotificationsComponent,
     TrackAlumniComponent,
     ImageViewerComponent,
-    ViewReportComponent
+    ViewReportComponent,
+    
     // ViewProfileComponent,
     // EditProfileComponent
 
@@ -70,7 +71,8 @@ import { ViewReportComponent } from './view-report/view-report.component';
     ChartModule,
     //NgxExtendedPdfViewerModule
     PdfViewerModule,
-    MatTableModule
+    MatTableModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
