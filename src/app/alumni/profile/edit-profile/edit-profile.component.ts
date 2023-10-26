@@ -215,7 +215,7 @@ export class EditProfileComponent {
                     // Reset the file input if needed
                     event.target.value = null;
                  } else {
-                       this.fileTypeErrorCertif = 'correct file!'; // Reset the error message if the file type is valid
+                       this.fileTypeErrorCertif = ''; // Reset the error message if the file type is valid
                                                    // File type is valid, proceed with the file upload or other actions
                                      // Your code here
                  }
