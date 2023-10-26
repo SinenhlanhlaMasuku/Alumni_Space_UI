@@ -17,6 +17,7 @@ import {SuccessPasswordChangeComponent} from './success-password-change/success-
 import { JobsComponent } from './jobs/jobs.component';
 import { AddJobsComponent } from './add-jobs/add-jobs.component';
 import { MyNetworkComponent } from './my-network/my-network.component';
+import { StudentcrudComponent } from './studentcrud/studentcrud.component';
 
 //adminLogin
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'jobs', component: JobsComponent },
   { path: 'add-jobs', component: AddJobsComponent },
   {path: 'my-network', component: MyNetworkComponent},
+  {path: 'studentcrud', component: StudentcrudComponent},
 
 
   //Alumni

@@ -24,6 +24,7 @@ import { SuccessPasswordChangeComponent } from './success-password-change/succes
 import { JobsComponent } from './jobs/jobs.component';
 import { AddJobsComponent } from './add-jobs/add-jobs.component';
 import { MyNetworkComponent } from './my-network/my-network.component';
+import { StudentcrudComponent } from './studentcrud/studentcrud.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MyNetworkComponent } from './my-network/my-network.component';
     SuccessPasswordChangeComponent,
     JobsComponent,
     AddJobsComponent,
-    MyNetworkComponent
+    MyNetworkComponent,
+    StudentcrudComponent
   ],
   imports: [
     BrowserModule,
