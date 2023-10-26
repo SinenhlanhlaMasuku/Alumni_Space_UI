@@ -1,0 +1,17 @@
+.card{
+    margin-top: 10px;
+    box-shadow: 5px 5px 5px 5px #fff;
+    width: auto;
+    height: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.card h2{
+    text-align: center;
+}
+.card button{
+    /* text-align: center; */
+    width: 200px;
+    margin-left: 45%;
+    margin-bottom: 10px;
+}

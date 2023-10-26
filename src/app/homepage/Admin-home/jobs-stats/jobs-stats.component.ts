@@ -30,14 +30,15 @@ export class JobsStatsComponent {
   chart = new Chart({
     chart: {
       type: 'pie',
-      height: 325,
+      height: 225,
+      width: 225
     },
     title: {
       text: 'Last 5 Month: Job stats'
     },
     plotOptions:{
       pie:{
-        innerSize: '50%'
+        innerSize: '40%'
       }
     },
     xAxis: {

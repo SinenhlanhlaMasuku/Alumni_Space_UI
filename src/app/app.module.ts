@@ -32,6 +32,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
 import { MatTableModule} from '@angular/material/table';
 import { ImageViewerComponent } from './image-viewer/image-viewer.component';
+import { ViewReportComponent } from './view-report/view-report.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { ImageViewerComponent } from './image-viewer/image-viewer.component';
     LastFewNotificationsComponent,
     TrackAlumniComponent,
     ImageViewerComponent,
+    ViewReportComponent
     // ViewProfileComponent,
     // EditProfileComponent
 

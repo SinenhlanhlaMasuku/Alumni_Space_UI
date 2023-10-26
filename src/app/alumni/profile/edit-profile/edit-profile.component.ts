@@ -168,7 +168,7 @@ export class EditProfileComponent {
                  } else {
                        this.fileTypeErrorAcadRec = 'correct file!'; // Reset the error message if the file type is valid
                                                    // File type is valid, proceed with the file upload or other actions
-                                     // Your code here
+                                     
                  }
           }
 
@@ -191,7 +191,7 @@ export class EditProfileComponent {
                    } else {
                         this.fileTypeErrorProfPic = ''; // Reset the error message if the file type is valid
                               // File type is valid, proceed with the file upload or other actions
-                               // Your code here
+                               
                 }
          }
         //function to handle certificate selection

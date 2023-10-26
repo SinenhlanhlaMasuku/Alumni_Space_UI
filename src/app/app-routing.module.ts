@@ -6,6 +6,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AdminHomeComponent } from './homepage/Admin-home/admin-home/admin-home.component';
 import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
 import { LastFewNotificationsComponent } from './homepage/Admin-home/last-few-notifications/last-few-notifications.component';
+import { ViewReportComponent } from './view-report/view-report.component';
+
 
 const routes: Routes = [
   { path: 'ew', component: LoginComponent },
@@ -16,7 +18,8 @@ const routes: Routes = [
   { path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule) },
   { path: 'adminHome', component: AdminHomeComponent },
   { path: 'trackAlumni', component: TrackAlumniComponent},
-  { path: 'adminNotifications', component: LastFewNotificationsComponent}
+  { path: 'adminNotifications', component: LastFewNotificationsComponent},
+  {path: 'ViewReport', component: ViewReportComponent}
 ];
 
 @NgModule({
