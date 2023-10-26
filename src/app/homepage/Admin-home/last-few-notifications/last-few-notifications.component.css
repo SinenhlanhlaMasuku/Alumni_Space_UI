@@ -1,62 +1,11 @@
 .notifications {
     border: solid #fff;
     width: auto; 
-    /* 550px; */
     height: auto;
-    /* .notifications-wrapper {
-        overflow: auto;
-        height: 85px;
-        padding: 10px;
-        
-        
-    } */
-
-    /* .title {
-        padding: 10px;
-        padding-bottom: 5px;
-        text-align: center;
-        color: #333333;
-        font-size: 20px;
-        font-weight: bold;
-        padding-right: 30px;
-    } */
-
-    .notification {
-        display: flex;
-        align-items: center;
-        padding: 5px 10px;
-        border-bottom: 1px solid #666666;
-        
-
-        .subject {
-            padding: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            width: 600px;
-        }
-
-        .more-info {
-            display: flex;
-            padding: 10px;
-            font-size: 16px;
-            width: 700px;
-            margin-top: 4px;
-            .message{
-                width: 490px;
-            }
-            .date{
-                font-size: 14px;
-                color: rgb(93, 93, 93);
-                width: 290;
-                margin-left: 10%;
-            }
-
-
-        }
-    }
+   
 }
 .notifications-wrapper {
-    /* overflow: auto; */
+    overflow: auto;
     /* height: 85px; */
     padding: 10px;
     
@@ -70,4 +19,28 @@
     font-size: 20px;
     font-weight: bold;
     padding-right: 30px;
+}
+.notification {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-bottom: 1px solid #666666;
+    
+}
+.more-info {
+    display: flex;
+    padding: 10px;
+    font-size: 16px;
+    width: 450px;
+    margin-top: 4px;
+    
+}
+.message{
+    width: 290px;
+}
+.date{
+    font-size: 14px;
+    color: rgb(93, 93, 93);
+    width: 190;
+    margin-left: 10%;
 }

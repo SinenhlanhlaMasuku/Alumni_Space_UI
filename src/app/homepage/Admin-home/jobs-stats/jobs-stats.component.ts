@@ -30,8 +30,8 @@ export class JobsStatsComponent {
   chart = new Chart({
     chart: {
       type: 'pie',
-      height: 225,
-      width: 225
+      height: 250,
+      width: 250
     },
     title: {
       text: 'Last 5 Month: Job stats'
