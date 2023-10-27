@@ -16,13 +16,13 @@ export class AdminHomeComponent implements OnInit{
   // faCoffee = faCoffee;
   welcomeMessage: string ='';
   constructor(private router: Router){}
-  adminName: string = '';
+  adminName: string = 'Admin Name';
    currDate: Date = new Date();
    time: string='';
    images: string[] =[
-    'assets/AWS-Logo.png',
-    'assets/AWS-Logo.png',
-    'assets/AWS-Logo.png'
+    "assets/AWS-Logo.png",
+    "assets/AWS-Logo.png",
+    "assets/AWS-Logo.png"
    ];
    slideIndex = 0;
   
@@ -32,40 +32,56 @@ export class AdminHomeComponent implements OnInit{
 
     setInterval(() => {
       this.updateTime();
-    }, 1000),
+    }, 1000)
 
-    this.showSlides();
+    // this.showSlides();
   }
-  showSlides() {
-    let i;
-    const slides = document.getElementsByClassName('mySlides') as HTMLCollectionOf<HTMLElement>;
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
-    }
-    this.slideIndex++;
-    if (this.slideIndex > slides.length) {
-      this.slideIndex = 1;
-    }
-    slides[this.slideIndex - 1].style.display = 'block';
-    setTimeout(() => this.showSlides(), 2000); // Change image every 2 seconds
-  }
+  // showSlides() {
+  //   let i;
+  //   const slides = document.getElementsByClassName('mySlides') as HTMLCollectionOf<HTMLElement>;
+  //   for (i = 0; i < slides.length; i++) {
+  //     slides[i].style.display = 'none';
+  //   }
+  //   this.slideIndex++;
+  //   if (this.slideIndex > slides.length) {
+  //     this.slideIndex = 1;
+  //   }
+  //   slides[this.slideIndex - 1].style.display = 'block';
+  //   setTimeout(() => this.showSlides(), 2000); // Change image every 2 seconds
+  // }
 
    
   
   updateTime() {
     let now = new Date();
-    this.time = now.toTimeString().split(' ')[0];
+    this.time = this.getCurrentTimeWithAMPM(now);
+    // .toTimeString().split(' ')[0];
+  }
+
+  getCurrentTimeWithAMPM(date: Date): string {
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const isPM = hours >= 12;
+    const AMPM = isPM ? 'PM' : 'AM';
+
+    // Convert to 12-hour format
+    const displayHours = hours % 12 || 12;
+
+    return `${displayHours}:${minutes.toString().padStart(2, '0')} ${AMPM}`;
   }
 
   setWelcomeMessage() {
     const currentTime = new Date().getHours();
 
     if (currentTime < 12) {
-      this.welcomeMessage = 'Good Morning, Admin!';
+      this.welcomeMessage = 'Good Morning, ';
+      this.adminName = 'admin offline';
     } else if (currentTime >= 12 && currentTime < 17) {
-      this.welcomeMessage = 'Good Afternoon, Admin!';
+      this.welcomeMessage = 'Good Afternoon, ';
     } else {
-      this.welcomeMessage = 'Good Evening, Admin!';
+      this.welcomeMessage = 'Good Evening, ';
+
+      
     }
   }
   

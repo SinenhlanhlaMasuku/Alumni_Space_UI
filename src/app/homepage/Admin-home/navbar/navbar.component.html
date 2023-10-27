@@ -1,14 +1,14 @@
 <header class="header header-sticky mb-4">
   <div class="navbar">
-    <a class="nav-link navbar-link" href="assets/TUT_Alumni_SpaceLogo.jpg">
+    <!-- <a class="nav-link navbar-link" href="assets/TUT_Alumni_SpaceLogo.jpg">
       <img src="assets/TUT_Alumni_SpaceLogo.jpg" style="width: 500px; height: auto; object-fit: cover;" alt="TUT Logo" class="tut-logo" />
-      <!-- <p>TUT_Alumni-Space</p> -->
-    </a>
+      <p>TUT_Alumni-Space</p>
+    </a> -->
     <div class="navbar-content">
-      <!-- <a class="nav-link navbar-link" href="assets/TUT_Alumni_SpaceLogo.jpg">
-        <img src="assets/TUT_Alumni_SpaceLogo.jpg" style="width: 500px; height: auto; object-fit: cover;" alt="TUT Logo" class="tut-logo" />
-        <p>TUT_Alumni-Space</p>
-      </a> -->
+      <a class="nav-link navbar-link" href="assets/TUT_Alumni_SpaceLogo.jpg">
+        <img src="assets/TUT_Alumni_SpaceLogo.jpg" style="width: 50vh; height: auto;" alt="TUT Logo" class="tut-logo" /><!--object-fit: cover;-->
+        <!-- <p>TUT_Alumni-Space</p> -->
+      </a>
        
       <a class="navbar-link active" routerLink="/adminHome"><svg
         xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
@@ -68,11 +68,16 @@
         </svg>
         <span class="notification-badge">{{notificatinId}}</span>
       </a> -->
-        <div class="show-next-icon" (click)="ShowAdminProfile()">
-       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="blueviolet" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blueviolet" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
         <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
-      </svg>
+      </svg> -->
+
+        <div class="show-AdminProfile" (click)="ShowAdminProfile()">
+
+               <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="black" class="bi bi-toggle-off" viewBox="0 0 16 16">
+                  <path d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z"/>
+               </svg>
         </div>
       <a>
         <div *ngIf="isAdminProf" class="card">

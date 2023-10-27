@@ -143,15 +143,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: hwb(236 4% 23%); */
+  background-color: rgb(10, 168, 196); 
+  background-color: aliceblue;
   padding: 5px; 
   width: auto;
   height: auto;
-  margin-top: 10px;
+  margin-top: 15px;
   /* margin-right: 25px; */
-  margin-left: 5px; 
+  margin-left: 10px; 
   /* border: 3px solid white; */
-   box-shadow: 5px 5px 5px 5px #0a14aaf3; 
+   box-shadow: 5px 5px 5px 5px #0a14aaf3;
+  
 }
  /* .navbar p{
   margin-top: 20px;
@@ -194,7 +196,7 @@
   /* margin-right: 5px; */
   /* margin-left: -10px; */
   padding-right: 70%;
-  padding-bottom: 200px;
+  /* padding-bottom: 200px; */
  
 }
 
@@ -202,8 +204,11 @@
   color: #000;
   font-size: 12px;
 }
-.show-next-icon svg{
-  padding-top: 15px;
+.show-AdminProfile svg{
+  padding-top: 5px;
+  padding-left: 80%;
+  width: auto;
+  height: auto;
 
 }
 .user-info{
