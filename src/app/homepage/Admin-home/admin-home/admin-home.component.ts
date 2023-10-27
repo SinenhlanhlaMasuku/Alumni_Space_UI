@@ -19,6 +19,12 @@ export class AdminHomeComponent implements OnInit{
   adminName: string = '';
    currDate: Date = new Date();
    time: string='';
+   images: string[] =[
+    'assets/AWS-Logo.png',
+    'assets/AWS-Logo.png',
+    'assets/AWS-Logo.png'
+   ];
+   slideIndex = 0;
   
   ngOnInit() {
     this.setWelcomeMessage();
@@ -26,8 +32,25 @@ export class AdminHomeComponent implements OnInit{
 
     setInterval(() => {
       this.updateTime();
-    }, 1000)
+    }, 1000),
+
+    this.showSlides();
   }
+  showSlides() {
+    let i;
+    const slides = document.getElementsByClassName('mySlides') as HTMLCollectionOf<HTMLElement>;
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+    }
+    this.slideIndex++;
+    if (this.slideIndex > slides.length) {
+      this.slideIndex = 1;
+    }
+    slides[this.slideIndex - 1].style.display = 'block';
+    setTimeout(() => this.showSlides(), 2000); // Change image every 2 seconds
+  }
+
+   
   
   updateTime() {
     let now = new Date();
