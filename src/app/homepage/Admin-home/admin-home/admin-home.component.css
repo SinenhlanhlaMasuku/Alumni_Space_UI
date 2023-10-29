@@ -11,7 +11,7 @@
     @media only screen and (max-width: 1200px) {
         width: 250px;
     }
-    box-shadow: 5px 5px 5px 5px blue;
+    box-shadow: 3px 3px 5px 5px blue;
         text-align: center;
         margin-left: 15%;
 
@@ -28,7 +28,7 @@
     width: auto;
 }
 .main-container{
-    padding-top: 75px;
+    padding-top: 5px;
     display: flex;
     width: auto;
     position: relative;
@@ -43,7 +43,7 @@
 }
 .main{
     padding: 30px;
-    box-shadow: 5px 5px 5px 5px blue;
+    box-shadow: 5px 3px 5px 3px blue;
     border: solid white; 
     margin-left: 10px;
     background-color: aliceblue;

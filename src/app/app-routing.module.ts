@@ -7,6 +7,7 @@ import { AdminHomeComponent } from './homepage/Admin-home/admin-home/admin-home.
 import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
 import { LastFewNotificationsComponent } from './homepage/Admin-home/last-few-notifications/last-few-notifications.component';
 import { ViewReportComponent } from './view-report/view-report.component';
+import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'adminHome', component: AdminHomeComponent },
   { path: 'trackAlumni', component: TrackAlumniComponent},
   { path: 'adminNotifications', component: LastFewNotificationsComponent},
-  {path: 'ViewReport', component: ViewReportComponent}
+  { path: 'ViewReport', component: ViewReportComponent},
+  { path: 'adminFooter', component: AdminFooterComponent}
 ];
 
 @NgModule({

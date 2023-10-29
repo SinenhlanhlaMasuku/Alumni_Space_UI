@@ -33,6 +33,7 @@ import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
 import { MatTableModule} from '@angular/material/table';
 import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 import { ViewReportComponent } from './view-report/view-report.component';
+import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { ViewReportComponent } from './view-report/view-report.component';
     TrackAlumniComponent,
     ImageViewerComponent,
     ViewReportComponent,
+    AdminFooterComponent,
     
     // ViewProfileComponent,
     // EditProfileComponent

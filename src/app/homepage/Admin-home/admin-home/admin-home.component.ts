@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminFooterComponent } from 'src/app/admin-footer/admin-footer.component';
 // import { 
 //   faCoffee,
 //   faPerson,

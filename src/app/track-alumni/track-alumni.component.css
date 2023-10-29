@@ -1,6 +1,12 @@
-.cointainer-fluid{
+.card{
     padding: 0;
     margin-bottom: 10px;
+    /* height: auto;
+    width: auto; */
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 5px 5px 5px 5px blue;
+    background-color: aliceblue;
 }
 .header h1{
     text-align: center;
@@ -17,7 +23,7 @@
     /* margin-left: 20px; */
     /* margin-right: 20px; */
     padding-left: 40%;
-    width: 400px;
+    width: auto;
 
 }
 .alumni-table {
@@ -26,8 +32,17 @@
     width: auto;
     /* border: ridge blue; */
     padding-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.alumni-table table{
+    width: auto;
+    height: auto;
 }
 .alumni-toggler{
   padding-bottom: 10px;
   text-align: left;
+  margin-left: 10px;
+  /* margin-right: 10px; */
+  
 }
