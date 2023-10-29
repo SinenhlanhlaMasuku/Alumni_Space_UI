@@ -30,7 +30,8 @@ export class EditProfileComponent {
   certificateChosen: boolean [] = [];
   skills: string[] = []; // array to hold skills
   newSkill: string = ''; // Input for new skills
-  certificates: File[] = [];
+  // certificates: File[] = [];
+  certificates: File[] =[];
   certificateNames: string[] =[]
   fileTypeErrorProfPic: string = '';
   fileTypeErrorCertif: string = '';
@@ -187,17 +188,17 @@ export class EditProfileComponent {
             onCertificateChange(event: any, index: number) 
             {
              
-                
+                // index = 0;
                
                 if (event.target.files && event.target.files.length > 0) {
                    const file = event.target.files[0] as File;
                    this.certificates[index] = file;
-                   this.certificateChosen[index] = true;
+                   this.certificateChosen[index] = false;
                    this.certificateNames[index] = file.name;
                  } else {
                   this.certificateChosen[index] = false;
                  }
-
+                //  index++;
                  const file: File = event.target.files[0];
                  const fileType = file.type;
                  const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
@@ -267,13 +268,16 @@ export class EditProfileComponent {
             saveCertificate()
             {
               let index: number = 0;
-                index++;
-              if(this.certificateChosen[index] = true)
+                
+              if(this.certificateChosen[index] = true  && this.certificateNames[index].length != 0)
                {
                 this.isBtnSaveCertificate = true;
                 this.isSaveClicked = true;
                }
-              
+              else{
+                this.showSnackbar('Choose a file and fill the certificate name field');
+              }
+              index++;
             }
             returnHome(){
               this.router.navigate(['/home']);

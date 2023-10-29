@@ -198,9 +198,9 @@
                           <!-- </div> -->
                            <div *ngFor="let certificate of certificates; let i = index">
                             <div class="input-group mb-3">
-                              <input type="text" [(ngModel)]="certificateNames" placeholder="Certificate Name">
+                              <input type="text" [(ngModel)]="certificateNames[i]" name="certificateNames[i]" placeholder="Certificate Name">
                             </div>
-                            <input type="file" accept=".docx, application/pdf" (change)="onCertificateChange($event, -1)" class="form-control" id="alumni_certificate_0" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                            <input type="file" accept=".docx, application/pdf" (change)="onCertificateChange($event, -1)" class="form-control" id="certificates[i]" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             <small *ngIf="fileTypeErrorCertif" style="color: red;">{{ fileTypeErrorCertif }}</small>
                             <!-- <input type="checkbox" [(ngModel)]="certificateChosen[i]"> -->
                             
