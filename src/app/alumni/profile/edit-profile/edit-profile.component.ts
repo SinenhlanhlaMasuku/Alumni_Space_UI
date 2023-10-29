@@ -27,7 +27,7 @@ export class EditProfileComponent {
   isBtnSaveCertificate: boolean = false;
   AcademicRChosen: boolean = false;
   profilePicChosen: boolean = false;
-  certificateChosen: boolean = false;
+  certificateChosen: boolean [] = [];
   skills: string[] = []; // array to hold skills
   newSkill: string = ''; // Input for new skills
   certificates: File[] = [];
@@ -35,6 +35,7 @@ export class EditProfileComponent {
   fileTypeErrorProfPic: string = '';
   fileTypeErrorCertif: string = '';
   fileTypeErrorAcadRec: string = '';
+  isSaveClicked: boolean = false;
 
   
   alumni = {
@@ -110,29 +111,17 @@ export class EditProfileComponent {
 
   saveProfile(){
 
-              //open confirmatiom dialog
-               //this.openDialog();
-              //get user_id
          const user_id = localStorage.getItem('account_id');
       
          const formData = {user_id,name: this.alumni.Name, skills: this.alumni.Skills,experience: this.alumni.Experience, interest:this.alumni.Interest, bio:this.alumni.Bio, location:this.alumni.Location,qualification: this.alumni.Qualification,employment_status: this.alumni.Employment_Status};
-         
-        //  if(formData.name.length != 0 && formData.skills.length != 0 && formData.experience.length != 0 && formData.interest.length != 0 && formData.bio.length != 0 && formData.location.length != 0 && formData.qualification.length != 0 && formData.employment_status.length != 0)
-        //  {
+        
          //pass data into the server
            this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
            console.log('Data sent to server:', response); });
            console.log(formData);
            console.log(user_id);
-          // this.message = 'profile saved!';
            this.openDialog();
-          //alert('Do you really want to save profile?')
-          //this.showSnackbar('Profile saved successfully!');
-        //  }
-        //  else{
-          //  this.showSnackbar("fill in the missing fields!");
-        //  }
-
+          
      }
      
      //add new skill
@@ -197,13 +186,16 @@ export class EditProfileComponent {
         //function to handle certificate selection
             onCertificateChange(event: any, index: number) 
             {
+             
+                
+               
                 if (event.target.files && event.target.files.length > 0) {
                    const file = event.target.files[0] as File;
                    this.certificates[index] = file;
-                   this.certificateChosen = true;
+                   this.certificateChosen[index] = true;
                    this.certificateNames[index] = file.name;
                  } else {
-                  this.certificateChosen = false;
+                  this.certificateChosen[index] = false;
                  }
 
                  const file: File = event.target.files[0];
@@ -218,17 +210,21 @@ export class EditProfileComponent {
                        this.fileTypeErrorCertif = ''; // Reset the error message if the file type is valid
                                                    // File type is valid, proceed with the file upload or other actions
                                      // Your code here
+                                     this.certificateChosen[index] = true;            
                  }
+                
             }
             //adding new certifacate
             addCertificateField() {
               this.certificates.push(new File([], ''));
               this.certificateNames.push('');
+              this.certificateChosen.push(true);
              
             }
-
+            i: number = 0;
             cancelEdit()
             {
+              this.i++; 
               this.alumni = {
                 Name: "",
                 Location: "",
@@ -239,6 +235,9 @@ export class EditProfileComponent {
                 Academic_Transcript: "",
                 Interest: "",
                 Bio : "",
+
+               
+
                 
               }
               
@@ -247,9 +246,9 @@ export class EditProfileComponent {
                 this.isBtnSaveCertificate = false;
                 this.AcademicRChosen  = false;
                 this.profilePicChosen = false;
-                this.certificateChosen = false;
-                console.log('editing profile cancelled!')
-                this.message ='....cancelled!';
+                this.certificateChosen[this.i] = false;
+                this.isSaveClicked = false;
+                
     
             }
             saveAcademicRecord()
@@ -267,8 +266,14 @@ export class EditProfileComponent {
    
             saveCertificate()
             {
-              console.log('certificate saved successfully!')
-              this.isBtnSaveCertificate = true;
+              let index: number = 0;
+                index++;
+              if(this.certificateChosen[index] = true)
+               {
+                this.isBtnSaveCertificate = true;
+                this.isSaveClicked = true;
+               }
+              
             }
             returnHome(){
               this.router.navigate(['/home']);

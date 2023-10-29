@@ -75,7 +75,7 @@ export class AdminHomeComponent implements OnInit{
 
     if (currentTime < 12) {
       this.welcomeMessage = 'Good Morning, ';
-      this.adminName = 'admin offline';
+      // this.adminName = 'admin offline';
     } else if (currentTime >= 12 && currentTime < 17) {
       this.welcomeMessage = 'Good Afternoon, ';
     } else {
