@@ -5,9 +5,10 @@
     position: fixed;
 } */
 .user-info{
-  border-style: ridge;
-  border-color: white;
+  /* border-style: ridge; */
+  /* border-color: white; */
   /* margin-left: 3px; */
+  box-shadow: 5px 5px 5px 5px blue;
 }
 .user-info p{
     margin-left: 50px;
@@ -15,8 +16,8 @@
    
 }
 .user-cred{
-    margin-top: -200px;
-    
+    /* margin-top: -200px; */
+    margin-top: auto;
 }
 .user-cred p{
     font-size: 20px;
@@ -24,12 +25,17 @@
 }
 .user-bio{
     margin-left: 75%;
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    margin-top: auto;
+    width: auto;
+    height: auto;
+    box-shadow: 5px 5px 5px 5px blue;
 }
 .card {
     padding: 10px 10px 10px;
     border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.5); */
+    box-shadow: 5px 5px 5px 5px blue;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -56,16 +62,19 @@
 }
 
 .wrapper {
-    background-color: whitesmoke;
-    padding: 20px;
-    border: 1px solid #ccc;
+    background-color: aliceblue;
+    padding: 10px;
+    /* border: 1px solid #ccc; */
     margin: 20px;
     justify-content: center;
     align-content: center;
     padding: 20px;
-
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
-    width: 70%;
+    box-shadow: 5px 5px 5px 5px blue;
+    /* box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3); */
+    width: 90%;
+    /* width: auto; */
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .wrapper h2 {
@@ -90,7 +99,7 @@
 .wrapper2 {
     background-color: whitesmoke;
     padding: 20px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     margin: 20px;
     justify-content: center;
     align-content: center;
@@ -102,41 +111,51 @@
 .card-text{
 
  background-color: None;
- width: 600px;
+ /* width: 600px; */
+ width: auto;
  height: auto;
  /* border-color: blue;
  border-style: ridge; */
+ box-shadow: 5px 5px 5px 5px blue;
  margin-bottom: 5px;
-
+ margin-left: 20%;
+ margin-right: 20%;
 }
 .image img{
-    margin-top: 10px;
-    /* margin-left: 10px; */
+    margin-top: 10%;
+    margin-left: 5%;
     margin-right: 10px;
     border-radius: 100%;
     border-style: ridge;
     border-color: blue;
 }
 .certificates-list{
-    border-color: whitesmoke;
-    border-style: ridge;
+    /* border-color: whitesmoke;
+    border-style: ridge; */
     margin-left: 15%;
     margin-right: 15%;
     margin-top: 10px;
+    box-shadow: 5px 5px 5px 5px blue;
+    margin-bottom: 10px;
 }
 .certificates-list h1{
     text-align: center;
+    font-size: 30px;
+    font-style: bold;
 }
 .certificates-list p{
  margin-right: -10%;
  margin-left: 10%;
 }
 .academic_record{
-    border-style: ridge;
-    border-color: aliceblue;
+    /* border-style: ridge;
+    border-color: aliceblue; */
+    box-shadow: 5px 5px 5px 5px blue;
 } 
 .academic_record h1{
  text-align: center;
+ font-size: 30px;
+ font-style: bold;
 }
 .academic_record button{
     margin-top: 10px;
