@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StudentcrudComponent {
 
+  currDate: Date = new Date();
+   time: string='';
   StudentArray : any[] = [ ];
   isResultLoaded = false;
   isUpdateFormActive = false;
@@ -22,7 +24,7 @@ export class StudentcrudComponent {
   job_type : string= '';
   job_description : string= '';
   date_posted : string= '';
-  deadline : string= '';
+  deadline  = Date();
 
  /* stname: string ="";
   course: string ="";
@@ -40,7 +42,31 @@ export class StudentcrudComponent {
     // Fetch jobs using the service
     this.StudentArray = response.jobs;
    this.num = this.StudentArray.length;
+    this.updateTime();
+    setInterval(() => {
+    this.updateTime();
+  }, 1000)
+
+  
   });
+  }
+
+  updateTime() {
+    let now = new Date();
+    this.time = this.getCurrentTimeWithAMPM(now);
+    // .toTimeString().split(' ')[0];
+  }          
+
+  getCurrentTimeWithAMPM(date: Date): string {
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const isPM = hours >= 12;
+    const AMPM = isPM ? 'PM' : 'AM';
+
+    // Convert to 12-hour format
+    const displayHours = hours % 12 || 12;
+
+    return `${displayHours}:${minutes.toString().padStart(2, '0')} ${AMPM}`;
   }
 
   getAllStudent()
