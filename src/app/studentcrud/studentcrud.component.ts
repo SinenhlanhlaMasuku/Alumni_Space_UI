@@ -81,10 +81,6 @@ export class StudentcrudComponent {
     });
   }
 
-  
-
-  
-  
 
 
   register()
