@@ -244,3 +244,24 @@
   text-align: center;
   font-size: 7px;
 }
+
+.card-tip{
+  margin-top: 2%; 
+  margin-bottom: 1.5%; 
+  margin-left: 20%; 
+  margin-right: 20%; 
+  height: auto; 
+  width: 90vh; 
+  box-shadow: 3px 3px 3px 3px blue;
+}
+.card-tip p{
+  text-align: center;
+}
+.close {
+  /* position: absolute; */
+  position: relative;
+  /* top: 10px; */
+  margin-left: 95%;
+  /* right: 10px; */
+  cursor: pointer;
+}

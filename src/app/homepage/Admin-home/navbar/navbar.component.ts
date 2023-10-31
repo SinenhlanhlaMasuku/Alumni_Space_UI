@@ -35,6 +35,9 @@ newName: string ='';
 newcontact_No: string='';
 newAddress: string='';
 newEmail: string ='';
+Search: string ='';
+searchResults: string ='';
+isSearch: boolean = false;
   
  ShowAdminProfile(){
             
@@ -76,5 +79,17 @@ SaveAdminProfile(){
   
   
 }
+ searchAnything(){
+
+  if(this.Search.length != 0){
+    this.isSearch = true;
+    // alert('results are being processed! '+ this.Search)
+    this.searchResults =  'results are being processed...';
+   }
+  
+  else{
+    alert('Type keywords to search something!');
+  }
+} 
  
 }
