@@ -83,12 +83,13 @@ SaveAdminProfile(){
 
   if(this.Search.length != 0){
     this.isSearch = true;
-    // alert('results are being processed! '+ this.Search)
     this.searchResults =  'results are being processed...';
+    
    }
   
   else{
     alert('Type keywords to search something!');
+    // this.showSnackbar('Type keywords to search something!'); Not responding
   }
 } 
  
