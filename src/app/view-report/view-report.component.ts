@@ -51,9 +51,9 @@ Total_alumni_not_employed: number = 0;
  
    reportData: ReportData =[
       [this.Total_alumni_registered=13, this.Total_jobs_posted, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=5, this.Total_alumni_not_employed=8],
-      [this.Total_alumni_registered= 7, this.Total_jobs_posted=7, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=5, this.Total_alumni_not_employed=2],
-      [this.Total_alumni_registered=8, this.Total_jobs_posted=13, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=0, this.Total_alumni_not_employed=8],
-      [this.Total_alumni_registered=7, this.Total_jobs_posted=9, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=3, this.Total_alumni_not_employed=4]
+      // [this.Total_alumni_registered= 7, this.Total_jobs_posted=7, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=5, this.Total_alumni_not_employed=2],
+      // [this.Total_alumni_registered=8, this.Total_jobs_posted=13, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=0, this.Total_alumni_not_employed=8],
+      // [this.Total_alumni_registered=7, this.Total_jobs_posted=9, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=3, this.Total_alumni_not_employed=4]
   ];
   month: string;
   dataSource = new MatTableDataSource<any>(this.reportData);

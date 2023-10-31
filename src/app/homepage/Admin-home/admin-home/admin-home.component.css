@@ -115,18 +115,20 @@
     
     .widget{
         height: auto;
-        background-color: #fff;
+        /* background-color: #fff; */
         border-radius: 5px;
         /* border: solid blue; */
         background-color: aliceblue;
-        box-shadow: 5px 5px 5px 5px blue;
+        /* box-shadow: 5px 5px 5px 5px blue; */
         padding-top: 10px;
         /* margin: 3px; */
-        padding-left: 10px;
+        /* padding-left: 10px; */
         /* box-shadow: 5px 5px 5px 5px #939393; */
 
         &.left{
             width: auto;
+            margin-top: 10px;
+            /* box-shadow: 3px 2px 3px 2px blue; */
             @media only screen and (max-width: 600px) {
                 width:  auto;
             }
@@ -141,6 +143,7 @@
             }
         }
         &.right{
+            /* box-shadow: 5px 5px 5px 5px blue; */
             width: auto;
         }
     }

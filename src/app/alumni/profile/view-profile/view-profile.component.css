@@ -17,7 +17,9 @@
 }
 .user-cred{
     /* margin-top: -200px; */
-    margin-top: auto;
+    margin-top: -60vh;
+    box-shadow: 2px 3px 2px 3px blue;
+    width: 100vh;
 }
 .user-cred p{
     font-size: 20px;
@@ -29,7 +31,7 @@
     margin-top: auto;
     width: auto;
     height: auto;
-    box-shadow: 5px 5px 5px 5px blue;
+    /* box-shadow: 5px 5px 5px 5px blue; */
 }
 .card {
     padding: 10px 10px 10px;
@@ -112,18 +114,18 @@
 
  background-color: None;
  /* width: 600px; */
- width: auto;
+ width: 110vh;
  height: auto;
  /* border-color: blue;
  border-style: ridge; */
- box-shadow: 5px 5px 5px 5px blue;
+ box-shadow: 3px 3px 3px 3px blue;
  margin-bottom: 5px;
- margin-left: 20%;
+ /* margin-left: 20%; */
  margin-right: 20%;
 }
 .image img{
     margin-top: 10%;
-    margin-left: 5%;
+    margin-left: 5px;
     margin-right: 10px;
     border-radius: 100%;
     border-style: ridge;
@@ -137,6 +139,7 @@
     margin-top: 10px;
     box-shadow: 5px 5px 5px 5px blue;
     margin-bottom: 10px;
+    width: auto;
 }
 .certificates-list h1{
     text-align: center;
