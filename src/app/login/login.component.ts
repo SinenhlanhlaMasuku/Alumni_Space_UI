@@ -35,7 +35,7 @@ export class LoginComponent {
         localStorage.setItem('name',response.result[0].name.toString());
         localStorage.setItem('account_id',response.account_id);
 
-        this.router.navigate(['/alumni/home/home']);
+        this.router.navigate(['/alumni/home']);
       }else{
         this.router.navigate(['/forgot-password']);
       }

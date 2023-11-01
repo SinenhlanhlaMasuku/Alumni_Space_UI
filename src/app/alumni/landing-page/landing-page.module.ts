@@ -29,7 +29,7 @@ import { YourThoughtsComponent } from './your-thoughts/your-thoughts.component';
     CommonModule,
     FormsModule,
     RouterModule.forChild([
-      { path: 'home',component: UserLandingPageComponent },
+      { path: '',component: UserLandingPageComponent },
     ]),
   ]
 })
