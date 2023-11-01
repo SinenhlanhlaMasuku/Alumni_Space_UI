@@ -41,7 +41,7 @@ export class LoginComponent {
       }
     });
     }else{
-      this.router.navigate(['/adminHome']);
+      this.router.navigate(['/admin/dashboard']);
     }
   }
 
