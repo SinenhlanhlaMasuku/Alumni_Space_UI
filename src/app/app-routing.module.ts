@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AdminHomeComponent } from './admin/dashboard/admin-home/admin-home.component';
-import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
+import { TrackAlumniComponent } from './admin/track-alumni/track-alumni.component';
 import { LastFewNotificationsComponent } from './admin/dashboard/last-few-notifications/last-few-notifications.component';
 
 
@@ -24,19 +24,20 @@ const routes: Routes = [
   // { path: 'userprofile', component: UserProfileComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   //{ path: 'servicesPage', component: ServicesPageComponent},
-  { path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule) },
+  
   //Component
   { path: 'contacts', component: ContactsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'services', component: ServicesComponent },
 
   //Alumni-module Components
+  { path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule) },
 
   //Admni-module Components
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   
-  { path: 'adminHome', component: AdminHomeComponent },
-  { path: 'trackAlumni', component: TrackAlumniComponent},
-  { path: 'adminNotifications', component: LastFewNotificationsComponent},
+
+  
 
 
   //
@@ -46,8 +47,8 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   
   { path: 'jobs', component: JobsComponent },
-  { path: 'add-jobs', component: AddJobsComponent },
-  { path: 'add-posts', component: AddPostsComponent },
+  
+  
 ];
 
 @NgModule({

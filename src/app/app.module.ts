@@ -28,7 +28,7 @@ import { ChartModule } from 'angular-highcharts';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 // import { ViewProfileComponent } from './alumni/profile/view-profile/view-profile.component';
 // import { EditProfileComponent } from './alumni/profile/edit-profile/edit-profile.component';
-import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
+import { TrackAlumniComponent } from './admin/track-alumni/track-alumni.component';
 import { MatTableModule} from '@angular/material/table';
 
 //COMPONENTS
