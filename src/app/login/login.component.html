@@ -18,14 +18,14 @@
             <a routerLink="/contacts">Contact</a>
             
         </nav>
-        <div class="dropdown">
+        <!-- <div class="dropdown">
           <button class="btnLogin-popup">Login</button>
-         <!-- <button class="dropbtn">Select User Type</button> -->
+          <button class="dropbtn">Select User Type</button> 
           <div class="dropdown-content">
               <a routerLink="/" id="student">Student</a>
               <a routerLink="/adminLogin" id="admin">Admin</a>
           </div>
-        </div>
+        </div> -->
     </header>
 
     <div class="wrapper">
@@ -35,7 +35,7 @@
             <form (ngSubmit)="onLogin()">
                 <div class="input-box">
                     <input type="email" id="email" [(ngModel)]="email" name="email" required>
-                    <label>Student Email</label>
+                    <label>Email</label>
                 </div>
                 <div class="input-box">
                     <input type="password" id="password" [(ngModel)]="password" name="password" required>
