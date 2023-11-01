@@ -23,10 +23,10 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
 
   //Alumni-module Components
-  { path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule) },
+  { path: 'alumni', loadChildren: () => import('./modules/alumni/alumni.module').then(m => m.AlumniModule) },
 
   //Admni-module Components
-  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   
 
   

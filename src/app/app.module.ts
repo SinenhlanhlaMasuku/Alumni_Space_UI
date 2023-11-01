@@ -9,46 +9,47 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
+//imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule} from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
-import { AuthorsComponent } from './admin/dashboard/authors/authors.component';
-import { NavbarComponent } from './admin/dashboard/navbar/navbar.component';
-import { AdminHomeComponent } from './admin/dashboard/admin-home/admin-home.component';
-import { TopWidgetsComponent } from './admin/dashboard/top-widgets/top-widgets.component';
-import { AlumniStatsComponent } from './admin/dashboard/alumni-stats/alumni-stats.component';
-import { JobsStatsComponent } from './admin/dashboard/jobs-stats/jobs-stats.component';
-import { EventsStatsComponent } from './admin/dashboard/events-stats/events-stats.component';
-import { LastFewNotificationsComponent } from './admin/dashboard/last-few-notifications/last-few-notifications.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'angular-highcharts';
-//import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { MatTableModule} from '@angular/material/table';
+
+//Admin-Module Components
+import { AuthorsComponent } from './modules/admin/dashboard/authors/authors.component';
+import { NavbarComponent } from './modules/admin/dashboard/navbar/navbar.component';
+import { AdminHomeComponent } from './modules/admin/dashboard/admin-home/admin-home.component';
+import { TopWidgetsComponent } from './modules/admin/dashboard/top-widgets/top-widgets.component';
+import { AlumniStatsComponent } from './modules/admin/dashboard/alumni-stats/alumni-stats.component';
+import { JobsStatsComponent } from './modules/admin/dashboard/jobs-stats/jobs-stats.component';
+import { EventsStatsComponent } from './modules/admin/dashboard/events-stats/events-stats.component';
+import { LastFewNotificationsComponent } from './modules/admin/dashboard/last-few-notifications/last-few-notifications.component';
+import { TrackAlumniComponent } from './modules/admin/track-alumni/track-alumni.component';
+
+//Alumni-Module Components
+import { JobsComponent } from './modules/alumni/jobs/jobs.component';
+import { AddJobsComponent } from './modules/admin/add-jobs/add-jobs.component';
+import { AddPostsComponent } from './modules/admin/add-posts/add-posts.component';
+
+//import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+
 // import { ViewProfileComponent } from './alumni/profile/view-profile/view-profile.component';
 // import { EditProfileComponent } from './alumni/profile/edit-profile/edit-profile.component';
-import { TrackAlumniComponent } from './admin/track-alumni/track-alumni.component';
-import { MatTableModule} from '@angular/material/table';
 
 //COMPONENTS
 import { AboutComponent } from './components/about/about.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
-//Alumni-module Components
-
-//Admni-module Components
-
-//components
 import { ServicesComponent } from './components/services/services.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-
-
 import {AdminLoginComponent} from './admin-login/admin-login.component';
 import {SuccessComponent} from './success/success.component';
 import {SuccessPasswordChangeComponent} from './success-password-change/success-password-change.component';
-import { JobsComponent } from './alumni/jobs/jobs.component';
-import { AddJobsComponent } from './admin/add-jobs/add-jobs.component';
-import { AddPostsComponent } from './admin/add-posts/add-posts.component';
+
 
 
 

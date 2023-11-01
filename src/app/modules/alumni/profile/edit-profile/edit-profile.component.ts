@@ -261,7 +261,7 @@ export class EditProfileComponent {
     this.isBtnSaveCertificate = true;
   }
   returnHome() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/alumni/home']);
   }
 
 
