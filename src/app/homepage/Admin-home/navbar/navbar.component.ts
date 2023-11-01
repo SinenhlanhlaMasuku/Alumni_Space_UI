@@ -79,6 +79,8 @@ SaveAdminProfile(){
   
   
 }
+
+//admin can search for alumni
  searchAnything(){
 
   if(this.Search.length != 0){
