@@ -6,54 +6,57 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HomepageComponent } from './homepage/homepage.component';
-import { LoginComponent } from './login/login.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ServicesPageComponent } from './services-page/services-page.component';
+import { LoginComponent } from './components/login/login.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
+
+//imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule} from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
-import { AuthorsComponent } from './homepage/Admin-home/authors/authors.component';
-import { NavbarComponent } from './homepage/Admin-home/navbar/navbar.component';
-import { AdminHomeComponent } from './homepage/Admin-home/admin-home/admin-home.component';
-import { TopWidgetsComponent } from './homepage/Admin-home/top-widgets/top-widgets.component';
-import { AlumniStatsComponent } from './homepage/Admin-home/alumni-stats/alumni-stats.component';
-import { JobsStatsComponent } from './homepage/Admin-home/jobs-stats/jobs-stats.component';
-import { EventsStatsComponent } from './homepage/Admin-home/events-stats/events-stats.component';
-import { LastFewNotificationsComponent } from './homepage/Admin-home/last-few-notifications/last-few-notifications.component';
+import { ConfirmationDialogComponent } from './modules/alumni/profile/confirmation-dialog/confirmation-dialog.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'angular-highcharts';
-//import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { MatTableModule} from '@angular/material/table';
+
+//Admin-Module Components
+import { AuthorsComponent } from './modules/admin/dashboard/authors/authors.component';
+import { NavbarComponent } from './modules/admin/dashboard/navbar/navbar.component';
+import { AdminHomeComponent } from './modules/admin/dashboard/admin-home/admin-home.component';
+import { TopWidgetsComponent } from './modules/admin/dashboard/top-widgets/top-widgets.component';
+import { AlumniStatsComponent } from './modules/admin/dashboard/alumni-stats/alumni-stats.component';
+import { JobsStatsComponent } from './modules/admin/dashboard/jobs-stats/jobs-stats.component';
+import { EventsStatsComponent } from './modules/admin/dashboard/events-stats/events-stats.component';
+import { LastFewNotificationsComponent } from './modules/admin/dashboard/last-few-notifications/last-few-notifications.component';
+import { TrackAlumniComponent } from './modules/admin/track-alumni/track-alumni.component';
+
+//Alumni-Module Components
+import { JobsComponent } from './modules/alumni/jobs/jobs.component';
+import { AddJobsComponent } from './modules/admin/add-jobs/add-jobs.component';
+import { AddPostsComponent } from './modules/admin/add-posts/add-posts.component';
+
+//import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+
 // import { ViewProfileComponent } from './alumni/profile/view-profile/view-profile.component';
 // import { EditProfileComponent } from './alumni/profile/edit-profile/edit-profile.component';
-import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
-import { MatTableModule} from '@angular/material/table';
-import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 
-//components
-import { ServicesComponent } from './services/services.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { AboutComponent } from './about/about.component';
-import {AdminLoginComponent} from './admin-login/admin-login.component';
-import {SuccessComponent} from './success/success.component';
-import {SuccessPasswordChangeComponent} from './success-password-change/success-password-change.component';
-import { JobsComponent } from './jobs/jobs.component';
-import { AddJobsComponent } from './add-jobs/add-jobs.component';
-import { AddPostsComponent } from './add-posts/add-posts.component';
+//COMPONENTS
+import { AboutComponent } from './components/about/about.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { ServicesComponent } from './components/services/services.component';
+import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
+import {SuccessComponent} from './components/success/success.component';
+import {SuccessPasswordChangeComponent} from './components/auth/success-password-change/success-password-change.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ServicesPageComponent,
     ConfirmationDialogComponent,
     AuthorsComponent,
     NavbarComponent,
@@ -64,7 +67,6 @@ import { AddPostsComponent } from './add-posts/add-posts.component';
     EventsStatsComponent,
     LastFewNotificationsComponent,
     TrackAlumniComponent,
-    ImageViewerComponent,
     // ViewProfileComponent,
     // EditProfileComponent
 
@@ -72,7 +74,6 @@ import { AddPostsComponent } from './add-posts/add-posts.component';
     AddJobsComponent,
     SuccessPasswordChangeComponent,
     SuccessComponent,
-    AdminLoginComponent,
     AboutComponent,
     ContactsComponent,
     ResetPasswordComponent,
