@@ -8,3 +8,15 @@ import { Component } from '@angular/core';
 export class WhoToFollowComponent {
 
 }
+class Connection {
+  name: string;
+  occupation: string;
+  avatarSrc: string;
+
+  constructor(name: string, occupation: string, avatarSrc: string) {
+    this.name = name;
+    this.occupation = occupation;
+    this.avatarSrc = avatarSrc;
+  }
+}
+
