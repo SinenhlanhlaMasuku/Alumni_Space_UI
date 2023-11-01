@@ -6,15 +6,15 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LoginComponent } from './components/login/login.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 
 //imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule} from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogComponent } from './modules/alumni/profile/confirmation-dialog/confirmation-dialog.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'angular-highcharts';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
@@ -45,10 +45,9 @@ import { AddPostsComponent } from './modules/admin/add-posts/add-posts.component
 import { AboutComponent } from './components/about/about.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { ServicesComponent } from './components/services/services.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import {AdminLoginComponent} from './admin-login/admin-login.component';
-import {SuccessComponent} from './success/success.component';
-import {SuccessPasswordChangeComponent} from './success-password-change/success-password-change.component';
+import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
+import {SuccessComponent} from './components/success/success.component';
+import {SuccessPasswordChangeComponent} from './components/auth/success-password-change/success-password-change.component';
 
 
 
@@ -75,7 +74,6 @@ import {SuccessPasswordChangeComponent} from './success-password-change/success-
     AddJobsComponent,
     SuccessPasswordChangeComponent,
     SuccessComponent,
-    AdminLoginComponent,
     AboutComponent,
     ContactsComponent,
     ResetPasswordComponent,
