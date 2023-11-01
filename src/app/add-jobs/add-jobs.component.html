@@ -97,8 +97,8 @@
                 <td>{{StudentItem.location }}</td>
                 <td>{{StudentItem.job_type }}</td>
                 <td>{{StudentItem.job_description }}</td>
-                <td>{{StudentItem.date_posted }}</td>
-                <td>{{StudentItem.deadline }}</td>
+                <td>{{StudentItem.date_posted | date:'medium'}}</td>
+                <td>{{StudentItem.deadline  | date:'medium'}}</td>
                 
                 <td>
                   <button type="button" class="btn btn-success" (click)="setUpdate(StudentItem)">Edit</button>

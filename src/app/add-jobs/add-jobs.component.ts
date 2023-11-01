@@ -32,7 +32,10 @@ export class AddJobsComponent {
   constructor(private http: HttpClient ) 
   {
     this.getAllStudent();
+    this.setupJobDeletionTimer();
   }
+
+  
 
   ngOnInit() {
     this.http.get('http://localhost:3000/api/jobs' ).subscribe((response: any) => {
@@ -54,12 +57,6 @@ export class AddJobsComponent {
         console.log(this.StudentArray);
     });
   }
-
-  
-
-  
-  
-
 
   register()
   {
@@ -158,16 +155,43 @@ export class AddJobsComponent {
     });
   }
 
+  setupJobDeletionTimer() {
+    setInterval(() => {
+      this.removeExpiredJobs();
+    }, 60000); 
+  }
+
+
+
   removeExpiredJobs() {
     const currentTime = new Date();
 
-    // Filter out jobs that have deadlines in the past
-    this.StudentArray = this.StudentArray.filter((job) => {
-      const jobDeadline = new Date(job.deadline);
-      return jobDeadline > currentTime;
-    });
+    this.http.get('http://localhost:3000/api/jobs').subscribe((response: any) => {
+      const jobs = response.jobs;
+            const jobsToDelete = jobs.filter((job : Job) => {
+        const jobDeadline = new Date(job.deadline);
+        return jobDeadline <= currentTime;
+      });
 
-    this.num = this.StudentArray.length; // Update the job count
+      if (jobsToDelete.length > 0) {
+        // Send a request to delete the expired jobs from the server.
+        this.http.post('http://localhost:3000/api/deletejobs', { jobs: jobsToDelete }).subscribe(() => {
+          console.log('Expired jobs deleted');
+        });
+      }
+    });
   }
 
+}
+
+interface Job {
+  job_id: number;
+  job_title: string;
+  Organisation: string;
+  workplace_type: string;
+  location: string;
+  job_type: string;
+  job_description: string;
+  date_posted: string;
+  deadline: string;
 }
