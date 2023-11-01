@@ -20,10 +20,13 @@ import { Router } from '@angular/router';
 })
 export class JobsComponent {
 
+  currDate: Date = new Date();
+  time: string = '';
   name: string = '';
   num: number = 0 ;
   jobs: any[] = [];
-  
+  currentDate: string = '';
+
   constructor(private http: HttpClient, private router: Router) {}
 
   //constructor(private jobService: Job) {}
@@ -34,9 +37,43 @@ export class JobsComponent {
     // Fetch jobs using the service
     this.jobs = response.jobs;
     this.num = this.jobs.length;
+
+    this.updateTime();
+    this.updateCurrentDate();
+
+    setInterval(() => {
+      this.updateTime();
+      this.updateCurrentDate();
+    }, 1000);
   });
   }
 
+
+  updateTime() {
+    let now = new Date();
+    this.time = this.getCurrentTimeWithAMPM(now);
+  }
+
+  getCurrentTimeWithAMPM(date: Date): string {
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const isPM = hours >= 12;
+    const AMPM = isPM ? 'PM' : 'AM';
+
+    // Convert to 12-hour format
+    const displayHours = hours % 12 || 12;
+
+    return `${displayHours}:${minutes.toString().padStart(2, '0')} ${AMPM}`;
+  }
+
+  updateCurrentDate() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+    const date = now.getDate().toString().padStart(2, '0');
+
+    this.currentDate = `${year}-${month}-${date}`;
+  }
   //
   searchJobs(){
    var job_type = 'Full-time';

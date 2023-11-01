@@ -158,5 +158,16 @@ export class AddJobsComponent {
     });
   }
 
+  removeExpiredJobs() {
+    const currentTime = new Date();
+
+    // Filter out jobs that have deadlines in the past
+    this.StudentArray = this.StudentArray.filter((job) => {
+      const jobDeadline = new Date(job.deadline);
+      return jobDeadline > currentTime;
+    });
+
+    this.num = this.StudentArray.length; // Update the job count
+  }
 
 }
