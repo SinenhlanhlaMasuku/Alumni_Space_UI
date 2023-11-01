@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthorsService } from '../authors.service';
+//import { AuthorsService } from '../../../homepage/Admin-home/authors.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
 export class AuthorsComponent 
 {
   title = "3 Authors";
-  authors;
+  //authors;
 
-  constructor(authors: AuthorsService, private router: Router){
+ /* constructor(authors: AuthorsService, private router: Router){
     this.authors = authors.getAuthors();
   }
    navigateToAuthorsComponent(){
     this.router.navigate(['/authors']);
-   }
+   } */
   
 }

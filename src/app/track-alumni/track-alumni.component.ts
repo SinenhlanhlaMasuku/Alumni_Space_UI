@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 //import { MatTableModule } from '@angular/material/table';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
 @Component({
   selector: 'app-track-alumni',
   templateUrl: './track-alumni.component.html',
