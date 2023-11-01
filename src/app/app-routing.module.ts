@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   //{ path: 'servicesPage', component: ServicesPageComponent},
   { path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule) },
+  
   { path: 'adminHome', component: AdminHomeComponent },
   { path: 'trackAlumni', component: TrackAlumniComponent},
   { path: 'adminNotifications', component: LastFewNotificationsComponent},
