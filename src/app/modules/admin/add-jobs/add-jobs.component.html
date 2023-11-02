@@ -55,16 +55,16 @@
 
         <div class="form-group">
             <label for="deadline"><b>Deadline:</b></label>
-            <input type="date" class="form-control" [(ngModel)]="deadline"  name="deadline" id="deadline">
+            <input type="datetime-local" class="form-control" [(ngModel)]="deadline"  name="deadline" id="deadline">
         </div>
 
         <div class="form-group">
             <label for="jobPostedOn"><b>Job Posted On:</b></label>
-            <input type="date" class="form-control" [(ngModel)]="date_posted"  name="date_posted" id="jobPostedOn">
+            <input type="datetime-local" class="form-control" [(ngModel)]="date_posted"  name="date_posted" id="jobPostedOn">
         </div>
 
     
-        <button type="submit" class="btn btn-primary mt-4" (click)="save()" >Save</button>
+        <button type="submit" class="btn btn-primary mt-4" >Save</button>
        
       </form>
     </div>
