@@ -108,15 +108,13 @@ reportdate = new Date();
         'Total alumni not employed: ' + this.Total_alumni_not_employed,
         '\n',
        {
+        // style: 'tableStyle',
         table: {
             headerRows: 1,
             widths: ['*', '*', '*', '*', '*', '*', '*', '*', '*'],
             body: [
                 ['Date registered', 'Total_alumni_registered', 'Total_jobs_posted', 'Total_jobs_expired', 'Total_events_posted', 'Total_events_cancelled', 'Total_alumni_employed', 'Total _alumni_unemployed'],
-                // ['12/10/2023', 13, '', '', '', '', 5, 8],
-                // ['25/10/2023', 7, 7, '', '', '', 5, 2],
-                // ['26/10/2023', 8, 13, '', '', '', 0, 8],
-                // ['27/10/2023', 7, 9, '', '', '', 3, 4]
+               
                 [
                   this.Date_registered,
                   this.Total_alumni_registered.toString(),
@@ -126,16 +124,35 @@ reportdate = new Date();
                   this.Total_events_cancelled.toString(),
                   this.Total_alumni_employed.toString(),
                   this.Total_alumni_not_employed.toString()
-                ]
+                ],
             ]
         }
     }
        
-    ]
-    
+    ],
+    // styles: {
+    //   header: {
+    //       fontSize: 16,
+    //       bold: true,
+    //       alignment: 'center',
+    //       margin: [0, 10, 0, 10]
+    //   },
+    //   tableStyle: {
+    //       margin: [0, 5, 0, 15]
+    //   },
+    //   tableHeader: {
+    //       bold: true,
+    //       fontSize: 13,
+    //       color: 'black'
+    //   }
+    //   }
      };
      
      pdfMake.createPdf(docDefinition).open();
    }
   
+  //new
+  
+
+
 }

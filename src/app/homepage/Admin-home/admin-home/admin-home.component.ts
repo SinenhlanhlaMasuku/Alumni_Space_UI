@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminFooterComponent } from 'src/app/admin-footer/admin-footer.component';
+import { NotificationService } from '../all-notifications/notification.service';
 // import { 
 //   faCoffee,
 //   faPerson,
@@ -16,7 +17,7 @@ import { AdminFooterComponent } from 'src/app/admin-footer/admin-footer.componen
 export class AdminHomeComponent implements OnInit{
   // faCoffee = faCoffee;
   welcomeMessage: string ='';
-  constructor(private router: Router){}
+  badgeCount: number=0;
   adminName: string = 'Admin Name';
    currDate: Date = new Date();
    time: string='';
@@ -27,6 +28,8 @@ export class AdminHomeComponent implements OnInit{
    ];
    slideIndex = 0;
   
+   constructor(private router: Router, private notificationService: NotificationService){}
+
   ngOnInit() {
     this.setWelcomeMessage();
     this.updateTime();
@@ -35,7 +38,9 @@ export class AdminHomeComponent implements OnInit{
       this.updateTime();
     }, 1000)
 
-    
+    this.notificationService.getBadgeCountSubject().subscribe((count) => {
+      this.badgeCount = count;
+    });
   }
   
 
