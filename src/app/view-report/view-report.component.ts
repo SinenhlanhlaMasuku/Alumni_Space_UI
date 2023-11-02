@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import * as pdfMake from "pdfmake/build/pdfmake";
  import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 type ReportData = Array<Array<string | number>>;
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 @Component({
   selector: 'app-view-report',
   templateUrl: './view-report.component.html',
@@ -19,12 +20,18 @@ Total_events_cancelled: number = 0;
 Total_alumni_employed: number = 0;
 Total_alumni_not_employed: number = 0;
 time: string ='';
+reportdate = new Date();
+ formattedDate = this.reportdate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: '2-digit'
+});
  
    reportData: ReportData =[
       [this.Date_registered= '12/10/2023', this.Total_alumni_registered=13, this.Total_jobs_posted, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=5, this.Total_alumni_not_employed=8],
-      [this.Date_registered= '25/10/2023', this.Total_alumni_registered= 7, this.Total_jobs_posted=7, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=5, this.Total_alumni_not_employed=2],
-      [this.Date_registered= '26/10/2023', this.Total_alumni_registered=8, this.Total_jobs_posted=13, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=0, this.Total_alumni_not_employed=8],
-      [this.Date_registered= '27/10/2023', this.Total_alumni_registered=7, this.Total_jobs_posted=9, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=3, this.Total_alumni_not_employed=4]
+      // [this.Date_registered= '25/10/2023', this.Total_alumni_registered= 7, this.Total_jobs_posted=7, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=5, this.Total_alumni_not_employed=2],
+      // [this.Date_registered= '26/10/2023', this.Total_alumni_registered=8, this.Total_jobs_posted=13, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=0, this.Total_alumni_not_employed=8],
+      // [this.Date_registered= '27/10/2023', this.Total_alumni_registered=7, this.Total_jobs_posted=9, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=3, this.Total_alumni_not_employed=4]
   ];
   month: string;
   dataSource = new MatTableDataSource<any>(this.reportData);
@@ -81,6 +88,8 @@ time: string ='';
     let docDefinition = {
        content: [
         'TUT alumni_space Report for month: ' + this.month,
+        '\n',
+        'Report Date: ' +  this.formattedDate,
         '\n',
         'Time stamp: ' + this.time,
         '\n',

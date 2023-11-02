@@ -34,6 +34,7 @@ import { MatTableModule} from '@angular/material/table';
 import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 import { ViewReportComponent } from './view-report/view-report.component';
 import { AdminFooterComponent } from './admin-footer/admin-footer.component';
+import { AllNotificationsComponent } from './homepage/Admin-home/all-notifications/all-notifications.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { AdminFooterComponent } from './admin-footer/admin-footer.component';
     ImageViewerComponent,
     ViewReportComponent,
     AdminFooterComponent,
+    AllNotificationsComponent,
     
     // ViewProfileComponent,
     // EditProfileComponent
