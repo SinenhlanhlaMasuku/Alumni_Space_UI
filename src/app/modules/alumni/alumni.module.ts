@@ -4,11 +4,14 @@ import { RouterModule } from '@angular/router';
 
 //import components
 import { JobsComponent } from './jobs/jobs.component';
+import { EventsComponent } from './events/events.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    EventsComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild([
@@ -17,6 +20,7 @@ import { JobsComponent } from './jobs/jobs.component';
     
       //components
       { path: 'jobs', component: JobsComponent },
+      { path: 'events', component: EventsComponent},
     ]),
   ]
 })

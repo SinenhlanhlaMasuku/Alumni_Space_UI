@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 
@@ -48,7 +49,9 @@ import { ServicesComponent } from './components/services/services.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import {SuccessComponent} from './components/success/success.component';
 import {SuccessPasswordChangeComponent} from './components/auth/success-password-change/success-password-change.component';
+import { SuccessModalComponent } from './components/success-modal/success-modal.component';
 
+//services
 
 
 
@@ -79,10 +82,12 @@ import {SuccessPasswordChangeComponent} from './components/auth/success-password
     ResetPasswordComponent,
     ServicesComponent,
     AddPostsComponent,
+    SuccessModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule, // Add FormsModule
     HttpClientModule, BrowserAnimationsModule, // Add HttpClientModule
     MatDialogModule,
@@ -94,7 +99,6 @@ import {SuccessPasswordChangeComponent} from './components/auth/success-password
     PdfViewerModule,
     MatTableModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

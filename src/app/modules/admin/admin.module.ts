@@ -7,6 +7,7 @@ import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
 import { AddJobsComponent } from './add-jobs/add-jobs.component';
 import { AddPostsComponent } from './add-posts/add-posts.component';
 
+import { EventService } from '../../services/event.service';
 
 @NgModule({
   declarations: [],
@@ -21,6 +22,7 @@ import { AddPostsComponent } from './add-posts/add-posts.component';
       { path: 'add-jobs', component: AddJobsComponent },
       { path: 'add-posts', component: AddPostsComponent },
     ]),
-  ]
+  ],
+  providers: [EventService],
 })
 export class AdminModule { }

@@ -1,5 +1,5 @@
 header {
-    background-color: aliceblue;
+    background-color: white;
     width: 100%;
     position: sticky;
     justify-content: space-between; /* Push the logo and menu to opposite ends */
@@ -7,8 +7,7 @@ header {
     z-index: 100;
     display: flex;
     padding: 10px; /* Adjusted padding for spacing */
-    border-bottom: 2px solid blue;
-    border-bottom-width: 4px;
+ 
 }
 
 
@@ -37,6 +36,7 @@ header {
 .nav-menu li {
     display: inline-block;
     margin-right: 20px;
+    
 }
 
 .nav-menu a {
@@ -48,6 +48,7 @@ header {
 /* Additional styles for the navigation menu items */
 .nav-menu ul li {
     display: inline-block;
+    
 }
 
 .nav-menu ul li a {
@@ -60,6 +61,9 @@ header {
 #addedImageContainer{
     padding-bottom: 20px;
 }
+.nav-menu a:hover {
+    color: #3498db; /* Change color on hover */
+  }
 
 #navbar ul {
     list-style-type: none;
@@ -90,19 +94,41 @@ header {
 }
 h1 {
     text-align: center;
-    color: black;
+    color: white;
+    background-color: blue;
     height: 60px;
     text-align: center;
 }
 
+h2{
 
-
+    background-color: blue;
+    text-align: center;
+    color: white;
+}
+h4{
+    text-align: center;
+    
+    
+}
 
 #addButton:hover {
     background-color: blue;
 }
   
+#deleteButton {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
 
+#deleteButton:hover {
+    background-color: darkred;
+}
   
 /* Modal */
 .modal {
@@ -149,24 +175,13 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
 }
-h4{
-    margin-left: 140px;
-}
+
 
 .imageContainer{
     margin-top: 10px;
 }
 
 
-    .event-details-card {
-        background-color: aliceblue;
-        border: 2px solid blue;
-        border-radius: 5px;
-        padding: 10px;
-        margin-bottom: 20px;
-        margin: 0 auto; /* Horizontally center the card */
-        max-width: 400px;
-    }
 
 .event-details-card h2 {
     font-size: 1.5em;
@@ -194,48 +209,21 @@ h4{
     resize: vertical; /* Allow vertical resizing */
   }
 
-  #viewEventButton{
-    margin-bottom: 10px;
-    background-color: green;
-    color: white;
-   }
-
-   #postEventButton{
-    margin-bottom: 10px;
-    background-color: blue;
-    color: white;
-   }
-
-   .solid-border-table {
-    border-collapse: collapse;
+  .event-item {
+    display: flex; /* Display items in a flex container */
+   
+    margin-bottom: 20px; /* Add space between event items */
+    align-items: flex-start; /* Align items at the top */
   }
   
-  .solid-border-table th,
-  .solid-border-table td {
-    border: 1px solid #000; /* You can adjust the border color and width as needed */
-    padding: 8px; /* Adjust the padding as needed for spacing */
+  .event-details {
+    flex: 1; /* Allow event details to take up remaining space */
+    padding: 10px; /* Add padding to event details */
   }
-  #editButton{
-    background-color: yellow;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-right: 10px;
+  
+  img {
+    max-width: 100px;
+    height: 100px;
+    margin-right: 20px; /* Add space between image and event details */
   }
-
-  #deleteButton {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-#deleteButton:hover {
-    background-color: darkred;
-}
+  
