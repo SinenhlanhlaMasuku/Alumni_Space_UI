@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ProfileService } from '../profile.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { MatSnackBar } from '@angular/material/snack-bar';
 //import { UserProfileService } from '../user-profile.service';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
@@ -24,7 +25,15 @@ export class ViewProfileComponent {
     Bio: "bio placeholder",
     
   }
-
+  //snackbar
+  showSnackbar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 2000, // Duration the snackbar is shown in milliseconds
+      verticalPosition: 'top', // Set the vertical position to 'top'
+      horizontalPosition: 'center', // Set the horizontal position to 'center'
+      panelClass: ['snackbar'], // Add your custom class for styling
+    });
+  }
   //certificates: string[] =[ 'assets/certificate1.pdf','assets/certificate2.pdf','assets/certifacate3.pdf']; 
   certificates: File[] = [];
  
@@ -36,7 +45,7 @@ export class ViewProfileComponent {
   images: File[] = [];
 
 
-  constructor(private http: HttpClient, private router: Router, private ProfileService: ProfileService, private sanitizer: DomSanitizer) { 
+  constructor(private http: HttpClient, private router: Router, private ProfileService: ProfileService, private sanitizer: DomSanitizer, private snackBar: MatSnackBar) { 
     this.academicTranscripts = this.ProfileService.getDocuments();
     this.certificates = this.ProfileService.getCertificatess();
     this.images = this.ProfileService.getImages();
@@ -83,6 +92,7 @@ export class ViewProfileComponent {
       this.certificates.splice(index, 1); // Remove the certificate at the specified index
       this.certificateNames.splice(index, 1); // Remove the corresponding name at the same index
       //this.fileTypeError.splice(index, 1); // Remove the error message at the same index
+      this.showSnackbar('Certificate deleted successfully!');
     }
   }
   deleteAcademicrecord(index: number){
@@ -90,7 +100,8 @@ export class ViewProfileComponent {
       this.icounter = this.icounter + 1;
       this.academicTranscripts.splice(index, this.icounter); // Remove the academic transcript at the specified index
       this.icounter++;
-     alert('deleted successfully!')
+    //  alert('deleted successfully!')
+       this.showSnackbar('Academic Record deleted successfully!');
     }
   }
 
