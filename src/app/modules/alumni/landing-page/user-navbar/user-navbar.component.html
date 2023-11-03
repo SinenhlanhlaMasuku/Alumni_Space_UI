@@ -2,14 +2,13 @@
 Header START -->
 <link rel="stylesheet" href="user-navbar.component.css">
 <header class="navbar-light fixed-top header-static bg-mode">
-
 	<!-- Logo Nav START -->
 	<nav class="navbar navbar-expand-lg">
 		<div class="container">
 			<!-- Logo START -->
 			<a class="navbar-brand" href="index.html">
 				<img class="light-mode-item navbar-brand-item" src="assets/tutlogo.png" alt="logo">
-				<img class="dark-mode-item navbar-brand-item" src="assets/tutlogo.png" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/tutlogo.png" alt="logo"> 
 			</a>
 			<!-- Logo END -->
 
@@ -43,7 +42,7 @@ Header START -->
 						
 					<!-- Nav item 2 Pages -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" routerLink="/alumni/jobs" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jobs</a>
+						<a class="nav-link" routerLink="/alumni/jobs" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jobs</a>
 						
 					<!-- Nav item 3 Post -->
 					<li class="nav-item dropdown">
@@ -62,18 +61,24 @@ Header START -->
 			<ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
 				<li class="nav-item ms-2">
 					<a class="nav-link icon-md btn btn-light p-0" href="messaging.html">
-						<i class="bi bi-chat-left-text-fill fs-6"> </i>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
+							<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+						  </svg>
 					</a>
 				</li>
 				<li class="nav-item ms-2">
 					<a class="nav-link icon-md btn btn-light p-0" href="settings.html">
-						<i class="bi bi-gear-fill fs-6"> </i>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+							<path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+						  </svg>
 					</a>
 				</li>
 				<li class="nav-item dropdown ms-2">
 					<a class="nav-link icon-md btn btn-light p-0" href="#" id="notifDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
 						<span class="badge-notif animation-blink"></span>
-						<i class="bi bi-bell-fill fs-6"> </i>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+							<path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+						  </svg>
 					</a>
 					<div class="dropdown-menu dropdown-animation dropdown-menu-end dropdown-menu-size-md p-0 shadow-lg border-0" aria-labelledby="notifDropdown">
 						<div class="card">
@@ -110,7 +115,7 @@ Header START -->
 											<div class="ms-sm-3 d-flex">
 												<div>
 													<p class="small mb-2">Wish <b>K.fefe</b> a happy birthday (Nov 12)</p>
-													<button class="btn btn-sm btn-outline-light py-1 me-2">Say happy birthday 🎂</button>
+													<button class="btn btn-sm btn-outline-light py-1 me-2">Say happy birthday ðŸŽ‚</button>
 												</div>
 												<p class="small ms-3">2min</p>
 											</div>
@@ -137,7 +142,7 @@ Header START -->
 												<img class="avatar-img rounded-circle" src="assets/tutlogo.png" alt="">
 											</div>
 											<div class="ms-sm-3 d-flex">
-												<p class="small mb-2"><b>Bootstrap in the news:</b> The search giant’s parent company, Alphabet, just joined an exclusive club of tech stocks.</p>
+												<p class="small mb-2"><b>Bootstrap in the news:</b> The search giantâ€™s parent company, Alphabet, just joined an exclusive club of tech stocks.</p>
 												<p class="small ms-3">4hr</p>
 											</div>
 										</a>
@@ -236,6 +241,10 @@ Header START -->
 			<path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
 		  </svg>
 	</a>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+	
 <!-- Chat sidebar START -->
 <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasChat">
 	<!-- Offcanvas header -->
@@ -244,7 +253,10 @@ Header START -->
 		<div class="d-flex">
 			<!-- New chat box open button -->
 			<a href="#" class="btn btn-secondary-soft-hover py-1 px-2">
-				<i class="bi bi-pencil-square"></i>
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+					<path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+					<path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+				  </svg>
 			</a>
 			<!-- Chat action START -->
 			<div class="dropdown">
@@ -341,7 +353,7 @@ Header START -->
 				<!-- Info -->
 				<div class="overflow-hidden">
 					<a class="h6 mb-0 stretched-link" href="#!">Lori Ferguson </a>
-					<div class="small text-secondary text-truncate">You missed a call form Carolyn🤙</div>
+					<div class="small text-secondary text-truncate">You missed a call form CarolynðŸ¤™</div>
 				</div>
 				<!-- Chat time -->
 				<div class="small ms-auto text-nowrap"> 1min </div>
@@ -356,7 +368,7 @@ Header START -->
 				<!-- Info -->
 				<div class="overflow-hidden">
 					<a class="h6 mb-0 stretched-link" href="#!">Samuel Bishop </a>
-					<div class="small text-secondary text-truncate">Day sweetness why cordially 😊</div>
+					<div class="small text-secondary text-truncate">Day sweetness why cordially ðŸ˜Š</div>
 				</div>
 				<!-- Chat time -->
 				<div class="small ms-auto text-nowrap"> 2min </div>
@@ -371,7 +383,7 @@ Header START -->
 				<!-- Info -->
 				<div class="overflow-hidden">
 					<a class="h6 mb-0 stretched-link" href="#!">Dennis Barrett </a>
-					<div class="small text-secondary text-truncate">Happy birthday🎂</div>
+					<div class="small text-secondary text-truncate">Happy birthdayðŸŽ‚</div>
 				</div>
 				<!-- Chat time -->
 				<div class="small ms-auto text-nowrap"> 10min </div>
@@ -444,7 +456,7 @@ Header START -->
 				<!-- Info -->
 				<div class="overflow-hidden">
 					<a class="h6 mb-0 stretched-link" href="#!">Bryan Knight </a>
-					<div class="small text-secondary text-truncate">if you are available to discuss🙄</div>
+					<div class="small text-secondary text-truncate">if you are available to discussðŸ™„</div>
 				</div>
 				<!-- Chat time -->
 				<div class="small ms-auto text-nowrap"> 6 day </div>
@@ -459,7 +471,7 @@ Header START -->
 				<!-- Info -->
 				<div class="overflow-hidden">
 					<a class="h6 mb-0 stretched-link" href="#!">Louis Crawford </a>
-					<div class="small text-secondary text-truncate">🙌Congrats on your work anniversary!</div>
+					<div class="small text-secondary text-truncate">ðŸ™ŒCongrats on your work anniversary!</div>
 				</div>
 				<!-- Chat time -->
 				<div class="small ms-auto text-nowrap"> 1 day </div>
@@ -576,7 +588,7 @@ Header START -->
 						<div class="flex-grow-1">
 							<div class="w-100">
 								<div class="d-flex flex-column align-items-start">
-									<div class="bg-light text-secondary p-2 px-3 rounded-2">Applauded no discovery😊</div>
+									<div class="bg-light text-secondary p-2 px-3 rounded-2">Applauded no discoveryðŸ˜Š</div>
 									<div class="small my-2">6:15 AM</div>
 								</div>
 							</div>
@@ -614,7 +626,7 @@ Header START -->
 						<div class="flex-grow-1">
 							<div class="w-100">
 								<div class="d-flex flex-column align-items-start">
-									<div class="bg-light text-secondary p-2 px-3 rounded-2">How promotion excellent curiosity😮</div>
+									<div class="bg-light text-secondary p-2 px-3 rounded-2">How promotion excellent curiosityðŸ˜®</div>
 									<div class="small my-2">3:22 PM</div>
 								</div>
 							</div>
@@ -723,7 +735,7 @@ Header START -->
 						<div class="flex-grow-1">
 							<div class="w-100">
 								<div class="d-flex flex-column align-items-start">
-									<div class="bg-light text-secondary p-2 px-3 rounded-2">Applauded no discovery😊</div>
+									<div class="bg-light text-secondary p-2 px-3 rounded-2">Applauded no discoveryðŸ˜Š</div>
 									<div class="small my-2">6:15 AM</div>
 								</div>
 							</div>
@@ -761,7 +773,7 @@ Header START -->
 						<div class="flex-grow-1">
 							<div class="w-100">
 								<div class="d-flex flex-column align-items-start">
-									<div class="bg-light text-secondary p-2 px-3 rounded-2">How promotion excellent curiosity😮</div>
+									<div class="bg-light text-secondary p-2 px-3 rounded-2">How promotion excellent curiosityðŸ˜®</div>
 									<div class="small my-2">3:22 PM</div>
 								</div>
 							</div>
