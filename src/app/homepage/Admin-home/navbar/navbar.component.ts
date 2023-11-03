@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { LastFewNotificationsComponent } from '../last-few-notifications/last-few-notifications.component';
 import { ThisReceiver } from '@angular/compiler';
+import { FormBuilder, FormGroup} from '@angular/forms';
 import { counter } from '@fortawesome/fontawesome-svg-core';
-// import { MatSnackBar } from '@angular/material/snack-bar';
+import { AlumniDetailsService } from 'src/app/Shared_services/alumni-details.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY } from 'rxjs';
 @Component({
@@ -11,20 +12,8 @@ import { EMPTY } from 'rxjs';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
-  constructor(private snackBar: MatSnackBar) {}
-
-  notificatinId: number=0;
-  // notification_Date: string ='23-Oct-2023';
-  // getNewNotifaction(){
-  //   if(this.notification_Date == '23-Oct-2023'){
-  //      this.notificatinId = this.notificatinId + 1;
-    // }
-  // }
-   isAdminProf: boolean = false;
-   isEditAdminProf: boolean = false;
- //adminFnLletter: string ='';
- adminFname: string ='Sihle';
+  searchForm: FormGroup;
+  adminFname: string ='Sihle';
  adminLname: string ='Mhlongo';
  adminFnLletter: string = this.adminFname.substring(0,1) + this.adminLname.substring(0,1);
  contact_No: string = '0867867879';
@@ -35,9 +24,64 @@ newName: string ='';
 newcontact_No: string='';
 newAddress: string='';
 newEmail: string ='';
-Search: string ='';
-searchResults: string ='';
+searchText: string ='';
+searchResults: any;
 isSearch: boolean = false;
+ alumniName: string='Sihle';
+ alumni_Pic: string='';
+ isAdminProf: boolean = false;
+ isEditAdminProf: boolean = false;
+ resultsFound: boolean = false;
+ notificatinId: number=0;
+
+  //alumniList: any[] = [];
+  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, private alumniDetailsService: AlumniDetailsService) {
+    this.searchForm = this.formBuilder.group({
+      searchText: ['']
+    });
+  }
+
+  ngOnInit() {}
+    // this.fetchAlumniList();
+    // this. ShowAdminProfile();
+    // this.editAdminProfile();
+    // this.searchAlumni();
+  
+
+
+  
+  // notification_Date: string ='23-Oct-2023';
+  // getNewNotifaction(){
+  //   if(this.notification_Date == '23-Oct-2023'){
+  //      this.notificatinId = this.notificatinId + 1;
+    // }
+  // }
+   
+
+  
+ 
+ 
+  searchAlumni() {
+    const searchText = this.searchForm.get('SearchText')?.value;
+    if (this.searchText && this.searchText.length !== 0) {
+      this.isSearch = true;
+      // this.SearchText = searchText;
+      this.alumniDetailsService.searchAlumni(this.searchText).subscribe(
+        result => {
+          this.searchResults = result;
+        },
+        error => {
+          console.error('Error searching alumni:', error);
+        }
+      );
+    } else {
+      // alert('Type alumni name to search something!');
+      this.showSnackbar('Type alumni name to search something!');
+    }
+  }
+  onInputChange(event: any) {
+    this.searchText = event.target.value;
+  }
   
  ShowAdminProfile(){
             
@@ -70,7 +114,7 @@ SaveAdminProfile(){
     this.address = this.newAddress;
     this.adminFnLletter = this.adminFname.substring(0, 1) + this.adminLname.substring(1, 2);
 
-  this.showSnackbar('Admin Profile saved successfully!');
+  this.showSnackbar('Admin Profile updated successfully!');
   this.isEditAdminProf = !this.isEditAdminProf;
   }else
   {
@@ -79,20 +123,5 @@ SaveAdminProfile(){
   
   
 }
-
-//admin can search for alumni
- searchAnything(){
-
-  if(this.Search.length != 0){
-    this.isSearch = true;
-    this.searchResults =  'results are being processed...';
-    
-   }
-  
-  else{
-    alert('Type keywords to search something!');
-    // this.showSnackbar('Type keywords to search something!'); Not responding
-  }
-} 
  
 }

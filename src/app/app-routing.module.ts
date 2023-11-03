@@ -11,6 +11,7 @@ import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 // import { AllNotificationsComponent } from '../homepage/admin-home/all-notifications/all-notifications.component';
 // import { AllNotificationsComponent } from './homepage/admin-home/all-notifications/all-notifications.component';
 import { AllNotificationsComponent } from './homepage/Admin-home/all-notifications/all-notifications.component';
+import { ViewProfileComponent } from './alumni/profile/view-profile/view-profile.component';
 
 const routes: Routes = [
   { path: 'ew', component: LoginComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
   // { path: 'adminNotifications', component: LastFewNotificationsComponent},
   { path: 'ViewReport', component: ViewReportComponent},
   { path: 'adminFooter', component: AdminFooterComponent},
-  { path: 'All-Notifications', component: AllNotificationsComponent}
+  { path: 'All-Notifications', component: AllNotificationsComponent},
+  { path: 'view-alumniProfile', component: ViewProfileComponent}
 ];
 
 @NgModule({

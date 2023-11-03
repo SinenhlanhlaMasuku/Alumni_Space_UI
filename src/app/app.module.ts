@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -25,7 +25,6 @@ import { EventsStatsComponent } from './homepage/Admin-home/events-stats/events-
 import { LastFewNotificationsComponent } from './homepage/Admin-home/last-few-notifications/last-few-notifications.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'angular-highcharts';
-//import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 // import { ViewProfileComponent } from './alumni/profile/view-profile/view-profile.component';
 // import { EditProfileComponent } from './alumni/profile/edit-profile/edit-profile.component';
@@ -76,6 +75,7 @@ import { AllNotificationsComponent } from './homepage/Admin-home/all-notificatio
     //NgxExtendedPdfViewerModule
     PdfViewerModule,
     MatTableModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

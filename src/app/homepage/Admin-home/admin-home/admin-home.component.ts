@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminFooterComponent } from 'src/app/admin-footer/admin-footer.component';
-import { NotificationService } from '../all-notifications/notification.service';
+// import { NotificationService } from '../all-notifications/notification.service';
 // import { 
 //   faCoffee,
 //   faPerson,
@@ -27,8 +27,8 @@ export class AdminHomeComponent implements OnInit{
     "assets/AWS-Logo.png"
    ];
    slideIndex = 0;
-  
-   constructor(private router: Router, private notificationService: NotificationService){}
+  //  private notificationService: NotificationService
+   constructor(private router: Router){}
 
   ngOnInit() {
     this.setWelcomeMessage();
@@ -38,9 +38,9 @@ export class AdminHomeComponent implements OnInit{
       this.updateTime();
     }, 1000)
 
-    this.notificationService.getBadgeCountSubject().subscribe((count) => {
-      this.badgeCount = count;
-    });
+    // this.notificationService.getBadgeCountSubject().subscribe((count) => {
+    //   this.badgeCount = count;
+    // });
   }
   
 

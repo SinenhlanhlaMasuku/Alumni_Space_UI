@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 //import { UserProfileService } from '../user-profile.service';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
@@ -34,7 +35,7 @@ export class ViewProfileComponent {
   icounter = 0;
 
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     const storedName = localStorage.getItem('name');
@@ -71,12 +72,21 @@ export class ViewProfileComponent {
       this.alumni.Name = storedName;
     }
   }
+  showSnackbar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 2000, // Duration the snackbar is shown in milliseconds
+      verticalPosition: 'top', // Set the vertical position to 'top'
+      horizontalPosition: 'center', // Set the horizontal position to 'center'
+      panelClass: ['snackbar'], // Add your custom class for styling
+    });
+  }
   deleteCertificate(index: number){
     // this.certificateNames[i].delete()
     if (index !== -1) {
       this.certificates.splice(index, 1); // Remove the certificate at the specified index
       this.certificateNames.splice(index, 1); // Remove the corresponding name at the same index
       //this.fileTypeError.splice(index, 1); // Remove the error message at the same index
+      this.showSnackbar('Certifacate Deleted successfully!');
     }
   }
   deleteAcademicrecord(index: number){
@@ -84,7 +94,8 @@ export class ViewProfileComponent {
       this.icounter = this.icounter + 1;
       this.academicTranscripts.splice(index, this.icounter); // Remove the academic transcript at the specified index
       this.icounter++;
-     alert('deleted successfully!')
+    //  alert('deleted successfully!')
+     this.showSnackbar('Academic Record deleted successfully!');
     }
   }
 }

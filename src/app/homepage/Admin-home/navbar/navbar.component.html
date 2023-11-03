@@ -13,6 +13,7 @@
        <!-- <div class="">
          <span class="doc-search-bar">
 
+
          </span>
        </div> -->
        
@@ -23,13 +24,29 @@
             <i class="fas fa-times"></i>
           </div>
           <!--search results goes here-->
-          <p>{{searchResults}}<p>
+          <img src="{{alumni_Pic}}" width="40" height="40">
+          <p>Name: {{searchResults}}<p>
+            <button type="button"  [disabled]="!resultsFound" class="btn btn-primary" routerLink="/view-alumniProfile">view profile</button>
+           
           </div>
-        <input type="text" class="form-control" style="height: 40px; width: 10px;" id="admin-search" [(ngModel)] ="Search" name="Search" placeholder="SEARCH" aria-label="Admin search" aria-describedby="button-addon2">
-        <button class="btn btn-outline-primary" type="button" id="button-addon2" style="border-style: none; height: 40px;"><svg (click)="searchAnything()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <!-- <input type="text" class="form-control" style="height: 40px; width: 10px;" id="admin-search" [(ngModel)] ="SearchText" name="SearchText" placeholder="SEARCH" aria-label="Admin search" aria-describedby="button-addon2">
+        <button class="btn btn-outline-primary" type="button" id="button-addon2" style="border-style: none; height: 40px;"><svg (click)="searchAlumni()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
         </svg></button>
-      </div>
+      </div> -->
+          
+         <!--new search-bar-->
+         <div class="input-group mb-3">
+          <input type="text" class="form-control" style="height: 40px; width: 10px;" [(ngModel)] ="searchText" formControlName="searchText" placeholder="SEARCH" aria-label="Admin search" aria-describedby="button-addon2" (input)="onInputChange($event)">
+          <button class="btn btn-outline-primary" type="button" (click)="searchAlumni()" style="border-style: none; height: 40px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+          </button>
+        </div>
+       </div>
+        
+        
      
 
       <a class="navbar-link active" routerLink="/adminHome"><svg
