@@ -1,26 +1,15 @@
 <header class="header header-sticky mb-4">
   <div class="navbar">
-    <!-- <a class="nav-link navbar-link" href="assets/TUT_Alumni_SpaceLogo.jpg">
-      <img src="assets/TUT_Alumni_SpaceLogo.jpg" style="width: 500px; height: auto; object-fit: cover;" alt="TUT Logo" class="tut-logo" />
-      <p>TUT_Alumni-Space</p>
-    </a> -->
     <div class="navbar-content">
       <a class="nav-link navbar-link">
-        <!-- href="assets/TUT_Alumni_SpaceLogo.jpg" -->
-        <img src="assets/TUT_Alumni_SpaceLogo.jpg" style="width: 60vh; height: auto;" alt="TUT Logo" class="tut-logo" /><!--object-fit: cover;-->
-        <!-- <p>TUT_Alumni-Space</p> -->
+        <img src="assets/TUT_Alumni_SpaceLogo.jpg" style="width: 60vh; height: auto;" alt="TUT Logo" class="tut-logo" />
       </a>
-       <!-- <div class="">
-         <span class="doc-search-bar">
-
-
-         </span>
-       </div> -->
        
        <div class="input-group mb-3">
         <div *ngIf="isSearch" class="card-tip">
           <!--close icon for the card-->
           <div class="close" onclick="this.parentElement.style.display='none'">
+            <!-- onclick="this.parentElement.style.display='none'" -->
             <i class="fas fa-times"></i>
           </div>
           <!--search results goes here-->
@@ -29,12 +18,7 @@
             <button type="button"  [disabled]="!resultsFound" class="btn btn-primary" routerLink="/view-alumniProfile">view profile</button>
            
           </div>
-        <!-- <input type="text" class="form-control" style="height: 40px; width: 10px;" id="admin-search" [(ngModel)] ="SearchText" name="SearchText" placeholder="SEARCH" aria-label="Admin search" aria-describedby="button-addon2">
-        <button class="btn btn-outline-primary" type="button" id="button-addon2" style="border-style: none; height: 40px;"><svg (click)="searchAlumni()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-        </svg></button>
-      </div> -->
-          
+        
          <!--new search-bar-->
          <div class="input-group mb-3">
           <input type="text" class="form-control" style="height: 40px; width: 10px;" [(ngModel)] ="searchText" formControlName="searchText" placeholder="SEARCH" aria-label="Admin search" aria-describedby="button-addon2" (input)="onInputChange($event)">
@@ -100,29 +84,11 @@
         <path fill-rule="evenodd"
           d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
       </svg>Logout</a>
-      
-      <!-- <a class="nav-link navbar-link" routerLink="/adminNotifications">
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-          <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
-        </svg>
-        <span class="notification-badge">{{notificatinId}}</span>
-      </a> -->
-      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blueviolet" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
-        <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
-      </svg> -->
-
-        <!-- <div class="show-AdminProfile"> -->
-          <!-- class="bi bi-toggle-off" --> 
-               <!-- <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="black" [ngClass]="{'bi-toggle-on': isAdminProf, 'bi-toggle-off': !isAdminProf}" viewBox="0 0 16 16">
-                  <path d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z"/>
-               </svg> -->
-
-               <!--or this icon-->
-               <svg (click)="ShowAdminProfile()" xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+           <div class="Ad-profile">
+              <a> <svg (click)="ShowAdminProfile()" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-              </svg>
-        <!-- </div> -->
+              </svg>admin profile</a>
+           </div>
       <a>
         <div *ngIf="isAdminProf" class="card">
           <div class="image-container">{{adminFnLletter}}</div>

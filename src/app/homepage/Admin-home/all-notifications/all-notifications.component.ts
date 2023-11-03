@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { NotificationsService } from './notifications.service';
 
 @Component({
   selector: 'app-all-notifications',
@@ -7,8 +8,18 @@ import { Router, RouterLink } from '@angular/router';
   styleUrls: ['./all-notifications.component.css']
 })
 export class AllNotificationsComponent {
+  notificationId: number = 0;
+  constructor( private router: Router, private notificationService: NotificationsService){}
+   
+  ngOnInit(){
+    this.notificationId = this.notificationService.getNotificationId();
+  
+    this.notificationService.getNewNotificationReceived().subscribe(() => {
+      this.notificationId = this.notificationService.getNotificationId();
+      // You can add logic here to trigger the notification bell or update UI
+    });
+  }
 
-  constructor( private router: Router){}
 
   notifications = [
     {
@@ -42,12 +53,19 @@ export class AllNotificationsComponent {
       date: "12-oct-2023",
     },
   ];
-  showNotification(){
+  // showNotification(){
     
-    // alert('Notification viewed!');
-    //pop-up dialog to open
+  //   alert('Notification viewed!');
+  //   pop-up dialog to open
  
+  // }
+  
+  readNotification(count: number) {
+    this.notificationService.decreaseNotificationId(count);
+    this.notificationId = this.notificationService.getNotificationId();
   }
+  
+
   returnHome(){
     this.router.navigate(['/adminHome']);
   }
