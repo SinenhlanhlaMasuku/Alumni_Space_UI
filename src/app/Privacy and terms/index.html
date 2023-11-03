@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TUT Alumni Space</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to TUT Alumni Space</h1>
+        <h2>Privacy Policy</h2>
+        <p> <!-- Your Privacy Policy content goes here --> </p>
+
+        <h2>Terms of Service</h2>
+        <p> <!-- Your Terms of Service content goes here --> </p>
+
+        <label for="agreeCheckbox">
+            <input type="checkbox" id="agreeCheckbox">
+            I agree to the <a href="#privacyPolicy">Privacy Policy</a> and <a href="#termsOfService">Terms of Service</a>
+        </label>
+        <button id="agreeButton" disabled>Agree</button>
+    </div>
+
+    <script>
+        document.getElementById('agreeCheckbox').addEventListener('change', function() {
+            document.getElementById('agreeButton').disabled = !this.checked;
+        });
+    </script>
+</body>
+</html>

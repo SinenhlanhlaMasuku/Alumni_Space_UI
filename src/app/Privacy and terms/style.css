@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
+}
