@@ -31,6 +31,8 @@ import { JobsStatsComponent } from './modules/admin/dashboard/jobs-stats/jobs-st
 import { EventsStatsComponent } from './modules/admin/dashboard/events-stats/events-stats.component';
 import { LastFewNotificationsComponent } from './modules/admin/dashboard/last-few-notifications/last-few-notifications.component';
 import { TrackAlumniComponent } from './modules/admin/track-alumni/track-alumni.component';
+import { AdminFooterComponent } from './modules/admin/dashboard/admin-footer/admin-footer.component';
+import { ViewReportComponent } from './modules/admin/view-report/view-report.component';
 
 //Alumni-Module Components
 import { JobsComponent } from './modules/alumni/jobs/jobs.component';
@@ -67,6 +69,8 @@ import { SuccessModalComponent } from './components/success-modal/success-modal.
     TopWidgetsComponent,
     AlumniStatsComponent,
     JobsStatsComponent,
+    AdminFooterComponent,
+    ViewReportComponent,
     EventsStatsComponent,
     LastFewNotificationsComponent,
     TrackAlumniComponent,

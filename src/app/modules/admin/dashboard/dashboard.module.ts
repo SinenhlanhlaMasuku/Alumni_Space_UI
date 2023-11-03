@@ -7,7 +7,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { LastFewNotificationsComponent } from './last-few-notifications/last-few-notifications.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild([

@@ -8,9 +8,11 @@ import { AddJobsComponent } from './add-jobs/add-jobs.component';
 import { AddPostsComponent } from './add-posts/add-posts.component';
 
 import { EventService } from '../../services/event.service';
+import { ViewReportComponent } from './view-report/view-report.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild([
@@ -19,8 +21,9 @@ import { EventService } from '../../services/event.service';
 
       //components pages
       { path: 'trackAlumni', component: TrackAlumniComponent},
-      { path: 'add-jobs', component: AddJobsComponent },
-      { path: 'add-posts', component: AddPostsComponent },
+      { path: 'post-jobs', component: AddJobsComponent },
+      { path: 'post-events', component: AddPostsComponent },
+      { path: 'view-report', component: ViewReportComponent}
     ]),
   ],
   providers: [EventService],

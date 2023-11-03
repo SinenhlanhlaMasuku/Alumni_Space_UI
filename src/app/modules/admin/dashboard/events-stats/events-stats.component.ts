@@ -12,7 +12,8 @@ export class EventsStatsComponent {
   chart = new Chart({
     chart: {
       type: 'line',
-      height: 325,
+      height: 250,
+      width: 350,
     },
     title: {
       text: 'Event stats'
