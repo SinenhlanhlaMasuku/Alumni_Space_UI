@@ -32,9 +32,9 @@ export class EventService {
     this.saveEventsToLocalStorage();
 
     let bodyData = {
-      "event_title" : this.event_title,
-      event_description : this.event_description,
-      event_date : this.event_date,
+      "event_title" : event.title,
+      "event_description" : event.description,
+      "event_date" : event.event_date,
     };
     this.http.post("http://localhost:3000/api/event",bodyData).subscribe((resultData: any)=>
     {

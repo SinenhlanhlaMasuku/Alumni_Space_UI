@@ -13,15 +13,9 @@ import { ProfileService } from '../profile.service';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent {
-  /*constructor(@Inject(UserProfileService) private service : UserProfileService){
-
-  }
-  viewProfile(view: HTMLButtonElement){
-    this.service.viewProfile();
-  }*/
-
   //variables
   message: string = '';
+  selectedFile: File | null = null;
 
   isButtonSaveAR: boolean = false;
   isBtnSaveProfPic: boolean = false;
@@ -134,13 +128,16 @@ export class EditProfileComponent {
     if (event.target.files && event.target.files.length > 0) {
       this.AcademicRChosen = true;
 
+      //select file
+      this.selectedFile = event.target.files[0];
+
       //save
       const inputElement = event.target as HTMLInputElement;
       if (inputElement.files && inputElement.files.length > 0) {
         const file = inputElement.files[0];
         this.profileService.uploadDocument(file);
 
-        this.router.navigate(['/alumni/profile/view-profile']);
+        //this.router.navigate(['/alumni/profile/view-profile']);
       }
     }
     else {
@@ -158,11 +155,12 @@ export class EditProfileComponent {
       const inputElement = event.target as HTMLInputElement;
       if (inputElement.files && inputElement.files.length > 0) {
         const image = inputElement.files[0];
-        //this.profileService.uploadImage(image);
-        this.profileService.uploadPicture(image);
+        this.selectedFile = event.target.files[0];
+        this.profileService.uploadImage(image);
+        //this.profileService.uploadPicture(image);
 
         // Navigate to the image view component
-        this.router.navigate(['/alumni/profile/view-profile']);
+        //this.router.navigate(['/alumni/profile/view-profile']);
       }
     } else {
       this.profilePicChosen = false;
@@ -249,12 +247,21 @@ export class EditProfileComponent {
   saveAcademicRecord() {
     console.log('academic record saved successfully!')
     this.isButtonSaveAR = true;
-
+    if (this.selectedFile) {
+      this.profileService.uploadDoc(this.selectedFile).subscribe((response) => {
+        // Handle the response from the server
+      });
+    }
   }
 
   saveProfilePic() {
     console.log('profile picture saved successfully!')
     this.isBtnSaveProfPic = true;
+    if (this.selectedFile) {
+      this.profileService.uploadPicture(this.selectedFile).subscribe((response) => {
+        // Handle the response from the server
+      });
+    }
   }
 
   saveCertificate() {
