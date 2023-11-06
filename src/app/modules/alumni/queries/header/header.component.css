@@ -1,0 +1,42 @@
+header {
+    background-color: #333;
+    color: white;
+    padding: 25px 0;
+  }
+   img {
+    position: absolute;
+    top: 15px; 
+    left: 20px;
+    width: 190px;
+    height: 95px;
+  }
+  
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 30px;
+    
+  }
+  /*h2{
+    margin-left: 15px;
+  font-size: 15px; 
+  color: red;
+  justify-content: space-between;
+  }*/
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  

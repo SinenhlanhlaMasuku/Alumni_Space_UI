@@ -17,6 +17,7 @@ import { EventsComponent } from './events/events.component';
     RouterModule.forChild([
       { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
       { path: 'home', loadChildren: () => import('./landing-page/landing-page.module').then(m => m.LandingPageModule) },
+      { path: 'queries', loadChildren: () => import('./queries/queries.module').then(m => m.QueriesModule) },
     
       //components
       { path: 'jobs', component: JobsComponent },

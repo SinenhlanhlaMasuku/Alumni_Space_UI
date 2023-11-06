@@ -1,0 +1,54 @@
+.question {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    font-style: normal;
+    margin-top: 0%;
+    padding-right: 15%;
+    text-align: center; 
+
+}
+
+
+/*query*/
+.user-question {
+  background-color: gainsboro;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+#user-question-input {
+  width: 45%;
+  height: 55%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-style: italic;
+  display: block;
+  margin: 20px auto;
+}
+
+#ask-button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 45%;
+  font-style: italic;
+  margin: 0 auto;
+  display: block;
+}
+
+/* bdy */
+body {
+  background: url('/assets/yytf\ \(2\).jpeg');
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}

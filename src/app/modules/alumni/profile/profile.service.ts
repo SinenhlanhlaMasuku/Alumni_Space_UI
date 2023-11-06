@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ProfileService {
   private documents: File[] = [];
   private apiUrl = 'http://localhost:3000/api/upload';
 
-  uploadDocument(document: File) {
+  uploadDocument(document: File): Observable<any> {
     this.documents.push(document);
 
     const formData = new FormData();
@@ -41,6 +42,13 @@ export class ProfileService {
 
   uploadImage(image: File) {
     this.images.push(image);
+  }
+  uploadPicture(file: File): Observable<any> { // Specify the return type as Observable
+    const formData = new FormData();
+    formData.append('file_name', file);
+    formData.append('fileType', 'profile');
+
+    return this.http.post('http://localhost:3000/api/upload', formData);
   }
 
   getImages() {

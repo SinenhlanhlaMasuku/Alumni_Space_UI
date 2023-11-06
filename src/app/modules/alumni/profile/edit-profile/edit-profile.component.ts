@@ -158,7 +158,8 @@ export class EditProfileComponent {
       const inputElement = event.target as HTMLInputElement;
       if (inputElement.files && inputElement.files.length > 0) {
         const image = inputElement.files[0];
-        this.profileService.uploadImage(image);
+        //this.profileService.uploadImage(image);
+        this.profileService.uploadPicture(image);
 
         // Navigate to the image view component
         this.router.navigate(['/alumni/profile/view-profile']);
