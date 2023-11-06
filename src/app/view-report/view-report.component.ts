@@ -11,7 +11,7 @@ type ReportData = Array<Array<string | number>>;
 })
 export class ViewReportComponent {
   
-Date_registered: string= Date();
+// Date_registered: string= Date();
 Total_alumni_registered: number = 0;
 Total_jobs_posted: number = 0;
 Total_jobs_expired: number = 0;
@@ -26,9 +26,9 @@ reportdate = new Date();
   month: 'short',
   day: '2-digit'
 });
- 
+// this.Date_registered = this.formattedDate;
    reportData: ReportData =[
-      [this.Date_registered= '12/10/2023', this.Total_alumni_registered=13, this.Total_jobs_posted, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=5, this.Total_alumni_not_employed=8],
+      [ this.Total_alumni_registered=13, this.Total_jobs_posted, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=5, this.Total_alumni_not_employed=8],
       // [this.Date_registered= '25/10/2023', this.Total_alumni_registered= 7, this.Total_jobs_posted=7, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=5, this.Total_alumni_not_employed=2],
       // [this.Date_registered= '26/10/2023', this.Total_alumni_registered=8, this.Total_jobs_posted=13, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=0, this.Total_alumni_not_employed=8],
       // [this.Date_registered= '27/10/2023', this.Total_alumni_registered=7, this.Total_jobs_posted=9, this.Total_jobs_expired, this.Total_events_posted, this.Total_events_cancelled, this.Total_alumni_employed=3, this.Total_alumni_not_employed=4]
@@ -113,10 +113,10 @@ reportdate = new Date();
             headerRows: 1,
             widths: ['*', '*', '*', '*', '*', '*', '*', '*', '*'],
             body: [
-                ['Date registered', 'Total_alumni_registered', 'Total_jobs_posted', 'Total_jobs_expired', 'Total_events_posted', 'Total_events_cancelled', 'Total_alumni_employed', 'Total _alumni_unemployed'],
-               
+                [ 'Total_alumni_registered', 'Total_jobs_posted', 'Total_jobs_expired', 'Total_events_posted', 'Total_events_cancelled', 'Total_alumni_employed', 'Total _alumni_unemployed'],
+                // 'Date registered'
                 [
-                  this.Date_registered,
+                  // this.Date_registered,
                   this.Total_alumni_registered.toString(),
                   this.Total_jobs_posted.toString(),
                   this.Total_jobs_expired.toString(),
