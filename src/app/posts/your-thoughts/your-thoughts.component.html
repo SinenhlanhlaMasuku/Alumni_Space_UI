@@ -13,29 +13,40 @@
         </form>
     </div>
     <!-- Share feed toolbar START -->
-    <ul class="nav nav-pills nav-stack small fw-normal">
-        <li class="nav-item">
-            <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal"
-                data-bs-target="#feedActionPhoto"> <i
-                    class="bi bi-image-fill text-success pe-2"></i>Photo</a>
-        </li>
-
+ 
+        <ul class="nav nav-pills nav-stack small fw-normal">
+            <li class="nav-item">
+                <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto">
+                    <i class="bi bi-image-fill text-success pe-2"></i>Photo
+                </a>
+                <input type="file" accept="image/png, image/jpeg, image/jpg" (change)="onPhotoUpload($event)" style="display: none" id="photoUpload" />
+            </li>
         
-        <li class="nav-item">
-            <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal"
-                data-bs-target="#feedActionVideo"> <i
-                    class="bi bi-camera-reels-fill text-info pe-2"></i>Video</a>
-        </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link bg-light py-1 px-2 mb-0" data-bs-toggle="modal"
-                data-bs-target="#modalCreateEvents"> <i
-                    class="bi bi-calendar2-event-fill text-danger pe-2"></i>Event </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal"
-                data-bs-target="#modalCreateFeed"> <i
-                    class="bi bi-emoji-smile-fill text-warning pe-2"></i>Feeling /Activity</a>
-        </li>
+            <li class="nav-item">
+                <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionVideo">
+                    <i class="bi bi-camera-reels-fill text-info pe-2"></i>Video
+                </a>
+                <input type="file" accept="video/*" (change)="onVideoUpload($event)" style="display: none" id="videoUpload" />
+            </li>
+        
+            <li class="nav-item">
+                <a href="#" class="nav-link bg-light py-1 px-2 mb-0" data-bs-toggle="modal" data-bs-target="#modalCreateEvents">
+                    <i class="bi bi-calendar2-event-fill text-danger pe-2"></i>Event
+                </a>
+                <!-- Additional fields for event information -->
+                <!-- Example: -->
+                <!-- <input type="text" placeholder="Event Name" />
+                     <input type="datetime-local" placeholder="Event Date and Time" />
+                     More event details... -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal"
+                    data-bs-target="#modalCreateFeed"> <i
+                        class="bi bi-emoji-smile-fill text-warning pe-2"></i>Feeling /Activity</a>
+            </li>
+        </ul>
+        
+       
         <li class="nav-item dropdown ms-lg-auto">
             <a class="nav-link bg-light py-1 px-2 mb-0" href="#" id="feedActionShare"
                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +65,6 @@
                             class="bi bi-pencil-square fa-fw pe-2"></i>Help</a></li>
             </ul>
         </li>
-    </ul>
     <!-- Share feed toolbar END -->
 </div>
 <!-- Share feed END -->
