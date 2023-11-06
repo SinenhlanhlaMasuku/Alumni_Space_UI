@@ -103,6 +103,8 @@ import { Chart } from 'angular-highcharts';
 })
 export class JobsStatsComponent {
   months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+   currentYear = new Date().getFullYear().toString();
+
   backgroundColor = [
     'rgba(255, 99, 132, 1)',
     'rgba(54, 162, 235, 1)',
@@ -118,6 +120,11 @@ export class JobsStatsComponent {
     'rgba(252, 3, 7, 1)',
   ];
   data = [12, 19, 3, 5, 2, 14, 20, 23, 47, 5, 12, 25];
+  // data: { [key: string]: number[] } = {
+  //   '2023': [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // Example data for the year 2023
+  //   '2024': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] // Example data for the year 2024
+    // Add data for other years as needed
+  // };
 
   chart!: Chart;
 
@@ -133,7 +140,7 @@ export class JobsStatsComponent {
         width: 250
       },
       title: {
-        text: 'Last 5 Month: Job stats'
+        text: 'Last 5 Month: Job stats: ' + this.currentYear
       },
       plotOptions: {
         pie: {
@@ -145,6 +152,7 @@ export class JobsStatsComponent {
           name: 'job(s)',
           type: 'pie',
           data: this.getDataForLastFiveMonths(),
+         
         },
       ],
       credits: {
@@ -164,4 +172,40 @@ export class JobsStatsComponent {
     }
     return lastFiveMonthsData;
   }
+  
+  // validateEvents(year: string): number[] {
+  //   const currentYear = new Date().getFullYear().toString();
+  //   const currentMonth = new Date().getMonth();
+  //   const isCurrentYear = currentYear === year;
+  //   const data = this.data[year] || [];
+
+  //   if (isCurrentYear) {
+  //     return data.slice(0, currentMonth + 1);
+  //   } else {
+  //     return data;
+  //   }
+  // }
+
+  // getDataForLastFiveMonths(year: string) {
+  //   const lastFiveMonthsData = [];
+  //   const currentYear = new Date().getFullYear().toString();
+  //   const startMonth = currentYear === year ? new Date().getMonth() - 4 : 7;
+  
+  //   for (let i = startMonth; i < 12; i++) {
+  //     lastFiveMonthsData.push({
+  //       name: this.months[i],
+  //       color: this.backgroundColor[i],
+  //       y: this.data[year][i]
+  //     });
+  //   }
+  
+  //   return lastFiveMonthsData;
+  // }
+
+
+  getMonths(year: string): string[] {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return months.map(month => month + ' ' + year);
+  }
+
 }
