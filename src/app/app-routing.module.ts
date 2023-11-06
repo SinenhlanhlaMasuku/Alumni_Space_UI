@@ -12,6 +12,9 @@ import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 // import { AllNotificationsComponent } from './homepage/admin-home/all-notifications/all-notifications.component';
 import { AllNotificationsComponent } from './homepage/Admin-home/all-notifications/all-notifications.component';
 import { ViewProfileComponent } from './alumni/profile/view-profile/view-profile.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ServicesComponent } from './services/services.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: 'ew', component: LoginComponent },
@@ -26,7 +29,10 @@ const routes: Routes = [
   { path: 'ViewReport', component: ViewReportComponent},
   { path: 'adminFooter', component: AdminFooterComponent},
   { path: 'All-Notifications', component: AllNotificationsComponent},
-  { path: 'view-alumniProfile', component: ViewProfileComponent}
+  { path: 'view-alumniProfile', component: ViewProfileComponent},
+  { path: 'contactUs', component: ContactsComponent},
+  { path: 'Services', component: ServicesComponent},
+  { path: 'aboutUs', component: AboutComponent}
 ];
 
 @NgModule({
