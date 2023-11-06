@@ -5,47 +5,43 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-jobs',
   templateUrl: './jobs.component.html',
-  styleUrls: ['./jobs.component.css','assets/css/bootstrap.min.css',
-'assets/css/owl.carousel.min.css',
-'assets/css/price_rangs.css',
-'assets/css/flaticon.css',
-'assets/css/slicknav.css',
-'assets/css/animate.min.css',
-'assets/css/magnific-popup.css',
-'assets/css/fontawesome-all.min.css',
-'assets/css/themify-icons.css',
-'assets/css/slick.css',
-'assets/css/nice-select.css',
-'assets/css/style.css']
+  styleUrls: ['./jobs.component.css', 'assets/css/bootstrap.min.css',
+    'assets/css/owl.carousel.min.css',
+    'assets/css/price_rangs.css',
+    'assets/css/flaticon.css',
+    'assets/css/slicknav.css',
+    'assets/css/animate.min.css',
+    'assets/css/magnific-popup.css',
+    'assets/css/fontawesome-all.min.css',
+    'assets/css/themify-icons.css',
+    'assets/css/slick.css',
+    'assets/css/nice-select.css',
+    'assets/css/style.css']
 })
 export class JobsComponent {
 
   currDate: Date = new Date();
   time: string = '';
   name: string = '';
-  num: number = 0 ;
+  num: number = 0;
   jobs: any[] = [];
   currentDate: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   //constructor(private jobService: Job) {}
 
   ngOnInit() {
-    this.http.get('http://localhost:3000/api/jobs' ).subscribe((response: any) => {
-      console.log('Data sent to server:', response);
-    // Fetch jobs using the service
-    this.jobs = response.jobs;
-    this.num = this.jobs.length;
-
-    this.updateTime();
-    this.updateCurrentDate();
-
-    setInterval(() => {
+    //get all
+    this.getAllJobs();
+    
       this.updateTime();
       this.updateCurrentDate();
-    }, 1000);
-  });
+
+      setInterval(() => {
+        this.updateTime();
+        this.updateCurrentDate();
+      }, 1000);
   }
 
 
@@ -73,24 +69,43 @@ export class JobsComponent {
     const date = now.getDate().toString().padStart(2, '0');
 
     this.currentDate = `${year}-${month}-${date}`;
+    this.autoDelete();
   }
   //
-  searchJobs(){
-   var job_type = 'Full-time';
+  searchJobs() {
+    var job_type = 'Full-time';
     var location = 'Emalahleni';
     var date_posted = '2023-10-26';
-    
-    const formData  = {job_type, location, date_posted};
-    this.http.post('http://localhost:3000/api/search/jobs',formData).subscribe((response: any) => {
+
+    const formData = { job_type, location, date_posted };
+    this.http.post('http://localhost:3000/api/search/jobs', formData).subscribe((response: any) => {
       console.log("Button clicked");
       //console.log('Data sent to server:', response);
-    // Fetch jobs using the service
-    this.jobs = response.result;
-    this.num = this.jobs.length;
-    
-    
-  });
-    
+      // Fetch jobs using the service
+      this.jobs = response.result;
+      this.num = this.jobs.length;
+
+
+    });
+
   }
-  
+
+  getAllJobs(){
+    this.http.get('http://localhost:3000/api/jobs').subscribe((response: any) => {
+      console.log('Data sent to server:', response);
+      // Fetch jobs using the service
+      this.jobs = response.jobs;
+      this.num = this.jobs.length;
+    });
+  }
+
+  autoDelete() {
+    this.http.delete('http://localhost:3000/api/deletejobs').subscribe((response: any) => {
+      console.log('Data sent to server:', response);
+    });
+
+    //refresh
+    this.getAllJobs();
+  }
+
 }
