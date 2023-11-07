@@ -42,6 +42,14 @@ export class ProfileService {
   uploadCertificates(document: File) {
     this.certificates.push(document);
   }
+  
+  uploadCert(file: File): Observable<any> { // Specify the return type as Observable
+    const formData = new FormData();
+    formData.append('file_name', file);
+    formData.append('fileType', 'certificate');
+
+    return this.http.post('http://localhost:3000/api/upload', formData);
+  }
 
   getCertificatess() {
     return [...this.certificates];
