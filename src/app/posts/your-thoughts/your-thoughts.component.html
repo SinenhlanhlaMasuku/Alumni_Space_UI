@@ -16,23 +16,24 @@
  
         <ul class="nav nav-pills nav-stack small fw-normal">
             <li class="nav-item">
-                <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto">
+                <label for="photoUpload" class="nav-link bg-light py-1 mb-0" data-bs-toggle="#feedActionPhoto">
                     <i class="bi bi-image-fill text-success pe-2"></i>Photo
-                </a>
-                <input type="file" accept="image/png, image/jpeg, image/jpg" (change)="onPhotoUpload($event)" style="display: none" id="photoUpload" />
+                </label>
+                <input type="file" accept="image/png,imagejpeg,image/jpg"(change)="onPhotoUpload($event)" style="display: none" id="photoUpload"/>
             </li>
         
             <li class="nav-item">
-                <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionVideo">
+                <label for="videoUpload" class="nav-link bg-light py-1 mb-0" data-bs-toggle="#feedActionVideo">
                     <i class="bi bi-camera-reels-fill text-info pe-2"></i>Video
-                </a>
-                <input type="file" accept="video/*" (change)="onVideoUpload($event)" style="display: none" id="videoUpload" />
+                </label>
+                <input type="file" accept="video/mp4,video/x-m4v,video/*"(change)="onVideoUpload($event)" style="display: none" id="videoUpload"/>
             </li>
         
             <li class="nav-item">
-                <a href="#" class="nav-link bg-light py-1 px-2 mb-0" data-bs-toggle="modal" data-bs-target="#modalCreateEvents">
+                <label for="eventUpload" class="nav-link bg-light py-1 mb-0" data-bs-toggle="#feedActionEvent">
                     <i class="bi bi-calendar2-event-fill text-danger pe-2"></i>Event
-                </a>
+                </label>
+                <input type="file" accept="image/*,video/*"(change)="onMediaUpload($event)" style="display: none" id="eventUpload"/>
             </li>
             <li class="nav-item">
                 <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal"
