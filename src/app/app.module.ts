@@ -34,7 +34,16 @@ import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 import { ViewReportComponent } from './view-report/view-report.component';
 import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { AllNotificationsComponent } from './homepage/Admin-home/all-notifications/all-notifications.component';
-
+import { UserLandingPageComponent } from './homepage/Posts/user-landing-page/user-landing-page.component';
+import { UserNavbarComponent } from './homepage/Posts/user-navbar/user-navbar.component';
+import { UserPostComponent } from './homepage/Posts/user-post/user-post.component';
+// import { UserProfileComponent } from './homepage/Posts/user-profile/user-profile.component';
+import { UserProfileInfoComponent } from './homepage/Posts/user-profile-info/user-profile-info.component';
+import { UserStorysComponent } from './homepage/Posts/user-storys/user-storys.component';
+import { WhoToFollowComponent } from './homepage/Posts/who-to-follow/who-to-follow.component';
+import { YourThoughtsComponent } from './homepage/Posts/your-thoughts/your-thoughts.component';
+import { PeopleYouMayKnowComponent } from './homepage/Posts/people-you-may-know/people-you-may-know.component';
+import { AdminTableComponent } from './homepage/Admin-home/admin-table/admin-table.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +66,15 @@ import { AllNotificationsComponent } from './homepage/Admin-home/all-notificatio
     ViewReportComponent,
     AdminFooterComponent,
     AllNotificationsComponent,
+    UserLandingPageComponent,
+    UserProfileInfoComponent,
+    UserNavbarComponent,
+    UserPostComponent,
+    UserStorysComponent,
+    WhoToFollowComponent,
+    YourThoughtsComponent,
+    PeopleYouMayKnowComponent,
+    AdminTableComponent
     
     // ViewProfileComponent,
     // EditProfileComponent

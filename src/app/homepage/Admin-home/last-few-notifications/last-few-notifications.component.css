@@ -1,4 +1,4 @@
-.notifications {
+.statisticsSummary {
     border: solid #fff;
     width: auto; 
     height: auto;
@@ -8,7 +8,7 @@
     box-shadow: 3px 3px 3px 3px blue;
    
 }
-.notifications-wrapper {
+.statsSummary-wrapper {
     overflow: auto;
     /* height: 85px; */
     padding: 10px;
@@ -24,7 +24,7 @@
     font-weight: bold;
     padding-right: 30px;
 }
-.notification {
+.statsSummary {
     display: flex;
     align-items: center;
     padding: 5px 10px;

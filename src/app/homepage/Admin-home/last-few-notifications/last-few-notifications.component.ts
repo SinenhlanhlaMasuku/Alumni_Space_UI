@@ -23,21 +23,21 @@ export class LastFewNotificationsComponent {
 
   constructor( private router: Router){}
 
-  notifications = [
+  StatsSummary = [
     {
-      id:1,
+      // id:1,
       subject: "Alumni registered:",
       message: this.totalAlumnRegistered +" registered recently",
       date: this.formattedDate,
     },
     {
-      id:2,
+      // id:2,
       subject: "Events posted",
       message: this.Total_events_posted + " posted this month",
       date: this.formattedDate,
     },
     {
-      id:2,
+      // id:2,
       subject: "Jobs Posted",
       message: this.Total_jobs_posted + " posted this month",
       date: this.formattedDate,
