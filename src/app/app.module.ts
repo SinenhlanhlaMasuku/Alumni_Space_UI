@@ -52,6 +52,7 @@ import { ResetPasswordComponent } from './components/auth/reset-password/reset-p
 import {SuccessComponent} from './components/success/success.component';
 import {SuccessPasswordChangeComponent} from './components/auth/success-password-change/success-password-change.component';
 import { SuccessModalComponent } from './components/success-modal/success-modal.component';
+import { RegisterComponent } from './components/register/register.component';
 
 //services
 
@@ -87,6 +88,7 @@ import { SuccessModalComponent } from './components/success-modal/success-modal.
     ServicesComponent,
     AddPostsComponent,
     SuccessModalComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
