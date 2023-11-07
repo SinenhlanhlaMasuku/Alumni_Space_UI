@@ -130,22 +130,7 @@ reportdate = new Date();
     }
        
     ],
-    // styles: {
-    //   header: {
-    //       fontSize: 16,
-    //       bold: true,
-    //       alignment: 'center',
-    //       margin: [0, 10, 0, 10]
-    //   },
-    //   tableStyle: {
-    //       margin: [0, 5, 0, 15]
-    //   },
-    //   tableHeader: {
-    //       bold: true,
-    //       fontSize: 13,
-    //       color: 'black'
-    //   }
-    //   }
+   
      };
      
      pdfMake.createPdf(docDefinition).open();

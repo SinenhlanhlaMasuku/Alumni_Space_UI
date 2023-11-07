@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminFooterComponent } from 'src/app/admin-footer/admin-footer.component';
-// import { NotificationService } from '../all-notifications/notification.service';
-// import { 
-//   faCoffee,
-//   faPerson,
-//   faSuitcase,
-//   faClock,
-  // faCalendarWeek } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-admin-home',
@@ -21,12 +15,7 @@ export class AdminHomeComponent implements OnInit{
   adminName: string = 'Admin Name';
    currDate: Date = new Date();
    time: string='';
-   images: string[] =[
-    "assets/AWS-Logo.png",
-    "assets/AWS-Logo.png",
-    "assets/AWS-Logo.png"
-   ];
-   slideIndex = 0;
+   
   //  private notificationService: NotificationService
    constructor(private router: Router){}
 
@@ -38,9 +27,7 @@ export class AdminHomeComponent implements OnInit{
       this.updateTime();
     }, 1000)
 
-    // this.notificationService.getBadgeCountSubject().subscribe((count) => {
-    //   this.badgeCount = count;
-    // });
+   
   }
   
 
@@ -67,7 +54,7 @@ export class AdminHomeComponent implements OnInit{
 
     if (currentTime < 12) {
       this.welcomeMessage = 'Good Morning, ';
-      // this.adminName = 'admin offline';
+      
     } else if (currentTime >= 12 && currentTime < 17) {
       this.welcomeMessage = 'Good Afternoon, ';
     } else {
