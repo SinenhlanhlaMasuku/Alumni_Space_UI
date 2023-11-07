@@ -16,6 +16,9 @@ import { UserProfileInfoComponent } from './posts/user-profile-info/user-profile
 import { UserStorysComponent } from './posts/user-storys/user-storys.component';
 import { WhoToFollowComponent } from './posts/who-to-follow/who-to-follow.component';
 import { YourThoughtsComponent } from './posts/your-thoughts/your-thoughts.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 // import {  } from '@fortawesome/fontawesome-free-solid';
 
 
@@ -34,7 +37,8 @@ import { YourThoughtsComponent } from './posts/your-thoughts/your-thoughts.compo
     UserProfileInfoComponent,
     UserStorysComponent,
     WhoToFollowComponent,
-    YourThoughtsComponent
+    YourThoughtsComponent,
+    ConfirmationDialogComponent
     
 
 
@@ -42,10 +46,11 @@ import { YourThoughtsComponent } from './posts/your-thoughts/your-thoughts.compo
     imports: [
     BrowserModule,
     AppRoutingModule,
-    
+    MatDialogModule,
      HttpClientModule,// Add HttpClientModule
    
      FormsModule,
+     MatButtonModule,
     
     //  AuthorsComponent
     

@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 //import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
+// import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
       { path: 'edit-profile',component: EditProfileComponent },
     ]),
     //NgxExtendedPdfViewerModule
-    PdfViewerModule
+    // PdfViewerModule
   ]
 })
 export class ProfileModule { }
