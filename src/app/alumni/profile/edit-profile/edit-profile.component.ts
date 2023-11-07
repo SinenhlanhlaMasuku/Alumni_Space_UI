@@ -27,13 +27,16 @@ export class EditProfileComponent {
   isBtnSaveCertificate: boolean = false;
   AcademicRChosen: boolean = false;
   profilePicChosen: boolean = false;
-  certificateChosen: boolean = false;
+  certificateChosen: boolean [] = [];
   skills: string[] = []; // array to hold skills
   newSkill: string = ''; // Input for new skills
-  certificates: File[] = [];
+  // certificates: File[] = [];
+  certificates: File[] =[];
   certificateNames: string[] =[]
-  fileTypeError: string = '';
-  fileTypeError2: string = '';
+  fileTypeErrorProfPic: string = '';
+  fileTypeErrorCertif: string = '';
+  fileTypeErrorAcadRec: string = '';
+  isSaveClicked: boolean = false;
 
   
   alumni = {
@@ -93,30 +96,35 @@ export class EditProfileComponent {
   }
   
   open(){
-    this.openDialog();
+    // this.openDialog();
+    //input validation here
+    if(this.alumni.Name.length != 0 && this.alumni.Skills.length != 0 && this.alumni.Experience.length != 0 && this.alumni.Interest.length != 0 && this.alumni.Bio.length != 0 && this.alumni.Location.length != 0 && this.alumni.Qualification.length != 0 && this.alumni.Employment_Status.length != 0)
+    {
+       this.openDialog();
+
+    }
+    else{
+      this.showSnackbar("fill in the empty fields");
+    }
+    
   }
 
 
   saveProfile(){
 
-              //open confirmatiom dialog
-               //this.openDialog();
-              //get user_id
          const user_id = localStorage.getItem('account_id');
       
-         const formData = {user_id,skills: this.alumni.Skills,experience: this.alumni.Experience, interest:this.alumni.Interest, bio:this.alumni.Bio, location:this.alumni.Location,qualification: this.alumni.Qualification,employment_status: this.alumni.Employment_Status};
+         const formData = {user_id,name: this.alumni.Name, skills: this.alumni.Skills,experience: this.alumni.Experience, interest:this.alumni.Interest, bio:this.alumni.Bio, location:this.alumni.Location,qualification: this.alumni.Qualification,employment_status: this.alumni.Employment_Status};
+        
          //pass data into the server
            this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
            console.log('Data sent to server:', response); });
            console.log(formData);
            console.log(user_id);
-          // this.message = 'profile saved!';
-          this.openDialog();
-          //alert('Do you really want to save profile?')
-          //this.showSnackbar('Profile saved successfully!');
-  
-
+           this.openDialog();
+          
      }
+     
      //add new skill
      addNewSkill() {
       
@@ -138,6 +146,20 @@ export class EditProfileComponent {
              else {
                  this.AcademicRChosen = false;
                   }
+
+                  const file: File = event.target.files[0];
+                 const fileType = file.type;
+                 const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+
+                 if (!allowedTypes.includes(fileType)) {
+                    this.fileTypeErrorAcadRec = 'Invalid file type. Please select a DOCX or PDF file.';
+                    // Reset the file input if needed
+                    event.target.value = null;
+                 } else {
+                       this.fileTypeErrorAcadRec = 'correct file!'; // Reset the error message if the file type is valid
+                                                   // File type is valid, proceed with the file upload or other actions
+                                     
+                 }
           }
 
      //function to handle profile picture selection
@@ -153,50 +175,57 @@ export class EditProfileComponent {
                    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
 
                     if (!allowedTypes.includes(fileType)) {
-                        this.fileTypeError = 'Invalid file type. Please select a JPG, JPEG, or PNG file.';
+                        this.fileTypeErrorProfPic = 'Invalid file type. Please select a JPG, JPEG, or PNG file.';
                        // Reset the file input if needed
                         event.target.value = null;
                    } else {
-                        this.fileTypeError = ''; // Reset the error message if the file type is valid
+                        this.fileTypeErrorProfPic = ''; // Reset the error message if the file type is valid
                               // File type is valid, proceed with the file upload or other actions
-                               // Your code here
+                               
                 }
          }
         //function to handle certificate selection
             onCertificateChange(event: any, index: number) 
             {
+             
+                // index = 0;
+               
                 if (event.target.files && event.target.files.length > 0) {
                    const file = event.target.files[0] as File;
                    this.certificates[index] = file;
-                   this.certificateChosen = true;
+                   this.certificateChosen[index] = false;
                    this.certificateNames[index] = file.name;
                  } else {
-                  this.certificateChosen = false;
+                  this.certificateChosen[index] = false;
                  }
-
+                //  index++;
                  const file: File = event.target.files[0];
                  const fileType = file.type;
                  const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
 
                  if (!allowedTypes.includes(fileType)) {
-                    this.fileTypeError2 = 'Invalid file type. Please select a DOCX or PDF file.';
+                    this.fileTypeErrorCertif = 'Invalid file type. Please select a DOCX or PDF file.';
                     // Reset the file input if needed
                     event.target.value = null;
                  } else {
-                       this.fileTypeError2 = 'correct file!'; // Reset the error message if the file type is valid
+                       this.fileTypeErrorCertif = ''; // Reset the error message if the file type is valid
                                                    // File type is valid, proceed with the file upload or other actions
                                      // Your code here
+                                     this.certificateChosen[index] = true;            
                  }
+                
             }
             //adding new certifacate
             addCertificateField() {
               this.certificates.push(new File([], ''));
               this.certificateNames.push('');
+              this.certificateChosen.push(true);
              
             }
-
+            i: number = 0;
             cancelEdit()
             {
+              this.i++; 
               this.alumni = {
                 Name: "",
                 Location: "",
@@ -207,6 +236,9 @@ export class EditProfileComponent {
                 Academic_Transcript: "",
                 Interest: "",
                 Bio : "",
+
+               
+
                 
               }
               
@@ -215,9 +247,9 @@ export class EditProfileComponent {
                 this.isBtnSaveCertificate = false;
                 this.AcademicRChosen  = false;
                 this.profilePicChosen = false;
-                this.certificateChosen = false;
-                console.log('editing profile cancelled!')
-                this.message ='....cancelled!';
+                this.certificateChosen[this.i] = false;
+                this.isSaveClicked = false;
+                
     
             }
             saveAcademicRecord()
@@ -235,8 +267,17 @@ export class EditProfileComponent {
    
             saveCertificate()
             {
-              console.log('certificate saved successfully!')
-              this.isBtnSaveCertificate = true;
+              let index: number = 0;
+                
+              if(this.certificateChosen[index] = true  && this.certificateNames[index].length != 0)
+               {
+                this.isBtnSaveCertificate = true;
+                this.isSaveClicked = true;
+               }
+              else{
+                this.showSnackbar('Choose a file and fill the certificate name field');
+              }
+              index++;
             }
             returnHome(){
               this.router.navigate(['/home']);

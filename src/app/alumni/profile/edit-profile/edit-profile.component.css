@@ -11,7 +11,7 @@ body .h1 {
 .card {
     padding: 10px 10px 10px;
     border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 5px 5px blue;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -33,16 +33,19 @@ body .h1 {
 }
 
 .wrapper {
-    background-color: whitesmoke;
+    margin-left: auto; 
+    margin-right: auto;
+    background-color: aliceblue;
     padding: 20px;
     border: 1px solid #ccc;
-    margin: 20px;
+    /* margin: 20px; */
     justify-content: center;
     align-content: center;
     padding: 20px;
 
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
-    width: 70%;
+    box-shadow: 5px 5px 5px 5px blue;
+    /* width: 70%; */
+    width: auto;
 }
 
 .wrapper h2 {
@@ -65,17 +68,21 @@ body .h1 {
 }
 
 .wrapper2 {
-    background-color: whitesmoke;
-    padding: 20px;
-    border: 1px solid #ccc;
+    /* margin-left: auto; 
+    margin-right: auto; */
+
+    background-color: aliceblue;
+    padding: 10px;
+    /* border: 1px solid #ccc; */
     margin: 20px;
     justify-content: center;
     align-content: center;
-    padding: 20px;
+    padding: 10px;
 
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 5px 5px 5px blue;
     width: 70%;
-    margin-bottom: 10px;
+    /* margin-bottom: 100px; */
+    /* padding-bottom: 30px; */
 }
 .message{
     background-color: #fff;
