@@ -83,7 +83,7 @@
         <p>{{ event.description }}</p>
       </td>
       <td>
-        <p><b>Posted On:</b> {{ currentDate | date:'fullDate' }} ({{ getTimeDifference(event.datePosted) }})</p>
+        <p><b>Posted On:</b> {{ currentDate | date:'fullDate' }}</p>
       </td>
       <td>
         <button (click)="editEvent(i)" id="editButton">Edit</button>
