@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class YourThoughtsComponent {
   
   postedtext: string=''; 
+
   onPhotoUpload(event: Event): void {
     const input = event.target as HTMLInputElement;
     const file = input?.files?.[0]; // Get the selected photo file
@@ -62,7 +63,9 @@ export class YourThoughtsComponent {
     this.data[index].status = 'Answered';
     this.responseForms[index] = false;
 
-    alert("Message submitted" + this.postedtext)
+    // this.postedtext.style.color='red';
+
+    alert( this.postedtext)
   }
 }
 
