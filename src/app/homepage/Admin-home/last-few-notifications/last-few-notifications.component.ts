@@ -11,40 +11,38 @@ import { Router, RouterLink } from '@angular/router';
 export class LastFewNotificationsComponent {
   
   // MatDialog: DialogRef;
+  totalAlumnRegistered: number=0;
+  Total_jobs_posted: number=0;
+  Total_events_posted: number=0;
+  reportdate = new Date();
+ formattedDate = this.reportdate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: '2-digit'
+});
 
   constructor( private router: Router){}
 
   notifications = [
     {
       id:1,
-      subject: "Career guide",
-      message: "you are invited to the annu....",
-      date: "12-oct-2023",
+      subject: "Alumni registered:",
+      message: this.totalAlumnRegistered +" registered recently",
+      date: this.formattedDate,
     },
     {
-      id:1,
-      subject: "Secure your future",
-      message: "you are invited to the annu....",
-      date: "23-oct-2023",
+      id:2,
+      subject: "Events posted",
+      message: this.Total_events_posted + " posted this month",
+      date: this.formattedDate,
+    },
+    {
+      id:2,
+      subject: "Jobs Posted",
+      message: this.Total_jobs_posted + " posted this month",
+      date: this.formattedDate,
     }
-    // {
-    //   id:1,
-    //   subject: "Live good today",
-    //   message: "you are invited to the annu....",
-    //   date: "5-nov-2023",
-    // },
-    // {
-    //   id:1,
-    //   subject: "Career guide",
-    //   message: "you are invited to the annu....",
-    //   date: "01-dec-2023",
-    // },
-    // {
-    //   id:1,
-    //   subject: "Career guide",
-    //   message: "you are invited to the annu....",
-    //   date: "12-oct-2023",
-    // },
+    
   ];
   showNotification(){
     
