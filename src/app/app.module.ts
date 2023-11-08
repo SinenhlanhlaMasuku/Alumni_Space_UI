@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
+import { RegisterComponent } from './components/register/register.component';
 
 //imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'angular-highcharts';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MatTableModule} from '@angular/material/table';
+
 
 //Admin-Module Components
 import { AuthorsComponent } from './modules/admin/dashboard/authors/authors.component';
@@ -76,6 +78,7 @@ import { SuccessModalComponent } from './components/success-modal/success-modal.
     LastFewNotificationsComponent,
     TrackAlumniComponent,
     QueryComponent,
+    RegisterComponent,
     // ViewProfileComponent,
     // EditProfileComponent
 
