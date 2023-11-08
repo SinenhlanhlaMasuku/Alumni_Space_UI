@@ -8,6 +8,7 @@ import { EventsComponent } from './events/events.component';
 
 
 
+
 @NgModule({
   declarations: [
     EventsComponent

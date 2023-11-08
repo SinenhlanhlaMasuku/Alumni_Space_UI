@@ -38,6 +38,7 @@ import { ViewReportComponent } from './modules/admin/view-report/view-report.com
 import { JobsComponent } from './modules/alumni/jobs/jobs.component';
 import { AddJobsComponent } from './modules/admin/add-jobs/add-jobs.component';
 import { AddPostsComponent } from './modules/admin/add-posts/add-posts.component';
+import { QueryComponent } from './modules/admin/query/query.component';
 
 //import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
@@ -52,7 +53,6 @@ import { ResetPasswordComponent } from './components/auth/reset-password/reset-p
 import {SuccessComponent} from './components/success/success.component';
 import {SuccessPasswordChangeComponent} from './components/auth/success-password-change/success-password-change.component';
 import { SuccessModalComponent } from './components/success-modal/success-modal.component';
-import { RegisterComponent } from './components/register/register.component';
 
 //services
 
@@ -75,6 +75,7 @@ import { RegisterComponent } from './components/register/register.component';
     EventsStatsComponent,
     LastFewNotificationsComponent,
     TrackAlumniComponent,
+    QueryComponent,
     // ViewProfileComponent,
     // EditProfileComponent
 
@@ -88,7 +89,6 @@ import { RegisterComponent } from './components/register/register.component';
     ServicesComponent,
     AddPostsComponent,
     SuccessModalComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,

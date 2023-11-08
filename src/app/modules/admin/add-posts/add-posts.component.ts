@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EventService } from '../../../services/event.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-posts',
@@ -11,11 +12,14 @@ export class AddPostsComponent {
   eventForm: FormGroup;
   imageFile: File | null = null;
   showModal = false;
+  isResultLoaded = false;
 
-  constructor(private eventService: EventService, private fb: FormBuilder) {
+  constructor(private eventService: EventService, private fb: FormBuilder, private http: HttpClient ) {
     this.eventForm = this.fb.group({
       eventTitle: [''],
       eventDescription: [''],
+      eventDate: Date,
+      datePosted: Date
      
     });
     this.events = this.eventService.getEvents();
@@ -26,8 +30,11 @@ export class AddPostsComponent {
     const event = {
       title: this.eventForm.get('eventTitle')?.value,
       description: this.eventForm.get('eventDescription')?.value,
+      eventDate: this.eventForm.get('eventDate')?.value,
+      datePosted :  new Date(),
       image: this.imageFile,
     };
+    
     this.eventService.addEvent(event);
     this.eventForm.reset();
     this.imageFile = null;
@@ -58,7 +65,7 @@ export class AddPostsComponent {
  
 
   // Custom function to calculate time difference and return the "posted ... ago" message
-  getTimeDifference(datePosted: Date): string {
+  getTimeDifference(datePosted: any): string {
     const timeDiff = this.currentDate.getTime() - new Date(datePosted).getTime();
 
     const seconds = Math.floor(timeDiff / 1000);
@@ -97,5 +104,21 @@ export class AddPostsComponent {
   deleteEvent(index: number) {
     // Implement code to handle the "Delete" action for the selected event
     this.events.splice(index, 1);
+    localStorage.setItem('events', JSON.stringify(this.events));
   }
+
+
+  getAllStudent()
+  { 
+    this.http.get("http://localhost:3000/api/events")
+    .subscribe((resultData: any)=>
+    {
+        this.isResultLoaded = true;
+        console.log(resultData.data);
+        this.events = resultData.data;
+        console.log(this.events);
+    });
+  }
+
+
 }

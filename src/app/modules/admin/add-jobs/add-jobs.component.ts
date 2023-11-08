@@ -108,6 +108,7 @@ export class AddJobsComponent {
       /*"stname" : this.stname,
       "course" : this.course,
       "fee" : this.fee*/
+      
       "job_title" : this.job_title,
   "Organisation" : this.Organisation,
   "workplace_type" : this.workplace_type,

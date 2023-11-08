@@ -9,6 +9,7 @@ import { AddPostsComponent } from './add-posts/add-posts.component';
 
 import { EventService } from '../../services/event.service';
 import { ViewReportComponent } from './view-report/view-report.component';
+import { QueryComponent } from './query/query.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ViewReportComponent } from './view-report/view-report.component';
       { path: 'trackAlumni', component: TrackAlumniComponent},
       { path: 'post-jobs', component: AddJobsComponent },
       { path: 'post-events', component: AddPostsComponent },
-      { path: 'view-report', component: ViewReportComponent}
+      { path: 'view-report', component: ViewReportComponent},
+      { path: 'query', component: QueryComponent}
     ]),
   ],
   providers: [EventService],

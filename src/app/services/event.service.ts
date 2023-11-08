@@ -24,6 +24,7 @@ export class EventService {
         console.log(resultData.data);
         this.events = resultData.data;
         console.log(this.events);
+        localStorage.setItem('events', JSON.stringify(resultData.data));
     });
 
   }
@@ -47,6 +48,7 @@ export class EventService {
 
   getEvents() {
     this.loadEventsFromLocalStorage();
+    //this.getAllEvents();
     return this.events;
   }
 
