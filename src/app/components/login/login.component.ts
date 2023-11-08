@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +15,19 @@ export class LoginComponent {
   password = '';
   fullname = '';
   surname = '';
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar) {}
 
   onLogin() {
+    
     //data to pass to back-end
     const formData = { email: this.email, password: this.password };
     //
+    if(this.email.length == 0 || this.password.length ==  0){
+         this.showSnackbar('Please fill in the missing field(s)');
+    }else{
+       this.showSnackbar('login successfully!');
+       this.router.navigate(['/alumni/home']);
+    }
     if(formData.email !== 'admin@email.com'){
       this.http.post('http://localhost:3000/api/login', formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
@@ -29,6 +37,7 @@ export class LoginComponent {
 
       
       if(response.message === 'Login successful!' ){
+        // alert('Login Successfully!');
         console.log(response.result[0].name);
         console.log(response.account_id);
         //store user details to localStorage
@@ -36,9 +45,10 @@ export class LoginComponent {
         localStorage.setItem('surname', response.result[0].surname.toString());
         localStorage.setItem('account_id',response.account_id);
 
-        this.router.navigate(['/alumni/home']);
+        // this.router.navigate(['/alumni/home']);
       }else{
-        this.router.navigate(['/forgot-password']);
+        //alert("Invalid Details")
+        this.router.navigate(['/auth/forgot-password']);
       }
     });
     }else{
@@ -66,4 +76,12 @@ export class LoginComponent {
     });
   }
 
+  showSnackbar(message: string) {
+    this.snackbar.open(message, 'Close', {
+      duration: 2000, // Duration the snackbar is shown in milliseconds
+      verticalPosition: 'top', // Set the vertical position to 'top'
+      horizontalPosition: 'center', // Set the horizontal position to 'center'
+      panelClass: ['snackbar'], // Add your custom class for styling
+    });
+  }
 }

@@ -22,6 +22,9 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   
 
+  //auth
+  { path: 'auth', loadChildren: () => import('./components/auth/auth.module').then(m => m.AuthModule) },
+
   //Components
   { path: 'contacts', component: ContactsComponent },
   { path: 'about', component: AboutComponent },
