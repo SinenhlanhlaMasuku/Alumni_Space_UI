@@ -1,24 +1,43 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-//import individual components
-import { IndexComponent } from './components/index/index.component';
-import { ServiceComponent } from './components/service/services.component';
+//components
+import { LoginComponent } from './components/login/login.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
+import { ServicesComponent } from './components/services/services.component';
+import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
-//
+import {SuccessComponent} from './components/success/success.component';
+import {SuccessPasswordChangeComponent} from './components/auth/success-password-change/success-password-change.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-  {path:'',component:IndexComponent},
-  {path:'',component:ServiceComponent},
-  {path:'',component:AboutComponent},
-  {path:'',component:ContactComponent},
+  { path: '', component: LoginComponent },
+  
+  
+  //Alumni-module Components
+  { path: 'alumni', loadChildren: () => import('./modules/alumni/alumni.module').then(m => m.AlumniModule) },
 
-  //Call Alumni module
-  {path: 'alumni',loadChildren: () => import('./modules/alumni/alumni.module').then((m) => m.AlumniModule)},
+  //Admni-module Components
+  { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
+  
 
-  //Call Admni module
-  {path: 'alumni',loadChildren: () => import('./modules/alumni/alumni.module').then((m) => m.AlumniModule),},
+  //auth
+  { path: 'auth', loadChildren: () => import('./components/auth/auth.module').then(m => m.AuthModule) },
+
+  //Components
+  { path: 'contacts', component: ContactsComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'services', component: ServicesComponent },
+  //
+  { path: 'success', component: SuccessComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'success-password-change', component: SuccessPasswordChangeComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
+  {path: 'register', component: RegisterComponent}
+  
+  
 ];
 
 @NgModule({
