@@ -2,6 +2,7 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-last-few-notifications',
@@ -11,40 +12,42 @@ import { Router, RouterLink } from '@angular/router';
 export class LastFewNotificationsComponent {
   
   // MatDialog: DialogRef;
+  totalAlumnRegistered: number=0;
+  Total_jobs_posted: number=0;
+  Total_events_posted: number=0;
+  reportdate = new Date();
+ formattedDate = this.reportdate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: '2-digit'
+});
 
-  constructor( private router: Router){}
+  constructor( private router: Router,private http: HttpClient,){}
 
-  notifications = [
+  ngOnInit(){
+    this.getData();
+  }
+
+  StatsSummary = [
     {
-      id:1,
-      subject: "Career guide",
-      message: "you are invited to the annu....",
-      date: "12-oct-2023",
+      // id:1,
+      subject: "Alumni registered:",
+      message: this.totalAlumnRegistered +" registered recently",
+      date: this.formattedDate,
     },
     {
-      id:1,
-      subject: "Secure your future",
-      message: "you are invited to the annu....",
-      date: "23-oct-2023",
+      // id:2,
+      subject: "Events posted",
+      message: this.Total_events_posted + " posted this month",
+      date: this.formattedDate,
+    },
+    {
+      // id:2,
+      subject: "Jobs Posted",
+      message: this.Total_jobs_posted + " posted this month",
+      date: this.formattedDate,
     }
-    // {
-    //   id:1,
-    //   subject: "Live good today",
-    //   message: "you are invited to the annu....",
-    //   date: "5-nov-2023",
-    // },
-    // {
-    //   id:1,
-    //   subject: "Career guide",
-    //   message: "you are invited to the annu....",
-    //   date: "01-dec-2023",
-    // },
-    // {
-    //   id:1,
-    //   subject: "Career guide",
-    //   message: "you are invited to the annu....",
-    //   date: "12-oct-2023",
-    // },
+    
   ];
   showNotification(){
     
@@ -54,5 +57,18 @@ export class LastFewNotificationsComponent {
   }
   returnHome(){
     this.router.navigate(['/adminHome']);
+  }
+
+  getData(){
+      this.http.get('http://localhost:3000/api/count_alumni').subscribe((response: any) => {
+      console.log('Data sent to server:', response);
+      // Clear the form fields after successful submission
+      
+      console.log(response.result);
+      this.totalAlumnRegistered = response.result;
+      //alumni_count: alumniCount
+
+    });
+    
   }
 }

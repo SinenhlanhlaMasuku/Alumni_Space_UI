@@ -1,1 +1,19 @@
-<div class="chart-container" [chart]="chart"></div> 
+<div class="chart-container"  [chart]="chart"  (click)="enterNoMonthsToshow()"></div>
+<!-- (click)="enterNoMonthsToshow() -->
+<!-- <div   *ngIf="isEditchart"  class="card" >
+    <input type="text"  [(ngModel)]="ReqMonths"  name="ReqMonths" id="noMonths_to_Show"/>
+    <button type="button" class="btn btn-primary" (click)="changeChartIndex()">add</button>
+</div>  -->
+
+  <div [formGroup]="myForm" *ngIf="isEditchart" class="card">
+    <input type="text" formControlName="adminInput" name="adminInput" id="noMonths_to_Show" />
+    <div *ngIf="myForm.get('adminInput')?.errors && (myForm.get('adminInput')?.dirty || myForm.get('adminInput')?.touched)">
+      <small class="text-danger" *ngIf="myForm.get('adminInput')?.hasError('required')">Admin input is required</small>
+      <small class="text-danger" *ngIf="myForm.get('adminInput')?.hasError('min')">Admin input should be greater than or equal to 0</small>
+      <small class="text-danger" *ngIf="myForm.get('adminInput')?.hasError('max')">Admin input should be less than or equal to 12</small>
+      <small class="text-danger" *ngIf="myForm.get('adminInput')?.hasError('pattern')">Admin input should be a number</small>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="changeChartIndex()">add</button>
+  </div>
+  
+  

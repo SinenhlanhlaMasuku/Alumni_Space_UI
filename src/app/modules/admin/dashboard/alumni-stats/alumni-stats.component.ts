@@ -25,7 +25,8 @@ export class AlumniStatsComponent {
 
 
   ];
-  data = [12, 19, 3, 5, 2, 4, 8, 34, 36, 26, 45, 8];
+  //data = [12, 19, 3, 5, 2, 4, 8, 34, 36, 26, 45, 8];
+  data = [0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 5, 0];
 
   chart = new Chart({
     chart: {

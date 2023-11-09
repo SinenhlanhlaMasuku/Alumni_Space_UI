@@ -27,8 +27,8 @@
                         <div class="card-body pt-0">
                             <div class="text-center">
                             <!-- Avatar -->
-                            <div class="avatar avatar-lg mt-n5 mb-3">
-                                <a href="#!"><img class="avatar-img rounded border border-white border-3" src="assets/Kfentse.jpg" alt=""></a>
+                            <div class="avatar avatar-lg mt-n5 mb-3" *ngFor="let image of images">
+                                <a href="#!"><img class="avatar-img rounded border border-white border-3" [src]="getSafeUrl(image)" alt=""></a>
                             </div>
                             <!-- Info -->
                             <h5 class="mb-0"> <a href="#!">{{name}}  {{surname}}</a> </h5>

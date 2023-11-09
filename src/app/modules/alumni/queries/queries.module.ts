@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { QueryEntryComponent } from './query-entry/query-entry.component';
 import { SuccessDialogComponent } from './success-dialog/success-dialog.component';
 import { HeaderComponent } from './header/header.component';
+import { FaqsComponent } from './faqs/faqs.component';
 
 
 
@@ -13,7 +14,8 @@ import { HeaderComponent } from './header/header.component';
   declarations: [
     QueryEntryComponent,
     SuccessDialogComponent,
-    HeaderComponent
+    HeaderComponent,
+    FaqsComponent
   ],
   imports: [
     CommonModule,

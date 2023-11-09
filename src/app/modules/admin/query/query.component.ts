@@ -10,6 +10,7 @@ export class QueryComponent {
     { user: 'User 1', query: 'Hello, I have a question.', status: 'Unanswered', response: '' },
     { user: 'User 2', query: 'Need assistance with an order.', status: 'Unanswered', response: '' }
   ];
+  queries: any[] = [];
   responseForms: boolean[] = new Array(this.data.length).fill(false);
 
   toggleResponseForm(index: number) {
@@ -17,7 +18,23 @@ export class QueryComponent {
   }
 
   submitResponse(index: number) {
-    this.data[index].status = 'Answered';
+    //this.data[index].status = 'Answered';
     this.responseForms[index] = false;
   }
+
+  submitResponse1(index: number) {
+    this.queries[index].status = 'Answered';
+    this.responseForms[index] = false;
+    
+    localStorage.setItem('queries', JSON.stringify(this.queries));
+  }
+
+  ngOnInit(){
+    const storedEvents = localStorage.getItem('queries');
+    if (storedEvents) {
+      this.queries = JSON.parse(storedEvents);
+      console.log(this.queries);
+    }
+  }
+  
 }

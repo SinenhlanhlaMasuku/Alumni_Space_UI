@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { ProfileService } from '../../profile/profile.service';
 
 @Component({
   selector: 'app-user-profile-info',
@@ -24,7 +26,11 @@ export class UserProfileInfoComponent {
     
   }
 
-  constructor(private http: HttpClient){}
+  images: File[] = [];
+
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private ProfileService: ProfileService){
+    this.images = this.ProfileService.getImages();
+  }
   
   ngOnInit() {
     const storedName = localStorage.getItem('name');
@@ -59,6 +65,11 @@ export class UserProfileInfoComponent {
 
       }
     });
+  }
+
+  getSafeUrl(image: File): SafeUrl {
+    const objectURL = URL.createObjectURL(image);
+    return this.sanitizer.bypassSecurityTrustUrl(objectURL);
   }
 
 }
