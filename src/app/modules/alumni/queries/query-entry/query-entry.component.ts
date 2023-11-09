@@ -42,7 +42,7 @@ public openSuccessDialog(): void {
   
   
 
-  this.http.post<any>('http://localhost:3000/query',this.queryText,{headers}).subscribe(response=>{
+  /*this.http.post<any>('http://localhost:3000/query',this.queryText,{headers}).subscribe(response=>{
 
   this.queryText ='';
 
@@ -55,6 +55,22 @@ public openSuccessDialog(): void {
       data: { message: 'Your message was sent successfully!' },
       closeOnNavigation: true,
     });
+  });*/
+}
+
+sendQuery(query: string): void{
+  const accountId = '';
+  const status = 'pending';
+
+  const requestBody = {
+    account_id: accountId,
+    query_text: query,
+    status,
+    date: new Date().toISOString()
+  };
+
+  this.http.post<any>('http://localhost:3000/api/send_query', requestBody).subscribe(response => {
+    console.log('Query sent to server:', response);
   });
 }
 

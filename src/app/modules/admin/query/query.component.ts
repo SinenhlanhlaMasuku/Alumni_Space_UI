@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-query',
@@ -12,6 +13,8 @@ export class QueryComponent {
   ];
   queries: any[] = [];
   responseForms: boolean[] = new Array(this.data.length).fill(false);
+
+  constructor(private http: HttpClient){}
 
   toggleResponseForm(index: number) {
     this.responseForms[index] = !this.responseForms[index];
@@ -37,4 +40,10 @@ export class QueryComponent {
     }
   }
   
+  respondToQuery(queryId: number, response: string): void{
+    this.http.post<any>('http://localhost:3000/api/respond_query', {
+      query_id: queryId, query_text: response }).subscribe(( result: any) => {
+        console.log('Query response sent:', response);
+      });
+  }
 }
