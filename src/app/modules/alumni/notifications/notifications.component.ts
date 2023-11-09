@@ -13,6 +13,7 @@ export class NotificationsComponent {
   isReadnotification: boolean = false;
   isHideNotifications: boolean = true;
   timeReplied: string = "";
+  notifications: any[] = [];
   
   constructor( private router: Router, private notificationService: NotificationsService){}
    
@@ -25,7 +26,16 @@ export class NotificationsComponent {
       
       // this.getCurrentTimeWithAMPM();
 
+
+      //get queries
+      const storedEvents = localStorage.getItem('queries');
+    if (storedEvents) {
+      this.notifications = JSON.parse(storedEvents);
+      console.log(this.notifications);
+    }
     });
+
+
 
     this.updateTime(),
     setInterval(() => {
@@ -64,7 +74,7 @@ export class NotificationsComponent {
     return `${displayHours}:${minutes.toString().padStart(2, '0')} ${AMPM}`;
   }
 
-  notifications = [
+  /*notifications = [
     {
       id:1,
       sender: "Admin",
@@ -73,8 +83,7 @@ export class NotificationsComponent {
       date: "12/11/2023",//replace with real
       time: this.timeReplied,//replace with real
     },
-    
-  ];
+  ]; */
   // showNotification(){
     
   //   alert('Notification viewed!');
