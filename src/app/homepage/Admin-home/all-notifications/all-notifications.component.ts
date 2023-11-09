@@ -9,6 +9,8 @@ import { NotificationsService } from './notifications.service';
 })
 export class AllNotificationsComponent {
   notificationId: number = 0;
+  isReadnotification: boolean = false;
+  isHideNotifications: boolean = true;
   constructor( private router: Router, private notificationService: NotificationsService){}
    
   ngOnInit(){
@@ -24,34 +26,35 @@ export class AllNotificationsComponent {
   notifications = [
     {
       id:1,
+      sender: "Admin",
       subject: "Career guide",
       message: "you are invited to the annu....",
       date: "12-oct-2023",
     },
-    {
-      id:1,
-      subject: "Secure your future",
-      message: "you are invited to the annu....",
-      date: "23-oct-2023",
-    },
-    {
-      id:1,
-      subject: "Live good today",
-      message: "you are invited to the annu....",
-      date: "5-nov-2023",
-    },
-    {
-      id:1,
-      subject: "Career guide",
-      message: "you are invited to the annu....",
-      date: "01-dec-2023",
-    },
-    {
-      id:1,
-      subject: "Career guide",
-      message: "you are invited to the annu....",
-      date: "12-oct-2023",
-    },
+    // {
+    //   id:1,
+    //   subject: "Secure your future",
+    //   message: "you are invited to the annu....",
+    //   date: "23-oct-2023",
+    // },
+    // {
+    //   id:1,
+    //   subject: "Live good today",
+    //   message: "you are invited to the annu....",
+    //   date: "5-nov-2023",
+    // },
+    // {
+    //   id:1,
+    //   subject: "Career guide",
+    //   message: "you are invited to the annu....",
+    //   date: "01-dec-2023",
+    // },
+    // {
+    //   id:1,
+    //   subject: "Career guide",
+    //   message: "you are invited to the annu....",
+    //   date: "12-oct-2023",
+    // },
   ];
   // showNotification(){
     
@@ -63,10 +66,12 @@ export class AllNotificationsComponent {
   readNotification(count: number) {
     this.notificationService.decreaseNotificationId(count);
     this.notificationId = this.notificationService.getNotificationId();
+    this.isReadnotification = true;
+    this.isHideNotifications = false;
   }
   
 
   returnHome(){
-    this.router.navigate(['/adminHome']);
+    this.router.navigate(['/LandingPage']);
   }
 }

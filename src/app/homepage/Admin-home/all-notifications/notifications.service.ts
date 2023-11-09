@@ -26,7 +26,7 @@ export class NotificationsService {
   getNotificationId(): number {
     return this.notificationId;
   }
-
+  
   getNewNotificationReceived(): Subject<boolean> {
     return this.newNotificationReceived;
   }

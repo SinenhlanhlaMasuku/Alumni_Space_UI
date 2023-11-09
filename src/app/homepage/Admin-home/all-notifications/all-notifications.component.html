@@ -8,11 +8,12 @@
        <hr />
     <div class="title">All notifications</div>
         <hr />
-    <div class="notifications-wrapper">
-        <div class="notification" *ngFor="let notification of notifications">
+    <div *ngIf="isHideNotifications" class="notifications-wrapper">
+        <div class="notification" *ngFor="let notification of notifications; let i = index">
             <!-- (click)="showNotification()" -->
             <hr>
-            <div class="subject">{{ notification.subject }}</div>
+            <div class="sender">{{notification.sender}}</div>
+            <!-- <div class="subject">{{ notification.subject }}</div> -->
             <div class="more-info">
                 
                 <div class="message">{{notification.message}}</div>
@@ -20,8 +21,20 @@
                 <hr>
             </div>
             <div class="not-button">
-            <button type="button" class="btn btn-primary" (click)="readNotification(1)">Read Notification</button>
-            </div>     
+            <button type="button" class="btn btn-primary" (click)="readNotification(i)">Read Notification</button>
+                 
         </div>
+             
+        </div>
+
     </div>
+    <div class="notification" *ngFor="let notification of notifications; let i = index">
+    <div  *ngIf="isReadnotification" class="card">
+        <hr />
+        <p>From: {{notification.sender}}</p>
+        <p>Message:{{notification.message}}</p>
+        <p>Date: {{notification.date}}</p>
+        <hr />
+    </div>
+   </div>    
 </div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserNavbarComponent } from 'src/app/homepage/Posts/user-navbar/user-navbar.component';
 //import { UserProfileService } from '../user-profile.service';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 

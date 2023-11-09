@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 //import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+// import { UserNavbarComponent } from 'src/app/homepage/Posts/user-navbar/user-navbar.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
