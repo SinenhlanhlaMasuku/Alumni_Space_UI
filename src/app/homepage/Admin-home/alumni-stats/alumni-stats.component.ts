@@ -23,7 +23,7 @@ export class AlumniStatsComponent {
   ];
 
   data: { [key: string]: number[] } = {
-    '2023': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // Example data for the year 2023
+    '2023': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0], // Example data for the year 2023
     '2024': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] // Example data for the year 2024
     // Add data for other years as needed
   };

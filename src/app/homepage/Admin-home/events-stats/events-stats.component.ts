@@ -14,8 +14,8 @@ type EventData = {
 export class EventsStatsComponent {
   months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   data: EventData = {
-    '2023': [0, 0, 0, 0, 0, 0, 0, 26, 12, 8, 14, 10],
-    '2024': [0, 0, 3, 0, 1, 0, 0, 6, 2, 8, 4, 10]
+    'successful': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+    'failed': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   };
   chart: Chart;
 
@@ -42,13 +42,13 @@ export class EventsStatsComponent {
           name: 'Successful',
           type: 'line',
           color: '#ffc107',
-          data: this.validateEvents('2023'),
+          data: this.validateEvents('successful'),
         },
         {
           name: 'Failed',
           type: 'line',
           color: '#dc3545',
-          data: this.validateEvents('2024'),
+          data: this.validateEvents('failed'),
         },
       ],
       credits: {
