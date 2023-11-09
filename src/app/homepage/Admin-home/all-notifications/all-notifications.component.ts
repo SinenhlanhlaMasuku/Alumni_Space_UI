@@ -11,6 +11,8 @@ export class AllNotificationsComponent {
   notificationId: number = 0;
   isReadnotification: boolean = false;
   isHideNotifications: boolean = true;
+  timeReplied: string = "";
+  
   constructor( private router: Router, private notificationService: NotificationsService){}
    
   ngOnInit(){
@@ -19,9 +21,47 @@ export class AllNotificationsComponent {
     this.notificationService.getNewNotificationReceived().subscribe(() => {
       this.notificationId = this.notificationService.getNotificationId();
       // You can add logic here to trigger the notification bell or update UI
-    });
-  }
+      
+      // this.getCurrentTimeWithAMPM();
 
+    });
+
+    this.updateTime(),
+    setInterval(() => {
+      this.updateTime();
+    }, 1000)
+  }
+  
+
+
+  // ngOnInit() {
+  //   // this.setWelcomeMessage();
+  //   this.updateTime();
+
+  //   setInterval(() => {
+  //     this.updateTime();
+  //   }, 1000)
+
+   
+  // }
+
+  updateTime() {
+    let now = new Date();
+    this.timeReplied = this.getCurrentTimeWithAMPM(now);
+    // .toTimeString().split(' ')[0];
+  } 
+
+  getCurrentTimeWithAMPM(date: Date): string {
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const isPM = hours >= 12;
+    const AMPM = isPM ? 'PM' : 'AM';
+
+    // Convert to 12-hour format
+    const displayHours = hours % 12 || 12;
+
+    return `${displayHours}:${minutes.toString().padStart(2, '0')} ${AMPM}`;
+  }
 
   notifications = [
     {
@@ -29,32 +69,10 @@ export class AllNotificationsComponent {
       sender: "Admin",
       subject: "Career guide",
       message: "you are invited to the annu....",
-      date: "12-oct-2023",
+      date: "12/11/2023",//replace with real
+      time: this.timeReplied,//replace with real
     },
-    // {
-    //   id:1,
-    //   subject: "Secure your future",
-    //   message: "you are invited to the annu....",
-    //   date: "23-oct-2023",
-    // },
-    // {
-    //   id:1,
-    //   subject: "Live good today",
-    //   message: "you are invited to the annu....",
-    //   date: "5-nov-2023",
-    // },
-    // {
-    //   id:1,
-    //   subject: "Career guide",
-    //   message: "you are invited to the annu....",
-    //   date: "01-dec-2023",
-    // },
-    // {
-    //   id:1,
-    //   subject: "Career guide",
-    //   message: "you are invited to the annu....",
-    //   date: "12-oct-2023",
-    // },
+    
   ];
   // showNotification(){
     
@@ -66,8 +84,15 @@ export class AllNotificationsComponent {
   readNotification(count: number) {
     this.notificationService.decreaseNotificationId(count);
     this.notificationId = this.notificationService.getNotificationId();
-    this.isReadnotification = true;
+    if(this.isReadnotification = true){
     this.isHideNotifications = false;
+    count++;  
+  }
+    else{
+      count = 0;
+    }
+
+    //  alert('read notification = ' + count);
   }
   
 
