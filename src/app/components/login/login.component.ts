@@ -26,7 +26,7 @@ export class LoginComponent {
          this.showSnackbar('Please fill in the missing field(s)');
     }else{
        this.showSnackbar('login successfully!');
-       this.router.navigate(['/alumni/home']);
+       this.router.navigate(['/alumni/profile/view-profile']);
     }
     if(formData.email !== 'admin@email.com'){
       this.http.post('http://localhost:3000/api/login', formData).subscribe((response: any) => {

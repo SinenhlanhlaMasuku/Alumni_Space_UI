@@ -5,13 +5,15 @@ import { RouterModule } from '@angular/router';
 //import components
 import { JobsComponent } from './jobs/jobs.component';
 import { EventsComponent } from './events/events.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 
 
 @NgModule({
   declarations: [
-    EventsComponent
+    EventsComponent,
+    NotificationsComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { EventsComponent } from './events/events.component';
       //components
       { path: 'jobs', component: JobsComponent },
       { path: 'events', component: EventsComponent},
+      { path: 'notifications', component: NotificationsComponent},
     ]),
   ]
 })
