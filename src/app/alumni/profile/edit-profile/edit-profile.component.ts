@@ -41,7 +41,7 @@ export class EditProfileComponent {
   
   alumni = {
           Name: "",
-          Location: "",
+          Address: "",
           Qualification:"" ,
           Skills:  "",
           Experience: "",
@@ -98,7 +98,7 @@ export class EditProfileComponent {
   open(){
     // this.openDialog();
     //input validation here
-    if(this.alumni.Name.length != 0 && this.alumni.Skills.length != 0 && this.alumni.Experience.length != 0 && this.alumni.Interest.length != 0 && this.alumni.Bio.length != 0 && this.alumni.Location.length != 0 && this.alumni.Qualification.length != 0 && this.alumni.Employment_Status.length != 0)
+    if(this.alumni.Name.length != 0 && this.alumni.Skills.length != 0 && this.alumni.Experience.length != 0 && this.alumni.Interest.length != 0 && this.alumni.Bio.length != 0 && this.alumni.Address.length != 0 && this.alumni.Qualification.length != 0 && this.alumni.Employment_Status.length != 0)
     {
        this.openDialog();
 
@@ -114,7 +114,7 @@ export class EditProfileComponent {
 
          const user_id = localStorage.getItem('account_id');
       
-         const formData = {user_id,name: this.alumni.Name, skills: this.alumni.Skills,experience: this.alumni.Experience, interest:this.alumni.Interest, bio:this.alumni.Bio, location:this.alumni.Location,qualification: this.alumni.Qualification,employment_status: this.alumni.Employment_Status};
+         const formData = {user_id,name: this.alumni.Name, skills: this.alumni.Skills,experience: this.alumni.Experience, interest:this.alumni.Interest, bio:this.alumni.Bio, Address: this.alumni.Address,qualification: this.alumni.Qualification,employment_status: this.alumni.Employment_Status};
         
          //pass data into the server
            this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
@@ -228,7 +228,7 @@ export class EditProfileComponent {
               this.i++; 
               this.alumni = {
                 Name: "",
-                Location: "",
+                Address: "",
                 Qualification:"" ,
                 Skills: "",
                 Experience: "",

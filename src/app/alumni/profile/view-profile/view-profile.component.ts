@@ -14,7 +14,7 @@ export class ViewProfileComponent {
   alumni = {
     Name: "Sihle Mhlongo",
     // Name placeholder
-    Location: "Location placeholder",
+    Address: "Address placeholder",
     Qualification: "Qualification placeholder",
     Skills: "Skills placeholder",
     Experience: " Experience placeholder",
@@ -58,7 +58,7 @@ export class ViewProfileComponent {
         this.alumni.Interest = response.result[0].interest;
         this.alumni.Bio =  response.result[0].bio;
 
-        this.alumni.Location = response.result[0].location;
+        this.alumni.Address = response.result[0].Address;
         this.alumni.Qualification = response.result[0].qualification;
         this.alumni.Employment_Status = response.result[0].employment_status;
 
