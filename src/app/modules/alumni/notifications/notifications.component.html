@@ -1,7 +1,7 @@
 <!-- <p>all-notifications works!</p> -->
 <div class="notifications">
     <div class="return-home">
-        <a><svg xmlns="http://www.w3.org/2000/svg" (click)="returnHome()" width="40" height="30" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <a><svg xmlns="http://www.w3.org/2000/svg"  width="40" height="30" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
           </svg>go back</a>
     </div>
@@ -9,35 +9,32 @@
     <div class="title">All notifications</div>
         <hr />
     <div *ngIf="isHideNotifications" class="notifications-wrapper">
-        <div class="notification" *ngFor="let notification of notifications; let i = index">
+        <div class="notification" *ngFor="let notification of queries; let i = index">
             <!-- (click)="showNotification()" -->
             <hr>
-            <div class="sender">{{notification.sender}}</div>
+            <div class="sender">{{notification.alumni}}</div>
             <!-- <div class="subject">{{ notification.subject }}</div> -->
             <div class="more-info">
                 
-                <div class="message">{{notification.message}}</div>
+                <div class="message">{{notification.response}}</div>
                 <div class="date">{{notification.date}}</div>
                 <hr>
             </div>
             <div class="not-button">
-            <button  [disabled]="isReadnotification" type="button" class="btn btn-primary" (click)="readNotification(i)">Read Notification</button>
+            <button type="button" class="btn btn-primary" (click)="readNotification(i)">Read Notification</button>
                  
         </div>
              
         </div>
 
     </div>
-    <div class="notification" *ngFor="let notification of notifications; let i = index">
+    <div class="notification" *ngFor="let notification of queries; let i = index">
     <div  *ngIf="isReadnotification" class="card">
-        <small>Time sent: {{timeReplied}}</small>
         <hr />
-        <p>From: {{notification.alumni}}</p>
-        <p>Message: {{notification.message}}</p>
-        <p>Date sent: {{notification.date}}</p>
-        
+        <p>From: <b>Admin</b></p>
+        <p>Message:{{notification.response}}</p>
+        <!--<p>Date: {{notification.date}}</p>-->
         <hr />
-        <button  [disabled]="isReadnotification" type="button" style="width: 130px; margin-left: 30%; margin-bottom: 5%; height: 50px;" class="btn btn-primary" (click)="readNotification(i)">Read Notification</button>
     </div>
    </div>    
 </div>

@@ -13,11 +13,18 @@ export class NotificationsComponent {
   isReadnotification: boolean = false;
   isHideNotifications: boolean = true;
   timeReplied: string = "";
-  notifications: any[] = [];
+  queries: any[] = [];
   
   constructor( private router: Router, private notificationService: NotificationsService){}
    
   ngOnInit(){
+    //get queries
+    const storedEvents = localStorage.getItem('queries');
+    if (storedEvents) {
+      this.queries = JSON.parse(storedEvents);
+      console.log(this.queries);
+    }
+
     this.notificationId = this.notificationService.getNotificationId();
   
     this.notificationService.getNewNotificationReceived().subscribe(() => {
@@ -25,14 +32,7 @@ export class NotificationsComponent {
       // You can add logic here to trigger the notification bell or update UI
       
       // this.getCurrentTimeWithAMPM();
-
-
-      //get queries
-      const storedEvents = localStorage.getItem('queries');
-    if (storedEvents) {
-      this.notifications = JSON.parse(storedEvents);
-      console.log(this.notifications);
-    }
+      
     });
 
 
@@ -74,16 +74,17 @@ export class NotificationsComponent {
     return `${displayHours}:${minutes.toString().padStart(2, '0')} ${AMPM}`;
   }
 
-  /*notifications = [
+  notifications = [
     {
       id:1,
       sender: "Admin",
       subject: "Career guide",
       message: "you are invited to the annu....",
+      //message: this.queries[0].query,
       date: "12/11/2023",//replace with real
       time: this.timeReplied,//replace with real
     },
-  ]; */
+  ];
   // showNotification(){
     
   //   alert('Notification viewed!');
