@@ -26,7 +26,7 @@ export class LoginComponent {
          this.showSnackbar('Please fill in the missing field(s)');
     }else{
        this.showSnackbar('login successfully!');
-       this.router.navigate(['/alumni/profile/view-profile']);
+       //this.router.navigate(['/alumni/profile/view-profile']);
     }
     if(formData.email !== 'admin@email.com'){
       this.http.post('http://localhost:3000/api/login', formData).subscribe((response: any) => {
@@ -46,6 +46,7 @@ export class LoginComponent {
         localStorage.setItem('account_id',response.account_id);
 
         // this.router.navigate(['/alumni/home']);
+        this.page();
       }else{
         //alert("Invalid Details")
         this.router.navigate(['/auth/forgot-password']);
@@ -82,6 +83,25 @@ export class LoginComponent {
       verticalPosition: 'top', // Set the vertical position to 'top'
       horizontalPosition: 'center', // Set the horizontal position to 'center'
       panelClass: ['snackbar'], // Add your custom class for styling
+    });
+  }
+
+  page(){
+    //get profile details from server
+    const user_id = localStorage.getItem('account_id');
+    this.http.put('http://localhost:3000/api/userprofile', { user_id }).subscribe((response: any) => {
+      console.log('Data sent to server:', response);
+
+      //this.alumni.Skills = response.userprofile.skills;
+      console.log(response.result[0].location);
+
+      
+      //check if values are null
+      if (response.result[0].location !== '') {
+        this.router.navigate(['/alumni/home']);
+      }else{
+        this.router.navigate(['/alumni/profile/view-profile']);
+      }
     });
   }
 }

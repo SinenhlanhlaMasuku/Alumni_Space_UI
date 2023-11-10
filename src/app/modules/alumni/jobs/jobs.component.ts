@@ -129,4 +129,7 @@ export class JobsComponent {
     this.getAllJobs();
   }
 
+  returnHome(){
+    this.router.navigate(['/alumni/home']);
+  }
 }

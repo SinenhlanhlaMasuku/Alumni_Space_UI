@@ -115,4 +115,8 @@ export class ViewProfileComponent {
     const objectURL = URL.createObjectURL(image);
     return this.sanitizer.bypassSecurityTrustUrl(objectURL);
   }
+
+  returnHome(){
+    this.router.navigate(['/alumni/home']);
+  }
 }

@@ -16,9 +16,12 @@
     border-radius: 5px;
     text-align: center;
     position: relative;
+    width: 50%;
+
   }
   
   button {
     margin-top: 10px;
+    background-color: cornflowerblue;
   }
   
