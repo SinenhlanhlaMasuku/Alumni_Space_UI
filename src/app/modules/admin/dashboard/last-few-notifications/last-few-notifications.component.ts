@@ -12,9 +12,9 @@ import { HttpClient } from '@angular/common/http'
 export class LastFewNotificationsComponent {
   
   // MatDialog: DialogRef;
-  totalAlumnRegistered: number=0;
-  Total_jobs_posted: number=0;
-  Total_events_posted: number=0;
+  totalAlumnRegistered: number=10;
+  Total_jobs_posted: number=2;
+  Total_events_posted: number=3;
   reportdate = new Date();
  formattedDate = this.reportdate.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -37,13 +37,13 @@ export class LastFewNotificationsComponent {
     },
     {
       // id:2,
-      subject: "Events posted",
+      subject: "Events posted:",
       message: this.Total_events_posted + " posted this month",
       date: this.formattedDate,
     },
     {
       // id:2,
-      subject: "Jobs Posted",
+      subject: "Jobs Posted:",
       message: this.Total_jobs_posted + " posted this month",
       date: this.formattedDate,
     }

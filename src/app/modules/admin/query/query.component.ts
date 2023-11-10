@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-query',
@@ -7,13 +8,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./query.component.css']
 })
 export class QueryComponent {
+ 
+  
   data = [
     { user: 'User 1', query: 'Hello, I have a question.', status: 'Unanswered', response: '' },
     { user: 'User 2', query: 'Need assistance with an order.', status: 'Unanswered', response: '' }
   ];
   queries: any[] = [];
   responseForms: boolean[] = new Array(this.data.length).fill(false);
-
+  
   constructor(private http: HttpClient){}
 
   toggleResponseForm(index: number) {
@@ -21,7 +24,7 @@ export class QueryComponent {
   }
 
   submitResponse(index: number) {
-    //this.data[index].status = 'Answered';
+    this.data[index].status = 'Answered';
     this.responseForms[index] = false;
   }
 
@@ -30,6 +33,9 @@ export class QueryComponent {
     this.responseForms[index] = false;
     
     localStorage.setItem('queries', JSON.stringify(this.queries));
+
+    //respond
+    this.respondToQuery(this.queries[index]);
   }
 
   ngOnInit(){
@@ -40,10 +46,21 @@ export class QueryComponent {
     }
   }
   
-  respondToQuery(queryId: number, response: string): void{
-    this.http.post<any>('http://localhost:3000/api/respond_query', {
-      query_id: queryId, query_text: response }).subscribe(( result: any) => {
-        console.log('Query response sent:', response);
-      });
+
+  private apiUrl = 'http://localhost:3000/api/respond_query';  
+
+  respondToQuery(query: any){
+    const requestBody = {
+      query_id: 1,
+      query_text: query.status
+    };
+    console.log(requestBody);
+
+    this.http.post<any>('http://localhost:3000/api/respond_query', requestBody).subscribe(response => {
+    console.log('Query sent to server:', response);
+  });
   }
-}
+
+  
+  }
+  

@@ -40,7 +40,7 @@ public openSuccessDialog(): void {
   this.queries.push(query);
   localStorage.setItem('queries', JSON.stringify(this.queries));
   
-  
+  this.sendQuery(query);
 
   /*this.http.post<any>('http://localhost:3000/query',this.queryText,{headers}).subscribe(response=>{
 
@@ -58,16 +58,18 @@ public openSuccessDialog(): void {
   });*/
 }
 
-sendQuery(query: string): void{
+sendQuery(query: any): void{
   const accountId = '';
   const status = 'pending';
 
   const requestBody = {
     account_id: accountId,
-    query_text: query,
+    query_text: query.query,
     status,
     date: new Date().toISOString()
   };
+
+  console.log(requestBody);
 
   this.http.post<any>('http://localhost:3000/api/send_query', requestBody).subscribe(response => {
     console.log('Query sent to server:', response);

@@ -4,7 +4,7 @@
             <fa-icon [icon]="faPerson"></fa-icon>
         </div>
         <div class="value">
-            <div class="top">26k</div>
+            <div class="top">{{totalAlumni}}</div>
             <div class="bottom">Alumni</div>
         </div>
     </div>
@@ -13,7 +13,7 @@
             <fa-icon [icon]="faSuitcase"></fa-icon>
         </div>
         <div class="value">
-            <div class="top">100</div>
+            <div class="top">{{totalJobs}}</div>
             <div class="bottom">Jobs</div>
         </div>
     </div>
@@ -22,7 +22,7 @@
             <fa-icon [icon]="faCalendarWeek"></fa-icon>
         </div>
         <div class="value">
-            <div class="top">2k</div>
+            <div class="top">{{totalEvents}}</div>
             <div class="bottom">Events</div>
         </div>
     </div>
@@ -31,7 +31,7 @@
             <fa-icon [icon]="faClock"></fa-icon>
         </div>
         <div class="value">
-            <div class="top">{{44}}k</div>
+            <div class="top"  (click)='start()'>{{totalSessions}} </div>
             <div class="bottom">Sessions</div>
         </div>
     </div>

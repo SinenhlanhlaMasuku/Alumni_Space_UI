@@ -11,9 +11,11 @@
     @media only screen and (max-width: 1200px) {
         width: 250px;
     }
-    box-shadow: 3px 3px 5px 5px blue;
+    /* box-shadow: 3px 3px 5px 5px blue; */
         text-align: center;
         margin-left: 15%;
+        margin-right: 15%;
+        margin-bottom: 5%;
 
         
 }
