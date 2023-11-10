@@ -72,6 +72,14 @@ export class AllNotificationsComponent {
       date: "12/11/2023",//replace with real
       time: this.timeReplied,//replace with real
     },
+    {
+      id:1,
+      sender: "Admin",
+      subject: "Enquiry response",
+      message: "We have received your enquiry, we will get back to you shortly...",
+      date: "10/11/2023",//replace with real
+      time: this.timeReplied,//replace with real
+    },
     
   ];
   // showNotification(){
@@ -98,5 +106,10 @@ export class AllNotificationsComponent {
 
   returnHome(){
     this.router.navigate(['/LandingPage']);
+  }
+  backtoNot(){
+    this.isHideNotifications = true;
+    this.isReadnotification = false
+
   }
 }

@@ -30,14 +30,15 @@
     </div>
     <div class="notification" *ngFor="let notification of notifications; let i = index">
     <div  *ngIf="isReadnotification" class="card">
-        <small>Time sent: {{timeReplied}}</small>
+        <small style="color: green; margin-left: auto;">Time sent: {{timeReplied}}</small>
         <hr />
         <p>From: {{notification.sender}}</p>
         <p>Message: {{notification.message}}</p>
         <p>Date sent: {{notification.date}}</p>
         
         <hr />
-        <button  [disabled]="isReadnotification" type="button" style="width: 130px; margin-left: 30%; margin-bottom: 5%; height: 50px;" class="btn btn-primary" (click)="readNotification(i)">Read Notification</button>
+        <button  [disabled]="isReadnotification" type="button" style="width: 100px; margin-left: 40%; margin-bottom: 5%; height: 50px; color:black" class="btn btn-primary" (click)="readNotification(i)">Read</button>
+         <p (click)="backtoNot()">back</p>   
     </div>
    </div>    
 </div>

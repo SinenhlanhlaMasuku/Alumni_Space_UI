@@ -99,4 +99,7 @@ export class ViewProfileComponent {
      this.showSnackbar('Academic Record deleted successfully!');
     }
   }
+  returnHome(){
+    this.router.navigate(['/home']);
+  }
 }
