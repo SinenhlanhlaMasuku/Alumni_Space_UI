@@ -28,7 +28,7 @@
         </div>
 
     </div>
-    <div class="notification" *ngFor="let notification of notifications; let i = index">
+    <!-- <div class="notification" *ngFor="let notification of notifications; let i = index">
     <div  *ngIf="isReadnotification" class="card">
         <small style="color: green; margin-left: auto;">Time sent: {{timeReplied}}</small>
         <hr />
@@ -40,5 +40,21 @@
         <button  [disabled]="isReadnotification" type="button" style="width: 100px; margin-left: 40%; margin-bottom: 5%; height: 50px; color:black" class="btn btn-primary" (click)="readNotification(i)">Read</button>
          <p (click)="backtoNot()">back</p>   
     </div>
-   </div>    
+   </div>  -->
+   
+   <!-- Assuming you have a component property to track the selected notification -->
+<div class="notification" *ngFor="let notification of notifications; let i = index">
+    <div *ngIf="selectedNotificationIndex === i" class="card">
+        <small style="color: green; margin-left: auto;">Time sent: {{timeReplied}}</small>
+        <hr />
+        <p>From: {{notification.sender}}</p>
+        <p>Message: {{notification.message}}</p>
+        <p>Date sent: {{notification.date}}</p>
+
+        <hr />
+        <!-- <button [disabled]="isReadnotification" type="button" style="width: 100px; margin-left: 40%; margin-bottom: 5%; height: 50px; color:black" class="btn btn-primary" (click)="readNotification(i)">Read</button> -->
+        <button type="button" style="width: 100px; margin-left: 40%; margin-bottom: 5%; height: 50px; color:black" class="btn btn-primary" (click)="backtoNot()">back</button>
+    </div>
+</div>
+
 </div>

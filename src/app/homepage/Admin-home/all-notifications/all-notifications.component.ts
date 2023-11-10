@@ -89,27 +89,35 @@ export class AllNotificationsComponent {
  
   // }
   
-  readNotification(count: number) {
-    this.notificationService.decreaseNotificationId(count);
-    this.notificationId = this.notificationService.getNotificationId();
-    if(this.isReadnotification = true){
-    this.isHideNotifications = false;
-    count++;  
-  }
-    else{
-      count = 0;
-    }
+  // readNotification(count: number) {
+  //   this.notificationService.decreaseNotificationId(count);
+  //   this.notificationId = this.notificationService.getNotificationId();
+  //   if(this.isReadnotification = true){
+  //   this.isHideNotifications = false;
+  //   count++;  
+  // }
+  //   else{
+  //     count = 0;
+  //   }
 
-    //  alert('read notification = ' + count);
-  }
-  
+    
+  // }
+  selectedNotificationIndex: number | null = null;
+
+readNotification(index: number): void {
+    this.selectedNotificationIndex = index;
+}
+
 
   returnHome(){
     this.router.navigate(['/LandingPage']);
   }
-  backtoNot(){
-    this.isHideNotifications = true;
-    this.isReadnotification = false
+  // backtoNot(){
+  //   this.isHideNotifications = true;
+  //   this.isReadnotification = false
 
-  }
+  // }
+  backtoNot(): void {
+    this.selectedNotificationIndex = null;
+}
 }

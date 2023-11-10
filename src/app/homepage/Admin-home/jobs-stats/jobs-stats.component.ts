@@ -28,7 +28,7 @@ export class JobsStatsComponent {
     'rgba(70, 200, 72, 1)',
     'rgba(252, 3, 7, 1)',
   ];
-  data = [12, 19, 3, 5, 2, 14, 20, 23, 47, 5, 12, 25];
+  data = [12, 19, 3, 5, 2, 14, 20, 23, 47, 5, 12, 0];
   chart!: Chart;
 
   constructor(private formBuilder: FormBuilder) {
