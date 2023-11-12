@@ -13,6 +13,17 @@ export class AllNotificationsComponent {
   isHideNotifications: boolean = true;
   timeReplied: string = "";
   adminFnLletter ="A";
+  isRead?: boolean; // Add the isRead property
+  // interface: Notification {
+  //   id: number,
+  //   sender: string,
+  //   subject: string;
+  //   message: string;
+  //   date: string;
+  //   time: string;
+    // isRead: boolean; // Add the isRead property
+// }
+
   
   constructor( private router: Router, private notificationService: NotificationsService){}
    
@@ -72,6 +83,7 @@ export class AllNotificationsComponent {
       message: "you are invited to the annu....",
       date: "12/11/2023",//replace with real
       time: this.timeReplied,//replace with real
+      isRead: false,
     },
     {
       id:1,
@@ -80,6 +92,7 @@ export class AllNotificationsComponent {
       message: "We have received your enquiry, we will get back to you shortly...",
       date: "10/11/2023",//replace with real
       time: this.timeReplied,//replace with real
+      isRead: false,
     },
     
   ];
@@ -104,11 +117,20 @@ export class AllNotificationsComponent {
     
   // }
   selectedNotificationIndex: number | null = null;
-
-readNotification(index: number): void {
-    this.selectedNotificationIndex = index;
+  isReadNotification(index: number): boolean {
+    return this.notifications[index].isRead;
 }
 
+readNotification(index: number): void {
+  this.notifications[index].isRead = true;
+    this.selectedNotificationIndex = index;
+  
+}
+markAllAsRead(){
+  this.notifications.forEach(notification => {
+    notification.isRead = true;
+  });
+}
 
   returnHome(){
     this.router.navigate(['/LandingPage']);
@@ -121,4 +143,5 @@ readNotification(index: number): void {
   backtoNot(): void {
     this.selectedNotificationIndex = null;
 }
+
 }

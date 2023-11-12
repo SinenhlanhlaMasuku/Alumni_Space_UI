@@ -8,11 +8,22 @@
        <hr />
     <div class="title">All notifications</div>
         <!-- <hr /> -->
+        <div class="top-content">
+        <!--include notification-number and markallasread label here-->
+        <p>Notification Number: {{ notifications.length }}</p>
+    <button (click)="markAllAsRead()">Mark All as Read</button>
+        </div>
     <div *ngIf="isHideNotifications" class="notifications-wrapper">
-        <div class="notification" *ngFor="let notification of notifications; let i = index">
+        
+        <div  [ngStyle]="{'background-color': isReadNotification(i) ? 'white' : 'gray'}" class="notification" *ngFor="let notification of notifications; let i = index" (click)="readNotification(i)">
+            
             <!-- (click)="showNotification()" -->
             <hr>
-            <div class="image-container">{{adminFnLletter}}</div>
+            
+            <div class="image-container">
+                {{adminFnLletter}}
+                <!-- <img src="../../../../assets/Kfentse.jpg" alt="user-image"> -->
+            </div>
             <div class="sender">{{notification.sender}}</div>
             <!-- <div class="subject">{{ notification.subject }}</div> -->
             <div class="more-info">
@@ -21,10 +32,11 @@
                 <div class="date">{{notification.date}}</div>
                 <!-- <hr> -->
             </div>
-            <div class="not-button">
-            <button  [disabled]="isReadnotification" type="button" class="btn btn-primary" (click)="readNotification(i)">Read Notification</button>
+            <!-- </div> -->
+            <!-- <div class="not-button"> -->
+            <!-- <button  [disabled]="isReadnotification" type="button" class="btn btn-primary" (click)="readNotification(i)">Read Notification</button> -->
                  
-        </div>
+        <!-- </div> -->
              
         </div>
 
@@ -48,7 +60,10 @@
     <div *ngIf="selectedNotificationIndex === i" class="card">
         <small style="color: green; margin-left: auto;">Time sent: {{timeReplied}}</small>
         <hr />
-        <div class="image-container2">{{adminFnLletter}}</div>
+        <div class="image-container2">
+            {{adminFnLletter}}
+            <!-- <img src="../../../../assets/Kfentse.jpg" alt="user-image"> -->
+        </div>
         <p>From: {{notification.sender}}</p>
         <p>Message: {{notification.message}}</p>
         <p>Date sent: {{notification.date}}</p>
@@ -57,6 +72,6 @@
         <!-- <button [disabled]="isReadnotification" type="button" style="width: 100px; margin-left: 40%; margin-bottom: 5%; height: 50px; color:black" class="btn btn-primary" (click)="readNotification(i)">Read</button> -->
         <button type="button" style="width: 100px; margin-left: 40%; margin-bottom: 5%; height: 50px; color:black" class="btn btn-primary" (click)="backtoNot()">back</button>
     </div>
-</div>
+<!-- </div> -->
 
 </div>
