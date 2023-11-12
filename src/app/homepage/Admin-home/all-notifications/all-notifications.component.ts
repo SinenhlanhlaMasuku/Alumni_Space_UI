@@ -12,6 +12,7 @@ export class AllNotificationsComponent {
   isReadnotification: boolean = false;
   isHideNotifications: boolean = true;
   timeReplied: string = "";
+  adminFnLletter ="A";
   
   constructor( private router: Router, private notificationService: NotificationsService){}
    

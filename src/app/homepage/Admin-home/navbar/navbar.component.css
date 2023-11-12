@@ -63,33 +63,30 @@
     align-items: center;
     font-size: 20px;
   } */
-  .user-info p{
-     margin-top: 10px;
-     align-items: left;
-    color: #000;
-    font-size: 12px;
-    
-  }
+  
+}
+.user-info p{
+  margin-top: 10px;
+  align-items: left;
+ color: #000;
+ font-size: 12px;
+ 
 }
 
 .card2 {
-  /* margin-top: -300px; */
-  /* padding-top: 450px; */
-  /* padding: 10px 10px 10px; */
+ 
   border: 1px solid #fff;
   /* box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3); */
   display: block;
-  /* height: 280px; */
+  
   height: auto;
 
   width: 280px;
-  /* width: auto; */
+
   background-color: #fff;
-  /* margin-right: 100px; */
-  /* margin-left: -420px; */
+  
   box-shadow: 5px 5px 5px 5px #0a14aaf3;
-  /* flex-direction: row;  */
-  /* max-width: 100%; */
+  
   
 }
 
@@ -122,19 +119,17 @@
 .image-container{
   width: 100px;
   height: 100px;
-  /* padding-top: -62px; */
   border-radius: 50%;
   border: 2px solid #000;
   background-color: rgb(30, 128, 214);
   box-shadow: 5px 5px 5px 5px #0a14aaf3;
-  /* margin-right: 20px;
-  margin-left: 20px; */
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   color: #fff;
   font-size: 30px;
+  
 }
 
 /*.nav-link {
@@ -207,6 +202,8 @@
 }
 .img{
   border: solid blue; 
+  transform: scale(1.1);
+  
 }
 
 .notification-badge{

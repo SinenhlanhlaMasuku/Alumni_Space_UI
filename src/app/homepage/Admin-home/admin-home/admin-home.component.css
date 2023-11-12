@@ -150,11 +150,12 @@
         }
     }
 }
-.small-box{
+.small{
     align-content: space-between;
     height: auto;
     width: auto;
     box-shadow: 5px 5px 5px 5px blue;
+    /* transition: box-shadow 2.5s ease-in-out; */
 
 } 
 .small p{
@@ -164,6 +165,11 @@
 }
 .small img{
     margin-left: 5px;
+    transition: transform 0.3s ease-in-out;
+
+}
+.small img:hover{
+    transform: scale(1.1);
 }
  
 
