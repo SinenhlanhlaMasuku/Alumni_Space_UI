@@ -1,13 +1,13 @@
-body .h1 {
-    color: #000;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-}
+
 .edit-form h2{
     text-align: center;
     color: blue;
 }
+.upload-form{
+    box-shadow: 3px 4px 4px 3px blue;
+    margin-left: 35%; 
+}
+
 
 .card {
     padding: 10px 10px 10px;

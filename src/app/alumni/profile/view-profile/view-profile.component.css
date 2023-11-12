@@ -8,7 +8,7 @@
   /* border-style: ridge; */
   /* border-color: white; */
   /* margin-left: 3px; */
-  box-shadow: 5px 5px 5px 5px blue;
+  box-shadow: 5px 5px 5px 5px white;
 }
 .user-info p{
     margin-left: 50px;
@@ -140,12 +140,13 @@
 .certificates-list{
     /* border-color: whitesmoke;
     border-style: ridge; */
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 20%;
+    margin-right: 20%;
     margin-top: 10px;
     box-shadow: 5px 5px 5px 5px blue;
     margin-bottom: 10px;
     width: auto;
+   
 }
 .certificates-list h1{
     text-align: center;
