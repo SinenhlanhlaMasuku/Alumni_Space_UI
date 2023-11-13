@@ -8,3 +8,31 @@ wP44ZF
 Alumni-Notification
 
  response
+
+//Learning how to create APIs
+<!--Methods used with api's-->
+GET-> READ
+POST-> CREATE
+PATCH -> UPDATE
+DELETE -> DESTROY
+
+HEAD -> asks for a response identical to that of a GET request, but without the response body
+PUT -> this method replaces all current representations of the target resource with the request payload
+CONNECT -> establishes a tunnel to the server identified by the target
+OPTIONS -> is used to describe the communication options for the target resource
+TRACE -> performs a message loop-back test along the path to the target resource
+PATCH -> this method is used to apply partial modifications to a resource
+
+<!--steps for creating apis-->
+1. start a new project: npm init -y (this will create a package json and gives us context for installing packages we can use in node such as expressjs)
+2. Now install express: npm install express( from here we need a file to write our code in  preferebly: index.js file)
+3. now, at the top of the file(inside) declare a vaiable for app which represents the actual API that we are builiding, 
+type: const app = require('express')();
+      const PORT = 8080;
+      app.listen(
+        PORT,
+        () => console.log(`it's alive on http://localhost: ${PORT}`)
+        
+        )
+<!--now (run: node .) to start the server-->
+https://youtu.be/-MTSQjw5DrM (vid link)
