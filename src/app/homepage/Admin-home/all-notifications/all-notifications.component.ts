@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { NotificationsService } from './notifications.service';
+// import { NotificationsService } from './notifications.service';
+import { NotificationService } from 'src/app/Shared_services/notification.service';
 
 @Component({
   selector: 'app-all-notifications',
@@ -14,6 +15,9 @@ export class AllNotificationsComponent {
   timeReplied: string = "";
   adminFnLletter ="A";
   isRead?: boolean; // Add the isRead property
+  unreadNotificationCount?: number;
+  // unreadNotificationCount = this.notifications.length;
+
   // interface: Notification {
   //   id: number,
   //   sender: string,
@@ -25,23 +29,31 @@ export class AllNotificationsComponent {
 // }
 
   
-  constructor( private router: Router, private notificationService: NotificationsService){}
+  constructor( private router: Router, private notificationService: NotificationService){}
    
   ngOnInit(){
-    this.notificationId = this.notificationService.getNotificationId();
+    // this.notificationId = this.notificationService.getNotificationId();
   
-    this.notificationService.getNewNotificationReceived().subscribe(() => {
-      this.notificationId = this.notificationService.getNotificationId();
+    // this.notificationService.getNewNotificationReceived().subscribe(() => {
+      // this.notificationId = this.notificationService.getNotificationId();
       // You can add logic here to trigger the notification bell or update UI
       
       // this.getCurrentTimeWithAMPM();
+     
 
-    });
-
+    // });
+    // this.unreadNotificationCount = this.notifications.length;
+     // Initialize the count from the service
+    this.notificationService.unreadNotificationCount$.subscribe(count => {
+      this.unreadNotificationCount = count;
+    }); 
+    // Set the initial count based on unread notifications
+    this.unreadNotificationCount = this.calculateUnreadNotificationCount();
     this.updateTime(),
     setInterval(() => {
       this.updateTime();
     }, 1000)
+    this.unreadNotificationCount = this.notifications.length;
   }
   
 
@@ -86,7 +98,7 @@ export class AllNotificationsComponent {
       isRead: false,
     },
     {
-      id:1,
+      id:2,
       sender: "Admin",
       subject: "Enquiry response",
       message: "We have received your enquiry, we will get back to you shortly...",
@@ -96,6 +108,8 @@ export class AllNotificationsComponent {
     },
     
   ];
+
+  //  unreadNotificationCount = this.notifications.length;
   // showNotification(){
     
   //   alert('Notification viewed!');
@@ -119,17 +133,54 @@ export class AllNotificationsComponent {
   selectedNotificationIndex: number | null = null;
   isReadNotification(index: number): boolean {
     return this.notifications[index].isRead;
+    // this.unreadNotificationCount =  this.notifications.length - 1 ;
+}
+// this.unreadNotificationCount = this.notifications.length;
+// readNotification(index: number): void {
+//   this.notifications[index].isRead = true;
+//     this.selectedNotificationIndex = index;
+//     this.unreadNotificationCount =  this.notifications.length - index;
+//     // index--;
+  
+//   }
+readNotification(index: number): void {
+  if (!this.notifications[index].isRead) {
+    this.notifications[index].isRead = true;
+    this.selectedNotificationIndex = index;
+    this.unreadNotificationCount = this.calculateUnreadNotificationCount();
+  }
 }
 
-readNotification(index: number): void {
-  this.notifications[index].isRead = true;
-    this.selectedNotificationIndex = index;
-  
+private calculateUnreadNotificationCount(): number {
+  // Logic to calculate unread notification count
+  return this.notifications.filter(notification => !notification.isRead).length;
 }
+
+
+
 markAllAsRead(){
+  this.unreadNotificationCount =  this.notifications.length - this.notifications.length;
   this.notifications.forEach(notification => {
-    notification.isRead = true;
+    // notification.isRead = true;
+    
+     
+    //new
+    if (!notification.isRead) {
+      notification.isRead = true;
+      if(this.unreadNotificationCount !== undefined){
+        this.unreadNotificationCount--;
+      }
+    
+    }
+  
   });
+  // this.notificationService.updateUnreadNotificationCount(this.unreadNotificationCount);
+  // Update the service with the new count
+  // this.notificationService.updateUnreadNotificationCount(this.unreadNotificationCount);
+  if (this.unreadNotificationCount !== undefined) {
+    this.notificationService.updateUnreadNotificationCount(this.unreadNotificationCount);
+  }
+
 }
 
   returnHome(){

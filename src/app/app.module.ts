@@ -45,6 +45,7 @@ import { YourThoughtsComponent } from './homepage/Posts/your-thoughts/your-thoug
 import { PeopleYouMayKnowComponent } from './homepage/Posts/people-you-may-know/people-you-may-know.component';
 import { AdminTableComponent } from './homepage/Admin-home/admin-table/admin-table.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

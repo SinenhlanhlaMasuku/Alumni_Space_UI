@@ -77,7 +77,7 @@ Header START -->
 				</li>
 				<li class="nav-item dropdown ms-2">
 					<a class="nav-link icon-md btn btn-light p-0" routerLink="/All-Notifications" href="#" id="notifDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-						<span class="badge-notif animation-blink"></span>
+						<span class="badge-notif animation-blink">{{unreadNotificationCount}}</span>
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
 							<path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
 						  </svg>
@@ -85,7 +85,8 @@ Header START -->
 					<div class="dropdown-menu dropdown-animation dropdown-menu-end dropdown-menu-size-md p-0 shadow-lg border-0" aria-labelledby="notifDropdown">
 						<div class="card">
 							<div class="card-header d-flex justify-content-between align-items-center">
-								<h6 class="m-0">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2">4 new</span></h6>
+								<h6 class="m-0">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2">{{ unreadNotificationCount }}</span></h6>
+							    <!-- 4 new -->
 								<a class="small" href="#">Clear all</a>
 							</div>
 							<div class="card-body p-0">

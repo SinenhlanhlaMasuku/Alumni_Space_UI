@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+// import { NotificationService } from '../notification.service';
+import { NotificationService } from 'src/app/Shared_services/notification.service';
 @Component({
   selector: 'app-user-navbar',
   templateUrl: './user-navbar.component.html',
   styleUrls: ['./user-navbar.component.css']
 })
-export class UserNavbarComponent {
+export class UserNavbarComponent implements OnInit {
+    unreadNotificationCount?: number;
+    
 
+    constructor(private notificationService: NotificationService) {}
+    ngOnInit(): void {
+        this.notificationService.unreadNotificationCount$.subscribe(count => {
+            this.unreadNotificationCount = count;
+          });
+    }
 }
 document.addEventListener("DOMContentLoaded", () => {
   const modeSwitchButtons = document.querySelectorAll('.btn-modeswitch');
