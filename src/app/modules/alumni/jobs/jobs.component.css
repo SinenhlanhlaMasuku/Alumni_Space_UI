@@ -7,3 +7,8 @@
     border-style: double;
     border-spacing: 20px;
  }
+ .slider-area{
+    background-image: url('../../../../assets/tutBuilding.png');
+    background-size: cover;
+    background-position: center;
+}

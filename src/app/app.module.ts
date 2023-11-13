@@ -41,6 +41,7 @@ import { JobsComponent } from './modules/alumni/jobs/jobs.component';
 import { AddJobsComponent } from './modules/admin/add-jobs/add-jobs.component';
 import { AddPostsComponent } from './modules/admin/add-posts/add-posts.component';
 import { QueryComponent } from './modules/admin/query/query.component';
+import { JobDescriptionComponent } from './modules/alumni/job-description/job-description.component';
 
 //import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
@@ -83,6 +84,7 @@ import { SuccessModalComponent } from './components/success-modal/success-modal.
     // EditProfileComponent
 
     JobsComponent,
+    JobDescriptionComponent,
     AddJobsComponent,
     SuccessPasswordChangeComponent,
     SuccessComponent,

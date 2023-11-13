@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { JobsComponent } from './jobs/jobs.component';
 import { EventsComponent } from './events/events.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { JobDescriptionComponent } from './job-description/job-description.component';
 
 
 
@@ -13,7 +14,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 @NgModule({
   declarations: [
     EventsComponent,
-    NotificationsComponent
+    NotificationsComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +28,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
       { path: 'jobs', component: JobsComponent },
       { path: 'events', component: EventsComponent},
       { path: 'notifications', component: NotificationsComponent},
+      {path: 'job', component:JobDescriptionComponent}
     ]),
   ]
 })
