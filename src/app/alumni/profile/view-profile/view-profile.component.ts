@@ -32,8 +32,9 @@ export class ViewProfileComponent {
 'assets/certifacate3.pdf']; 
  
  certificateNames: string[] =[];
- academicTranscripts: any[] = ['transcript1','transcript2', 'transcript3'];
+//  academicTranscripts: any[] = ['transcript1','transcript2', 'transcript3'];
   icounter = 0;
+  resume ='';
 
 
   constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { }
@@ -90,14 +91,14 @@ export class ViewProfileComponent {
       this.showSnackbar('Certifacate Deleted successfully!');
     }
   }
-  deleteAcademicrecord(index: number){
-    if (index !== -1) {
-      this.icounter = this.icounter + 1;
-      this.academicTranscripts.splice(index, this.icounter); // Remove the academic transcript at the specified index
+  deleteResume(){
+    // if (index !== -1) {
+      // this.icounter = this.icounter + 1;
+      this.resume.slice(0, this.resume.length); // Remove the academic transcript at the specified index
       this.icounter++;
     //  alert('deleted successfully!')
-     this.showSnackbar('Academic Record deleted successfully!');
-    }
+     this.showSnackbar('resume deleted successfully!');
+    // }
   }
   returnHome(){
     this.router.navigate(['/home']);

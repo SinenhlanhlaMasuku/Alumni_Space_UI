@@ -20,7 +20,7 @@ export class AdminHomeComponent implements OnInit{
    constructor(private router: Router){}
 
   ngOnInit() {
-    this.setWelcomeMessage();
+    // this.setWelcomeMessage();
     this.updateTime();
 
     setInterval(() => {

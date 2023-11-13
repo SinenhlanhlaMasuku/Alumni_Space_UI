@@ -28,7 +28,8 @@
 }
 .user-cred p{
     font-size: 15px;
-    color:cornflowerblue;
+    /* color:cornflowerblue; */
+    color: black;
 
 }
 /* .user-bio{
@@ -181,4 +182,9 @@
     border-color: #ccc;
     border-style: double;
     border-spacing: 20px;
+ }
+ .Resume{
+   margin-right: 30%;
+   margin-left: 30%;
+   color: blue;
  }

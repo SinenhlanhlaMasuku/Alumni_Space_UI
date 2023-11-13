@@ -22,10 +22,10 @@ export class EditProfileComponent {
   //variables
   message: string ='';
  
-  isButtonSaveAR: boolean = false;
+  isButtonSaveResume: boolean = false;
   isBtnSaveProfPic: boolean = false;
   isBtnSaveCertificate: boolean = false;
-  AcademicRChosen: boolean = false;
+  resumeChosen: boolean = false;
   profilePicChosen: boolean = false;
   certificateChosen: boolean [] = [];
   skills: string[] = []; // array to hold skills
@@ -35,7 +35,7 @@ export class EditProfileComponent {
   certificateNames: string[] =[]
   fileTypeErrorProfPic: string = '';
   fileTypeErrorCertif: string = '';
-  fileTypeErrorAcadRec: string = '';
+  fileTypeErrorResume: string = '';
   isSaveClicked: boolean = false;
 
   
@@ -137,14 +137,14 @@ export class EditProfileComponent {
       }
     }
       //function to handle academic record selection
-        onAcademicRecChange(event: any)
+        onResumeChange(event: any)
          {
             if (event.target.files && event.target.files.length > 0) 
                {
-                 this.AcademicRChosen = true;
+                 this.resumeChosen = true;
                }  
              else {
-                 this.AcademicRChosen = false;
+                 this.resumeChosen = false;
                   }
 
                   const file: File = event.target.files[0];
@@ -152,14 +152,15 @@ export class EditProfileComponent {
                  const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
 
                  if (!allowedTypes.includes(fileType)) {
-                    this.fileTypeErrorAcadRec = 'Invalid file type. Please select a DOCX or PDF file.';
+                    this.fileTypeErrorResume = 'Invalid file type. Please select a DOCX or PDF file.';
                     // Reset the file input if needed
                     event.target.value = null;
-                 } else {
-                       this.fileTypeErrorAcadRec = 'correct file!'; // Reset the error message if the file type is valid
-                                                   // File type is valid, proceed with the file upload or other actions
+                 } 
+                //  else {
+                //        this.fileTypeErrorResume = 'correct file!'; // Reset the error message if the file type is valid
+                //                                    // File type is valid, proceed with the file upload or other actions
                                      
-                 }
+                //  }
           }
 
      //function to handle profile picture selection
@@ -242,20 +243,20 @@ export class EditProfileComponent {
                 
               }
               
-              this.isButtonSaveAR = false;
+              this.isButtonSaveResume = false;
                 this.isBtnSaveProfPic  = false;
                 this.isBtnSaveCertificate = false;
-                this.AcademicRChosen  = false;
+                this.resumeChosen  = false;
                 this.profilePicChosen = false;
                 this.certificateChosen[this.i] = false;
                 this.isSaveClicked = false;
                 
     
             }
-            saveAcademicRecord()
+            saveResume()
             {
-                  console.log('academic record saved successfully!')
-                  this.isButtonSaveAR = true;
+                  console.log('Resume saved successfully!')
+                  this.isButtonSaveResume = true;
 
             }
 

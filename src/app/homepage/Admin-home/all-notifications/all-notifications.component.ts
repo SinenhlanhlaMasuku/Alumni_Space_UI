@@ -69,22 +69,42 @@ export class AllNotificationsComponent {
    
   // }
 
-  updateTime() {
-    let now = new Date();
-    this.timeReplied = this.getCurrentTimeWithAMPM(now);
-    // .toTimeString().split(' ')[0];
-  } 
+  // updateTime() {
+  //   let now = new Date();
+  //   this.timeReplied = this.getCurrentTimeWithAMPM(now);
+  //   // .toTimeString().split(' ')[0];
+  // } 
 
-  getCurrentTimeWithAMPM(date: Date): string {
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const isPM = hours >= 12;
-    const AMPM = isPM ? 'PM' : 'AM';
+  // getCurrentTimeWithAMPM(date: Date): string {
+  //   const hours = date.getHours();
+  //   const minutes = date.getMinutes();
+  //   const isPM = hours >= 12;
+  //   const AMPM = isPM ? 'PM' : 'AM';
 
     // Convert to 12-hour format
-    const displayHours = hours % 12 || 12;
+    // const displayHours = hours % 12 || 12;
 
-    return `${displayHours}:${minutes.toString().padStart(2, '0')} ${AMPM}`;
+    // return `${displayHours}:${minutes.toString().padStart(2, '0')} ${AMPM}`;
+  // }
+
+  updateTime() {
+    const now = new Date();
+    const timeReplied = this.calculateTimeDifference(now);
+    this.timeReplied = timeReplied;
+  }
+  
+  calculateTimeDifference(date: Date): string {
+    const currentTime = new Date();
+    const timeDifference = currentTime.getTime() - date.getTime();
+  
+    const minutesDifference = Math.floor(timeDifference / (1000 * 60));
+    const hoursDifference = Math.floor(minutesDifference / 60);
+  
+    if (hoursDifference >= 1) {
+      return `${hoursDifference} hr ago`;
+    } else {
+      return `${minutesDifference} min ago`;
+    }
   }
 
   notifications = [
@@ -158,29 +178,40 @@ private calculateUnreadNotificationCount(): number {
 
 
 
-markAllAsRead(){
-  this.unreadNotificationCount =  this.notifications.length - this.notifications.length;
-  this.notifications.forEach(notification => {
+// markAllAsRead(){
+  
+  // this.notifications.forEach(notification => {
     // notification.isRead = true;
-    
+    // this.unreadNotificationCount =  this.notifications.length - this.notifications.length;
      
     //new
-    if (!notification.isRead) {
-      notification.isRead = true;
-      if(this.unreadNotificationCount !== undefined){
-        this.unreadNotificationCount--;
-      }
+  //   if (!notification.isRead) {
+  //     notification.isRead = true;
+  //     if(this.unreadNotificationCount !== undefined){
+  //       this.unreadNotificationCount--;
+  //     }
     
-    }
+  //   }
   
-  });
+  // });
   // this.notificationService.updateUnreadNotificationCount(this.unreadNotificationCount);
   // Update the service with the new count
   // this.notificationService.updateUnreadNotificationCount(this.unreadNotificationCount);
-  if (this.unreadNotificationCount !== undefined) {
-    this.notificationService.updateUnreadNotificationCount(this.unreadNotificationCount);
-  }
+//   if (this.unreadNotificationCount !== undefined) {
+//     this.notificationService.updateUnreadNotificationCount(this.unreadNotificationCount);
+//   }
 
+// }
+markAllAsRead() {
+  this.notifications.forEach(notification => {
+    if (!notification.isRead) {
+      notification.isRead = true;
+    }
+  });
+
+  // Update the service with the new count
+  this.unreadNotificationCount = this.notifications.filter(notification => !notification.isRead).length;
+  this.notificationService.updateUnreadNotificationCount(this.unreadNotificationCount);
 }
 
   returnHome(){
