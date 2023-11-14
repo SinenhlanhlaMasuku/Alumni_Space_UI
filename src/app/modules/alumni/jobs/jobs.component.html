@@ -315,7 +315,7 @@
                                             <a href="#"><img src="../../assets/assets/img/gallery/images.png" style="width: 80%;height: 80%;"></a>
                                         </div>
                                         <div class="job-tittle job-tittle2">
-                                            <a routerLink="/alumni/job">
+                                            <a (click)="viewJob(job.job_id)">
                                                 <h4>{{job.job_title}}</h4>
                                             </a>
                                             <ul>

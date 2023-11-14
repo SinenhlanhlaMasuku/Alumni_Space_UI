@@ -132,4 +132,10 @@ export class JobsComponent {
   returnHome(){
     this.router.navigate(['/alumni/home']);
   }
+
+  viewJob(job_id: any ){
+    //store id
+    localStorage.setItem('job_id',job_id);
+    this.router.navigate(['/alumni/job']);
+  }
 }
