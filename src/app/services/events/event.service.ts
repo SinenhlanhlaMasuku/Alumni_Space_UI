@@ -14,20 +14,10 @@ export class EventService {
   event_title : string= ' ';
   event_description : string= '';
   event_date : string= ' ';
+  baseUrl = 'http://localhost:3000'
  
-  getAllEvents()
-  { 
-    this.http.get("http://localhost:3000/api/event")
-    .subscribe((resultData: any)=>
-    {
-        this.isResultLoaded = true;
-        console.log(resultData.data);
-        this.events = resultData.data;
-        console.log(this.events);
-        localStorage.setItem('events', JSON.stringify(resultData.data));
-    });
 
-  }
+  //CRUD
   addEvent(event: any) {
     this.events.push(event);
     this.saveEventsToLocalStorage();
@@ -46,10 +36,32 @@ export class EventService {
     });
   }
 
+  getAllEvents()
+  { 
+    this.http.get("http://localhost:3000/api/event").subscribe((resultData: any)=>{
+        //this.isResultLoaded = true;
+        //console.log(resultData.events);
+        this.events = resultData.events;
+        //console.log(this.events);
+        localStorage.setItem('events', JSON.stringify(resultData.events));
+    });
+  }
+  
   getEvents() {
     this.loadEventsFromLocalStorage();
     //this.getAllEvents();
     return this.events;
+  }
+
+  updateEvent(){}
+
+  deleteEvent(event_id: any){
+    console.log(event_id);
+    const url = "http://localhost:3000/api/event/delete" + "/" + event_id;
+    this.http.delete(url).subscribe((resultData: any) => {
+      console.log(resultData);
+      alert("Event Deleted")
+    });
   }
 
   private saveEventsToLocalStorage() {
