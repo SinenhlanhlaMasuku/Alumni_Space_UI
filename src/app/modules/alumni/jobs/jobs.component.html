@@ -320,26 +320,19 @@
                                             </a>
                                             <ul>
                                                 <li>{{job.Organisation}}</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>{{job.job_description}}</li>
+                                                <li><i class="fas fa-map-marker-alt"></i>{{job.location}}</li>
                                                 <li>R5000 - R10000</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="items-link items-link2 f-right">
                                         <a href="job_details.html">{{job.job_type}}</a>
-                                        <span>{{ job.date_posted | date:'medium' }} </span>
-                                        <span>{{ currentDate | date:'fullDate' }} ({{ getTimeDifference(job.date_posted) }})</span>
+                                       <!-- <span>{{ job.date_posted | date:'medium' }} </span>
+                                        <span>{{ currentDate | date:'fullDate' }} ({{ getTimeDifference(job.date_posted) }})</span> -->
+                                        <span>{{ getTimeDifference(job.date_posted) }}</span>
                                     </div>
 
-                                    <div class="post-details2  mb-50">
-                                        <!-- Small Section Tittle -->
-                                       <div class="small-section-tittle">
-                                           <h4>Education + Experience</h4>
-                                       </div>
-                                      <ul>
-                                          <li>{{job.job_description}}</li> <br>
-                                      </ul>
-                                   </div>
+                                   
                                 </div>
                                 
                             </div>

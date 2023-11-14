@@ -66,8 +66,14 @@ export class ViewProfileComponent {
 
       
       //check if values are null
-      if (response.result[0].skills !== 'null') {
-        this.alumni.Skills = response.result[0].skills;
+      if (response.result[0].skills === '' || response.result[0].experience === '' || response.result[0].interest === '' || response.result[0].bio === '' ||response.result[0].location === '' ||
+      response.result[0].qualification === '' ||response.result[0].employment_status === '') {
+        
+        this.showSnackbar('Profile Incomplete, Please update profile');
+      }
+
+      //display profile
+      this.alumni.Skills = response.result[0].skills;
         this.alumni.Experience = response.result[0].experience;
         this.alumni.Interest = response.result[0].interest;
         this.alumni.Bio =  response.result[0].bio;
@@ -75,8 +81,6 @@ export class ViewProfileComponent {
         this.alumni.Location = response.result[0].location;
         this.alumni.Qualification = response.result[0].qualification;
         this.alumni.Employment_Status = response.result[0].employment_status;
-
-      }
     });
 
 

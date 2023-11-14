@@ -97,10 +97,15 @@ export class LoginComponent {
 
       
       //check if values are null
-      if (response.result[0].location !== '') {
-        this.router.navigate(['/alumni/home']);
-      }else{
+      if (response.result[0].skills === '' || response.result[0].experience === '' || response.result[0].interest === '' || response.result[0].bio === '' ||response.result[0].location === '' ||
+      response.result[0].qualification === '' ||response.result[0].employment_status === '') {
+        
+        
         this.router.navigate(['/alumni/profile/view-profile']);
+      }else{
+        this.showSnackbar('login successfully!');
+        //this.showSnackbar('Profile Incomplete, Please update profile');
+        this.router.navigate(['/alumni/home']);
       }
     });
   }

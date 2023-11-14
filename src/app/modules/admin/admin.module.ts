@@ -7,7 +7,7 @@ import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
 import { AddJobsComponent } from './add-jobs/add-jobs.component';
 import { AddPostsComponent } from './add-posts/add-posts.component';
 
-import { EventService } from '../../services/event.service';
+import { EventService } from '../../services/events/event.service';
 import { ViewReportComponent } from './view-report/view-report.component';
 import { QueryComponent } from './query/query.component';
 

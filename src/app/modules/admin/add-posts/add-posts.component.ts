@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EventService } from '../../../services/event.service';
+import { EventService } from '../../../services/events/event.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
@@ -22,6 +22,7 @@ export class AddPostsComponent {
       datePosted: Date
      
     });
+    //this.eventService.getAllEvents()
     this.events = this.eventService.getEvents();
   }
 
@@ -103,8 +104,9 @@ export class AddPostsComponent {
 
   deleteEvent(index: number) {
     // Implement code to handle the "Delete" action for the selected event
-    this.events.splice(index, 1);
-    localStorage.setItem('events', JSON.stringify(this.events));
+    //this.events.splice(index, 1);
+    //localStorage.setItem('events', JSON.stringify(this.events));
+    this.eventService.deleteEvent(index);
   }
 
 
