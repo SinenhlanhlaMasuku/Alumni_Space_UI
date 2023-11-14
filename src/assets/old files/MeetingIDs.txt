@@ -5,8 +5,15 @@ password: jNBScy
 326562555008
 wP44ZF
 
-Alumni-Notification
+//Daily-Scrum
 
+
+Alumni-Notification
+  timeStamp: null as Date | null
+<td>
+   {{row.status}}
+ <span *ngIf="row.timestamp"> - {{row.timestamp | date: 'medium'}}</span>
+</td>
  response
 
 //Learning how to create APIs
