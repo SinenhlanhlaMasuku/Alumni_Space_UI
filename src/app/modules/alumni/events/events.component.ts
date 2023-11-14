@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EventService } from 'src/app/services/event.service';
+import { EventService } from 'src/app/services/events/event.service';
 import { Router } from '@angular/router';
 
 @Component({

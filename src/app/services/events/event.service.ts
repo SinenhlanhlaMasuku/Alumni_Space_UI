@@ -35,7 +35,7 @@ export class EventService {
     let bodyData = {
       "event_title" : event.title,
       "event_description" : event.description,
-      "event_date" : event.event_date,
+      "event_date" : event.eventDate,
     };
     this.http.post("http://localhost:3000/api/event",bodyData).subscribe((resultData: any)=>
     {

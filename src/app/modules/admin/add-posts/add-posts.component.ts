@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EventService } from '../../../services/event.service';
+import { EventService } from '../../../services/events/event.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
