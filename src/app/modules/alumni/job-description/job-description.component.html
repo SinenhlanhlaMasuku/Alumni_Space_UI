@@ -120,7 +120,7 @@
                                         <h4>{{Organisation}}</h4>
                                     </a>
                                     <ul>
-                                        <li>Creative Agency</li>
+                                        <li>{{Organisation}}</li>
                                         <li><i class="fas fa-map-marker-alt"></i>{{location}}</li>
                                         <li>{{salary}}</li>
                                     </ul>
@@ -143,19 +143,21 @@
                                     <h4>Required Knowledge, Skills, and Abilities</h4>
                                 </div>
                                <ul>
-                                   <li>{{required_Skills}}</li>
-                                  
-                               </ul>
+                                <ng-container *ngFor="let skill of required_Skills.split(',')">
+                                  <li>{{ skill.trim() }}</li>
+                                </ng-container>
+                              </ul>
                             </div>
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
                                     <h4>Education + Experience</h4>
                                 </div>
-                               <ul>
-                                   <li>{{experience}}</li>
-                                   
-                               </ul>
+                                <ul>
+                                <ng-container *ngFor="let skill of experience.split(',')">
+                                  <li>{{ skill.trim() }}</li>
+                                </ng-container>
+                              </ul>
                             </div>
 
                             <!--<ul>
@@ -180,7 +182,7 @@
                               <li>Location : <span>{{location}}</span></li>
                               <li>Organisation <span>{{Organisation}}</span></li>
                               <li>Job nature : <span>{{job_type}}</span></li>
-                              <li>Salary :  <span>{{salary}}</span></li>
+                              <li>Salary :  <span>R{{salary}}</span></li>
                               <li>Application dateline : <span>{{deadline | date:'medium'}}</span></li>
                           </ul>
                          <div class="apply-btn2">
