@@ -16,6 +16,8 @@ export class AllNotificationsComponent {
   adminFnLletter ="A";
   isRead?: boolean; // Add the isRead property
   unreadNotificationCount?: number;
+  message: string='';
+  fullMessage?: string;
   // unreadNotificationCount = this.notifications.length;
 
   // interface: Notification {
@@ -54,6 +56,9 @@ export class AllNotificationsComponent {
       this.updateTime();
     }, 1000)
     this.unreadNotificationCount = this.notifications.length;
+
+    this.setTruncatedMessages();
+  
   }
   
 
@@ -106,6 +111,8 @@ export class AllNotificationsComponent {
       return `${minutesDifference} min ago`;
     }
   }
+    // shortMessage = message;
+    // this.message: "you are invited to the annu....",
 
   notifications = [
     {
@@ -116,6 +123,7 @@ export class AllNotificationsComponent {
       date: "12/11/2023",//replace with real
       time: this.timeReplied,//replace with real
       isRead: false,
+      truncatedMessage: '',
     },
     {
       id:2,
@@ -125,49 +133,50 @@ export class AllNotificationsComponent {
       date: "10/11/2023",//replace with real
       time: this.timeReplied,//replace with real
       isRead: false,
+      truncatedMessage: '',
     },
     
   ];
+  selectedNotification: any = null;
 
-  //  unreadNotificationCount = this.notifications.length;
-  // showNotification(){
-    
-  //   alert('Notification viewed!');
-  //   pop-up dialog to open
- 
-  // }
+  //new Functions to truncate a message to a specific length starts here
+  truncateMessage(message: string, maxLength: number): string {
+    return message.length > maxLength
+      ? message.substring(0, maxLength / 2) + '...'
+      : message;
+  }
+  setTruncatedMessages(): void {
+    for (const notification of this.notifications) {
+      notification.truncatedMessage = this.truncateMessage(
+        notification.message,
+        50
+      );
+    }
+  }
   
-  // readNotification(count: number) {
-  //   this.notificationService.decreaseNotificationId(count);
-  //   this.notificationId = this.notificationService.getNotificationId();
-  //   if(this.isReadnotification = true){
-  //   this.isHideNotifications = false;
-  //   count++;  
-  // }
-  //   else{
-  //     count = 0;
-  //   }
+  onNotificationClick(index: number): void {
+    this.selectedNotificationIndex = index;
+    this.notifications[index].isRead = true;
+    // this.UnreadNotificationCount();
+    this.unreadNotificationCount = this.calculateUnreadNotificationCount()
 
-    
-  // }
+  }
+  
+
   selectedNotificationIndex: number | null = null;
   isReadNotification(index: number): boolean {
     return this.notifications[index].isRead;
-    // this.unreadNotificationCount =  this.notifications.length - 1 ;
+    
 }
-// this.unreadNotificationCount = this.notifications.length;
-// readNotification(index: number): void {
-//   this.notifications[index].isRead = true;
-//     this.selectedNotificationIndex = index;
-//     this.unreadNotificationCount =  this.notifications.length - index;
-//     // index--;
-  
-//   }
+isSelectedNotification(index: number): boolean {
+  return this.selectedNotificationIndex === index;
+}
+
+//new functions ends here!
 readNotification(index: number): void {
   if (!this.notifications[index].isRead) {
     this.notifications[index].isRead = true;
     this.selectedNotificationIndex = index;
-    this.unreadNotificationCount = this.calculateUnreadNotificationCount();
   }
 }
 
@@ -176,32 +185,6 @@ private calculateUnreadNotificationCount(): number {
   return this.notifications.filter(notification => !notification.isRead).length;
 }
 
-
-
-// markAllAsRead(){
-  
-  // this.notifications.forEach(notification => {
-    // notification.isRead = true;
-    // this.unreadNotificationCount =  this.notifications.length - this.notifications.length;
-     
-    //new
-  //   if (!notification.isRead) {
-  //     notification.isRead = true;
-  //     if(this.unreadNotificationCount !== undefined){
-  //       this.unreadNotificationCount--;
-  //     }
-    
-  //   }
-  
-  // });
-  // this.notificationService.updateUnreadNotificationCount(this.unreadNotificationCount);
-  // Update the service with the new count
-  // this.notificationService.updateUnreadNotificationCount(this.unreadNotificationCount);
-//   if (this.unreadNotificationCount !== undefined) {
-//     this.notificationService.updateUnreadNotificationCount(this.unreadNotificationCount);
-//   }
-
-// }
 markAllAsRead() {
   this.notifications.forEach(notification => {
     if (!notification.isRead) {

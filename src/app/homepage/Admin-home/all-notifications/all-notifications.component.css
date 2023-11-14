@@ -10,7 +10,7 @@
    
 }
 .notifications-wrapper {
-    overflow: auto;
+    /* overflow: auto; */
     /* height: 85px; */
     padding: 10px;
     background-color: aliceblue;
@@ -47,6 +47,7 @@
 .message{
     width: 290px;
     margin-left: 20%;
+    display: flex;
 }
 .date{
     font-size: 14px;
