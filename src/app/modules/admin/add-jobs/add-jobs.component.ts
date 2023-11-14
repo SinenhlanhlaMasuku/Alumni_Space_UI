@@ -23,6 +23,10 @@ export class AddJobsComponent {
   job_description: string = '';
   date_posted: string = '';
   deadline: string = '';
+  required_Skills: string ='';
+  experience: string ='';
+  salary  ='';
+
 
   /* stname: string ="";
    course: string ="";
@@ -68,6 +72,10 @@ export class AddJobsComponent {
       "job_description": this.job_description,
       "date_posted": this.date_posted,
       "deadline": this.deadline,
+      "experience": this.experience,
+      "required_Skills": this.required_Skills,
+      "salary": this.salary,
+
 
     };
 
@@ -94,6 +102,10 @@ export class AddJobsComponent {
     this.job_description = data.job_description;
     this.date_posted = data.date_posted;
     this.deadline = data.deadline;
+    this.experience = data.experience;
+    this.required_Skills = data.required_Skills;
+    this.salary = data.salary;
+
   }
 
   UpdateRecords() {
@@ -111,6 +123,9 @@ export class AddJobsComponent {
       "job_description": this.job_description,
       "date_posted": this.date_posted,
       "deadline": this.deadline,
+      "experience": this.experience,
+      "required_Skills": this.required_Skills,
+      "salary": this.salary,
     };
 
     this.http.put("http://localhost:3000/api/Jobs/:job_id" + "/" + this.id, bodyData).subscribe((resultData: any) => {
@@ -184,4 +199,7 @@ interface Job {
   job_description: string;
   date_posted: string;
   deadline: string;
+ experience: string;
+  required_Skills: string;
+  salary:  number;
 }

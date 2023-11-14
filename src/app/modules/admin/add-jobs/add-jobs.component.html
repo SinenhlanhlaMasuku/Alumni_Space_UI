@@ -50,7 +50,7 @@
         </div>
         <div class="form-group">
             <label for="organization"><b>Salary:</b><span class="red-asterisk">*</span></label>
-            <input type="text" class="form-control" [(ngModel)]="Organisation"  name="Organisation" id="organization"required>
+            <input type="text" class="form-control" [(ngModel)]="salary"  name="salary" id="salary"required>
         </div>
         <div class="form-group">
             <label for="jobDescription"><b>Job Description:</b><span class="red-asterisk">*</span></label>
@@ -58,11 +58,11 @@
         </div>
         <div class="form-group">
             <label for="jobDescription"><b>Required knowledge, skills :</b><span class="red-asterisk">*</span></label>
-            <textarea class="form-control" [(ngModel)]="job_description"  name="job_description" id="jobDescription"  rows="4" required></textarea>
+            <textarea class="form-control" [(ngModel)]="required_Skills"  name="required_Skills" id="jobDescription"  rows="4" required></textarea>
         </div>
         <div class="form-group">
             <label for="jobDescription"><b>Education + Experience</b><span class="red-asterisk">*</span></label>
-            <textarea class="form-control" [(ngModel)]="job_description"  name="job_description" id="jobDescription"  rows="4" required></textarea>
+            <textarea class="form-control" [(ngModel)]="experience"  name="experience" id="jobDescription"  rows="4" required></textarea>
         </div>
 
         <div class="form-group">
@@ -92,6 +92,9 @@
                 <th scope="col">job description</th>
                 <th scope="col">date posted</th>
                 <th scope="col">DeadLine</th>
+                <th scope="col">Required knowledge, skills</th>
+                <th scope="col">Education + Experience</th>
+                <th scope="col">Salary</th>
               </tr>
             </thead>
             <tbody>
@@ -103,6 +106,9 @@
                 <td>{{StudentItem.location }}</td>
                 <td>{{StudentItem.job_type }}</td>
                 <td>{{StudentItem.job_description }}</td>
+                <td>{{StudentItem.required_Skills }}</td>
+                <td>{{StudentItem.experience }}</td>
+                <td>{{StudentItem.salary }}</td>
                 <td>{{StudentItem.date_posted | date:'medium'}}</td>
                 <td>{{StudentItem.deadline  | date:'medium'}}</td>
                 

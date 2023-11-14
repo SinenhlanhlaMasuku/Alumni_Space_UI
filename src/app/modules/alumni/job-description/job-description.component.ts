@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-description',
@@ -18,4 +20,45 @@ import { Component } from '@angular/core';
 })
 export class JobDescriptionComponent {
 
+
+  id = '';
+  job_title: string = ' ';
+  Organisation: string = '';
+  workplace_type: string = '';
+  location: string = '';
+  job_type: string = '';
+  job_description: string = '';
+  date_posted: string = '';
+  deadline: string = '';
+  required_Skills: string ='';
+  experience: string ='';
+  salary  ='';
+
+
+  constructor(private http: HttpClient) {
+  
+  }
+
+
+  ngOnInit() {
+    const id = localStorage.getItem('job_id');
+
+    const url = 'http://localhost:3000/api/job/' + id;
+
+    this.http.get(url).subscribe((response: any) => {
+      console.log('Data sent to server:', response);
+      // Fetch jobs using the service
+      this.job_title = response.data.job_title;
+      this.Organisation = response.data.Organisation;
+      this.workplace_type = response.data.workplace_type;
+      this.location = response.data.location;
+      this.job_type = response.data.job_type;
+      this.job_description = response.data.job_description;
+      this.required_Skills = response.data.required_Skills;
+      this.experience = response.data.experience;
+      this.salary = response.data.salary;
+      
+      
+    });
+  }
 }
