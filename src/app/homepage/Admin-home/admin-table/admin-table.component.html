@@ -13,7 +13,11 @@
   <tr *ngFor="let row of data; let i = index">
     <td>{{ row.user }}</td>
     <td>{{ row.query }}</td>
-    <td>{{ row.status }}</td>
+    <!-- <td>{{ row.status }}</td> -->
+    <td>
+      {{row.status}}
+    <span *ngIf="row.timeStamp"> - {{row.timeStamp | date: 'medium'}}</span>
+   </td>
     <td>
       <button type="button" class="btn btn-outline-primary" (click)="toggleResponseForm(i)">Respond</button>
       <div class="response-form" [ngStyle]="{ display: responseForms[i] ? 'block' : 'none' }">

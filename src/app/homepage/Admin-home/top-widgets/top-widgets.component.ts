@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   faPerson,
   faSuitcase,
@@ -12,6 +12,7 @@ import {
   styleUrls: ['./top-widgets.component.css']
 })
 export class TopWidgetsComponent {
+
   faPerson = faPerson;
   faSuitcase = faSuitcase;
   faClock = faClock;
@@ -23,6 +24,11 @@ export class TopWidgetsComponent {
   totalEvents: number = 3;
   //number of active users/alumni
   totalSessions: number = 10;
+  
+
+ ngOnInit(){
+  this.start();
+ }
 
   //calculations required
   //totalSessions must include % e.g  ((noAlumnActive / totalAlumnReg) * 100)

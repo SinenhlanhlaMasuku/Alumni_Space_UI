@@ -51,7 +51,8 @@
 }
 .date{
     font-size: 14px;
-    color: rgb(93, 93, 93);
+    /* color: rgb(93, 93, 93); */
+    color: blue;
     width: 190px;
     margin-left: 60%; 
 }
@@ -81,7 +82,7 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 2px solid #000;
+    /* border: 2px solid #000; */
     background-color: rgb(30, 128, 214);
     /* box-shadow: 5px 5px 5px 5px #0a14aaf3; */
     display: flex;
@@ -108,13 +109,35 @@
     font-size: 30px;
     margin-left: 40%; 
   }
- .img{
-     width: 50px;
-     height: 90px;
+  .image-container img{
+     /* width: 50px;
+     height: 90px; */
      border-radius: 50%;
-     border: 2px solid #000;
+     /* border: 2px solid #000; */
      background-color: rgb(30, 128, 214);
-  }
+     max-width: 2.6em;
+     /* max-height: 100px; */
+     max-height: 2.6em;;
+     /* margin-top: 2px;
+     margin-bottom: 2px;
+     margin-left: 2px;
+     margin-right: 2px;*/
+  } 
+  .image-container2 img{
+    /* width: 50px; */
+    /* height: 90px; */
+    border-radius: 50%;
+    /* border: 2px solid #000; */
+    background-color: rgb(30, 128, 214);
+    max-height: 2.6em;
+    max-width: 2.6em;
+    /* max-width: fit-content;
+    max-height: fit-content;
+    margin-top: 2px;
+     margin-bottom: 2px;
+     margin-left: 2px;
+     margin-right: 2px; */
+ }
   .top-content{
     display: flex-end;
    
@@ -126,4 +149,11 @@
   .top-content button{
     margin-left: 5px;
     margin-bottom: 5px;
+  }
+  .img{
+    width: 50px;
+     height: 90px;
+     border-radius: 50%;
+     border: 2px solid #000;
+     background-color: rgb(30, 128, 214);
   }

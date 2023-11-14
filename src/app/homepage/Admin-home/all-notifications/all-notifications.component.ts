@@ -13,39 +13,18 @@ export class AllNotificationsComponent {
   isReadnotification: boolean = false;
   isHideNotifications: boolean = true;
   timeReplied: string = "";
-  adminFnLletter ="A";
+  adminFletter ="A";
   isRead?: boolean; // Add the isRead property
   unreadNotificationCount?: number;
   message: string='';
   fullMessage?: string;
-  // unreadNotificationCount = this.notifications.length;
-
-  // interface: Notification {
-  //   id: number,
-  //   sender: string,
-  //   subject: string;
-  //   message: string;
-  //   date: string;
-  //   time: string;
-    // isRead: boolean; // Add the isRead property
-// }
+ 
 
   
   constructor( private router: Router, private notificationService: NotificationService){}
    
   ngOnInit(){
-    // this.notificationId = this.notificationService.getNotificationId();
-  
-    // this.notificationService.getNewNotificationReceived().subscribe(() => {
-      // this.notificationId = this.notificationService.getNotificationId();
-      // You can add logic here to trigger the notification bell or update UI
-      
-      // this.getCurrentTimeWithAMPM();
-     
-
-    // });
-    // this.unreadNotificationCount = this.notifications.length;
-     // Initialize the count from the service
+    
     this.notificationService.unreadNotificationCount$.subscribe(count => {
       this.unreadNotificationCount = count;
     }); 
@@ -63,34 +42,8 @@ export class AllNotificationsComponent {
   
 
 
-  // ngOnInit() {
-  //   // this.setWelcomeMessage();
-  //   this.updateTime();
 
-  //   setInterval(() => {
-  //     this.updateTime();
-  //   }, 1000)
-
-   
-  // }
-
-  // updateTime() {
-  //   let now = new Date();
-  //   this.timeReplied = this.getCurrentTimeWithAMPM(now);
-  //   // .toTimeString().split(' ')[0];
-  // } 
-
-  // getCurrentTimeWithAMPM(date: Date): string {
-  //   const hours = date.getHours();
-  //   const minutes = date.getMinutes();
-  //   const isPM = hours >= 12;
-  //   const AMPM = isPM ? 'PM' : 'AM';
-
-    // Convert to 12-hour format
-    // const displayHours = hours % 12 || 12;
-
-    // return `${displayHours}:${minutes.toString().padStart(2, '0')} ${AMPM}`;
-  // }
+  
 
   updateTime() {
     const now = new Date();
@@ -119,7 +72,7 @@ export class AllNotificationsComponent {
       id:1,
       sender: "Admin",
       subject: "Career guide",
-      message: "you are invited to the annu....",
+      message: "I have received your enquery!, fortunately i will be able to help next day",
       date: "12/11/2023",//replace with real
       time: this.timeReplied,//replace with real
       isRead: false,
@@ -127,9 +80,29 @@ export class AllNotificationsComponent {
     },
     {
       id:2,
-      sender: "Admin",
+      sender: "Kfefe",
       subject: "Enquiry response",
-      message: "We have received your enquiry, we will get back to you shortly...",
+      message: "We have received your enquiry, we will get back to you shortly!",
+      date: "10/11/2023",//replace with real
+      time: this.timeReplied,//replace with real
+      isRead: false,
+      truncatedMessage: '',
+    },
+    {
+      id:3,
+      sender: "Sihle",
+      subject: "Enquiry response",
+      message: "We have received your enquiry, we will get back to you shortly!",
+      date: "10/11/2023",//replace with real
+      time: this.timeReplied,//replace with real
+      isRead: false,
+      truncatedMessage: '',
+    },
+    {
+      id:4,
+      sender: "Sneh",
+      subject: "Enquiry response",
+      message: "We have received your enquiry, we will get back to you shortly!",
       date: "10/11/2023",//replace with real
       time: this.timeReplied,//replace with real
       isRead: false,
@@ -142,14 +115,14 @@ export class AllNotificationsComponent {
   //new Functions to truncate a message to a specific length starts here
   truncateMessage(message: string, maxLength: number): string {
     return message.length > maxLength
-      ? message.substring(0, maxLength / 2) + '...'
+      ? message.substring(0, maxLength) + '...'
       : message;
   }
   setTruncatedMessages(): void {
     for (const notification of this.notifications) {
       notification.truncatedMessage = this.truncateMessage(
         notification.message,
-        50
+         20
       );
     }
   }
@@ -208,5 +181,18 @@ markAllAsRead() {
   backtoNot(): void {
     this.selectedNotificationIndex = null;
 }
-
+  
+getSenderImage(sender: string): string {
+  // Example logic, replace with your actual logic
+  switch (sender) {
+    case 'Sihle':
+      return 'assets/Sihle.jpg';
+    case 'Sneh':
+      return 'assets/Sneh.jpg';
+    // Add more cases as needed
+    default:
+      return 'assets/Kfentse.jpg';
+  };
 }
+}
+

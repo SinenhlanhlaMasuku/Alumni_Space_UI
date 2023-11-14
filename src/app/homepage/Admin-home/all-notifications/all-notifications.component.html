@@ -99,9 +99,18 @@
         (click)="onNotificationClick(i)"
       >
         <hr />
-        <div class="image-container">
+        <!-- <div class="image-container">
           {{ adminFnLletter }}
-        </div>
+        </div> -->
+        <div class="image-container">
+            <ng-container *ngIf="notification.sender === 'Admin'; else senderImage">
+              {{ adminFletter }}
+            </ng-container>
+            <ng-template #senderImage>
+              <img [src]="getSenderImage(notification.sender)" alt="SI">
+            </ng-template>
+          </div>
+
         <div class="sender">{{ notification.sender }}</div>
         <div class="more-info">
           <div class="message">{{ notification.truncatedMessage }}</div>
@@ -116,9 +125,18 @@
           <p>{{ notification.date }}</p>
         </small>
         <hr />
-        <div class="image-container2">
+        <!-- <div class="image-container2">
           {{ adminFnLletter }}
-        </div>
+        </div> -->
+        <div class="image-container2">
+            <ng-container *ngIf="notification.sender === 'Admin'; else senderImage">
+              {{ adminFletter }}
+            </ng-container>
+            <ng-template #senderImage>
+              <img [src]="getSenderImage(notification.sender)" alt="SI">
+            </ng-template>
+          </div>
+
         <p>From: {{ notification.sender }}</p>
         <p> {{ notification.message }}</p>
         <hr />
