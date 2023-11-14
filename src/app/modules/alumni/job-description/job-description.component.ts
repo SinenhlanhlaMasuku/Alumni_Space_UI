@@ -57,6 +57,8 @@ export class JobDescriptionComponent {
       this.required_Skills = response.data.required_Skills;
       this.experience = response.data.experience;
       this.salary = response.data.salary;
+      this.date_posted = response.data.date_posted;
+      this.deadline = response.data.deadline;
       
       
     });
