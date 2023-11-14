@@ -12,6 +12,7 @@ export class EventsComponent {
   currentDate: Date = new Date();
 
   constructor(private eventService: EventService,private router: Router,) {
+    this.eventService.getAllEvents();
     this.events = this.eventService.getEvents();
   }
 
