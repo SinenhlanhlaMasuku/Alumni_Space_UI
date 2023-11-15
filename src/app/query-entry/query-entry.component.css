@@ -1,0 +1,35 @@
+/*query-entry.component.css*/
+.user-question {
+  background-color: gainsboro;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  text-align: center; 
+}
+
+
+  #user-question-input {
+    width: 40%;
+    height: 85%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-style:normal;
+    display: block; 
+    margin: 20px auto; 
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #ask-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 45%;
+    font-style: normal;
+    margin: 0 auto;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+  }
