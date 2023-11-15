@@ -44,7 +44,10 @@ import { WhoToFollowComponent } from './homepage/Posts/who-to-follow/who-to-foll
 import { YourThoughtsComponent } from './homepage/Posts/your-thoughts/your-thoughts.component';
 import { PeopleYouMayKnowComponent } from './homepage/Posts/people-you-may-know/people-you-may-know.component';
 import { AdminTableComponent } from './homepage/Admin-home/admin-table/admin-table.component';
-
+import { AlumniResumeComponent } from './alumni-resume/alumni-resume.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -75,7 +78,9 @@ import { AdminTableComponent } from './homepage/Admin-home/admin-table/admin-tab
     WhoToFollowComponent,
     YourThoughtsComponent,
     PeopleYouMayKnowComponent,
-    AdminTableComponent
+    AdminTableComponent,
+    AlumniResumeComponent,
+    
     
     // ViewProfileComponent,
     // EditProfileComponent
@@ -94,7 +99,10 @@ import { AdminTableComponent } from './homepage/Admin-home/admin-table/admin-tab
     //NgxExtendedPdfViewerModule
     PdfViewerModule,
     MatTableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDividerModule,
+    MatGridListModule,
+    MatFormFieldModule
     
   ],
   providers: [],

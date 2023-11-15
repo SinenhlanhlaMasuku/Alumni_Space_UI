@@ -17,6 +17,7 @@ import { ServicesComponent } from './services/services.component';
 import { AboutComponent } from './about/about.component';
 import { UserLandingPageComponent } from './homepage/Posts/user-landing-page/user-landing-page.component';
 import { AdminTableComponent } from './homepage/Admin-home/admin-table/admin-table.component';
+import { AlumniResumeComponent } from './alumni-resume/alumni-resume.component';
 
 const routes: Routes = [
   { path: 'ew', component: LoginComponent },
@@ -36,7 +37,8 @@ const routes: Routes = [
   { path: 'Services', component: ServicesComponent},
   { path: 'aboutUs', component: AboutComponent},
   { path: 'LandingPage', component: UserLandingPageComponent},
-  { path: 'view/respondQueries', component: AdminTableComponent}
+  { path: 'view/respondQueries', component: AdminTableComponent},
+  { path: 'alumniResume', component: AlumniResumeComponent}
 ];
 
 @NgModule({
