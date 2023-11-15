@@ -19,6 +19,7 @@ import { YourThoughtsComponent } from './posts/your-thoughts/your-thoughts.compo
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { ApplyPageComponent } from './apply-page/apply-page.component';
 // import {  } from '@fortawesome/fontawesome-free-solid';
 
 
@@ -38,7 +39,8 @@ import {MatButtonModule} from '@angular/material/button';
     UserStorysComponent,
     WhoToFollowComponent,
     YourThoughtsComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ApplyPageComponent
     
 
 
