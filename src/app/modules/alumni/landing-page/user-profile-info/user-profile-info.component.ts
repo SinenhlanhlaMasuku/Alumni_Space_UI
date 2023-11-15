@@ -30,6 +30,7 @@ export class UserProfileInfoComponent {
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer, private ProfileService: ProfileService){
     this.images = this.ProfileService.getImages();
+    this.viewPictures();
   }
   
   ngOnInit() {
@@ -70,6 +71,18 @@ export class UserProfileInfoComponent {
   getSafeUrl(image: File): SafeUrl {
     const objectURL = URL.createObjectURL(image);
     return this.sanitizer.bypassSecurityTrustUrl(objectURL);
+  }
+
+
+  pictures: { filePath: string }[] = []; // Specify the type here
+  
+  imageUrl = 'http://localhost:3000/uploads/pics/profiles';
+
+  viewPictures() {
+    this.ProfileService.getUploadedPictures().subscribe((data: { filePath: string }[]) => {
+      this.pictures = data.map((item) => ({ filePath: `${this.imageUrl}/${item.filePath}` }));
+      console.log(this.pictures);
+    });
   }
 
 }

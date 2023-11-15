@@ -60,15 +60,22 @@ export class ProfileService {
   uploadImage(image: File) {
     this.images.push(image);
   }
-  uploadPicture(file: File): Observable<any> { // Specify the return type as Observable
+  uploadPicture(file: File, account_id: any): Observable<any> { // Specify the return type as Observable
     const formData = new FormData();
+
+    //
     formData.append('file_name', file);
     formData.append('fileType', 'profile');
+    formData.append('account_id', account_id);
 
     return this.http.post('http://localhost:3000/api/upload', formData);
   }
 
   getImages() {
     return this.images;
+  }
+
+  getUploadedPictures(): Observable<{ filePath: string }[]> { // Specify the return type
+    return this.http.get<{ filePath: string }[]>('http://localhost:3000/api/getDocument');
   }
 }

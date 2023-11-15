@@ -50,9 +50,9 @@ export class EditProfileComponent {
 
   ngOnInit() {
     const storedName = localStorage.getItem('Name');
+    const account_id = localStorage.getItem('account_id');
 
-    if (storedName) {
-      // Update the 'name' property if 'name' is found in localStorage
+    if (storedName && account_id) {
       this.alumni.Name = storedName;
     }
   }
@@ -297,9 +297,10 @@ export class EditProfileComponent {
 
   saveProfilePic() {
     console.log('profile picture saved successfully!')
+    var account_id = this.getAccountId();
     this.isBtnSaveProfPic = true;
     if (this.selectedFile) {
-      this.profileService.uploadPicture(this.selectedFile).subscribe((response) => {
+      this.profileService.uploadPicture(this.selectedFile, account_id).subscribe((response) => {
         // Handle the response from the server
       });
     }
@@ -324,6 +325,11 @@ export class EditProfileComponent {
   }
   returnHome() {
     this.router.navigate(['/alumni/home']);
+  }
+
+  getAccountId(){
+    const user_id = localStorage.getItem('account_id');
+    return user_id;
   }
 
 
