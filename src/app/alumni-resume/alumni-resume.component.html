@@ -1,64 +1,46 @@
-<!-- <p>alumni-resume works!</p> -->
-<!-- <div class="card"> -->
-                    <!-- <div class="horizontal-line"></div> -->
-          <!-- <div class="right-side-content"> -->
-            
-              <!-- <div class="alumni-pic">
-                 <img src="../../assets/Sihle.jpg">
-              </div>
-              <div class="Other-info">
-                <p>Name: </p>
-                <p>Surname: </p>
-                <p>Email: </p>
-                <p>Experience: </p>
-                <p>Skills: </p>
-              </div>
-          </div>
-            
-               
-           <div class="left-side-content">
-
-             <div class="alumni-details">
-            
-              <h1>Basic details</h1>
-              <p>Name: </p>
-              <p>Surname: </p>
-              <p>Email: </p>
-              <p>Experience: </p>
-              <p>Skills: </p>
-             </div>
-            </div> -->
 
             <div class="container">
+                <h1>Resume of {{alumni[0].fullNames}} {{alumni[0].lastName}}</h1>
               <div class="row">
                 <div class="col">
+                  <div class="alumni-details2">
                   <div class="alumni-pic">
                     <img src="../../assets/Sihle.jpg">
                   </div>
                  <div class="Other-info">
                   <p>Bio: </p>
-                   <p>Name: </p>
-                   <p>Surname: </p>
-                   <p>Email: </p>
+                   <p>Name(s): {{alumni[0].fullNames}}</p>
+                   <p>Surname: {{alumni[0].lastName}}</p>
+                   <p>Address: {{alumni[0].address}}</p>
+                   <p>Email: {{alumni[0].email}}</p>
                    
                  </div>
+                </div>
                 </div>
                 <div class="col ">
                   <div class="alumni-details">
             
-                    <h1>Basic details</h1>
+                    <h2>Knowledge and Skills</h2>
+                    <p>Skills:</p>
+                    <div *ngFor="let skill of alumni[0].skills; let i = index">
+                      <!-- <p>Skills: </p> -->
+                           <ul>
+                            <li> {{skill}}</li>
+                            <!-- <li>{{skill[i]}}</li> -->
+                           </ul>
+
+                           <div>
+                            <p>Interests: {{alumni[0].interests}} </p>
+                          </div>
+                    </div>
+                    <h3>Education information</h3>
+                    <p>Experience: {{alumni[0].experience}}</p>
+                         <!-- <li>N yrs exp.</li> -->
                     
-                    <div>
-                      <p>Skills: </p>
-                    </div>
-                    <p>Experience: </p>
-                    <div>
-                      <p>Interests: </p>
-                    </div>
-                     <p>Qualification</p>
+                     <p>Qualification: {{alumni[0].qualification}}</p>
                      <div>
-                      <h2>List of Achievements</h2>
-                       <p>Certicates names</p>
+                      <h3>List of Achievements</h3>
+                       <p>Certicates names: {{alumni[0].certificateNames}}</p>
                      </div>
                    </div>
                 </div>
