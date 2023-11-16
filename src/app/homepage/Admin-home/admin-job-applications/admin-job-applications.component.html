@@ -1,0 +1,23 @@
+<!-- <p>admin-job-applications works!</p> -->
+<app-navbar></app-navbar>
+<div class="container">
+<div *ngFor="let application of applications">
+    <h1>Application from {{ application.fullNames }} {{ application.lastName }}</h1>
+
+    <!-- Display alumni resume using AlumniResumeComponent -->
+    <!-- [alumni]="application.alumni" -->
+    <app-alumni-resume [alumni]="application"></app-alumni-resume>
+  
+    <!-- Add a form or buttons to respond to the application -->
+    <form (submit)="respondToApplication(application, 'Accepted?')">
+      <!-- <button type="submit" class="btn btn-outline-info">Accept Application</button> -->
+      <button mat-raised-button (click)="acceptApplication()">Accept Application</button>
+
+    </form>
+    <form (submit)="respondToApplication(application, 'Rejected')">
+      <button type="submit" class="btn btn-outline-info">Reject Application</button>
+    </form>
+   </div>
+  </div> 
+<!-- </div> -->
+  

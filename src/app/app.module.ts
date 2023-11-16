@@ -48,6 +48,15 @@ import { AlumniResumeComponent } from './alumni-resume/alumni-resume.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
+// import { AdminJobApplicationsComponent } from './homepage/Admin-home/admin-job-applications/admin-job-applications.component';
+import { AdminJobApplicationsComponent } from './homepage/Admin-home/admin-job-applications/admin-job-applications.component';
+import { JobInterviewSetterDialogComponent } from './homepage/Admin-home/job-interview-setter-dialog/job-interview-setter-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+// import { MatTimepickerModule } from 'mat-timepicker';
+import { MatRadioModule } from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [
@@ -80,6 +89,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     PeopleYouMayKnowComponent,
     AdminTableComponent,
     AlumniResumeComponent,
+    AdminJobApplicationsComponent,
+    JobInterviewSetterDialogComponent,
     
     
     // ViewProfileComponent,
@@ -102,7 +113,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ReactiveFormsModule,
     MatDividerModule,
     MatGridListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatRadioModule
+
+
     
   ],
   providers: [],

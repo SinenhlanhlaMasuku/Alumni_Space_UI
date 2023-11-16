@@ -1,0 +1,36 @@
+
+<h2 mat-dialog-title>job Interview Details</h2>
+ <p> Set up interview with job applicant</p>
+<mat-dialog-content>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Interview Date" [(ngModel)]="interviewDate" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <!-- Format the date using the DatePipe -->
+    {{ interviewDate | date:'yyyy-MM-dd' }}
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Interview Time" [(ngModel)]="interviewTime" required>
+    <!-- Format the time using the DatePipe -->
+    {{ interviewTime | date:'HH:mm' }}
+  </mat-form-field>
+  <!-- <mat-form-field>
+    <input matInput placeholder="Interview Address" [(ngModel)]="interviewAddress" required>
+  </mat-form-field> -->
+  <mat-form-field>
+    <input matInput placeholder="Building Number" [(ngModel)]="buildingNumber" required>
+  </mat-form-field>
+
+  <!-- <mat-form-field> -->
+    <mat-radio-group aria-label="Select an option">
+        <p>Notify applicant</p>
+        <mat-radio-button value="1">Yes</mat-radio-button>
+        <mat-radio-button value="1">No</mat-radio-button>
+      </mat-radio-group>
+  <!-- </mat-form-field> -->
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button (click)="onCancelClick()" color="warn">Cancel</button>
+  <button mat-raised-button (click)="onConfirmClick()" color="primary" cdkFocusInitial>Confirm</button>
+</mat-dialog-actions>
+

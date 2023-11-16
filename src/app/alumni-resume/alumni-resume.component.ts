@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {MatDividerModule} from '@angular/material/divider';
 import{MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -12,6 +12,9 @@ interface Alumni {
   experience: string;
   qualification: string;
   interests: string[];
+  certificates: string[];
+  certificateNames: string[];
+  alumnipic: string;
  
 };
 @Component({
@@ -27,23 +30,24 @@ export class AlumniResumeComponent {
     //     fullNames: '',
     //  }]
     // certificates: string[]=[];
-    certificates: string[] = [ 'assets/certificate1.pdf',
-        'assets/certificate2.pdf',
-      'assets/certifacate3.pdf']
-      certificateNames: string[] = ['Certificate 1', ' Certificate 2', 'certificate 3'];
+    @Input() alumni: Alumni | undefined;
+    // certificates: string[] = [ 'assets/certificate1.pdf',
+    //     'assets/certificate2.pdf',
+    //   'assets/certifacate3.pdf']
+    //   certificateNames: string[] = ['Certificate 1', ' Certificate 2', 'certificate 3'];
 
-     alumni: Alumni[] = [
-      {
-        fullNames: 'Sihle Bandile',
-        lastName: 'Mhlongo',
-        Bio: 'I am a highly motivated professional with a passion for [your industry or field]. With a solid background in [mention relevant skills or experiences], I bring a unique blend of [specific qualities] that drive successful outcomes',
-        address: '245 burger str',
-        skills: ['JavaScript', 'Angular', 'Node.js'],
-        email: 'john.doe@example.com',
-        experience: '5 years',
-        qualification: 'Bachelor of Science in Computer Science',
-        interests: ['coding', ' gaming'],
-      }
-      ];
+    //  alumni: Alumni[] = [
+    //   {
+    //     fullNames: 'Sihle Bandile',
+    //     lastName: 'Mhlongo',
+    //     Bio: 'I am a highly motivated professional with a passion for [your industry or field]. With a solid background in [mention relevant skills or experiences], I bring a unique blend of [specific qualities] that drive successful outcomes',
+    //     address: '245 burger str',
+    //     skills: ['JavaScript', 'Angular', 'Node.js'],
+    //     email: 'john.doe@example.com',
+    //     experience: '5 years',
+    //     qualification: 'Bachelor of Science in Computer Science',
+    //     interests: ['coding', ' gaming'],
+    //   }
+    //   ];
 
 }
