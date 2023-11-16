@@ -1,7 +1,7 @@
 <!-- apply-page.component.html -->
 <link rel="stylesheet" type="text/css" href="apply-page.component.css" />
 <div class="apply-container">
-    <h2>Job Application Form</h2>
+    <h2>Job Application Form (Easy Apply)</h2>
   
     <form (submit)="submitForm()">
       <label for="fullName">Full Name:</label>
@@ -10,7 +10,7 @@
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" [(ngModel)]="applicant.email" required>
   
-      <label for="resume">Resume (PDF only):</label>
+      <label for="resume">Additional Documents</label>
       <input type="file" id="resume" name="resume" accept=".pdf" (change)="handleFileInput($event)" required>
   
       <button type="submit">Submit</button>
