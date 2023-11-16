@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EventService } from '../../../services/events/event.service';
+import { ProfileService } from '../../alumni/profile/profile.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
@@ -14,7 +15,9 @@ export class AddPostsComponent {
   showModal = false;
   isResultLoaded = false;
 
-  constructor(private eventService: EventService, private fb: FormBuilder, private http: HttpClient ) {
+  selectedFile: File | null = null;
+
+  constructor(private eventService: EventService, private fb: FormBuilder, private http: HttpClient, private profileService: ProfileService) {
     this.eventForm = this.fb.group({
       eventTitle: [''],
       eventDescription: [''],
@@ -33,8 +36,14 @@ export class AddPostsComponent {
       description: this.eventForm.get('eventDescription')?.value,
       eventDate: this.eventForm.get('eventDate')?.value,
       datePosted :  new Date(),
-      image: this.imageFile,
+      image: this.selectedFile,
     };
+
+    /*if (this.selectedFile) {
+      this.profileService.uploadEvent(this.selectedFile).subscribe((response) => {
+        // Handle the response from the server
+      });
+    }*/
     
     this.eventService.addEvent(event);
     this.eventForm.reset();
@@ -57,6 +66,16 @@ export class AddPostsComponent {
         this.imageFile = e.target.result;
       };
       reader.readAsDataURL(file);
+    }
+    
+    
+  }
+
+  onProfilePicChange(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+  
+     //select file
+      this.selectedFile = event.target.files[0];
     }
   }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ProfileService } from '../../profile/profile.service';
 
@@ -28,7 +29,7 @@ export class UserProfileInfoComponent {
 
   images: File[] = [];
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private ProfileService: ProfileService){
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private ProfileService: ProfileService,private router: Router){
     this.images = this.ProfileService.getImages();
     this.viewPictures();
   }
@@ -83,6 +84,16 @@ export class UserProfileInfoComponent {
       this.pictures = data.map((item) => ({ filePath: `${this.imageUrl}/${item.filePath}` }));
       console.log(this.pictures);
     });
+  }
+
+  logout(){
+    //clear localStorage data
+    localStorage.removeItem('account_id');
+    localStorage.removeItem('name');
+    localStorage.removeItem('surname');
+    //localStorage.removeItem('');
+
+    this.router.navigate(['/']);
   }
 
 }

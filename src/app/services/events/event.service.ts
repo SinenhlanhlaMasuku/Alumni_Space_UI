@@ -27,7 +27,16 @@ export class EventService {
       "event_description" : event.description,
       "event_date" : event.eventDate,
     };
-    this.http.post("http://localhost:3000/api/event",bodyData).subscribe((resultData: any)=>
+
+    const formData = new FormData();
+
+    //
+    formData.append('file', event.image);
+    formData.append("event_title", event.title);
+    formData.append("event_description", event.description);
+    formData.append("event_date", event.eventDate);
+
+    this.http.post("http://localhost:3000/api/event",formData).subscribe((resultData: any)=>
     {
         console.log(resultData);
         alert("Event Added Successfully");
@@ -38,7 +47,7 @@ export class EventService {
 
   getAllEvents()
   { 
-    this.http.get("http://localhost:3000/api/event").subscribe((resultData: any)=>{
+    this.http.get("http://localhost:3000/api/events").subscribe((resultData: any)=>{
         //this.isResultLoaded = true;
         //console.log(resultData.events);
         this.events = resultData.events;
@@ -56,13 +65,14 @@ export class EventService {
   updateEvent(){}
 
   deleteEvent(event_id: any){
-    console.log(event_id);
     const url = "http://localhost:3000/api/event/delete" + "/" + event_id;
     this.http.delete(url).subscribe((resultData: any) => {
       console.log(resultData);
       alert("Event Deleted")
     });
   }
+
+  //
 
   private saveEventsToLocalStorage() {
     localStorage.setItem('events', JSON.stringify(this.events));

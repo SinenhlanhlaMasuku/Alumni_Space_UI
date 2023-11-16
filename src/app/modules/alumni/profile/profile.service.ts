@@ -71,11 +71,23 @@ export class ProfileService {
     return this.http.post('http://localhost:3000/api/upload', formData);
   }
 
+  uploadEvent(file: File): Observable<any> { // Specify the return type as Observable
+    const formData = new FormData();
+
+    //
+    formData.append('file', file);
+    formData.append('fileType', 'event');;
+
+    return this.http.post('http://localhost:3000/api/event', formData);
+  }
+
   getImages() {
     return this.images;
   }
 
-  getUploadedPictures(): Observable<{ filePath: string }[]> { // Specify the return type
-    return this.http.get<{ filePath: string }[]>('http://localhost:3000/api/getDocument');
+  getUploadedPictures(): Observable<{ filePath: string }[]> {
+    const account_id = localStorage.getItem('account_id');
+    const url = 'http://localhost:3000/api/getDocument' + '/' + account_id;
+    return this.http.get<{ filePath: string }[]>(url);
   }
 }
