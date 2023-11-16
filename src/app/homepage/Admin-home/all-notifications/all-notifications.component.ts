@@ -18,6 +18,7 @@ export class AllNotificationsComponent {
   unreadNotificationCount?: number;
   message: string='';
   fullMessage?: string;
+  currentDate: Date = new Date();
  
 
   
@@ -47,25 +48,44 @@ export class AllNotificationsComponent {
 
   updateTime() {
     const now = new Date();
-    const timeReplied = this.calculateTimeDifference(now);
+     const timeReplied = this.getTimeDifference(new Date);
     this.timeReplied = timeReplied;
   }
   
-  calculateTimeDifference(date: Date): string {
-    const currentTime = new Date();
-    const timeDifference = currentTime.getTime() - date.getTime();
+  // calculateTimeDifference(date: Date): string {
+  //   const currentTime = new Date();
+  //   const timeDifference = currentTime.getTime() - date.getTime();
   
-    const minutesDifference = Math.floor(timeDifference / (1000 * 60));
-    const hoursDifference = Math.floor(minutesDifference / 60);
+  //   const minutesDifference = Math.floor(timeDifference / (1000 * 60));
+  //   const hoursDifference = Math.floor(minutesDifference / 60);
   
-    if (hoursDifference >= 1) {
-      return `${hoursDifference} hr ago`;
-    } else {
-      return `${minutesDifference} min ago`;
-    }
-  }
+  //   if (hoursDifference >= 1) {
+  //     return `${hoursDifference} hr ago`;
+  //   } else {
+  //     return `${minutesDifference} min ago`;
+  //   }
+  // }
     // shortMessage = message;
     // this.message: "you are invited to the annu....",
+    // Custom function to calculate time difference and return the "posted ... ago" message
+  getTimeDifference(datePosted: Date): string {
+    const timeDiff = this.currentDate.getTime() - new Date(datePosted).getTime();
+
+    const seconds = Math.floor(timeDiff / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (days > 0) {
+      return ` ${days} day${days > 1 ? 's' : ''} ago`;
+    } else if (hours > 0) {
+      return ` ${hours} hour${hours > 1 ? 's' : ''} ago`;
+    } else if (minutes > 0) {
+      return ` ${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    } else {
+      return ` a few seconds ago`;
+    }
+  }
 
   notifications = [
     {

@@ -5,6 +5,7 @@
     margin-right: 400px;
     margin-top: 50px;
     background-color: lightblue;
+    margin-bottom: 50px;
 }
 .container h1{
     text-align: center;
@@ -57,7 +58,8 @@
       height: auto;
       width: 600px;
       margin-bottom: 5px;
-      margin-left: 10px;
+      /* margin-left: 10px; */
+      text-align: center;
  }
  
  .alumni-details2{
@@ -66,7 +68,11 @@
     /* height: auto; */
     /* width: 600px; */
     margin-bottom: 5px;
+    
 }
 .Other-info{
    margin-left: 10px;
+}
+.Achievements{
+   text-align: center;
 }
