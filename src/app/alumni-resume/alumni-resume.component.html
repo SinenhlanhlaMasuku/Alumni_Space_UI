@@ -8,7 +8,8 @@
                     <img src="../../assets/Sihle.jpg">
                   </div>
                  <div class="Other-info">
-                  <p>Bio: {{alumni[0].Bio}}</p>
+                  <h1>About Me</h1>
+                  <p> {{alumni[0].Bio}}</p>
                    <p>Name(s): {{alumni[0].fullNames}}</p>
                    <p>Surname: {{alumni[0].lastName}}</p>
                    <p>Address: {{alumni[0].address}}</p>
@@ -21,18 +22,21 @@
                   <div class="alumni-details">
             
                     <h2>Knowledge and Skills</h2>
-                    <p>Skills:</p>
+                    <h3>Skills:</h3>
                     <div *ngFor="let skill of alumni[0].skills; let i = index">
                       <!-- <p>Skills: </p> -->
-                           <ul style="list-style: none;">
+                           <!-- <ul style="list-style: none;"> -->
                             <li> {{skill}}</li>
                             <!-- <li>{{skill[i]}}</li> -->
-                           </ul>
+                           <!-- </ul> -->
 
-                           <div>
-                            <p>Interests: {{alumni[0].interests}} </p>
-                          </div>
+                           </div>
+                            <!-- <p>Interests: {{alumni[0].interests}} </p> -->
+                          <!-- </div>  -->
                     </div>
+                    <!-- <div>
+                      <p>Interests: {{alumni[0].interests}} </p>
+                    </div> -->
                     <h3>Education information</h3>
                     <p>Experience: {{alumni[0].experience}}</p>
                          <!-- <li>N yrs exp.</li> -->
@@ -47,7 +51,7 @@
                    </div>
                 </div>
               </div>
-            </div>
+            <!-- </div> -->
             
             <!-- <div class="horizontal-line"></div> -->
         
