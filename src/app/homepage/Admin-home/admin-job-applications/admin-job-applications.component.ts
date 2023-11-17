@@ -166,6 +166,10 @@ export class AdminJobApplicationsComponent {
       this.selectedAlumni = alumni;
     }
   }
+  closeResume(alumni: any){
+    this.removeApplication = false;
+    this.selectedAlumni = alumni;
+  }
 }
 
 

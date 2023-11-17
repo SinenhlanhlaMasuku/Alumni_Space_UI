@@ -36,6 +36,7 @@
   <h1>Job Applications Track</h1>
   <!--job application table-->
   <div class="job-table">
+    <!-- class="table" -->
   <table class="table">
     <thead>
       <tr>
@@ -74,6 +75,10 @@
   </div>
   <!-- <p>[{{i+1}}] Application from {{ application.fullNames }} {{ application.lastName }},</p> -->
     <!-- <p>applied for {{ application.jobAppliedFor}} job</p> -->
+    <div class="View-card">
+      <div class="exit-btn">
+        <button mat-raised-button (click)="closeResume(applications)">close</button>
+      </div>
   <div *ngFor="let application of applications; let i = index">
     
     
@@ -92,7 +97,7 @@
     <form (submit)="respondToApplication(application, 'Rejected')">
       <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-top: 10px;">Reject Application</button>
     </form> -->
-    
+  </div>
     
   </div> 
 <!-- </div> -->
