@@ -1,62 +1,64 @@
-import { Component } from '@angular/core';
-//import { MatTableModule } from '@angular/material/table';
+// Add this interface definition at the beginning of your file or in a separate file (e.g., alumni.model.ts)
+interface Profile {
+  alumni_id: number;
+  name: string;
+  surname: string;
+  location: string;
+  qualification: string;
+  skills: string;
+  experience: string;
+  employment_status: string;
+  pic_file: string;
+  alumni_Networks: number;
+}
+
+// Then, in your track-alumni.component.ts file
+import { Component, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ProfileService } from '../../alumni/profile/profile.service'; // Adjust the path based on your project structure
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-track-alumni',
   templateUrl: './track-alumni.component.html',
   styleUrls: ['./track-alumni.component.css']
 })
-export class TrackAlumniComponent {
-  displayedColumns: string[] = [ 'alumni_Id','alumniName', 'location', 'qualification', 'skills', 'experience', 'employment_Status', 'alumniPicture', 'alumni_Networks'];
-  dataSource = ELEMENT_DATA;
-  //'position', 'name', 'weight', 'symbol',
+export class TrackAlumniComponent implements OnInit {
+  displayedColumns: string[] = ['alumni_Id', 'alumniName', 'location', 'qualification', 'skills', 'experience', 'employment_Status', 'alumniPicture', 'alumni_Networks'];
+  dataSource: any[] = [];
 
-//   modalRef?: BsModalRef;
-//   constructor(private modalService: BsModalService ){}
+  showAlumniTable: boolean = false;
+  showAlumniStats: boolean = false;
 
-//   openImageModal(imageUrl: string) {
-//     const initialState = {
-//       image: imageUrl
-//    };
-//      this.modalRef = this.modalService.show(ImageViewerComponent, { initialState });
-//      this.modalRef.content.closeBtnName = 'Close';
-// }
+  constructor(private apiService: ProfileService, private http: HttpClient) {}
 
-showAlumniTable: boolean = false;
-showAlumniStats: boolean = false;
+  ngOnInit(): void {
+    this.apiService.getProfiles().subscribe((data: any) => {
+      if (data && data.profiles) {
+        this.dataSource = data.profiles.map((profile: Profile) => ({
+          alumni_Id: profile.alumni_id,
+          alumniName: `${profile.name} ${profile.surname}`,
+          location: profile.location,
+          qualification: profile.qualification,
+          skills: profile.skills,
+          experience: profile.experience,
+          employment_Status: profile.employment_status,
+          alumniPicture: this.getAlumniPicturePath(profile.pic_file),
+          alumni_Networks: profile.alumni_Networks
+        }));
+      }
+    });
+  }
 
-toggleAlumniTable() {
-  this.showAlumniTable = !this.showAlumniTable;
+  toggleAlumniTable() {
+    this.showAlumniTable = !this.showAlumniTable;
+  }
+
+  toggleAlumniStatsChart() {
+    this.showAlumniStats = !this.showAlumniStats;
+  }
+
+  getAlumniPicturePath(picFile: string): string {
+    return picFile ? `http:/localhost:3000/uploads/pics/profiles/${picFile}` : 'http://path-to-default-image';
+  }
 }
-
-toggleAlumniStatsChart(){
- this.showAlumniStats = ! this.showAlumniStats;
-}
-
-}
-export interface AlumniElement {
- 
-  alumni_Id: number;
-  alumniName: string;
-  location: string;
-  qualification: string;
-  skills: string[];
-  experience: string;
-  employment_Status: string;
-  alumniPicture: string;
-  alumni_Networks: number;
-  
-
-     //constructor(private modalService: BsModalService ){}
-
-  
-
- 
-}
-const ELEMENT_DATA: AlumniElement[] = [
-  {alumni_Id: 1, alumniName: 'Sihle Mhlongo', location: 'Soshanguve', qualification: 'Software Development', skills:['java','cpp','angular'], experience:' 3yrs', employment_Status: 'Unemployed', alumniPicture: 'assets/Sihle.jpg', alumni_Networks: 200},
-  {alumni_Id: 2, alumniName: 'Helium', location: 'Pretoria', qualification: 'teaching', skills:['java','cpp','angular'], experience:' 3yrs', employment_Status: 'employed', alumniPicture: 'assets/Sneh.jpg', alumni_Networks: 120},
-  {alumni_Id: 3, alumniName: 'Lithium', location: 'Durban', qualification: 'teaching', skills:['java','cpp','angular'], experience:' 3yrs', employment_Status: 'unemployed', alumniPicture: 'assets/Themba.jpg', alumni_Networks: 500},
-  {alumni_Id: 4, alumniName: 'Beryllium', location: 'Midrand', qualification: 'teaching', skills:['java','cpp','angular'], experience:' 3yrs', employment_Status: 'Unemployed', alumniPicture: 'assets/Kfentse.jpg', alumni_Networks: 430},
-  {alumni_Id: 5, alumniName: 'Boron',location: 'Johannesburg', qualification: 'teaching', skills:['java','cpp','angular'], experience:' 3yrs', employment_Status: 'Unemployed', alumniPicture: 'assets/Xolly.jpg', alumni_Networks: 670},
-];

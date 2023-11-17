@@ -27,7 +27,10 @@ export class AddPostsComponent {
     });
     //this.eventService.getAllEvents()
     this.events = this.eventService.getEvents();
+    this.callEvent();
   }
+
+
 
   
   postEvent() {
@@ -77,32 +80,14 @@ export class AddPostsComponent {
      //select file
       this.selectedFile = event.target.files[0];
     }
+
+    //read the image
+    this.onImageChange(event);
   }
 
   events: any[] = [];
   currentDate: Date = new Date();
 
- 
-
-  // Custom function to calculate time difference and return the "posted ... ago" message
-  getTimeDifference(datePosted: any): string {
-    const timeDiff = this.currentDate.getTime() - new Date(datePosted).getTime();
-
-    const seconds = Math.floor(timeDiff / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-
-    if (days > 0) {
-      return ` ${days} day${days > 1 ? 's' : ''} ago`;
-    } else if (hours > 0) {
-      return ` ${hours} hour${hours > 1 ? 's' : ''} ago`;
-    } else if (minutes > 0) {
-      return ` ${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-    } else {
-      return ` a few seconds ago`;
-    }
-  }
 
   editEvent(index: number) {
     // Implement code to handle the "Edit" action for the selected event
@@ -129,17 +114,53 @@ export class AddPostsComponent {
   }
 
 
-  getAllStudent()
-  { 
-    this.http.get("http://localhost:3000/api/events")
-    .subscribe((resultData: any)=>
-    {
-        this.isResultLoaded = true;
-        console.log(resultData.data);
-        this.events = resultData.data;
-        console.log(this.events);
+  pictures: { filePath: string }[] = [];
+  imageUrl = 'http://localhost:3000/uploads/pics/events';
+  
+
+  callEvent(){
+    this.loadEvents();
+    this.loadEventPictures();
+  }
+
+  loadEvents() {
+    this.eventService.getEventsAll().subscribe((data) => {
+      this.events = data.events;
     });
   }
 
+  loadEventPictures() {
+    this.eventService.getEventsAll().subscribe((data) => {
+      this.pictures = data.pictures.map((item) => ({ filePath: `${this.imageUrl}/${item.filePath}` }));
+    });
+  }
+
+  getEventPictureUrl(fileName: string): string {
+    return `${this.imageUrl}/${fileName}`;
+  }
+
+
+
+
+  // Custom function to calculate time difference and return the "posted ... ago" message
+  getTimeDifference(datePosted: any): string {
+    const timeDiff = this.currentDate.getTime() - new Date(datePosted).getTime();
+
+    const seconds = Math.floor(timeDiff / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (days > 0) {
+      return ` ${days} day${days > 1 ? 's' : ''} ago`;
+    } else if (hours > 0) {
+      return ` ${hours} hour${hours > 1 ? 's' : ''} ago`;
+    } else if (minutes > 0) {
+      return ` ${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    } else {
+      return ` a few seconds ago`;
+    }
+  }
+  
 
 }

@@ -9,12 +9,36 @@ import { Router } from '@angular/router';
 })
 export class EventsComponent {
   events: any[] = [];
+  pictures: { filePath: string }[] = [];
+  imageUrl = 'http://localhost:3000/uploads/pics/events';
   currentDate: Date = new Date();
 
   constructor(private eventService: EventService,private router: Router,) {
-    this.eventService.getAllEvents();
-    this.events = this.eventService.getEvents();
+    //this.eventService.getAllEvents();
+    //this.events = this.eventService.getEvents();
   }
+
+  ngOnInit(): void {
+    this.loadEvents();
+    this.loadEventPictures();
+  }
+
+  loadEvents() {
+    this.eventService.getEventsAll().subscribe((data) => {
+      this.events = data.events;
+    });
+  }
+
+  loadEventPictures() {
+    this.eventService.getEventsAll().subscribe((data) => {
+      this.pictures = data.pictures.map((item) => ({ filePath: `${this.imageUrl}/${item.filePath}` }));
+    });
+  }
+
+  getEventPictureUrl(fileName: string): string {
+    return `${this.imageUrl}/${fileName}`;
+  }
+
 
   // Custom function to calculate time difference and return the "posted ... ago" message
   getTimeDifference(datePosted: Date): string {

@@ -87,7 +87,14 @@ export class ProfileService {
 
   getUploadedPictures(): Observable<{ filePath: string }[]> {
     const account_id = localStorage.getItem('account_id');
-    const url = 'http://localhost:3000/api/getDocument' + '/' + account_id;
+    const url = 'http://localhost:3000/api/getDocument' + '/profile' +'/' + account_id;
     return this.http.get<{ filePath: string }[]>(url);
+  }
+
+
+
+  getProfiles(): Observable<any> {
+    const apiUrl = `http://localhost:3000/api/profiles`; // Replace with the actual endpoint of your profiles API
+    return this.http.get(apiUrl);
   }
 }
