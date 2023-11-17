@@ -12,3 +12,25 @@
 .form{
     padding: 20px;;
 }
+.Actions-btns{
+    display: flex;
+    padding: 20px;
+}
+.job-table{
+    /* margin-left: 10px; */
+    /* margin-right: 10px; */
+    /* animation-duration: 20ms; */
+    /* background-color: darkblue; */
+    padding: auto;
+    width: auto;
+    height: auto;
+}
+.table table{
+    margin-left: 10px;
+    margin-right: 10px; 
+    padding-left: 5px;
+    padding-right: 5px;
+    animation-duration: 20ms;
+    /* background-color: darkblue;  */
+    box-shadow: 2px 2px 2px 2px gray;
+}

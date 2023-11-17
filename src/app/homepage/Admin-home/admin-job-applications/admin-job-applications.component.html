@@ -62,36 +62,39 @@
         <td>{{ interviewDate }}</td>
         <td>{{interviewTime}}</td>
         <td>
+           <div class="Actions-btns">
           <button mat-raised-button class="btn btn-outline-info" (click)="toggleAlumniResume(application)">View Resume</button>
           <button mat-raised-button (click)="openInterviewDialog(application)" style="margin-left: 5px;">Accept Application</button>
           <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-left: 5px;">Reject Application</button>
+           </div>
         </td>
       </tr>
     </tbody>
   </table>
-
-  <!-- <div *ngFor="let application of applications; let i = index">
-    <p>[{{i+1}}] Application from {{ application.fullNames }} {{ application.lastName }},</p>
-    <p>applied for {{ application.jobAppliedFor}} job</p>
+  </div>
+  <!-- <p>[{{i+1}}] Application from {{ application.fullNames }} {{ application.lastName }},</p> -->
+    <!-- <p>applied for {{ application.jobAppliedFor}} job</p> -->
+  <div *ngFor="let application of applications; let i = index">
     
-    <div>
+    
+    <!-- <div>
       <button mat-raised-button class="btn btn-outline-info" (click)="toggleAlumniResume(application)">View Resume</button>
-    </div>
+    </div> -->
     
     <div *ngIf="selectedAlumni === application"> 
       <app-alumni-resume [alumni]="selectedAlumni"></app-alumni-resume>
     </div>
     
-    <form (submit)="respondToApplication(application, 'Accepted?')">
+    <!-- <form (submit)="respondToApplication(application, 'Accepted?')">
       <button mat-raised-button (click)="openInterviewDialog(application)" style="margin-top: 10px;">Accept Application</button>
     </form>
     
     <form (submit)="respondToApplication(application, 'Rejected')">
       <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-top: 10px;">Reject Application</button>
-    </form>
+    </form> -->
     
-    <hr />
-  </div> -->
+    
+  </div> 
 <!-- </div> -->
 
  
