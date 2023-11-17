@@ -1,11 +1,19 @@
 /* Targeting specific Material component */
-.mat-dialog-title {
-    color: #333;
+ .mat-dialog-title {
+    color: #fff;
+    text-align: center;
+  }
+  .mat-dialog-container{
+     margin-top: 10px;
+     margin-bottom: 10px;
   }
   
   /* Styling a specific element inside a Material component */
   .mat-dialog-content p {
     font-size: 16px;
+  }
+  .p{
+      text-align: center;
   }
   
   /* Using ::ng-deep to style child components */
