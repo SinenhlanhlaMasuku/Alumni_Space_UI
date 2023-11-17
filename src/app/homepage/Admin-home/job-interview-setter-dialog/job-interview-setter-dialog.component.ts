@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-job-interview-setter-dialog',
@@ -11,10 +11,16 @@ export class JobInterviewSetterDialogComponent {
   interviewAddress!: string;
   buildingNumber!: string;
 
+  notifyApplicant!: string;
   // constructor(){}
   constructor(public dialogRef: MatDialogRef<JobInterviewSetterDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
+ngOnInIt(): void{
+  // Access job title from data
+  console.log(this.data.jobTitle);
+
+}
 
   onCancelClick(){
     this.dialogRef.close();
@@ -27,6 +33,7 @@ export class JobInterviewSetterDialogComponent {
       buildingNumber: this.buildingNumber
     };
     this.dialogRef.close(interviewDetails);
-  
+     // Do something with notifyApplicant, e.g., save it or use it
+     console.log('Selected Option:', this.notifyApplicant);
   }
 }

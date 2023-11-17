@@ -114,6 +114,7 @@ interface Alumni {
   address: string;
    interests: string[];
    alumnipic: string;
+   jobAppliedFor: string;
 }
 
 // Decorate the class as an Angular component
@@ -123,16 +124,19 @@ interface Alumni {
   styleUrls: ['./admin-job-applications.component.css']
 })
 export class AdminJobApplicationsComponent {
-
+  removeApplication: boolean = false;
 
   constructor(private dialog: MatDialog){
 
   }
-  openInterviewDialog() {
+  openInterviewDialog(application: Alumni): void {
     const dialogRef = this.dialog.open(JobInterviewSetterDialogComponent, {
       width: '400px', // Adjust the width as per your requirement
       data: {
         // Pass any data you want to the dialog
+        application,
+          jobTitle: application.jobAppliedFor, // Pass the job title
+    
       },
     });
     //Subscribe to the afterClosed event to get the result when the dialog is closed
@@ -168,6 +172,7 @@ export class AdminJobApplicationsComponent {
       //  certificateNames: ['HuaweiCloud','MS data Engineer', ''],
        certificates: ['certicate1Path','certificatePath2'],
        alumnipic: 'assets/Sneh.jpg',
+       jobAppliedFor: 'Software Engineering'
     },
     // Add more Alumni objects as needed
     {
@@ -184,6 +189,7 @@ export class AdminJobApplicationsComponent {
             // certificateNames: ['HuaweiCloud','MS data Engineer', ''],
             certificates: ['certicate1Path','certificatePath2'],
             alumnipic: 'assets/Sihle.jpg',
+            jobAppliedFor: 'Full-stack Developer'
 
           },
       
@@ -197,9 +203,16 @@ export class AdminJobApplicationsComponent {
   acceptApplication() {
     // You can perform any logic related to accepting the application here
     // Open the interview details dialog
-    this.openInterviewDialog();
+    // this.openInterviewDialog();
   }
-  
+  rejectApplication(){
+     console.log('application rejected');
+    //  this.removeApplication = true;
+  }
+
+  toggleAlumniResume() {
+    this.removeApplication = !this.removeApplication;
+  }
 }
 
 

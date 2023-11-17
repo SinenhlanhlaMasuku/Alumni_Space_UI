@@ -1,0 +1,14 @@
+.container{
+    width: auto;
+    height: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: aliceblue;
+}
+.container h1{
+    text-align: center;
+    font-size: 40px;
+}
+.form{
+    padding: 20px;;
+}

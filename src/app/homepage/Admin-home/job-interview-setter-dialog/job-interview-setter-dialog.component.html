@@ -1,5 +1,6 @@
 
-<h2 mat-dialog-title>job Interview Details</h2>
+<!-- <h2 mat-dialog-title>job Interview Details</h2> -->
+<h2 mat-dialog-title>Interview Details for {{ data.jobTitle }}</h2>
  <p> Set up interview with job applicant</p>
 <mat-dialog-content>
   <mat-form-field>
@@ -22,11 +23,13 @@
   </mat-form-field>
 
   <!-- <mat-form-field> -->
-    <mat-radio-group aria-label="Select an option">
+    <mat-radio-group aria-label="Select an option"  [(ngModel)]="notifyApplicant">
         <p>Notify applicant</p>
         <mat-radio-button value="1">Yes</mat-radio-button>
         <mat-radio-button value="1">No</mat-radio-button>
       </mat-radio-group>
+
+    
   <!-- </mat-form-field> -->
 </mat-dialog-content>
 <mat-dialog-actions align="end">
