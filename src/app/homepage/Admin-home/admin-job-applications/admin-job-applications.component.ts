@@ -35,6 +35,7 @@ export class AdminJobApplicationsComponent {
   //  type DialogType = 'interview' | 'rejection';
   isAcceptDialog: boolean = false;
   isRejectDialog: boolean = false;
+  selectedAlumni: any; // Holds the data of the selected alumni
   
  
   constructor(private dialog: MatDialog){
@@ -145,8 +146,21 @@ export class AdminJobApplicationsComponent {
     this.isRejectDialog = true;
   }
 
-  toggleAlumniResume() {
-    this.removeApplication = !this.removeApplication;
+  // toggleAlumniResume() {
+  //   this.removeApplication = !this.removeApplication;
+  // }
+  toggleAlumniResume(alumni: any) {
+    // this.removeApplication = !this.removeApplication;
+    // this.selectedAlumni = alumni;
+    //new
+    if (this.selectedAlumni === alumni) {
+      // If the same alumni is clicked again, toggle the removeApplication flag
+      this.removeApplication = !this.removeApplication;
+    } else {
+      // If a different alumni is selected, close the currently displayed resume
+      this.removeApplication = true;
+      this.selectedAlumni = alumni;
+    }
   }
 }
 
