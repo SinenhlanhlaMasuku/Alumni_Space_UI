@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ApplyPageComponent } from './modules/alumni/apply-page/apply-page.component';
 
 //imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -80,6 +81,8 @@ import { SuccessModalComponent } from './components/success-modal/success-modal.
     TrackAlumniComponent,
     QueryComponent,
     RegisterComponent,
+    ApplyPageComponent,
+
     // ViewProfileComponent,
     // EditProfileComponent
 

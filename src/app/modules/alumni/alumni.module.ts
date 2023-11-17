@@ -28,7 +28,7 @@ import { JobDescriptionComponent } from './job-description/job-description.compo
       { path: 'jobs', component: JobsComponent },
       { path: 'events', component: EventsComponent},
       { path: 'notifications', component: NotificationsComponent},
-      {path: 'job', component:JobDescriptionComponent}
+      {path: 'job', component:JobDescriptionComponent},
     ]),
   ]
 })

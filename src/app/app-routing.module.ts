@@ -11,6 +11,7 @@ import { AboutComponent } from './components/about/about.component';
 import {SuccessComponent} from './components/success/success.component';
 import {SuccessPasswordChangeComponent} from './components/auth/success-password-change/success-password-change.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ApplyPageComponent } from './modules/alumni/apply-page/apply-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'success-password-change', component: SuccessPasswordChangeComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'apply-page', component: ApplyPageComponent}
   
   
 ];

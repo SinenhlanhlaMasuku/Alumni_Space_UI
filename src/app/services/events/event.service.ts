@@ -93,4 +93,13 @@ export class EventService {
       this.events = JSON.parse(storedEvents);
     }
   }
+
+  private apiUrl = 'http://localhost:3000/api/count_event';
+
+ 
+
+  getEventCount(): Observable<{ event_count: number }> {
+    return this.http.get<{ event_count: number }>(this.apiUrl);
+  }
+  
 }
