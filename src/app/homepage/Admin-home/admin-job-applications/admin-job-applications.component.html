@@ -35,6 +35,7 @@
 <div class="container">
   <h1>Job Applications Track</h1>
   <!--job application table-->
+  <div class="job-table">
   <table class="table">
     <thead>
       <tr>
@@ -45,12 +46,31 @@
         <th>Application Status</th>
         <th>Shortlisted</th>
         <th>Interview Date</th>
+        <th>Interview Time</th>
         <th>Actions</th>
+        
       </tr>
     </thead>
     <tbody>
+      <tr *ngFor="let application of applications; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{ application.fullNames }}</td>
+        <td>{{ application.lastName }}</td>
+        <td>{{ application.jobAppliedFor }}</td>
+        <td>{{ applicationStatus }}</td>
+        <td>{{ shortlisted ? 'Yes' : 'No' }}</td>
+        <td>{{ interviewDate }}</td>
+        <td>{{interviewTime}}</td>
+        <td>
+          <button mat-raised-button class="btn btn-outline-info" (click)="toggleAlumniResume(application)">View Resume</button>
+          <button mat-raised-button (click)="openInterviewDialog(application)" style="margin-left: 5px;">Accept Application</button>
+          <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-left: 5px;">Reject Application</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-  <div *ngFor="let application of applications; let i = index">
+  <!-- <div *ngFor="let application of applications; let i = index">
     <p>[{{i+1}}] Application from {{ application.fullNames }} {{ application.lastName }},</p>
     <p>applied for {{ application.jobAppliedFor}} job</p>
     
@@ -71,7 +91,7 @@
     </form>
     
     <hr />
-  </div>
+  </div> -->
 <!-- </div> -->
 
  

@@ -36,6 +36,10 @@ export class AdminJobApplicationsComponent {
   isAcceptDialog: boolean = false;
   isRejectDialog: boolean = false;
   selectedAlumni: any; // Holds the data of the selected alumni
+  applicationStatus: string='';
+  shortlisted: boolean = false;
+  interviewDate: string = '';
+  interviewTime: string = ''; 
   
  
   constructor(private dialog: MatDialog){
