@@ -1,6 +1,6 @@
 // Add this interface definition at the beginning of your file or in a separate file (e.g., alumni.model.ts)
 interface Profile {
-  alumni_id: number;
+  account_id: number;
   name: string;
   surname: string;
   location: string;
@@ -36,7 +36,7 @@ export class TrackAlumniComponent implements OnInit {
     this.apiService.getProfiles().subscribe((data: any) => {
       if (data && data.profiles) {
         this.dataSource = data.profiles.map((profile: Profile) => ({
-          alumni_Id: profile.alumni_id,
+          account_id: profile.account_id,
           alumniName: `${profile.name} ${profile.surname}`,
           location: profile.location,
           qualification: profile.qualification,
@@ -58,7 +58,14 @@ export class TrackAlumniComponent implements OnInit {
     this.showAlumniStats = !this.showAlumniStats;
   }
 
+
+  imageUrl = 'http://localhost:3000/uploads/pics/profiles';
+
   getAlumniPicturePath(picFile: string): string {
-    return picFile ? `http:/localhost:3000/uploads/pics/profiles/${picFile}` : 'http://path-to-default-image';
+
+
+    console.log(`http:/localhost:3000/uploads/pics/profiles/${picFile}`);
+
+    return `${this.imageUrl}/${picFile}`;
   }
 }
