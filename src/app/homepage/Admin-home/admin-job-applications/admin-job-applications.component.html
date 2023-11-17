@@ -28,7 +28,7 @@
     </form>
     
     <form (submit)="respondToApplication(application, 'Rejected')">
-      <button mat-raised-button class="btn btn-outline-info" (click)="rejectApplication()" style="margin-top: 10px;">Reject Application</button>
+      <button mat-raised-button  (click)="openRejectionDialog(application)" style="margin-top: 10px;">Reject Application</button>
     </form>
     
     </div>

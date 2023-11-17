@@ -4,7 +4,8 @@
 import { Component, } from '@angular/core';
 import{ MatDialog} from '@angular/material/dialog';
 import { JobInterviewSetterDialogComponent } from '../job-interview-setter-dialog/job-interview-setter-dialog.component';
-import { Dialog } from '@angular/cdk/dialog';
+// import { Dialog } from '@angular/cdk/dialog';
+import { JobRejectionDialogComponent } from '../job-rejection-dialog/job-rejection-dialog.component';
 
 // Define the interface for the Alumni object
 interface Alumni {
@@ -53,29 +54,41 @@ export class AdminJobApplicationsComponent {
     //Subscribe to the afterClosed event to get the result when the dialog is closed
   dialogRef.afterClosed().subscribe(result => {
     // Handle the result if needed
-    // if (result) {
-    //   // User clicked send, and you have the interview details in the 'result' object
-    //   console.log('Interview details:', result);
-
-    //   // Add your logic here to handle the interview details, respond to the application,
-    //   // and send the details to the applicable candidate
-    // } else {
-    //   // User clicked cancel
-    //   console.log('Interview canceled');
-    // }
-
     if (result) {
-      // Logic after dialog is closed
-      if (this.dialog.toString() === 'interview') {
-        // Handle interview logic
-      } else if (this.dialog.toString() === 'rejection') {
-        // Handle rejection logic
-      }
+      // User clicked send, and you have the interview details in the 'result' object
+      console.log('Interview details:', result);
+
+      // Add your logic here to handle the interview details, respond to the application,
+      // and send the details to the applicable candidate
+    } else {
+      // User clicked cancel
+      console.log('Interview canceled');
     }
   
   });
 
   }
+ //job rejection component
+ openRejectionDialog(application: Alumni): void {
+  const dialogRef = this.dialog.open(JobRejectionDialogComponent, {
+    width: '400px', // Adjust the width as per your requirement
+    data: {
+      application,
+       jobTitle: application.jobAppliedFor,
+    },
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    // Handle the result if needed
+    if (result) {
+      // Logic after dialog is closed
+    }
+    else{
+      //logic
+    }
+  });
+}
+
   // Define the array of Alumni objects (applications)
      applications: Alumni[] = [
     {

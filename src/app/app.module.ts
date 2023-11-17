@@ -57,6 +57,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 // import { MatTimepickerModule } from 'mat-timepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { JobRejectionDialogComponent } from './homepage/Admin-home/job-rejection-dialog/job-rejection-dialog.component';
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AlumniResumeComponent,
     AdminJobApplicationsComponent,
     JobInterviewSetterDialogComponent,
+    JobRejectionDialogComponent,
     
     
     // ViewProfileComponent,
