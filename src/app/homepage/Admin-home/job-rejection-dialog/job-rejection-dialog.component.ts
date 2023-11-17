@@ -39,7 +39,7 @@ export class JobRejectionDialogComponent {
     this.dialogRef.close();
     // Do something with notifyApplicant, e.g., save it or use it
     console.log('Selected Option:', this.notifyApplicant);
-    this.showSnackbar('Applicant have been shortlisted, waiting for interview');
+    this.showSnackbar('Applicant have been rejected');
   }
 
 }
