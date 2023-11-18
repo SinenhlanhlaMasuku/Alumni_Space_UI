@@ -6,10 +6,11 @@
     margin-left: 10px;
     margin-right: 10px;
     box-shadow: 5px 5px 5px 5px blue;
-    background-color: aliceblue;
+    background-color: #000;
 }
 .header h1{
     text-align: center;
+    color: #fff;
 
 }
 .round-image {

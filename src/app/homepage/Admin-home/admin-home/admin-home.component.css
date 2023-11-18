@@ -48,7 +48,7 @@
     box-shadow: 5px 3px 5px 3px blue;
     border: solid white; 
     margin-left: 10px;
-    background-color: aliceblue;
+    background-color: #000;
     width: auto;
 }
 
@@ -120,9 +120,10 @@
         /* background-color: #fff; */
         border-radius: 5px;
         /* border: solid blue; */
-        background-color: aliceblue;
+        background-color: black;
         /* box-shadow: 5px 5px 5px 5px blue; */
-        padding-top: 10px;
+        /* padding-top: 10px; */
+        margin-top: 10px;
         /* margin: 3px; */
         /* padding-left: 10px; */
         /* box-shadow: 5px 5px 5px 5px #939393; */

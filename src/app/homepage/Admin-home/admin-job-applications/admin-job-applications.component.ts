@@ -22,6 +22,10 @@ interface Alumni {
    interests: string[];
    alumnipic: string;
    jobAppliedFor: string;
+   applicationStatus?: string;
+  shortlisted?: boolean;
+  interviewDate?: string;
+  interviewTime?: string;
 }
 
 // Decorate the class as an Angular component
@@ -36,10 +40,10 @@ export class AdminJobApplicationsComponent {
   isAcceptDialog: boolean = false;
   isRejectDialog: boolean = false;
   selectedAlumni: any; // Holds the data of the selected alumni
-  applicationStatus: string='';
-  shortlisted: boolean = false;
-  interviewDate: string = '';
-  interviewTime: string = ''; 
+  applicationStatus!: string;
+  shortlisted!: boolean;
+  interviewDate!: string;
+  interviewTime!: string; 
   
  
   constructor(private dialog: MatDialog){
@@ -53,6 +57,11 @@ export class AdminJobApplicationsComponent {
         application,
           jobTitle: application.jobAppliedFor, // Pass the job title
            dialogType: this.dialog,
+           applicationStatus: application.applicationStatus || '',
+        shortlisted: application.shortlisted || false,
+        interviewDate: application.interviewDate || '',
+        interviewTime: application.interviewTime || '',
+
 
       },
     });

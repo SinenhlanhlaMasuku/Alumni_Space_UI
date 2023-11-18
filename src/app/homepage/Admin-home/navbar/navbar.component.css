@@ -1,45 +1,4 @@
- .online-status {
-  position: absolute;
-   
-  top: 22px;
- 
-  left: 22px;
-  
-  z-index: 1;
-  box-shadow: 5px 5px 5px 5pxh #0a14aaf3;
-}
 
-/*.notification-badge {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: red;
-   Background color of the badge 
-  color: white;
-  Text color of the badge 
-  border-radius: 50%;
-   Make it a circle 
-  width: 20px;
-  Adjust the width and height as needed 
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
- Custom CSS to style the icon container 
-.icon-container {
-  position: relative;
-   Create a relative container for positioning 
-  display: inline-block;
-   Ensure that it respects the content's size 
-  width: 37px;
-  height: 37px;
-}
-.icons{
-  margin-top: 20px;
-}
- */
 .card {
   margin-top: 50px;
   padding: 10px 10px 10px;
@@ -144,7 +103,7 @@
   justify-content: space-between;
   align-items: left;
   /* background-color: rgb(10, 168, 196);  */
-  background-color: aliceblue;
+  background-color: #000;
   padding: 5px; 
   width: auto;
   height: auto;
@@ -264,4 +223,64 @@
 }
 .Ad-profile{
   margin-left: 5%;
+  /* background-color: #000; */
+  color: #fff;
+
 }
+
+/* --new style--> */
+/* Add these styles to your component's CSS file or styles section */
+
+/* .header {
+  background-color: #007bff; Set your desired background color
+  padding: 10px; Add padding for better visibility
+} */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px; /* Add some margin between navbar links */
+}
+
+.navbar-link:hover {
+  text-decoration: underline; /* Underline links on hover for better feedback */
+}
+
+.input-group {
+  margin-right: 20px; /* Add some margin to the search input */
+}
+
+.card-tip {
+  /* Add styles for the search results card */
+  position: absolute;
+  top: 60px; /* Adjust the distance from the top as needed */
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1;
+}
+
+/* Add a media query for responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack the navbar links vertically on smaller screens */
+    /* border-collapse: collapse; */
+  }
+
+  .navbar-link {
+    margin-right: 0;
+    margin-bottom: 10px; /* Add margin at the bottom of each stacked link */
+  }
+
+  .input-group {
+    margin-right: 0;
+  }
+}
+

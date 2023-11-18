@@ -64,9 +64,9 @@
         <td>{{interviewTime}}</td>
         <td>
            <div class="Actions-btns">
-          <button mat-raised-button class="btn btn-outline-info" (click)="toggleAlumniResume(application)">View Resume</button>
-          <button mat-raised-button (click)="openInterviewDialog(application)" style="margin-left: 5px;">Accept Application</button>
-          <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-left: 5px;">Reject Application</button>
+          <button mat-raised-button class="btn btn-outline-info" (click)="toggleAlumniResume(application)"  color="primary">View Resume</button>
+          <button mat-raised-button (click)="openInterviewDialog(application)" style="margin-left: 5px;"  color="primary">Accept Application</button>
+          <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-left: 5px;"  color="primary">Reject Application</button>
            </div>
         </td>
       </tr>
@@ -77,7 +77,7 @@
     <!-- <p>applied for {{ application.jobAppliedFor}} job</p> -->
     <div class="View-card">
       <div class="exit-btn">
-        <button mat-raised-button (click)="closeResume(applications)">close</button>
+        <button mat-raised-button (click)="closeResume(applications)"  color="primary">close</button>
       </div>
   <div *ngFor="let application of applications; let i = index">
     
@@ -89,18 +89,15 @@
     <div *ngIf="selectedAlumni === application"> 
       <app-alumni-resume [alumni]="selectedAlumni"></app-alumni-resume>
     </div>
-    
-    <!-- <form (submit)="respondToApplication(application, 'Accepted?')">
-      <button mat-raised-button (click)="openInterviewDialog(application)" style="margin-top: 10px;">Accept Application</button>
-    </form>
-    
-    <form (submit)="respondToApplication(application, 'Rejected')">
-      <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-top: 10px;">Reject Application</button>
-    </form> -->
+
   </div>
-    
+     <!--addPdfReader-Here-->
+     <div class="uploads-preview">
+         <pdf-viewer [src]="'../src/assets/List of alumni.pdf df'" [render-text]="true" style="display: block;"></pdf-viewer>
+     </div>
   </div> 
-<!-- </div> -->
+</div>
+<app-admin-footer></app-admin-footer>
 
  
   

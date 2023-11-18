@@ -6,15 +6,19 @@
     margin-right: 20px;
     margin-top: 10px;
     margin-bottom: 20px;
+    background-color: #000;
 }
 .container-fluid h1{
     text-align: center;
     font-size: 30px;
+    color: #fff;
 }
 
 table {
     border-collapse: collapse;
     width: 100%;
+    background-color: #fff;
+    margin-bottom: 5px;
 }
 
 th, td {
@@ -24,11 +28,11 @@ th, td {
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #fff;
 }
 
 th {
-    background-color: blue;
+    background-color: #000;
     color: white;
 }
 

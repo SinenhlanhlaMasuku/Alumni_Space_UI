@@ -1,6 +1,9 @@
 <!-- <p>job-rejection-dialog works!</p> -->
 <!-- job-rejection-dialog.component.html -->
-<h2 mat-dialog-title>Rejection Details</h2>
+<!-- mat-dialog-title -->
+<div class="card">
+<h2>Rejection Details</h2>
+ <p>Rejection for the job: {{data.jobTitle}}</p>
 <mat-dialog-content>
   <mat-form-field>
     <textarea matInput placeholder="Reason for rejection" [(ngModel)]="rejectionReason"></textarea>
@@ -10,4 +13,4 @@
   <button mat-raised-button (click)="onCancelClick()" color="warn">Cancel</button>
   <button mat-raised-button (click)="onConfirmClick()" color="primary" cdkFocusInitial>Confirm</button>
 </mat-dialog-actions>
-
+</div>
