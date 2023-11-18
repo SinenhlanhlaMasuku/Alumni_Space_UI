@@ -58,15 +58,17 @@
         <td>{{ application.fullNames }}</td>
         <td>{{ application.lastName }}</td>
         <td>{{ application.jobAppliedFor }}</td>
-        <td>{{ applicationStatus }}</td>
-        <td>{{ shortlisted ? 'Yes' : 'No' }}</td>
-        <td>{{ interviewDate }}</td>
-        <td>{{interviewTime}}</td>
+        <td>{{ application.applicationStatus }}</td>
+        <td>{{ application.shortlisted ? 'Yes' : 'No' }}</td>
+        <td>{{ application.interviewDate }}</td>
+        <td>{{application.interviewTime}}</td>
         <td>
            <div class="Actions-btns">
           <button mat-raised-button class="btn btn-outline-info" (click)="toggleAlumniResume(application)"  color="primary">View Resume</button>
           <button mat-raised-button (click)="openInterviewDialog(application)" style="margin-left: 5px;"  color="primary">Accept Application</button>
           <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-left: 5px;"  color="primary">Reject Application</button>
+          <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-left: 5px;"  color="primary"> Application Succeed</button>
+
            </div>
         </td>
       </tr>

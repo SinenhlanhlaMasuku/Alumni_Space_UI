@@ -1,16 +1,40 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, Inject, OnInit } from '@angular/core';
+import { EventEmitter, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+// Define the interface for the Alumni object
+interface Alumni {
+  fullNames: string;
+  lastName: string;
+  skills: string[];
+  email: string;
+  experience: string;
+  qualification: string;
+  certificateNames: string[];
+  certificates: string[];
+  Bio: string;
+  address: string;
+   interests: string[];
+   alumnipic: string;
+   jobAppliedFor: string;
+   applicationStatus?: string;
+  shortlisted?: boolean;
+  interviewDate?: string;
+  interviewTime?: string;
+}
 @Component({
   selector: 'app-job-interview-setter-dialog',
   templateUrl: './job-interview-setter-dialog.component.html',
   styleUrls: ['./job-interview-setter-dialog.component.css']
 })
+
 export class JobInterviewSetterDialogComponent {
+  @Output() interviewConfirmed: EventEmitter<any> = new EventEmitter();
+
   interviewDate!: Date;
   interviewTime!: Date;
-  interviewAddress!: string;
+  // interviewAddress!: string;
   buildingNumber!: string;
  
   rejectionReason: string = '';
@@ -18,7 +42,10 @@ export class JobInterviewSetterDialogComponent {
   dialogType: boolean; // Add this line to declare the property
   isAcceptDialog: boolean = false;
   isRejectDialog: boolean = false;
-
+  interviewType: string='';
+  // onLineMeeting: boolean = false;
+  // isShowMoreFields: boolean = false;
+  meetingLink: string ='';
   // notifyApplicant!: string;
   // constructor(){}
   constructor(public dialogRef: MatDialogRef<JobInterviewSetterDialogComponent>,
@@ -26,11 +53,18 @@ export class JobInterviewSetterDialogComponent {
     private snackbar: MatSnackBar
   ) {
     this.dialogType = data.dialogType;
+    
+    // if(this.onLineMeeting){
+    //     this.isShowMoreFields = true;
+    // }
 
   }
- ngOnInIt(): void{
-  // Access job title from data
+ ngOnInit(): void{
+  // Access job title and other attributes from data
   console.log(this.data.jobTitle);
+  console.log(this.data.firstname);
+  console.log(this.data.surname);
+  
 
  }
  showSnackbar(message: string) {
@@ -50,14 +84,21 @@ export class JobInterviewSetterDialogComponent {
     const interviewDetails = {
       interviewDate: this.interviewDate,
       interviewTime: this.interviewTime,
-      // interviewAddress: this.interviewAddress,
-      buildingNumber: this.buildingNumber
+      buildingNumber: this.buildingNumber,
+      interviewType: this.interviewType,
+      interviewLink: this.meetingLink,
+      notifyApplicant: this.notifyApplicant,
+      // interviewLink: this.meetingLink,
     };
+    // if(this.interviewDate.toString.length !== 0 || this.interviewTime.toString.length !== 0 || this.buildingNumber.length !== 0){
+    this.interviewConfirmed.emit(interviewDetails);
     this.dialogRef.close(interviewDetails);
      // Do something with notifyApplicant, e.g., save it or use it
      console.log('Selected Option:', this.notifyApplicant);
      this.showSnackbar('Applicant have been shortlisted, waiting for interview');
-  }
+    }
+    
+  // }
 
   // New method for handling rejection
   handleRejection(): void {

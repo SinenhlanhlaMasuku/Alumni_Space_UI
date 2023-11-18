@@ -47,4 +47,11 @@
   .mat-button:hover {
     background-color: #45a049;
   }
+  .notifyApplicant{
+    background-color: #fff;
+
+  }
+  .notifyApplicant p{
+    color: #000;
+  }
   

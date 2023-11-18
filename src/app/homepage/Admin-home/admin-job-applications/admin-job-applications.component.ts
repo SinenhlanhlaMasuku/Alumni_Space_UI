@@ -45,6 +45,13 @@ export class AdminJobApplicationsComponent {
   interviewDate!: string;
   interviewTime!: string; 
   
+  isApplicationDone: boolean = false;//if the application is done the remove application(details) from the db and table
+  //then the  applicant's employment status will automatically change to employed on profile if the interview went well
+  isInterviewDone: boolean= false;
+  updateApplicantStatus: string = '';//Hired/Rejected
+
+
+
  
   constructor(private dialog: MatDialog){
 
@@ -56,6 +63,8 @@ export class AdminJobApplicationsComponent {
         // Pass any data you want to the dialog
         application,
           jobTitle: application.jobAppliedFor, // Pass the job title
+          firstname: application.fullNames,
+          surname: application.lastName,
            dialogType: this.dialog,
            applicationStatus: application.applicationStatus || '',
         shortlisted: application.shortlisted || false,
@@ -64,6 +73,20 @@ export class AdminJobApplicationsComponent {
 
 
       },
+    });
+
+    dialogRef.componentInstance.interviewConfirmed.subscribe((interviewDetails: any) => {
+      // Update the job application details in the table
+      // You can access the application object and update its properties
+      console.log('Interview details received:', interviewDetails);
+  
+      // Update the application object or perform other actions as needed
+      // application.interviewDate = interviewDetails.interviewDate;
+      // application.interviewTime = interviewDetails.interviewTime;
+      // ...
+  
+      // Refresh the table if needed
+      // this.refreshTable();
     });
     //Subscribe to the afterClosed event to get the result when the dialog is closed
   dialogRef.afterClosed().subscribe(result => {
@@ -82,6 +105,7 @@ export class AdminJobApplicationsComponent {
   });
 
   }
+
  //job rejection component
  openRejectionDialog(application: Alumni): void {
   const dialogRef = this.dialog.open(JobRejectionDialogComponent, {
@@ -147,11 +171,11 @@ export class AdminJobApplicationsComponent {
     // Handle the response logic here
     console.log(`Responding to application from ${application.fullNames}: ${response}`);
   }
-  acceptApplication() {
+  acceptApplication(application: Alumni) {
     // You can perform any logic related to accepting the application here
     // Open the interview details dialog
-    // this.openInterviewDialog();
-    this.isAcceptDialog = true;
+     this.openInterviewDialog(application);
+    // this.isAcceptDialog = true;
   }
   rejectApplication(){
      console.log('application rejected');
