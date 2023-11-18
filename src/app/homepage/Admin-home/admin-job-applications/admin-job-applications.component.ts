@@ -42,7 +42,7 @@ export class AdminJobApplicationsComponent {
   selectedAlumni: any; // Holds the data of the selected alumni
   applicationStatus!: string;
   shortlisted!: boolean;
-  interviewDate!: string;
+  interviewDate!: string ;
   interviewTime!: string; 
   
   isApplicationDone: boolean = false;//if the application is done the remove application(details) from the db and table
@@ -79,10 +79,11 @@ export class AdminJobApplicationsComponent {
       // Update the job application details in the table
       // You can access the application object and update its properties
       console.log('Interview details received:', interviewDetails);
-  
+        this.shortlisted = true;
       // Update the application object or perform other actions as needed
-      // application.interviewDate = interviewDetails.interviewDate;
-      // application.interviewTime = interviewDetails.interviewTime;
+       application.interviewDate = interviewDetails.interviewDate;
+       application.interviewTime = interviewDetails.interviewTime;
+       application.shortlisted = true;
       // ...
   
       // Refresh the table if needed
