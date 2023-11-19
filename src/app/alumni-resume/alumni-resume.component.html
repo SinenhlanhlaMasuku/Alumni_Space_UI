@@ -31,12 +31,10 @@
                            <!-- </ul> -->
 
                            </div>
-                            <!-- <p>Interests: {{alumni.interests}} </p> -->
-                          <!-- </div>  -->
+                        
                     </div>
-                    <!-- <div>
-                      <p>Interests: {{alumni[0].interests}} </p>
-                    </div> -->
+                    
+                     
                     <h3>Education information</h3>
                        
                     <p>Experience: {{alumni?.experience}}</p>
@@ -48,22 +46,8 @@
                       <h3>List of Achievements</h3>
                       <li *ngFor="let certificate of alumni?.certificates; let i = index">
                       Certicate Name [{{i+1}}] :<a href="{{alumni!.certificates[i]}}">{{alumni!.certificateNames[i]}}</a>
-                       <!-- <ng-container *ngIf="alumni?.certificateNames && alumni!.certificateNames[i]">  -->
-                        <!-- Certificates names: -->
-                        <!-- <a href="{{alumni!.certificates[i]}}">{{alumni!.certificateNames[i]}}</a> -->
-                      <!-- </ng-container> -->
+                       
                     </li>
-
-                    <!-- <ul>
-                      <ng-container *ngIf="alumni?.certificates && alumni?.certificateNames">
-                        <li *ngFor="let certificate of alumni?.certificates; let i = index">
-                          Certificates names:
-                          <a *ngIf="alumni!.certificateNames[i]" href="{{alumni!.certificates[i]}}">
-                            {{alumni!.certificateNames[i]}}
-                          </a>
-                        </li>
-                      </ng-container>
-                    </ul> -->
                     </div>
                    </div>
                    <div class="other-uploads">
@@ -72,11 +56,3 @@
                        <p>Motivational Letter: <a href="{{alumni?.motivationalLetter}}" target="_blank" style="display: block; width: 80%; text-align: center; height: 25%; margin-left: 10px; margin-right: 10px; border: 1px solid #ddd;">Letter of {{alumni!.fullNames}} {{alumni?.lastName}}</a></p>
                    </div>
                 </div>
-              <!-- </div> -->
-            <!-- </div> -->
-            
-            <!-- <div class="horizontal-line"></div> -->
-        
-      
-
-<!-- </div> -->

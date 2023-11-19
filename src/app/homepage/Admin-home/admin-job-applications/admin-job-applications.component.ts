@@ -1,5 +1,3 @@
-
-
 // Import necessary modules and components
 import { Component, } from '@angular/core';
 import{ MatDialog} from '@angular/material/dialog';
@@ -7,7 +5,7 @@ import { JobInterviewSetterDialogComponent } from '../job-interview-setter-dialo
 // import { Dialog } from '@angular/cdk/dialog';
 import { JobRejectionDialogComponent } from '../job-rejection-dialog/job-rejection-dialog.component';
 import { JobInterviewStatusDialogComponent } from '../job-interview-status-dialog/job-interview-status-dialog.component';
-
+// import{ DatePipe} from '@angular/common';
 // Define the interface for the Alumni object
 interface Alumni {
   fullNames: string;
@@ -73,7 +71,7 @@ export class AdminJobApplicationsComponent {
         shortlisted: application.shortlisted || false,
         interviewDate: application.interviewDate || '',
         interviewTime: application.interviewTime || '',
-
+        // interviewDate: this.datePipe.transform(this.interviewDate, 'yyyy-MM-dd'),
 
       },
     });
@@ -87,6 +85,7 @@ export class AdminJobApplicationsComponent {
        application.interviewDate = interviewDetails.interviewDate;
        application.interviewTime = interviewDetails.interviewTime;
        application.shortlisted = true;
+       application.applicationStatus = 'waiting for interview';
       // ...
   
       // Refresh the table if needed
@@ -117,9 +116,14 @@ export class AdminJobApplicationsComponent {
     data: {
       application,
        jobTitle: application.jobAppliedFor,
+       
     },
   });
-
+ this.applicationStatus = 'rejected';
+  application.applicationStatus = this.applicationStatus;
+   application.shortlisted = false;
+   application.interviewDate = '';
+   
   dialogRef.afterClosed().subscribe(result => {
     // Handle the result if needed
     if (result) {
@@ -175,7 +179,7 @@ openSuccessDialog(application: Alumni){
     },
     // Add more Alumni objects as needed
     {
-            fullNames: 'Sihle, Bandile',
+            fullNames: 'Sihle Bandile',
             lastName: 'MccNear',
             skills: ['JavaScript', 'Angular', 'Node.js', 'HTML', 'CSS'],
             email: 'SihleM@gmail.com',
