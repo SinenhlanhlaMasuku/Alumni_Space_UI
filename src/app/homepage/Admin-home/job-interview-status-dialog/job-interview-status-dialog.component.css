@@ -1,0 +1,13 @@
+.card{
+    background-color: #000;
+    padding: 10px;
+    justify-content: center;
+}
+.card h2{
+   color: #fff;
+   font-size: 30px;
+}
+.card p{
+    color: #fff;
+    font-size: 15px;
+}

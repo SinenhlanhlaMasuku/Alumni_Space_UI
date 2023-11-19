@@ -59,6 +59,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { JobRejectionDialogComponent } from './homepage/Admin-home/job-rejection-dialog/job-rejection-dialog.component';
 import {MatSelectModule} from '@angular/material/select';
+import { JobInterviewStatusDialogComponent } from './homepage/Admin-home/job-interview-status-dialog/job-interview-status-dialog.component';
 
 
 @NgModule({
@@ -95,6 +96,7 @@ import {MatSelectModule} from '@angular/material/select';
     AdminJobApplicationsComponent,
     JobInterviewSetterDialogComponent,
     JobRejectionDialogComponent,
+    JobInterviewStatusDialogComponent,
     
     
     // ViewProfileComponent,

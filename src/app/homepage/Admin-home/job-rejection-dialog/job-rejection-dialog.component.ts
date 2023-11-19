@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class JobRejectionDialogComponent {
   rejectionReason: string='';
   notifyApplicant: boolean=false;
+  comments: string ='';
 
   // constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
   //   // You can access the application data like data.application, data.jobTitle, etc.
@@ -38,7 +39,7 @@ export class JobRejectionDialogComponent {
   onConfirmClick(){
     this.dialogRef.close();
     // Do something with notifyApplicant, e.g., save it or use it
-    console.log('Selected Option:', this.notifyApplicant);
+    console.log('Rejection Reason: ', this.rejectionReason);
     this.showSnackbar('Applicant have been rejected');
   }
 

@@ -47,7 +47,7 @@
                      <div class="Achievements">
                       <h3>List of Achievements</h3>
                       <li *ngFor="let certificate of alumni?.certificates; let i = index">
-                      Certicates names: <a href="{{alumni!.certificates[i]}}">{{alumni!.certificateNames[i]}}</a>
+                      Certicate Name [{{i+1}}] :<a href="{{alumni!.certificates[i]}}">{{alumni!.certificateNames[i]}}</a>
                        <!-- <ng-container *ngIf="alumni?.certificateNames && alumni!.certificateNames[i]">  -->
                         <!-- Certificates names: -->
                         <!-- <a href="{{alumni!.certificates[i]}}">{{alumni!.certificateNames[i]}}</a> -->
@@ -68,8 +68,8 @@
                    </div>
                    <div class="other-uploads">
                       <h2>Other uploads</h2>
-                       <p>Identity Document</p>
-                       <p>Motivational Letter</p>
+                       <p>Identity Document:<a href="{{alumni!.idCopy}}" target="_blank" style="display: block; width: 80%; text-align: center; height: 25%; margin-left: 10px; margin-right: 10px; border: 1px solid #ddd;">ID of {{alumni!.fullNames}} {{alumni?.lastName}}</a></p>
+                       <p>Motivational Letter: <a href="{{alumni?.motivationalLetter}}" target="_blank" style="display: block; width: 80%; text-align: center; height: 25%; margin-left: 10px; margin-right: 10px; border: 1px solid #ddd;">Letter of {{alumni!.fullNames}} {{alumni?.lastName}}</a></p>
                    </div>
                 </div>
               <!-- </div> -->

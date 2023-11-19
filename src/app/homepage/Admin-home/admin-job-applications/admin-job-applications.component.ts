@@ -6,6 +6,7 @@ import{ MatDialog} from '@angular/material/dialog';
 import { JobInterviewSetterDialogComponent } from '../job-interview-setter-dialog/job-interview-setter-dialog.component';
 // import { Dialog } from '@angular/cdk/dialog';
 import { JobRejectionDialogComponent } from '../job-rejection-dialog/job-rejection-dialog.component';
+import { JobInterviewStatusDialogComponent } from '../job-interview-status-dialog/job-interview-status-dialog.component';
 
 // Define the interface for the Alumni object
 interface Alumni {
@@ -22,6 +23,8 @@ interface Alumni {
    interests: string[];
    alumnipic: string;
    jobAppliedFor: string;
+   idCopy: string;
+   motivationalLetter: string;
    applicationStatus?: string;
   shortlisted?: boolean;
   interviewDate?: string;
@@ -127,8 +130,31 @@ export class AdminJobApplicationsComponent {
     }
   });
 }
+//success dialog
+openSuccessDialog(application: Alumni){
+  const dialogRef = this.dialog.open(JobInterviewStatusDialogComponent, {
+    width: '400px', // Adjust the width as per your requirement
+    data: {
+      application,
+       jobTitle: application.jobAppliedFor,
+       firstname: application.fullNames,
+       surname: application.lastName,
+    },
+  });
 
-  // Define the array of Alumni objects (applications)
+  dialogRef.afterClosed().subscribe(result => {
+    // Handle the result if needed
+    if (result) {
+      // Logic after dialog is closed
+    }
+    else{
+      //logic
+    }
+  });
+
+}
+
+  // Define the array of Alumni objects (applications) that will fetch the data from the db
      applications: Alumni[] = [
     {
       fullNames: 'John Dan',
@@ -141,10 +167,11 @@ export class AdminJobApplicationsComponent {
       Bio: 'Young dedicated individual, with strong personality',
       address: '245 surder str',
        interests: ['coding','gaming'],
-      //  certificateNames: ['HuaweiCloud','MS data Engineer', ''],
+      idCopy: 'pathtoId',
        certificates: ['certicate1Path','certificatePath2'],
        alumnipic: 'assets/Sneh.jpg',
-       jobAppliedFor: 'Software Engineering'
+       jobAppliedFor: 'Software Engineering',
+       motivationalLetter: 'pathtomotivationalLetter'
     },
     // Add more Alumni objects as needed
     {
@@ -161,8 +188,9 @@ export class AdminJobApplicationsComponent {
             // certificateNames: ['HuaweiCloud','MS data Engineer', ''],
             certificates: ['certicate1Path','certificatePath2'],
             alumnipic: 'assets/Sihle.jpg',
-            jobAppliedFor: 'Full-stack Developer'
-
+            jobAppliedFor: 'Full-stack Developer',
+            idCopy: 'pathtoId',
+            motivationalLetter: 'assets/List of alumni.pdf'
           },
       
   ];

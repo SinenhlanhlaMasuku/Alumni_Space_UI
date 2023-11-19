@@ -15,7 +15,8 @@ interface Alumni {
   certificates: string[];
   certificateNames: string[];
   alumnipic: string;
- 
+  idCopy: string;
+  motivationalLetter: string;
 };
 @Component({
   selector: 'app-alumni-resume',

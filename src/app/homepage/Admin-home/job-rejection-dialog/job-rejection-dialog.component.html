@@ -6,8 +6,17 @@
  <p>Rejection for the job: {{data.jobTitle}}</p>
 <mat-dialog-content>
   <mat-form-field>
-    <textarea matInput placeholder="Reason for rejection" [(ngModel)]="rejectionReason"></textarea>
+    <textarea matInput placeholder="Add comments" [(ngModel)]="comments"></textarea>
   </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Reason for rejection</mat-label>
+     <select matNativeControl required [(ngModel)]="rejectionReason">
+      <option value="Do not meet job requirements">Do not meet job requirements</option>
+      <option value="Applications Closed or Job expired">Applications Closed or Job expired</option>
+      <option value="You are over qualified">You are over qualified</option>
+     </select>
+    </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-raised-button (click)="onCancelClick()" color="warn">Cancel</button>

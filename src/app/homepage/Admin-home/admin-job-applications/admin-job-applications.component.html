@@ -67,7 +67,7 @@
           <button mat-raised-button class="btn btn-outline-info" (click)="toggleAlumniResume(application)"  color="primary">View Resume</button>
           <button mat-raised-button (click)="openInterviewDialog(application)" style="margin-left: 5px;"  color="primary">Accept Application</button>
           <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-left: 5px;"  color="primary">Reject Application</button>
-          <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-left: 5px;"  color="primary"> Application Succeed</button>
+          <button mat-raised-button (click)="openSuccessDialog(application)" style="margin-left: 5px;"  color="primary"> Application Succeed</button>
 
            </div>
         </td>
@@ -83,20 +83,11 @@
       </div>
   <div *ngFor="let application of applications; let i = index">
     
-    
-    <!-- <div>
-      <button mat-raised-button class="btn btn-outline-info" (click)="toggleAlumniResume(application)">View Resume</button>
-    </div> -->
-    
     <div *ngIf="selectedAlumni === application"> 
       <app-alumni-resume [alumni]="selectedAlumni"></app-alumni-resume>
     </div>
 
   </div>
-     <!--addPdfReader-Here-->
-     <div class="uploads-preview">
-         <pdf-viewer [src]="'../src/assets/List of alumni.pdf df'" [render-text]="true" style="display: block;"></pdf-viewer>
-     </div>
   </div> 
 </div>
 <app-admin-footer></app-admin-footer>

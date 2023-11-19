@@ -29,12 +29,12 @@
      <select matNativeControl required [(ngModel)]="interviewType">
       <option value="Online-Interview">Online-Interview</option>
       <option value="On-site-Interview">On-site-Interview</option>
-      <mat-form-field>
-        <input matInput placeholder="Building Number" [(ngModel)]="buildingNumber">
-      </mat-form-field>
     </select>
   </mat-form-field>
-    
+  <p> choose venue if (on-site) or enter  link if (online) => (choose one)</p>
+  <mat-form-field>
+    <input matInput placeholder="Building Number" [(ngModel)]="buildingNumber">
+  </mat-form-field>
   
       <div class="Online-Interview">
         <mat-form-field class="example-full-width">
