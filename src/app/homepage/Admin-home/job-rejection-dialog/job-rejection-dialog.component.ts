@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Output } from '@angular/core';
 // import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,6 +10,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./job-rejection-dialog.component.css']
 })
 export class JobRejectionDialogComponent {
+  @Output() RejectionConfirmed: EventEmitter<any> = new EventEmitter();
+  
   rejectionReason: string='';
   notifyApplicant: boolean=false;
   comments: string ='';
@@ -38,6 +40,11 @@ export class JobRejectionDialogComponent {
     this.showSnackbar('Cancelled!')
   }
   onConfirmClick(){
+    const jobRejectionDetails ={
+       rejectionReason: this.rejectionReason,
+    }
+
+    this.RejectionConfirmed.emit(jobRejectionDetails);
     this.dialogRef.close();
     // Do something with notifyApplicant, e.g., save it or use it
     console.log('Rejection Reason: ', this.rejectionReason);

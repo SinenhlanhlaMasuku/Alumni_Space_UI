@@ -38,13 +38,11 @@ export class JobInterviewSetterDialogComponent {
   buildingNumber!: string;
  
   rejectionReason: string = '';
-  notifyApplicant: boolean = false;
+  // notifyApplicant: boolean = false;
   dialogType: boolean; // Add this line to declare the property
   isAcceptDialog: boolean = false;
   isRejectDialog: boolean = false;
   interviewType: string='';
-  // onLineMeeting: boolean = false;
-  // isShowMoreFields: boolean = false;
   meetingLink: string ='';
   // notifyApplicant!: string;
   // constructor(){}
@@ -87,14 +85,14 @@ export class JobInterviewSetterDialogComponent {
       buildingNumber: this.buildingNumber,
       interviewType: this.interviewType,
       interviewLink: this.meetingLink,
-      notifyApplicant: this.notifyApplicant,
+      // notifyApplicant: this.notifyApplicant,
       // interviewLink: this.meetingLink,
     };
     // if(this.interviewDate.toString.length !== 0 || this.interviewTime.toString.length !== 0 || this.buildingNumber.length !== 0){
     this.interviewConfirmed.emit(interviewDetails);
     this.dialogRef.close(interviewDetails);
      // Do something with notifyApplicant, e.g., save it or use it
-     console.log('Selected Option:', this.notifyApplicant);
+    //  console.log('Selected Option:', this.notifyApplicant);
      this.showSnackbar('Applicant have been shortlisted, waiting for interview');
     }
     

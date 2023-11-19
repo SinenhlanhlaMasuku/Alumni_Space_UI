@@ -31,9 +31,11 @@ interface Alumni {
   styleUrls: ['./job-interview-status-dialog.component.css']
 })
 export class JobInterviewStatusDialogComponent {
-  @Output() RejectionConfirmed: EventEmitter<any> = new EventEmitter(); 
+  @Output() interviewConfirmed: EventEmitter<any> = new EventEmitter(); 
   dialogType: boolean;
   applicationStatus: string ='';
+ shortlisted!: boolean;
+
   constructor(public dialogRef: MatDialogRef<JobInterviewStatusDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private snackbar: MatSnackBar
@@ -64,25 +66,50 @@ export class JobInterviewStatusDialogComponent {
   }
 
   onConfirmClick(){
-    const interviewStatus = {
-         applicationStatus: this.applicationStatus,
-      // interviewLink: this.meetingLink,
-    };
+    
     // if(this.interviewDate.toString.length !== 0 || this.interviewTime.toString.length !== 0 || this.buildingNumber.length !== 0){
-     this.RejectionConfirmed.emit(interviewStatus);
+      if(this.applicationStatus == 'Hired'){
+        console.log('Job Status:', this.applicationStatus);
+        this.shortlisted = false;
+        this.showSnackbar('Applicant have been hired,  interview went well!');
+       }
+       else if(this.applicationStatus == 'Rejected'){
+        console.log('Job Status:', this.applicationStatus);
+        this.showSnackbar('Applicant have been rejected,  interview did not go well!');
+        this.shortlisted = false;
+       }
+       else{
+        //  Alumni.shortlisted = 'true';
+        this.shortlisted = true;
+        console.log('Job Status:', this.applicationStatus);
+        this.showSnackbar('Application still pending,  interview done!');
+       }
+       
+       const interviewStatus = {
+        applicationStatus: this.applicationStatus,
+        shortlisted: this.shortlisted,
+     // interviewLink: this.meetingLink,
+     
+   };
+    
+    this.interviewConfirmed.emit(interviewStatus);
     this.dialogRef.close(interviewStatus);
      // Do something with notifyApplicant, e.g., save it or use it
-     if(this.applicationStatus == 'Hired'){
-      console.log('Job Status:', this.applicationStatus);
-      this.showSnackbar('Applicant have been hired,  interview went well!');
-     }
-     else if(this.applicationStatus == 'Rejected'){
-      console.log('Job Status:', this.applicationStatus);
-      this.showSnackbar('Applicant have been rejected,  interview did not go well!');
-     }
-     else{
-      console.log('Job Status:', this.applicationStatus);
-      this.showSnackbar('Application still pending,  interview done!');
-     }
+    //  if(this.applicationStatus == 'Hired'){
+    //   console.log('Job Status:', this.applicationStatus);
+    //   this.shortlisted = false;
+    //   this.showSnackbar('Applicant have been hired,  interview went well!');
+    //  }
+    //  else if(this.applicationStatus == 'Rejected'){
+    //   console.log('Job Status:', this.applicationStatus);
+    //   this.showSnackbar('Applicant have been rejected,  interview did not go well!');
+    //   this.shortlisted = false;
+    //  }
+    //  else{
+    //   //  Alumni.shortlisted = 'true';
+    //   this.shortlisted = true;
+    //   console.log('Job Status:', this.applicationStatus);
+    //   this.showSnackbar('Application still pending,  interview done!');
+    //  }
   }
 }

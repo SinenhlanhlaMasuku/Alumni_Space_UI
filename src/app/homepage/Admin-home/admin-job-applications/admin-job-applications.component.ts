@@ -1,10 +1,12 @@
 // Import necessary modules and components
 import { Component, } from '@angular/core';
 import{ MatDialog} from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { JobInterviewSetterDialogComponent } from '../job-interview-setter-dialog/job-interview-setter-dialog.component';
 // import { Dialog } from '@angular/cdk/dialog';
 import { JobRejectionDialogComponent } from '../job-rejection-dialog/job-rejection-dialog.component';
 import { JobInterviewStatusDialogComponent } from '../job-interview-status-dialog/job-interview-status-dialog.component';
+import { AlumniModule } from 'src/app/alumni/alumni.module';
 // import{ DatePipe} from '@angular/common';
 // Define the interface for the Alumni object
 interface Alumni {
@@ -41,10 +43,15 @@ export class AdminJobApplicationsComponent {
   isAcceptDialog: boolean = false;
   isRejectDialog: boolean = false;
   selectedAlumni: any; // Holds the data of the selected alumni
+ //the variables below to be sent to alumni via notification or email(sendNotifications(alumnId, message, date);)
   applicationStatus!: string;
   shortlisted!: boolean;
   interviewDate!: string ;
   interviewTime!: string; 
+  firstName: string ='';  
+  lastName: string = 'Doe';
+  rejectionReason!: string;
+  adminComments!: string;
   
   isApplicationDone: boolean = false;//if the application is done the remove application(details) from the db and table
   //then the  applicant's employment status will automatically change to employed on profile if the interview went well
@@ -54,8 +61,16 @@ export class AdminJobApplicationsComponent {
 
 
  
-  constructor(private dialog: MatDialog){
+  constructor(private dialog: MatDialog, private snackbar: MatSnackBar){
 
+  }
+  showSnackbar(message: string) {
+    this.snackbar.open(message, 'Close', {
+      duration: 2000, // Duration the snackbar is shown in milliseconds
+      verticalPosition: 'top', // Set the vertical position to 'top'
+      horizontalPosition: 'center', // Set the horizontal position to 'center'
+      panelClass: ['snackbar'], // Add your custom class for styling
+    });
   }
   openInterviewDialog(application: Alumni): void {
     const dialogRef = this.dialog.open(JobInterviewSetterDialogComponent, {
@@ -75,6 +90,7 @@ export class AdminJobApplicationsComponent {
 
       },
     });
+
 
     dialogRef.componentInstance.interviewConfirmed.subscribe((interviewDetails: any) => {
       // Update the job application details in the table
@@ -100,6 +116,7 @@ export class AdminJobApplicationsComponent {
 
       // Add your logic here to handle the interview details, respond to the application,
       // and send the details to the applicable candidate
+      this.notifyApplicant(application, result);
     } else {
       // User clicked cancel
       console.log('Interview canceled');
@@ -119,18 +136,35 @@ export class AdminJobApplicationsComponent {
        
     },
   });
- this.applicationStatus = 'rejected';
+//  this.applicationStatus = 'rejected';
   application.applicationStatus = this.applicationStatus;
    application.shortlisted = false;
-   application.interviewDate = '';
-   
+   application.interviewDate = '----';
+   application.interviewTime = '----';
+   dialogRef.componentInstance.RejectionConfirmed.subscribe((jobRejectionDetails: any) => {
+      // Update the job application details in the table
+      // You can access the application object and update its properties
+      console.log('Interview details received:', jobRejectionDetails);
+        this.shortlisted = true;
+      // Update the application object or perform other actions as needed
+      //  application.interviewDate = interviewDetails.interviewDate;
+      //  application.interviewTime = interviewDetails.interviewTime;
+      //  application.shortlisted = true;
+       application.applicationStatus = 'Rejected';
+          this.rejectionReason = jobRejectionDetails.rejectionReason;
+      // ...
+  console.log(this.rejectionReason);
+      // Refresh the table if needed
+      // this.refreshTable();
+   });
   dialogRef.afterClosed().subscribe(result => {
     // Handle the result if needed
     if (result) {
       // Logic after dialog is closed
+      // this.showSnackbar('results are empty, please fill the fields');
     }
     else{
-      //logic
+      // this.showSnackbar('done!');
     }
   });
 }
@@ -145,7 +179,17 @@ openSuccessDialog(application: Alumni){
        surname: application.lastName,
     },
   });
-
+  dialogRef.componentInstance.interviewConfirmed.subscribe((interviewDetails: any) => {
+     // Update the job application details in the table
+      // You can access the application object and update its properties
+      console.log('Interview details received:', interviewDetails);
+          application.applicationStatus = interviewDetails.applicationStatus;
+          // this.rejectionReason = interviewDetails.rejectionReason;
+          application.interviewDate = '----';
+          application.interviewTime = '----';
+          application.shortlisted = interviewDetails.shortlisted;
+          
+  });
   dialogRef.afterClosed().subscribe(result => {
     // Handle the result if needed
     if (result) {
@@ -198,7 +242,7 @@ openSuccessDialog(application: Alumni){
           },
       
   ];
-
+  // firstName = this.applications.fullNames;
   // Define a method to respond to an application
   respondToApplication(application: Alumni, response: string) {
     // Handle the response logic here
@@ -235,6 +279,10 @@ openSuccessDialog(application: Alumni){
   closeResume(alumni: any){
     this.removeApplication = false;
     this.selectedAlumni = alumni;
+  }
+  notifyApplicant(application: Alumni, applicationStatus: string){
+    const message: string = applicationStatus;
+    this.showSnackbar('Sending application status details to :' + application.fullNames + ' ' + message);
   }
 }
 
