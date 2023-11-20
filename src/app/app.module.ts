@@ -18,8 +18,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { FAQsComponent } from './faqs/faqs.component';
 import { QueryService } from './query.service';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { AdminTableComponent } from './admin-table/admin-table.component';
+import { FormsModule } from '@angular/forms';
+import { AdminService } from './admin.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,18 +34,19 @@ import { HttpClientModule } from '@angular/common/http';
     EventsComponent,
     LogoutComponent,
     FAQsComponent,
-    
+    AdminTableComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    FormsModule
    
   ],
-  providers: [],
+  providers: [AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
