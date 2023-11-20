@@ -29,6 +29,7 @@ interface Alumni {
   shortlisted?: boolean;
   interviewDate?: string;
   interviewTime?: string;
+  
 }
 
 // Decorate the class as an Angular component
@@ -44,7 +45,7 @@ export class AdminJobApplicationsComponent {
   isRejectDialog: boolean = false;
   selectedAlumni: any; // Holds the data of the selected alumni
  //the variables below to be sent to alumni via notification or email(sendNotifications(alumnId, message, date);)
-  applicationStatus!: string;
+  // applicationStatus!: string;
   shortlisted!: boolean;
   interviewDate!: string ;
   interviewTime!: string; 
@@ -137,7 +138,7 @@ export class AdminJobApplicationsComponent {
     },
   });
 //  this.applicationStatus = 'rejected';
-  application.applicationStatus = this.applicationStatus;
+  // application.applicationStatus = this.applications.applicationStatus;
    application.shortlisted = false;
    application.interviewDate = '----';
    application.interviewTime = '----';
@@ -219,7 +220,8 @@ openSuccessDialog(application: Alumni){
        certificates: ['certicate1Path','certificatePath2'],
        alumnipic: 'assets/Sneh.jpg',
        jobAppliedFor: 'Software Engineering',
-       motivationalLetter: 'pathtomotivationalLetter'
+       motivationalLetter: 'pathtomotivationalLetter',
+       applicationStatus: ''
     },
     // Add more Alumni objects as needed
     {
@@ -238,7 +240,8 @@ openSuccessDialog(application: Alumni){
             alumnipic: 'assets/Sihle.jpg',
             jobAppliedFor: 'Full-stack Developer',
             idCopy: 'pathtoId',
-            motivationalLetter: 'assets/List of alumni.pdf'
+            motivationalLetter: 'assets/List of alumni.pdf',
+            applicationStatus: ''
           },
       
   ];
@@ -285,10 +288,85 @@ openSuccessDialog(application: Alumni){
     this.showSnackbar('Sending application status details to :' + application.fullNames + ' ' + message);
   }
 
-  deleteApplication(application: Alumni){
+  deleteApplication(application: Alumni): void{
     //remove application after application success(hired, rejected, not pending application)
-    
+
+    if(application.applicationStatus === 'Hired' || application.applicationStatus === 'Rejected'){
+      console.log('`Deleting application with status: ${application.applicationStatus}`');
+      console.log('deleting application from ' + application.fullNames + ' with status ' + application.applicationStatus);
+      this.showSnackbar('deleting application from ' + application.fullNames + ' with status ' + application.applicationStatus);
+    }else if(application.applicationStatus === 'Did not pitch for interview(rejected)'){
+      console.log('`Application is rejected. deleting...`');
+      this.showSnackbar('Application is rejected  for ' + application.fullNames + ' with status ' + application.applicationStatus + 'deleting...');
+    }
+    else{
+      console.log('`Application status is pending. Not deleting.`');
+      this.showSnackbar('Application status is pending  from ' + application.fullNames + ' with status ' + application.applicationStatus + 'Not deleting.');
+    }
+
   }
+
+   hiredApplication: Alumni = { 
+    applicationStatus: "hired",
+    fullNames: 'Sihle Bandile',
+    lastName: 'MccNear',
+    skills: ['JavaScript', 'Angular', 'Node.js', 'HTML', 'CSS'],
+    email: 'SihleM@gmail.com',
+    experience: '1 year',
+    qualification: 'National Dip in Computer Science',
+    certificateNames: ['EWP', 'AWS'],
+    Bio: 'Young dedicated individual, with strong personality',
+    address: '245 surder str',
+    interests: ['coding','sports', 'artificial intelligence'],
+    // certificateNames: ['HuaweiCloud','MS data Engineer', ''],
+    certificates: ['certicate1Path','certificatePath2'],
+    alumnipic: 'assets/Sihle.jpg',
+    jobAppliedFor: 'Full-stack Developer',
+    idCopy: 'pathtoId',
+    motivationalLetter: 'assets/List of alumni.pdf',
+
+ 
+};
+   rejectedApplication: Alumni = { 
+    applicationStatus: "rejected",
+    fullNames: 'Sihle Bandile',
+    lastName: 'MccNear',
+    skills: ['JavaScript', 'Angular', 'Node.js', 'HTML', 'CSS'],
+    email: 'SihleM@gmail.com',
+    experience: '1 year',
+    qualification: 'National Dip in Computer Science',
+    certificateNames: ['EWP', 'AWS'],
+    Bio: 'Young dedicated individual, with strong personality',
+    address: '245 surder str',
+    interests: ['coding','sports', 'artificial intelligence'],
+    // certificateNames: ['HuaweiCloud','MS data Engineer', ''],
+    certificates: ['certicate1Path','certificatePath2'],
+    alumnipic: 'assets/Sihle.jpg',
+    jobAppliedFor: 'Full-stack Developer',
+    idCopy: 'pathtoId',
+    motivationalLetter: 'assets/List of alumni.pdf',
+
+};
+   pendingApplication: Alumni = { 
+    applicationStatus: "pending",
+    fullNames: 'Sihle Bandile',
+    lastName: 'MccNear',
+    skills: ['JavaScript', 'Angular', 'Node.js', 'HTML', 'CSS'],
+    email: 'SihleM@gmail.com',
+    experience: '1 year',
+    qualification: 'National Dip in Computer Science',
+    certificateNames: ['EWP', 'AWS'],
+    Bio: 'Young dedicated individual, with strong personality',
+    address: '245 surder str',
+    interests: ['coding','sports', 'artificial intelligence'],
+    // certificateNames: ['HuaweiCloud','MS data Engineer', ''],
+    certificates: ['certicate1Path','certificatePath2'],
+    alumnipic: 'assets/Sihle.jpg',
+    jobAppliedFor: 'Full-stack Developer',
+    idCopy: 'pathtoId',
+    motivationalLetter: 'assets/List of alumni.pdf',
+  
+};
 }
 
 
