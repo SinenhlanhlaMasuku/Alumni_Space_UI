@@ -5,8 +5,8 @@
     <h2>Job Application Form (Easy Apply)</h2>
   
     <form #applyForm="ngForm" (ngSubmit)="submitForm(applyForm)">
-      <label for="fullName">Full Name:{{name}} {{surname}}</label>
-      <input type="text" id="name" name="name" [(ngModel)]="applicant.name" required>
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="name" readonly required>
   
       <label for="email">Email:{{email}}</label>
       <input type="email" id="email" name="email" [(ngModel)]="applicant.email" required>

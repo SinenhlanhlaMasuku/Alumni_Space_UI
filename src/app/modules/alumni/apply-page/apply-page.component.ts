@@ -24,7 +24,7 @@ export class ApplyPageComponent implements OnInit{
 
   ngOnInit() {
     // Fetch data from the database and populate the form fields
-    this.dataService.getUserData().subscribe(
+    /*this.dataService.getUserData().subscribe(
       (userData: any) => {
         this.applicant.name = userData.name;
         this.applicant.email = userData.email;
@@ -32,7 +32,14 @@ export class ApplyPageComponent implements OnInit{
       error => {
         console.error('Error fetching user data:', error);
       }
-    );
+    );*/
+
+    const name = localStorage.getItem('name');
+    const surname = localStorage.getItem('surname');
+
+    if(name){
+      this.name = name + '  ' + surname;
+    }
   }
 
   submitForm(form: NgForm) {
