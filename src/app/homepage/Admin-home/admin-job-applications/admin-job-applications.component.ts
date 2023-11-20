@@ -299,9 +299,13 @@ openSuccessDialog(application: Alumni){
       console.log('`Application is rejected. deleting...`');
       this.showSnackbar('Application is rejected  for ' + application.fullNames + ' with status ' + application.applicationStatus + 'deleting...');
     }
-    else{
+    else if(application.applicationStatus === 'pending'){
       console.log('`Application status is pending. Not deleting.`');
       this.showSnackbar('Application status is pending  from ' + application.fullNames + ' with status ' + application.applicationStatus + 'Not deleting.');
+    }
+    else{
+      console.log('`Application status is null. Not deleting, make decision`');
+      this.showSnackbar('Application status is null for ' + application.fullNames + ' with status ' + application.applicationStatus + ', Not deleting.');
     }
 
   }
