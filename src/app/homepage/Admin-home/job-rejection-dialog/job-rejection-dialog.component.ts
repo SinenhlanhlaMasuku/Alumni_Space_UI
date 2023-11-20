@@ -42,12 +42,13 @@ export class JobRejectionDialogComponent {
   onConfirmClick(){
     const jobRejectionDetails ={
        rejectionReason: this.rejectionReason,
+       comments: this.comments
     }
 
     this.RejectionConfirmed.emit(jobRejectionDetails);
     this.dialogRef.close();
     // Do something with notifyApplicant, e.g., save it or use it
-    console.log('Rejection Reason: ', this.rejectionReason);
+    console.log('Rejection Reason: ' + ', ' + this.comments + this.rejectionReason);
     this.showSnackbar('Applicant have been rejected');
   }
 

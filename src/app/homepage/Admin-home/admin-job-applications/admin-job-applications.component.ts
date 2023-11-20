@@ -284,6 +284,11 @@ openSuccessDialog(application: Alumni){
     const message: string = applicationStatus;
     this.showSnackbar('Sending application status details to :' + application.fullNames + ' ' + message);
   }
+
+  deleteApplication(application: Alumni){
+    //remove application after application success(hired, rejected, not pending application)
+    
+  }
 }
 
 

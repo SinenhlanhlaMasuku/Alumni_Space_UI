@@ -78,8 +78,12 @@ export class JobInterviewStatusDialogComponent {
         this.showSnackbar('Applicant have been rejected,  interview did not go well!');
         this.shortlisted = false;
        }
-       else{
+       else if(this.applicationStatus == 'Did not pitch for interview'){
         //  Alumni.shortlisted = 'true';
+        this.shortlisted = false;
+        console.log('Job Status:', this.applicationStatus);
+        this.showSnackbar('Application rejected,  interview not done!');
+       }else{
         this.shortlisted = true;
         console.log('Job Status:', this.applicationStatus);
         this.showSnackbar('Application still pending,  interview done!');
