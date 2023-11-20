@@ -1,22 +1,21 @@
+// admin-table.service.ts
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AdminService {
-  private queries: any[] = [];
-  
-  getQueries(): any[] {
-    return this.queries;
-  }
-  storeQuery(query: any): void {
-    this.queries.push(query);
+export class AdminTableService {
+  private apiUrl = 'http://your-backend-api-url'; // Replace with your actual backend API URL
+
+  constructor(private http: HttpClient) {}
+
+  getQueries(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/queries`);
   }
 
-  respondToQuery(index: number, response: string): void {
-    if (index >= 0 && index < this.queries.length) {
-      this.queries[index].response = response;
-      this.queries[index].status = 'Responded';
-    }
+  submitResponse(queryId: string, response: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/queries/${queryId}/respond`, { response });
   }
-  }
+}
