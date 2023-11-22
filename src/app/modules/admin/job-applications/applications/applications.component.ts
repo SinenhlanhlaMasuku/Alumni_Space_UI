@@ -2,6 +2,12 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+//
+import { AcceptApplicationComponent } from '../accept-application/accept-application.component';
+import { RejectApplicationComponent } from '../reject-application/reject-application.component';
+import { ApplicationStatusComponent } from '../application-status/application-status.component';
+import { AlumniResumeComponent } from '../alumni-resume/alumni-resume.component';
+
 interface Alumni {
   fullNames: string;
   lastName: string;
@@ -65,7 +71,7 @@ export class ApplicationsComponent {
     });
   }
   openInterviewDialog(application: Alumni): void {
-    const dialogRef = this.dialog.open(JobInterviewSetterDialogComponent, {
+    const dialogRef = this.dialog.open(AcceptApplicationComponent, {
       width: '400px', // Adjust the width as per your requirement
       data: {
         // Pass any data you want to the dialog
@@ -120,7 +126,7 @@ export class ApplicationsComponent {
 
  //job rejection component
  openRejectionDialog(application: Alumni): void {
-  const dialogRef = this.dialog.open(JobRejectionDialogComponent, {
+  const dialogRef = this.dialog.open(RejectApplicationComponent, {
     width: '400px', // Adjust the width as per your requirement
     data: {
       application,
@@ -162,7 +168,7 @@ export class ApplicationsComponent {
 }
 //success dialog
 openSuccessDialog(application: Alumni){
-  const dialogRef = this.dialog.open(JobInterviewStatusDialogComponent, {
+  const dialogRef = this.dialog.open(ApplicationStatusComponent, {
     width: '400px', // Adjust the width as per your requirement
     data: {
       application,

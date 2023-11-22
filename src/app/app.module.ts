@@ -36,6 +36,12 @@ import { LastFewNotificationsComponent } from './modules/admin/dashboard/last-fe
 import { TrackAlumniComponent } from './modules/admin/track-alumni/track-alumni.component';
 import { AdminFooterComponent } from './modules/admin/dashboard/admin-footer/admin-footer.component';
 import { ViewReportComponent } from './modules/admin/view-report/view-report.component';
+import { ApplicationsComponent } from './modules/admin/job-applications/applications/applications.component';
+import { AcceptApplicationComponent } from './modules/admin/job-applications/accept-application/accept-application.component';
+import { RejectApplicationComponent } from './modules/admin/job-applications/reject-application/reject-application.component';
+import { ApplicationStatusComponent } from './modules/admin/job-applications/application-status/application-status.component';
+import { AlumniResumeComponent } from './modules/admin/job-applications/alumni-resume/alumni-resume.component';
+
 
 //Alumni-Module Components
 import { JobsComponent } from './modules/alumni/jobs/jobs.component';
@@ -93,6 +99,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     RegisterComponent,
     ApplyPageComponent,
     ChatComponent,
+    ApplicationsComponent,
+    AcceptApplicationComponent,
+    RejectApplicationComponent,
+    ApplicationStatusComponent,
+    AlumniResumeComponent,
 
     // ViewProfileComponent,
     // EditProfileComponent
