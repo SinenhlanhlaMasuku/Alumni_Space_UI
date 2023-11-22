@@ -1,11 +1,21 @@
 .card{
-    padding: 0;
     margin-bottom: 10px;
-    /* height: auto;
-    width: auto; */
+     /* height: 650px; */
+     height: auto;
+    /*width: auto; */
     margin-left: 10px;
     margin-right: 10px;
-    box-shadow: 5px 5px 5px 5px blue;
+    box-shadow: 2px 3px 2px 3px blue;
+    background-color: #ebe6e6;
+}
+    .container-fluid{
+    padding: 0;
+    margin-bottom: 10px;
+     height: auto;
+    /*width: auto; */
+    margin-left: 20px;
+    margin-right: 20px;
+    /* box-shadow: 2px 3px 2px 3px blue; */
     background-color: #ebe6e6;
 }
 .header h1{
@@ -41,6 +51,7 @@
     height: auto;
 }
 .alumni-toggler{
+    margin-top: 50px;
   padding-bottom: 10px;
   text-align: left;
   margin-left: 10px;

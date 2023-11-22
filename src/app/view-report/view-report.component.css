@@ -1,3 +1,11 @@
+.card1{
+    padding: 10px;
+    background-color: #e7e3e3;
+    height: 650px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .card{
     margin-top: 10px;
     box-shadow: 5px 3px 5px 3px blue;
@@ -22,7 +30,7 @@
     margin-left: 10px;
     margin-right: 10px;
     height: auto;
-    box-shadow: 3px 5px 4px 2px blue;
+    /* box-shadow: 3px 5px 4px 2px blue; */
 }
 .card button{
     /* text-align: center; */

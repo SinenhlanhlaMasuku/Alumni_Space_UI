@@ -1,5 +1,5 @@
 .container-fluid{
-    height: auto;
+    height: 800px;
     width: auto;
     box-shadow: 3px 3px 3px 3px blue;
     margin-left: 20px;
@@ -9,6 +9,7 @@
     background-color: #e7dfdf9f;
 }
 .container-fluid h1{
+    margin-top: 10px;
     text-align: center;
     font-size: 30px;
     color: #fff;

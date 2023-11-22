@@ -1,7 +1,8 @@
 .card{
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
     background-color: #e4dbdb9f;
+    box-shadow: 2px 2px 2px 2px blue;
 }
 
 .top-section{
@@ -58,6 +59,7 @@
     margin-left: 10px;
     background-color: #e4dbdb9f;
     width: auto; */
+    padding: auto;
 }
 
 .middle-section{

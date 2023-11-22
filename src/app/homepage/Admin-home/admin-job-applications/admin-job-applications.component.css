@@ -1,6 +1,13 @@
+.card{
+  background-color: #e4dbdb9f;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 650px;
+}
+
 .container{
     width: 100%;
-    height: auto;
+    
     margin-left: 10%;
     margin-right: 10%;
     background-color: #e4dbdb9f;
