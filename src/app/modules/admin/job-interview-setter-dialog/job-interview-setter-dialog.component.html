@@ -1,0 +1,44 @@
+<!-- 
+
+    <div class="card">
+     <h2>Interview Details for {{ data.jobTitle }}</h2>
+     <p> Set up interview with job applicant: {{data.firstname}} {{data.surname}}</p>
+     <mat-dialog-content *ngIf="dialogType">
+
+      
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Interview Date" [(ngModel)]="interviewDate" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        {{ interviewDate | date:'yyyy-MM-dd' }}
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Interview Time" [(ngModel)]="interviewTime" required>
+        {{ interviewTime | date:'HH:mm' }}
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Interview Type</mat-label>
+         <select matNativeControl required [(ngModel)]="interviewType">
+          <option value="Online-Interview">Online-Interview</option>
+          <option value="On-site-Interview">On-site-Interview</option>
+        </select>
+      </mat-form-field>
+      <p> choose venue if (on-site) or enter  link if (online) => (choose one)</p>
+      <mat-form-field>
+        <input matInput placeholder="Building Number" [(ngModel)]="buildingNumber">
+      </mat-form-field>
+      
+          <div class="Online-Interview">
+            <mat-form-field class="example-full-width">
+              <textarea matInput [(ngModel)]="meetingLink" placeholder="Type or Post Meeting Link here!"></textarea>
+            </mat-form-field>
+          </div>
+      
+    </mat-dialog-content>
+    
+    <mat-dialog-actions align="end">
+      <button mat-raised-button (click)="onCancelClick()" color="warn">Cancel</button>
+      <button mat-raised-button (click)="onConfirmClick()" color="primary" cdkFocusInitial>Confirm</button>
+    </mat-dialog-actions>
+    </div> -->

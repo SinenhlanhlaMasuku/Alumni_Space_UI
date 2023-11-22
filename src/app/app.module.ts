@@ -44,6 +44,7 @@ import { AddPostsComponent } from './modules/admin/add-posts/add-posts.component
 import { QueryComponent } from './modules/admin/query/query.component';
 import { JobDescriptionComponent } from './modules/alumni/job-description/job-description.component';
 
+
 //import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 // import { ViewProfileComponent } from './alumni/profile/view-profile/view-profile.component';
@@ -58,7 +59,16 @@ import {SuccessComponent} from './components/success/success.component';
 import {SuccessPasswordChangeComponent} from './components/auth/success-password-change/success-password-change.component';
 import { SuccessModalComponent } from './components/success-modal/success-modal.component';
 import { DataServiceService } from './services/dataService/data-service.service';
-
+import { JobTrackComponent } from './modules/admin/job-track/job-track.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+// import { MatTimepickerModule } from 'mat-timepicker';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { JobRejectionDialogComponent } from './modules/admin/job-rejection-dialog/job-rejection-dialog.component';
+import {MatSelectModule} from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 //services
 
 
@@ -98,6 +108,8 @@ import { DataServiceService } from './services/dataService/data-service.service'
     ServicesComponent,
     AddPostsComponent,
     SuccessModalComponent,
+    JobTrackComponent,
+   JobRejectionDialogComponent,
     
   ],
   imports: [
@@ -113,7 +125,18 @@ import { DataServiceService } from './services/dataService/data-service.service'
     ChartModule,
     //NgxExtendedPdfViewerModule
     PdfViewerModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDatepickerModule, 
+    MatInputModule, 
+    MatNativeDateModule,
+    MatRadioModule ,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]

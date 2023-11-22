@@ -49,6 +49,7 @@ export class ApplyPageComponent implements OnInit{
     if (email) {
       this.email = email;
     }
+    
   }
 
  /* submitForm(form: NgForm) {
@@ -92,7 +93,7 @@ export class ApplyPageComponent implements OnInit{
         (response: any) => {
           console.log('Application submitted successfully:', response);
           // Add any additional logic or redirection after successful submission
-          if(response.message === 'Login successful!' ){
+          if(response.message === 'Application successful!' ){
             // alert('Login Successfully!');
             console.log(response.result[0].name);
             console.log(response.account_id);
@@ -104,9 +105,10 @@ export class ApplyPageComponent implements OnInit{
     
             // this.router.navigate(['/alumni/home']);
             //this.page();
+            this.router.navigate(['/alumni/job']);
           }else{
             //alert("Invalid Details")
-            this.router.navigate(['/alumni/jobs']);
+            this.router.navigate(['/alumni/home']);
           }
         });
         }else{
@@ -122,6 +124,8 @@ export class ApplyPageComponent implements OnInit{
       horizontalPosition: 'center', // Set the horizontal position to 'center'
       panelClass: ['snackbar'], // Add your custom class for styling
     });
+
+    this.router.navigate(['/alumni/home']);
   }
 
   

@@ -43,6 +43,7 @@ export class LoginComponent {
         //store user details to localStorage
         localStorage.setItem('name',response.result[0].name.toString());
         localStorage.setItem('surname', response.result[0].surname.toString());
+        localStorage.setItem('email', formData.email);
         localStorage.setItem('account_id',response.account_id);
 
         // this.router.navigate(['/alumni/home']);
