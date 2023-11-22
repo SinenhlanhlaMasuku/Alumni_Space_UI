@@ -64,14 +64,13 @@ import {SuccessComponent} from './components/success/success.component';
 import {SuccessPasswordChangeComponent} from './components/auth/success-password-change/success-password-change.component';
 import { SuccessModalComponent } from './components/success-modal/success-modal.component';
 import { DataServiceService } from './services/dataService/data-service.service';
-import { JobTrackComponent } from './modules/admin/job-track/job-track.component';
+
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 // import { MatTimepickerModule } from 'mat-timepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { JobRejectionDialogComponent } from './modules/admin/job-rejection-dialog/job-rejection-dialog.component';
 import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 //services
@@ -119,8 +118,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ServicesComponent,
     AddPostsComponent,
     SuccessModalComponent,
-    JobTrackComponent,
-   JobRejectionDialogComponent,
     
   ],
   imports: [
