@@ -4,12 +4,12 @@
 <div class="apply-container">
     <h2>Job Application Form (Easy Apply)</h2>
   
-    <form #applyForm="ngForm" (ngSubmit)="submitForm(applyForm)">
+    <form #form="ngForm" (ngSubmit)="submitForm(form)">
       <label for="fullName">Full Name:</label>
       <input type="text" id="name" name="name" [(ngModel)]="name" readonly required>
   
-      <label for="email">Email:{{email}}</label>
-      <input type="email" id="email" name="email" [(ngModel)]="applicant.email" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="email" required>
 
       <label for="idDocument">ID</label>
       <input type="file" id="idDocument" name="idDocument" accept=".pdf" (change)="handleFileInput($event)" required>
