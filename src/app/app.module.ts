@@ -20,6 +20,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { ApplyPageComponent } from './apply-page/apply-page.component';
+import { MyJobApplicationComponent } from './my-job-application/my-job-application.component';
 // import {  } from '@fortawesome/fontawesome-free-solid';
 
 
@@ -40,7 +41,8 @@ import { ApplyPageComponent } from './apply-page/apply-page.component';
     WhoToFollowComponent,
     YourThoughtsComponent,
     ConfirmationDialogComponent,
-    ApplyPageComponent
+    ApplyPageComponent,
+    MyJobApplicationComponent
     
 
 
