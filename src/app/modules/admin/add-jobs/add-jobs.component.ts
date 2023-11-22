@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,9 +34,26 @@ export class AddJobsComponent {
    fee: string ="";
    currentStudentID = "";*/
 
-  constructor(private http: HttpClient) {
+   jobForm: FormGroup;
+
+  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
     this.getAllStudent();
     this.setupJobDeletionTimer();
+
+
+    this.jobForm = this.formBuilder.group({
+      job_title: ['', Validators.required],
+      Organisation: ['', Validators.required],
+      workplace_type: ['', Validators.required],
+      location: ['', Validators.required],
+      job_type: ['', Validators.required],
+      job_description: ['', Validators.required],
+      date_posted: [''],
+      deadline: [''],
+      required_Skills: ['', Validators.required],
+      experience: ['', Validators.required],
+      salary: ['', Validators.required],
+    });
   }
 
 
@@ -60,36 +78,16 @@ export class AddJobsComponent {
   }
 
   register() {
-    // this.isLogin = false; 
-    // alert("hi");
-    let bodyData = {
-
-      "job_title": this.job_title,
-      "Organisation": this.Organisation,
-      "workplace_type": this.workplace_type,
-      "location": this.location,
-      "job_type": this.job_type,
-      "job_description": this.job_description,
-      "date_posted": this.date_posted,
-      "deadline": this.deadline,
-      "experience": this.experience,
-      "required_Skills": this.required_Skills,
-      "salary": this.salary,
-
-
-    };
-
-    console.log(bodyData);
-    this.http.post("http://localhost:3000/api/newjob", bodyData).subscribe((resultData: any) => {
-      console.log(resultData);
-      alert("Job Added Successfully");
-      this.getAllStudent();
-      //  this.name = '';
-      //  this.address = '';
-      //  this.mobile  = 0;
-
-
-    });
+    if (this.jobForm.valid) {
+      let bodyData = this.jobForm.value;
+      console.log(bodyData);
+      this.http.post("http://localhost:3000/api/newjob", bodyData).subscribe((resultData: any) => {
+        console.log(resultData);
+        alert("Job Added Successfully");
+        this.getAllStudent();
+        this.jobForm.reset();
+      });
+    }
   }
 
   setUpdate(data: any) {
