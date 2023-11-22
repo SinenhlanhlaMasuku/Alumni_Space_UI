@@ -19,6 +19,8 @@ import { UserLandingPageComponent } from './homepage/Posts/user-landing-page/use
 import { AdminTableComponent } from './homepage/Admin-home/admin-table/admin-table.component';
 import { AlumniResumeComponent } from './alumni-resume/alumni-resume.component';
 import { AdminJobApplicationsComponent } from './homepage/Admin-home/admin-job-applications/admin-job-applications.component';
+// import { AddJobsComponent } from './add-jobs/add-jobs.component';
+
 
 const routes: Routes = [
   { path: 'ew', component: LoginComponent },
@@ -40,7 +42,8 @@ const routes: Routes = [
   { path: 'LandingPage', component: UserLandingPageComponent},
   { path: 'view/respondQueries', component: AdminTableComponent},
   { path: 'alumniResume', component: AlumniResumeComponent},
-  {path:'jobApplications', component: AdminJobApplicationsComponent}
+  {path:'jobApplications', component: AdminJobApplicationsComponent},
+  // {path: 'addjobs', component: AddJobsComponent}
 ];
 
 @NgModule({

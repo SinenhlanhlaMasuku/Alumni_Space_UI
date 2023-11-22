@@ -3,7 +3,7 @@
     height: auto;
     margin-left: 10%;
     margin-right: 10%;
-    background-color: #000;
+    background-color: #e4dbdb9f;
 }
 .container h1{
     text-align: center;
@@ -29,7 +29,7 @@
 .View-card{
     margin-top: 10px;
     
-    background-color: #000;
+    background-color: #e4dbdb9f;
     /* transition: all linear 0.5s;   */
 
 
@@ -55,7 +55,7 @@
   }
   
   thead {
-    background-color: #f2f2f2;
+    background-color: #e4dbdb9f;
   }
   
   .Actions-btns button {

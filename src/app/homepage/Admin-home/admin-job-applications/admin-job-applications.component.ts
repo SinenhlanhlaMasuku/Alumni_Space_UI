@@ -290,7 +290,7 @@ openSuccessDialog(application: Alumni){
 
   deleteApplication(application: Alumni): void{
     //remove application after application success(hired, rejected, not pending application)
-
+    const index = this.applications.findIndex(app => app === application);
     if(application.applicationStatus === 'Hired' || application.applicationStatus === 'Rejected'){
       console.log('`Deleting application with status: ${application.applicationStatus}`');
       console.log('deleting application from ' + application.fullNames + ' with status ' + application.applicationStatus);

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+// import { FormModule } from '@coreui/angular';
 
 @Component({
   selector: 'app-add-jobs',
