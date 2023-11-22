@@ -32,8 +32,10 @@
 .main-container{
     padding-top: 5px;
     display: flex;
-    width: auto;
+    width: 100%;
+    height: 100%;
     position: relative;
+    /* background-color: blue; */
     /* box-shadow: 5px 5px 5px 5px blue; */
         /* border: solid white; */
         /* margin-bottom: 75px; */
