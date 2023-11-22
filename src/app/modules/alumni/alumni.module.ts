@@ -6,8 +6,9 @@ import { RouterModule } from '@angular/router';
 import { JobsComponent } from './jobs/jobs.component';
 import { EventsComponent } from './events/events.component';
 import { NotificationsComponent } from './notifications/notifications.component';
-import { JobDescriptionComponent } from './job-description/job-description.component';
-import { ApplyPageComponent } from './apply-page/apply-page.component';
+import { JobDescriptionComponent } from './jobs/job-description/job-description.component';
+import { ApplyPageComponent } from './jobs/apply-page/apply-page.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -31,6 +32,7 @@ import { ApplyPageComponent } from './apply-page/apply-page.component';
       { path: 'notifications', component: NotificationsComponent},
       {path: 'job', component:JobDescriptionComponent},
       {path: 'apply-page', component:ApplyPageComponent},
+      {path: 'chat', component:ChatComponent}
     ]),
   ]
 })

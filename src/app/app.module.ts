@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ApplyPageComponent } from './modules/alumni/apply-page/apply-page.component';
+import { ApplyPageComponent } from './modules/alumni/jobs/apply-page/apply-page.component';
 
 //imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -42,9 +42,8 @@ import { JobsComponent } from './modules/alumni/jobs/jobs.component';
 import { AddJobsComponent } from './modules/admin/add-jobs/add-jobs.component';
 import { AddPostsComponent } from './modules/admin/add-posts/add-posts.component';
 import { QueryComponent } from './modules/admin/query/query.component';
-import { JobDescriptionComponent } from './modules/alumni/job-description/job-description.component';
-
-
+import { JobDescriptionComponent } from './modules/alumni/jobs/job-description/job-description.component';
+import { ChatComponent } from './modules/alumni/chat/chat.component';
 //import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 // import { ViewProfileComponent } from './alumni/profile/view-profile/view-profile.component';
@@ -93,6 +92,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     QueryComponent,
     RegisterComponent,
     ApplyPageComponent,
+    ChatComponent,
 
     // ViewProfileComponent,
     // EditProfileComponent

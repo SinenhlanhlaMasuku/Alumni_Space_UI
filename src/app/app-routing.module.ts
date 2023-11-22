@@ -11,7 +11,7 @@ import { AboutComponent } from './components/about/about.component';
 import {SuccessComponent} from './components/success/success.component';
 import {SuccessPasswordChangeComponent} from './components/auth/success-password-change/success-password-change.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ApplyPageComponent } from './modules/alumni/apply-page/apply-page.component';
+import { ApplyPageComponent } from './modules/alumni/jobs/apply-page/apply-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
