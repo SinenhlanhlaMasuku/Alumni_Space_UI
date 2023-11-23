@@ -144,16 +144,17 @@ export class LoginComponent {
           if (isFound) {
             this.isAuthenticated = true;
             this.socket.on('userDetails', (userData) => {
-              this.page()
+              //this.page()
     
     
             });
-            //return of({ name: userName, email: userEmail });
           } else {
             this.isAuthenticated = false;
           }
     
         });
+
+        this.page()
 
       }else{
         //alert("Invalid Details")
