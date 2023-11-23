@@ -8,7 +8,7 @@ import { ApplicationStatusComponent } from '../application-status/application-st
 import { AlumniResumeComponent } from '../alumni-resume/alumni-resume.component';
 
 interface Alumni {
-  fullNames: string;
+  name: string;
   lastName: string;
   skills: string[];
   email: string;
@@ -70,7 +70,7 @@ export class ApplicationsComponent  {
       data: {
         application,
           jobTitle: application.jobAppliedFor, 
-          firstname: application.fullNames,
+          firstname: application.name,
           surname: application.lastName,
            dialogType: this.dialog,
            applicationStatus: application.applicationStatus || '',
@@ -140,7 +140,7 @@ openSuccessDialog(application: Alumni){
     data: {
       application,
        jobTitle: application.jobAppliedFor,
-       firstname: application.fullNames,
+       firstname: application.name,
        surname: application.lastName,
     },
   });
@@ -164,7 +164,7 @@ openSuccessDialog(application: Alumni){
 
      applications: Alumni[] = [
     {
-      fullNames: ' ',
+      name: ' ',
       lastName: ' ',
       skills: ['JavaScript', 'Angular', 'Node.js'],
       email: 'john.doe@example.com',
@@ -181,7 +181,7 @@ openSuccessDialog(application: Alumni){
        motivationalLetter: 'pathtomotivationalLetter'
     },
     {
-            fullNames: 'Sihle Bandile',
+            name: 'Sihle Bandile',
             lastName: 'MccNear',
             skills: ['JavaScript', 'Angular', 'Node.js', 'HTML', 'CSS'],
             email: 'SihleM@gmail.com',
@@ -200,7 +200,7 @@ openSuccessDialog(application: Alumni){
       
   ];
   respondToApplication(application: Alumni, response: string) {
-    console.log(`Responding to application from ${application.fullNames}: ${response}`);
+    console.log(`Responding to application from ${application.name}: ${response}`);
   }
   acceptApplication(application: Alumni) {
     
@@ -219,6 +219,7 @@ openSuccessDialog(application: Alumni){
     } else {
       this.removeApplication = true;
       this.selectedAlumni = alumni;
+      console.log(this.selectedAlumni);
     }
   }
   closeResume(alumni: any){
@@ -227,7 +228,7 @@ openSuccessDialog(application: Alumni){
   }
   notifyApplicant(application: Alumni, applicationStatus: string){
     const message: string = applicationStatus;
-    this.showSnackbar('Sending application status details to :' + application.fullNames + ' ' + message);
+    this.showSnackbar('Sending application status details to :' + application.name + ' ' + message);
   }
 
   ngOnInit(): void {

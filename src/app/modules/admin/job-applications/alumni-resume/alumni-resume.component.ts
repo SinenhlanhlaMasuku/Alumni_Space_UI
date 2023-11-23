@@ -4,7 +4,7 @@ import{MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 interface Alumni {
   Bio: string;
-  fullNames: string;
+  name: string;
   lastName: string;
   skills: string[];
   address: string;

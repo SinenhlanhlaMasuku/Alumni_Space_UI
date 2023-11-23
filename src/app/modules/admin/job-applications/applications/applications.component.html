@@ -36,7 +36,7 @@
            <td>{{application.interviewTime}}</td>
            <td>
               <div class="Actions-btns">
-             <button mat-raised-button class="btn btn-outline-info" (click)="toggleAlumniResume(application)"  color="primary">View Resume</button>
+             <!-- <button mat-raised-button class="btn btn-outline-info" (click)="toggleAlumniResume(application)"  color="primary">View Resume</button> -->
              <button mat-raised-button (click)="openInterviewDialog(application)" style="margin-left: 5px;"  color="primary">Accept Application</button>
              <button mat-raised-button (click)="openRejectionDialog(application)" style="margin-left: 5px;"  color="primary">Reject Application</button>
              <button mat-raised-button (click)="openSuccessDialog(application)" style="margin-left: 5px;"  color="primary"> Application Succeed</button>
@@ -56,7 +56,7 @@
            <button mat-raised-button (click)="closeResume(applications)"  color="primary">close</button>
          </div>
      <div *ngFor="let application of applications; let i = index">
-       
+      <!-- [alumni]="selectedAlumni" -->
        <div *ngIf="selectedAlumni === application"> 
          <app-alumni-resume [alumni]="selectedAlumni"></app-alumni-resume>
        </div>
