@@ -54,29 +54,7 @@ export class LoginComponent {
         localStorage.setItem('account_id',response.account_id);
 
         // this.router.navigate(['/alumni/home']);
-        //this.page();
-
-        //socket
-        this.socket.emit('Login',{email: formData.email,password: formData.password});
-        var isFound = false;
-        this.socket.on('loginResults', (found) => {
-          isFound = found;
-    
-    
-          console.log(isFound);
-          if (isFound) {
-            this.isAuthenticated = true;
-            this.socket.on('userDetails', (userData) => {
-              this.page()
-    
-    
-            });
-            //return of({ name: userName, email: userEmail });
-          } else {
-            this.isAuthenticated = false;
-          }
-    
-        });
+        this.page();
 
       }else{
         //alert("Invalid Details")
@@ -122,6 +100,71 @@ export class LoginComponent {
     });
 
   }
+
+  onLogin3() {
+    
+    //data to pass to back-end
+    const formData = { email: this.email, password: this.password };
+    //
+    if(this.email.length == 0 || this.password.length ==  0){
+         this.showSnackbar('Please fill in the missing field(s)');
+    }else{
+       this.showSnackbar('login successfully!');
+       //this.router.navigate(['/alumni/profile/view-profile']);
+    }
+    if(formData.email !== 'admin@email.com'){
+      this.http.post('http://localhost:3000/api/login', formData).subscribe((response: any) => {
+      console.log('Data sent to server:', response);
+      // Clear the form fields after successful submission
+      this.email = '';
+      this.password = '';
+
+      
+      if(response.message === 'Login successful!' ){
+        // alert('Login Successfully!');
+        console.log(response.result[0].name);
+        console.log(response.account_id);
+        //store user details to localStorage
+        localStorage.setItem('name',response.result[0].name.toString());
+        localStorage.setItem('surname', response.result[0].surname.toString());
+        localStorage.setItem('email', formData.email);
+        localStorage.setItem('account_id',response.account_id);
+
+        // this.router.navigate(['/alumni/home']);
+        //this.page();
+
+        //socket
+        this.socket.emit('Login',{email: formData.email,password: formData.password});
+        var isFound = false;
+        this.socket.on('loginResults', (found) => {
+          isFound = found;
+    
+    
+          console.log(isFound);
+          if (isFound) {
+            this.isAuthenticated = true;
+            this.socket.on('userDetails', (userData) => {
+              this.page()
+    
+    
+            });
+            //return of({ name: userName, email: userEmail });
+          } else {
+            this.isAuthenticated = false;
+          }
+    
+        });
+
+      }else{
+        //alert("Invalid Details")
+        this.router.navigate(['/auth/forgot-password']);
+      }
+    });
+    }else{
+      this.router.navigate(['/admin/dashboard']);
+    }
+  }
+
   onSubmit() {
     const formData = { fullname: this.fullname,surname: this.surname, email: this.email, password: this.password };
     this.http.post('http://localhost:3000/api/register', formData).subscribe((response: any) => {

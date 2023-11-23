@@ -9,6 +9,29 @@
         <!-- Card header END -->
         <!-- Card body START -->
         <div class="card-body">
+
+            <div *ngFor="let profile of profiles" class="hstack gap-2 mb-3">
+                <!-- Avatar -->
+                <div class="avatar">
+                  <a href="#!"><img class="avatar-img rounded-circle" [src]="getAlumniPicturePath(profile.pic_file)" alt=""></a>
+                </div>
+                <!-- Title -->
+                <div class="overflow-hidden">
+                  <a class="h6 mb-0" href="#!">{{ profile.name }} {{ profile.surname }}</a>
+                  <p class="mb-0 small text-truncate">{{ profile.title }}</p>
+                </div>
+                <!-- Button -->
+                <a class="btn btn-primary-soft rounded-circle icon-md ms-auto" href="#"><i class="fa-solid fa-plus"></i></a>
+              </div>
+              
+              
+
+
+
+
+
+
+
             <!-- Connection item START -->
             <div class="hstack gap-2 mb-3">
                 <!-- Avatar -->
