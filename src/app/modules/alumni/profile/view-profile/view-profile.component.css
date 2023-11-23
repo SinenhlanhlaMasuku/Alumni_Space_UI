@@ -8,7 +8,7 @@
     /* border-style: ridge; */
     /* border-color: white; */
     /* margin-left: 3px; */
-    box-shadow: 5px 5px 5px 5px blue;
+    /* box-shadow: 5px 5px 5px 5px blue; */
   }
   .user-info p{
       margin-left: 50px;
@@ -21,14 +21,15 @@
       /* margin-top: -200px; */
       /* margin-top: -60vh; */
       margin-top: 10px;
-      box-shadow: 2px 3px 2px 3px blue;
+      /* box-shadow: 2px 3px 2px 3px blue; */
+      box-shadow: 2px 2px 2px 2px gray;
       width: 90vh;
       margin-left: 25%;
       margin-right: 25%;
   }
   .user-cred p{
       font-size: 15px;
-      color:cornflowerblue;
+      color: #000;
   
   }
   /* .user-bio{
@@ -77,7 +78,7 @@
       justify-content: center;
       align-content: center;
       padding: 20px;
-      box-shadow: 5px 5px 5px 5px blue;
+      /* box-shadow: 5px 5px 5px 5px blue; */
       /* box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3); */
       width: 40%;
       /* width: auto; */
@@ -88,7 +89,7 @@
   .wrapper h1 {
       text-decoration: none;
       text-transform: uppercase;
-      color: blue;
+      color: #000;
       font-size: xx-large;
   
   }
@@ -124,7 +125,7 @@
    height: auto;
    /* border-color: blue;
    border-style: ridge; */
-   box-shadow: 3px 3px 3px 3px blue;
+   /* box-shadow: 3px 3px 3px 3px blue; */
    margin-bottom: 10%;
    margin-left: 25%;
    margin-right: 25%;
@@ -143,7 +144,7 @@
       margin-left: 25%;
       margin-right: 25%;
       margin-top: 10px;
-      box-shadow: 5px 5px 5px 5px blue;
+      box-shadow: 2px 2px 2px 2px gray;
       margin-bottom: 10px;
       width: auto;
   }
@@ -155,13 +156,13 @@
   .certificates-list p{
    margin-right: -10%;
    margin-left: 10%;
-   color: cornflowerblue;
+   color: #000;
   }
-  .academic_record{
-      /* border-style: ridge;
-      border-color: aliceblue; */
+  /* .academic_record{
+      border-style: ridge;
+      border-color: aliceblue;
       box-shadow: 5px 5px 5px 5px blue;
-  } 
+  }  */
   .academic_record h1{
    text-align: center;
    font-size: 30px;
@@ -175,7 +176,7 @@
   .top-button button{
       margin-right: -100%;
       margin-top: 1px;
-      color: blue;
+      color: gray;
       border-radius: 50%;
       border-color: #ccc;
       border-style: double;

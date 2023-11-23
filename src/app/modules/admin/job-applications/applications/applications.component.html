@@ -2,6 +2,7 @@
    <!--new-->
    <!-- <p>admin-job-applications works!</p> -->
    <app-navbar></app-navbar>
+   <div class="card">
    <div class="container">
      <h1>Job Applications Track</h1>
      <!--job application table-->
@@ -23,11 +24,12 @@
          </tr>
        </thead>
        <tbody>
-         <tr *ngFor="let application of applications; let i = index">
-           <td>{{i+1}}</td>
-           <td>{{ application.fullNames }}</td>
-           <td>{{ application.lastName }}</td>
-           <td>{{ application.jobAppliedFor }}</td>
+         <tr *ngFor="let application of alumniData">
+           
+           <td>{{ application.alumni_id }}</td>
+           <td>{{ application.name }}</td>
+           <td>{{ application.surname }}</td>
+           <td>{{ application.saved_job_title }}</td>
            <td>{{ application.applicationStatus }}</td>
            <td>{{ application.shortlisted}}</td>
            <td>{{ application.interviewDate }}</td>
@@ -62,6 +64,7 @@
      </div>
      </div> 
    </div>
+  </div>
    <app-admin-footer></app-admin-footer>
    
     

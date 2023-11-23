@@ -1,9 +1,9 @@
-body .h1 {
+/* body .h1 {
     color: #000;
     justify-content: center;
     align-items: center;
     position: fixed;
-}
+} */
 .edit-form h2{
     text-align: center;
 }
@@ -11,7 +11,7 @@ body .h1 {
 .card {
     padding: 10px 10px 10px;
     border: 1px solid #ccc;
-    box-shadow: 5px 5px 5px 5px blue;
+    box-shadow: 2px 2px 2px 2px gray;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -43,7 +43,7 @@ body .h1 {
     align-content: center;
     padding: 20px;
 
-    box-shadow: 5px 5px 5px 5px blue;
+    box-shadow: 2px 2px 2px 2px gray;
     /* width: 70%; */
     width: auto;
 }
@@ -71,7 +71,7 @@ body .h1 {
     /* margin-left: auto; 
     margin-right: auto; */
 
-    background-color: aliceblue;
+    background-color: #fff;
     padding: 10px;
     /* border: 1px solid #ccc; */
     margin: 20px;
@@ -79,7 +79,7 @@ body .h1 {
     align-content: center;
     padding: 10px;
 
-    box-shadow: 5px 5px 5px 5px blue;
+    box-shadow: 2px 2px 2px 2px gray;
     width: 70%;
     /* margin-bottom: 100px; */
     /* padding-bottom: 30px; */

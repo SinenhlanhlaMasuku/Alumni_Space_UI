@@ -1,3 +1,9 @@
+.card{
+    background-color: #e4dbdb9f;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .top-section{
     @media only screen and (max-width: 1600px) {
         width: 830px;
@@ -45,17 +51,18 @@
 }
 .main{
     padding: 30px;
-    box-shadow: 5px 3px 5px 3px blue;
+    /* box-shadow: 2px 3px 2px 3px blue; */
     border: solid white; 
     margin-left: 10px;
-    background-color: aliceblue;
+    background-color: #e4dbdb9f;
     width: auto;
 }
 
 .middle-section{
     display: flex;
     justify-content: space-between;
-    box-shadow: 5px 5px 5px 5px blue;
+    border: solid white;
+    /* box-shadow: 5px 5px 5px 5px blue; */
     /* padding-right: 40%; */
      @media only screen and (max-width: 600px) {
         width: auto;
@@ -70,7 +77,7 @@
         width: auto;
     }
     .widget{
-        box-shadow: 5px 5px 5px 5px blue;
+        /* box-shadow: 5px 5px 5px 5px blue; */
         height: 350px;
         width: auto;
         /* background-color: #939393; */
@@ -120,7 +127,7 @@
         /* background-color: #fff; */
         border-radius: 5px;
         /* border: solid blue; */
-        background-color: aliceblue;
+        background-color: #e4dbdb9f;
         /* box-shadow: 5px 5px 5px 5px blue; */
         padding-top: 10px;
         /* margin: 3px; */
@@ -154,7 +161,7 @@
     align-content: space-between;
     height: auto;
     width: auto;
-    box-shadow: 5px 5px 5px 5px blue;
+    /* box-shadow: 5px 5px 5px 5px blue; */
 
 } 
 .small p{
