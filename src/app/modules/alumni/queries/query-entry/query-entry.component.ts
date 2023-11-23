@@ -35,7 +35,8 @@ public openSuccessDialog(): void {
   const query = {
     alumni: localStorage.getItem('name'),
     query: this.queryText,
-    status: 'Unanswered'
+    status: 'Unanswered',
+    timestamp: new Date().toDateString,
   };
   this.queries.push(query);
   localStorage.setItem('queries', JSON.stringify(this.queries));
@@ -69,7 +70,7 @@ sendQuery(query: any): void{
     date: new Date().toISOString()
   };
 
-  console.log(requestBody);
+  //console.log(requestBody);
 
   this.http.post<any>('http://localhost:3000/api/send_query', requestBody).subscribe(response => {
     console.log('Query sent to server:', response);

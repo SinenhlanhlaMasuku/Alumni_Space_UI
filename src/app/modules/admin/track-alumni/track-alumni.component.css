@@ -1,6 +1,12 @@
+.card{
+    background-color: #e4dbdb9f;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 .cointainer-fluid{
     padding: 0;
     margin-bottom: 10px;
+   
 }
 .header h1{
     text-align: center;

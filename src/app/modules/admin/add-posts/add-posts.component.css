@@ -1,5 +1,11 @@
+.card{
+    background-color: #e4dbdb9f;
+    height: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 header {
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     width: 100%;
     position: sticky;
     justify-content: space-between; /* Push the logo and menu to opposite ends */
@@ -159,8 +165,8 @@ h4{
 
 
     .event-details-card {
-        background-color: aliceblue;
-        border: 2px solid blue;
+        background-color: transparent;
+        border: 2px solid white;
         border-radius: 5px;
         padding: 10px;
         margin-bottom: 20px;

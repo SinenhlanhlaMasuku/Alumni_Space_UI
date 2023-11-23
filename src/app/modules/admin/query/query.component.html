@@ -1,6 +1,7 @@
 
 <link rel="stylesheet" href="../query/query.component.css">
 <app-navbar></app-navbar>
+<div class="card">
 <div class="container-fluid">
 <h1>Admin Queries</h1>
 <table>
@@ -25,7 +26,10 @@
   <tr *ngFor="let row of queries; let i = index">
     <td>{{ row.alumni }}</td>
     <td>{{ row.query }}</td>
-    <td>{{ row.status }}</td>
+    <td>
+      {{ row.status }}
+      <span *ngIf="row.timestamp"> - {{ row.timestamp | date: 'medium' }}</span>
+    </td>
     <td>
       <button type="button" class="btn btn-outline-primary" (click)="toggleResponseForm(i)">Respond</button>
       <div class="response-form" [ngStyle]="{ display: responseForms[i] ? 'block' : 'none' }">
@@ -36,5 +40,6 @@
   </tr>
   
 </table>
+</div>
 </div>
 <app-admin-footer></app-admin-footer>
