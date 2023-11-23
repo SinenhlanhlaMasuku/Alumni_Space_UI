@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-// import { io } from "socket.io-client";
+//mport { io } from "socket.io-client";
 
 //models
 import { Message } from 'src/app/models/message';
@@ -16,10 +16,10 @@ export class ChatServiceService {
 
   constructor() { }
 
-  // socket = io('http://localhost:3001');
+  //socket = io('http://localhost:3001');
 
-  public sendMessage(message: Message) {
-    // this.socket.emit('message', message);
+  /*public sendMessage(message: Message) {
+    this.socket.emit('message', message);
   }
 
   public getNewMessage = () => {
@@ -65,5 +65,5 @@ export class ChatServiceService {
       // return { id: dbuser.id, email: dbuser.email, name: dbuser.name, password: dbuser.password }
     // });
 
-  }
+  } */
 }

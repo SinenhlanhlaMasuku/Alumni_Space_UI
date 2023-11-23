@@ -102,7 +102,7 @@ h1 {
 
 h2{
 
-    background-color: blue;
+    background-color: gray;
     text-align: center;
     color: white;
 }
@@ -169,7 +169,7 @@ h4{
     display: block;
     margin: 0 auto; /* Center the button horizontally */
     padding: 10px 20px; /* Adjust the padding as needed */
-    background-color: blue; /* Button background color */
+    background-color: #000; /* Button background color */
     color: #fff; /* Button text color */
     border: none;
     border-radius: 5px;
@@ -186,6 +186,7 @@ h4{
 .event-details-card h2 {
     font-size: 1.5em;
     margin-top: 0;
+   
 }
 
 .event-details-card p {
@@ -214,6 +215,8 @@ h4{
    
     margin-bottom: 20px; /* Add space between event items */
     align-items: flex-start; /* Align items at the top */
+    margin-left: 50px;
+    /* margin-right: 20px; */
   }
   
   .event-details {
@@ -229,7 +232,7 @@ h4{
   .top-button button{
     margin-right: -100%;
     margin-top: 1px;
-    color: blue;
+    color: #000;
     border-radius: 50%;
     border-color: #ccc;
     border-style: double;

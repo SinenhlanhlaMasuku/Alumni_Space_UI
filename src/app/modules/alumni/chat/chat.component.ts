@@ -37,7 +37,7 @@ export class ChatComponent {
 
   set filterText(value:string){
     this._filterText=value;
-    this.filtedUsers=this.filterContacts(value);
+    //this.filtedUsers=this.filterContacts(value);
   }
   //must be fetched from the database
   contacts: User[] =[
@@ -46,12 +46,12 @@ export class ChatComponent {
 
 
   constructor(private chatService: ChatServiceService){
-    chatService.getContact();
+    //chatService.getContact();
  
 
 
   }
-  onDestroy(){
+ /* onDestroy(){
     this.chatService.leaveRoom(this.room);
     this.chatService.message$.next({ date: '', room: '', sender: '', text: '' });
   }
@@ -162,5 +162,5 @@ export class ChatComponent {
     this.contacts.push({id:this.gID,name:this.groupName,email:"",password:"",role:"alumni"});
     this.groupName='';
     this.gID+=1;
-  }
+  } */
 }
