@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent {
   surname = '';
   constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar) {}
 
-  private socket = io('http://localhost:3001');
+  // private socket = io('http://localhost:3001');
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({ "Content-Type": "application/json" }),
   };
@@ -54,20 +54,20 @@ export class LoginComponent {
         localStorage.setItem('account_id',response.account_id);
 
         // this.router.navigate(['/alumni/home']);
-        //this.page();
+        this.page();
 
-        //socket
-        this.socket.emit('Login',{email: formData.email,password: formData.password});
+        /*//socket
+        // this.socket.emit('Login',{email: formData.email,password: formData.password});
         var isFound = false;
-        this.socket.on('loginResults', (found) => {
-          isFound = found;
+        // this.socket.on('loginResults', (found) => {
+          // isFound = found;
     
     
           console.log(isFound);
           if (isFound) {
             this.isAuthenticated = true;
-            this.socket.on('userDetails', (userData) => {
-              this.page()
+            // this.socket.on('userDetails', (userData) => {
+              // this.page()
     
     
             });
@@ -76,7 +76,7 @@ export class LoginComponent {
             this.isAuthenticated = false;
           }
     
-        });
+        });*/
 
       }else{
         //alert("Invalid Details")
@@ -90,9 +90,9 @@ export class LoginComponent {
 
   onLogin2(){
     //socket
-    this.socket.emit('Login',{email: this.email,password: this.password});
+    //this.socket.emit('Login',{email: this.email,password: this.password});
     var isFound = false;
-    this.socket.on('loginResults', (found) => {
+    /*this.socket.on('loginResults', (found) => {
       isFound = found;
 
 
@@ -114,12 +114,12 @@ export class LoginComponent {
           }*/
 
           this.router.navigate(['/alumni/chat']);
-        });
+        //});
         //return of({ name: userName, email: userEmail });
-      } else {
-        this.isAuthenticated = false;
-      }
-    });
+      //} else {
+        //this.isAuthenticated = false;
+      //}
+    //});
 
   }
   onSubmit() {
