@@ -63,9 +63,14 @@ export class TrackAlumniComponent implements OnInit {
 
   getAlumniPicturePath(picFile: string): string {
 
+    const defaultPicture = 'default-avatar.jpg';
 
-    console.log(`http:/localhost:3000/uploads/pics/profiles/${picFile}`);
+    //return `${this.imageUrl}/${picFile}`;
 
-    return `${this.imageUrl}/${picFile}`;
+    if (picFile && picFile.trim() !== '') {
+      return `${this.imageUrl}/${picFile}`;
+    } else {
+      return `${this.imageUrl}/${defaultPicture}`;
+    }
   }
 }
