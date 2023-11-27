@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../profile/profile.service';
 import { HttpClient } from '@angular/common/http';
 
+import { imageUrl } from 'config';
+
 @Component({
   selector: 'app-who-to-follow',
   templateUrl: './who-to-follow.component.html',
@@ -9,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WhoToFollowComponent implements OnInit {
   profiles: any[] = [];
-  imageUrl = 'http://localhost:3000/uploads/pics/profiles';
+  imageUrl = `${imageUrl}/uploads/pics/profiles`
   currentAccountId: string | null = null;
 
   constructor(private profileService: ProfileService, private http: HttpClient) {}

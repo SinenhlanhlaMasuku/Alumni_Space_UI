@@ -17,6 +17,7 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ProfileService } from '../../alumni/profile/profile.service'; // Adjust the path based on your project structure
 import { HttpClient } from '@angular/common/http';
+import { imageUrl } from 'config';
 
 @Component({
   selector: 'app-track-alumni',
@@ -59,7 +60,8 @@ export class TrackAlumniComponent implements OnInit {
   }
 
 
-  imageUrl = 'http://localhost:3000/uploads/pics/profiles';
+
+  imageUrl = `${imageUrl}/uploads/pics/profiles`
 
   getAlumniPicturePath(picFile: string): string {
 
