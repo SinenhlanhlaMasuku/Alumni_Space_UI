@@ -21,12 +21,12 @@ export class ChatComponent {
   currentDate:string='';
   selectedUser='';
   room:string='dafault';
-  user: User= { id: 0, name: '', email: '', password: '', role: '' };
+  user: User= { account_id: 0, name: '', email: '', password: '', role: '' };
   filtedUsers:User[]=[]
   _filterText:string='';
   groupName:string="";
   sender=localStorage.getItem('account_id');
-  username=localStorage.getItem('username');
+  username=localStorage.getItem('name');
   gID:number=100;
   count:number=0;
   container: HTMLElement| null = null;
@@ -37,7 +37,7 @@ export class ChatComponent {
 
   set filterText(value:string){
     this._filterText=value;
-    //this.filtedUsers=this.filterContacts(value);
+    this.filtedUsers=this.filterContacts(value);
   }
   //must be fetched from the database
   contacts: User[] =[
@@ -46,12 +46,12 @@ export class ChatComponent {
 
 
   constructor(private chatService: ChatServiceService){
-    //chatService.getContact();
+    chatService.getContact();
  
 
 
   }
- /* onDestroy(){
+  onDestroy(){
     this.chatService.leaveRoom(this.room);
     this.chatService.message$.next({ date: '', room: '', sender: '', text: '' });
   }
@@ -84,9 +84,16 @@ export class ChatComponent {
     this.chatService.getContacts();
     var tempList=JSON.parse(localStorage.getItem('contacts')  ?? '[]');
 
-    tempList.forEach((element:User) => {
-      this.contacts.push({id:element.id,name:element.name,email:"",password:"",role:""});
+    tempList.forEach((element: User) => {
+      this.contacts.push({
+        account_id: element.account_id,
+        email: element.email,
+        password: element.password,
+        name: element.name,
+        role: element.role,
+      });
     });
+    
     this.filtedUsers=this.contacts;
 
   }
@@ -159,8 +166,8 @@ export class ChatComponent {
   }
   addGroup(){
     //this.chatService.saveGroup({name:this.groupName,description:"2222",participants:"22",role:"group"})
-    this.contacts.push({id:this.gID,name:this.groupName,email:"",password:"",role:"alumni"});
+    this.contacts.push({account_id:this.gID,name:this.groupName,email:"",password:"",role:"alumni"});
     this.groupName='';
     this.gID+=1;
-  } */
+  }
 }
