@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ProfileService } from '../../profile/profile.service';
 
+import { imageUrl } from 'config';
+import { baseUrl } from 'config';
+
 @Component({
   selector: 'app-user-profile-info',
   templateUrl: './user-profile-info.component.html',
@@ -47,7 +50,7 @@ export class UserProfileInfoComponent {
 
     //get profile
     const user_id = localStorage.getItem('account_id');
-    this.http.put('http://localhost:3000/api/userprofile', { user_id }).subscribe((response: any) => {
+    this.http.put(`${baseUrl}/profile/get_profile`, { user_id }).subscribe((response: any) => {
       console.log('Data sent to server:', response);
 
       //this.alumni.Skills = response.userprofile.skills;
@@ -77,7 +80,9 @@ export class UserProfileInfoComponent {
 
   pictures: { filePath: string }[] = []; // Specify the type here
   
-  imageUrl = 'http://localhost:3000/uploads/pics/profiles';
+  //imageUrl = 'http://localhost:3000/uploads/pics/profiles';
+
+  imageUrl = `${imageUrl}/uploads/pics/profiles`
 
   viewPictures() {
     this.ProfileService.getUploadedPictures().subscribe((data: { filePath: string }[]) => {
