@@ -97,6 +97,7 @@ export class UserProfileInfoComponent {
     localStorage.removeItem('name');
     localStorage.removeItem('surname');
     localStorage.removeItem('email');
+    localStorage.removeItem('contacts');
     //localStorage.removeItem('');
 
     this.router.navigate(['/']);
