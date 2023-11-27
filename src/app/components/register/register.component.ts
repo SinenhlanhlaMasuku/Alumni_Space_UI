@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+//URLs
+import { baseUrl } from 'config';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -18,52 +21,6 @@ export class RegisterComponent {
   // agreeToTerms: boolean = false;
 
   constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) {}
-
-  onLogin() {
-
-    //data to pass to back-end
-    // alert('Registered Successfully!');
-    alert('Fill in the missing fields!');
-    const formData = { email: this.email, password: this.password };
-
-    //
-    if(this.email.length ==0 || this.password.length ==0 )
-    {
-       this.showSnackbar('fill in the missing fields!');
-    }
-    else{
-        alert('go through!')
-    }
-    
-       // alert('Registered Successfully!');
-    if(formData.email !== 'admin@email.com'){
-      this.http.post('http://localhost:3000/api/login', formData).subscribe((response: any) => {
-      console.log('Data sent to server:', response);
-      // Clear the form fields after successful submission
-      this.email = '';
-      this.password = '';
-
-      
-      if(response.message === 'Login successful!' ){
-        alert('Registered Successfully!');
-        console.log(response.result[0].name);
-        console.log(response.account_id);
-        //store user details to localStorage
-        localStorage.setItem('name',response.result[0].name.toString());
-        localStorage.setItem('account_id',response.account_id);
-
-        this.router.navigate(['/alumni/home']);
-      }else{
-        this.router.navigate(['/forgot-password']);
-      }
-    });
-    }else{
-      this.router.navigate(['/admin/dashboard']);
-    }
-    
-  }
-  
-  
 
 
   onSubmit() {
@@ -85,7 +42,7 @@ export class RegisterComponent {
       this.fullname = '';
       this.surname = '';
     }
-         this.http.post('http://localhost:3000/api/register', formData).subscribe((response: any) => {
+         this.http.post(`${baseUrl}/register`, formData).subscribe((response: any) => {
          
          console.log('Data sent to server:', response);
       //Clear the form fields after successful submission

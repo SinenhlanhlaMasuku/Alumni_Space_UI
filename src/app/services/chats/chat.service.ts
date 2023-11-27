@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-//mport { io } from "socket.io-client";
+//import { io } from "socket.io-client";
+
+import { chatUrl } from 'config';
 
 //models
 import { Message } from 'src/app/models/message';
@@ -16,7 +18,7 @@ export class ChatServiceService {
 
   constructor() { }
 
-  //socket = io('http://localhost:3001');
+  //socket = io(`${chatUrl}`);
 
   /*public sendMessage(message: Message) {
     this.socket.emit('message', message);

@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProfileService } from '../profile.service';
+import { baseUrl } from 'config';
 
 
 @Component({
@@ -13,6 +14,8 @@ import { ProfileService } from '../profile.service';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent {
+  private apiUrl = `${baseUrl}/profile`
+
 
   //variables
   message: string = '';
@@ -112,7 +115,7 @@ export class EditProfileComponent {
     const formData = { user_id, name: this.alumni.Name, skills: this.skills, experience: this.alumni.Experience, interest: this.alumni.Interest, bio: this.alumni.Bio, location: this.alumni.Location, qualification: this.alumni.Qualification, employment_status: this.alumni.Employment_Status };
     
     //pass data into the server
-    this.http.put('http://localhost:3000/api/userprofile/:user_id', formData).subscribe((response: any) => {
+    this.http.put(`${this.apiUrl}/update/:user_id`, formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
     });
     console.log(formData);

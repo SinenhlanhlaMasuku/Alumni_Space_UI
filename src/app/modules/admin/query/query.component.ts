@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { baseUrl } from 'config';
 
 @Component({
   selector: 'app-query',
@@ -8,6 +9,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./query.component.css']
 })
 export class QueryComponent {
+
+  private apiUrl = `${baseUrl}/queries`
  
   
   data = [
@@ -47,7 +50,7 @@ export class QueryComponent {
   }
   
 
-  private apiUrl = 'http://localhost:3000/api/respond_query';  
+  //private apiUrl = 'http://localhost:3000/api/respond_query';  
 
   respondToQuery(query: any){
     const requestBody = {
@@ -56,7 +59,7 @@ export class QueryComponent {
     };
     console.log(requestBody);
 
-    this.http.post<any>('http://localhost:3000/api/respond_query', requestBody).subscribe(response => {
+    this.http.post<any>(`${this.apiUrl}/respond_query`, requestBody).subscribe(response => {
     console.log('Query sent to server:', response);
   });
   }

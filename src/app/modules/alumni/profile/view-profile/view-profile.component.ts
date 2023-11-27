@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ProfileService } from '../profile.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { baseUrl } from 'config';
 //import { UserProfileService } from '../user-profile.service';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
@@ -13,6 +14,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./view-profile.component.css']
 })
 export class ViewProfileComponent {
+
+  private apiUrl = `${baseUrl}/profile`;
+
+
   alumni = {
     Name: "name placeholder",
     Location: "location placeholder",
@@ -58,7 +63,7 @@ export class ViewProfileComponent {
     console.log('User_id:' + user_id);
 
     //get profile details from server
-    this.http.put('http://localhost:3000/api/userprofile', { user_id }).subscribe((response: any) => {
+    this.http.put(`${this.apiUrl}/get_profile`, { user_id }).subscribe((response: any) => {
       console.log('Data sent to server:', response);
 
       //this.alumni.Skills = response.userprofile.skills;

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { QueriesService } from 'src/app/services/queries/queries.service';
+import { baseUrl } from 'config';
 
 @Component({
   selector: 'app-query-entry',
@@ -10,6 +11,8 @@ import { QueriesService } from 'src/app/services/queries/queries.service';
   styleUrls: ['./query-entry.component.css']
 })
 export class QueryEntryComponent {
+
+  private apiUrl = `${baseUrl}/queries`
 
   newQuestion: string='';
   queryText:string=''; 
@@ -72,7 +75,7 @@ sendQuery(query: any): void{
 
   //console.log(requestBody);
 
-  this.http.post<any>('http://localhost:3000/api/send_query', requestBody).subscribe(response => {
+  this.http.post<any>(`${this.apiUrl}/send_query`, requestBody).subscribe(response => {
     console.log('Query sent to server:', response);
   });
 }

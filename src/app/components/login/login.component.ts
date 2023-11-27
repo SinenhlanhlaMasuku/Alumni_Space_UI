@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { io } from "socket.io-client";
 
+//URLs
+import { baseUrl } from 'config';
+import { chatUrl } from 'config';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,7 +22,7 @@ export class LoginComponent {
   surname = '';
   constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar) {}
 
-  private socket = io('http://localhost:3001');
+  private socket = io(`${chatUrl}`);
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({ "Content-Type": "application/json" }),
   };
@@ -36,7 +40,7 @@ export class LoginComponent {
        //this.router.navigate(['/alumni/profile/view-profile']);
     }
     if(formData.email !== 'admin@email.com'){
-      this.http.post('http://localhost:3000/api/login', formData).subscribe((response: any) => {
+      this.http.post(`${baseUrl}/login`, formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
       // Clear the form fields after successful submission
       this.email = '';
@@ -113,7 +117,7 @@ export class LoginComponent {
        //this.router.navigate(['/alumni/profile/view-profile']);
     }
     if(formData.email !== 'admin@email.com'){
-      this.http.post('http://localhost:3000/api/login', formData).subscribe((response: any) => {
+      this.http.post(`${baseUrl}/login`, formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
       // Clear the form fields after successful submission
       this.email = '';
@@ -168,7 +172,7 @@ export class LoginComponent {
 
   onSubmit() {
     const formData = { fullname: this.fullname,surname: this.surname, email: this.email, password: this.password };
-    this.http.post('http://localhost:3000/api/register', formData).subscribe((response: any) => {
+    this.http.post(`${baseUrl}/register`, formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
       // Clear the form fields after successful submission
       this.email = '';
@@ -195,9 +199,11 @@ export class LoginComponent {
   }
 
   page(){
+    const apiUrl = `${baseUrl}/profile/get_profile`
+
     //get profile details from server
     const user_id = localStorage.getItem('account_id');
-    this.http.put('http://localhost:3000/api/userprofile', { user_id }).subscribe((response: any) => {
+    this.http.put(apiUrl, { user_id }).subscribe((response: any) => {
       console.log('Data sent to server:', response);
 
       //this.alumni.Skills = response.userprofile.skills;
