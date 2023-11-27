@@ -5,7 +5,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 interface Alumni {
   Bio: string;
   name: string;
-  lastName: string;
+  surname: string;
   skills: string[];
   address: string;
   email: string;
