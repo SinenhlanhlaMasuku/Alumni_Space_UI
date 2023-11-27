@@ -5,14 +5,14 @@
     <div class="col">
       <div class="alumni-details2">
       <div class="alumni-pic">
-        <img [src]="alumni?.alumnipic" alt="Alumni Picture">
+        <img [src]="getAlumniPicturePath(alumni?.alumnipic)" alt="Alumni Picture">
       </div>
      <div class="Other-info">
       <h2>About Me</h2>
       <p> {{alumni?.Bio}}</p>
        <p>Name(s): {{alumni?.name}}</p>
        <p>Surname: {{alumni?.surname}}</p>
-       <p>Address: {{alumni?.address}}</p>
+       <p>Address: {{alumni?.location}}</p>
        <p>Email: {{alumni?.email}}</p>
        
      </div>
