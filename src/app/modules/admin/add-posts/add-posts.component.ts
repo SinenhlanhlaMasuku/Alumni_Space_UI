@@ -3,6 +3,7 @@ import { EventService } from '../../../services/events/event.service';
 import { ProfileService } from '../../alumni/profile/profile.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { imageUrl } from 'config';
 
 @Component({
   selector: 'app-add-posts',
@@ -115,7 +116,7 @@ export class AddPostsComponent {
 
 
   pictures: { filePath: string }[] = [];
-  imageUrl = 'http://localhost:3000/uploads/pics/events';
+  imageUrl = `${imageUrl}/uploads/pics/events`
   
 
   callEvent(){
