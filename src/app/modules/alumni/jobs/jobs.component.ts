@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { JobsService } from 'src/app/services/jobs/jobs.service';
 
 @Component({
   selector: 'app-jobs',
@@ -28,7 +29,7 @@ export class JobsComponent {
   currentDate: string = '';
   currentDate2: Date = new Date();
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private jobsService: JobsService) { }
 
   //constructor(private jobService: Job) {}
 
@@ -96,10 +97,10 @@ export class JobsComponent {
   searchJobs() {
     var job_type = 'Full-time';
     var location = 'Emalahleni';
-    var date_posted = '2023-10-26';
+    var date_posted = '2023-11-27';
 
     const formData = { job_type, location, date_posted };
-    this.http.post('http://localhost:3000/api/search/jobs', formData).subscribe((response: any) => {
+    /*this.http.post('http://localhost:3000/api/jobs/search', formData).subscribe((response: any) => {
       console.log("Button clicked");
       //console.log('Data sent to server:', response);
       // Fetch jobs using the service
@@ -107,6 +108,14 @@ export class JobsComponent {
       this.num = this.jobs.length;
 
 
+    });*/
+
+    this.jobsService.searchJobs(formData).subscribe((response: any) => {
+      console.log("Button clicked");
+      //console.log('Data sent to server:', response);
+      // Fetch jobs using the service
+      this.jobs = response.result;
+      this.num = this.jobs.length;
     });
 
   }

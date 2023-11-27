@@ -3,7 +3,6 @@ import { LastFewNotificationsComponent } from '../last-few-notifications/last-fe
 import { ThisReceiver } from '@angular/compiler';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { counter } from '@fortawesome/fontawesome-svg-core';
-import { AlumniDetailsService } from 'src/app/services/alumniDetails/alumni-details.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY } from 'rxjs';
 @Component({
@@ -35,7 +34,7 @@ isSearch: boolean = false;
  notificatinId: number=0;
 
   //alumniList: any[] = [];
-  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, private alumniDetailsService: AlumniDetailsService) {
+  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar) {
     this.searchForm = this.formBuilder.group({
       searchText: ['']
     });
@@ -66,14 +65,14 @@ isSearch: boolean = false;
     if (this.searchText && this.searchText.length !== 0) {
       this.isSearch = true;
       // this.SearchText = searchText;
-      this.alumniDetailsService.searchAlumni(this.searchText).subscribe(
+      //this.alumniDetailsService.searchAlumni(this.searchText).subscribe(
        /* result => {
           this.searchResults = result;
         },
         error => {
           console.error('Error searching alumni:', error);
         }*/
-      );
+      //);
     } else {
       // alert('Type alumni name to search something!');
       this.showSnackbar('Type alumni name to search something!');

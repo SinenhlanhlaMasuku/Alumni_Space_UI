@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { JobTrackService } from 'src/app/services/job-track/job-track.service';
+import { JobsService } from 'src/app/services/jobs/jobs.service';
 import { AcceptApplicationComponent } from '../accept-application/accept-application.component';
 import { RejectApplicationComponent } from '../reject-application/reject-application.component';
 import { ApplicationStatusComponent } from '../application-status/application-status.component';
@@ -53,7 +53,7 @@ export class ApplicationsComponent  {
   isInterviewDone: boolean= false;
   updateApplicantStatus: string = '';
 
-  constructor(private dialog: MatDialog, private snackbar: MatSnackBar, private jobTrackService: JobTrackService){
+  constructor(private dialog: MatDialog, private snackbar: MatSnackBar, private jobTrackService: JobsService){
 
   }
   showSnackbar(message: string) {
@@ -232,7 +232,7 @@ openSuccessDialog(application: Alumni){
   }
 
   ngOnInit(): void {
-    this.jobTrackService.getAlumni().subscribe(
+    this.jobTrackService.getApplications().subscribe(
       (data) => {
         this.alumniData = data.jobs;
       },

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { JobsService } from 'src/app/services/jobs/jobs.service';
 
 @Component({
   selector: 'app-add-jobs',
@@ -36,7 +36,7 @@ export class AddJobsComponent {
 
    jobForm: FormGroup;
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, private jobsService: JobsService) {
     this.getAllStudent();
     this.setupJobDeletionTimer();
 
@@ -81,10 +81,10 @@ export class AddJobsComponent {
     if (this.jobForm.valid) {
       let bodyData = this.jobForm.value;
       console.log(bodyData);
-      this.http.post("http://localhost:3000/api/newjob", bodyData).subscribe((resultData: any) => {
+      this.jobsService.createJob(bodyData).subscribe((resultData: any) => {
         console.log(resultData);
         alert("Job Added Successfully");
-        this.getAllStudent();
+        //this.getAllStudent();
         this.jobForm.reset();
       });
     }
@@ -126,11 +126,10 @@ export class AddJobsComponent {
       "salary": this.salary,
     };
 
-    this.http.put("http://localhost:3000/api/Jobs/:job_id" + "/" + this.id, bodyData).subscribe((resultData: any) => {
+    this.jobsService.updateJob(this.id, bodyData).subscribe((resultData: any) => {
       console.log(resultData);
-      alert("Job Updateddd")
+      alert("Job Updated");
       this.getAllStudent();
-
     });
   }
 
@@ -146,14 +145,12 @@ export class AddJobsComponent {
 
 
   setDelete(data: any) {
-    //get job id
-    const job_id = data.job_id;
-    console.log(job_id);
-    //
-    const url = "http://localhost:3000/api/job/delete" + "/" + job_id;
-    this.http.delete(url).subscribe((resultData: any) => {
+    const jobId = data.job_id;
+    console.log(jobId);
+  
+    this.jobsService.deleteJob(jobId).subscribe((resultData: any) => {
       console.log(resultData);
-      alert("Job Deletedddd")
+      alert("Job Deleted");
       this.getAllStudent();
     });
   }

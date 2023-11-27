@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { DataServiceService } from 'src/app/services/dataService/data-service.service';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { JobsService } from 'src/app/services/jobs/jobs.service';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class ApplyPageComponent implements OnInit {
     email: ''
   };
 
-  constructor(private dataService: DataServiceService, private snackbar: MatSnackBar, private router: Router, private http: HttpClient) { }
+  constructor(private dataService: JobsService, private snackbar: MatSnackBar, private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
     // Fetch data from the database and populate the form fields

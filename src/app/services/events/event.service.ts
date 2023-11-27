@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { baseUrl } from 'config';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,13 @@ export class EventService {
   constructor(private http: HttpClient) { }
 
   private events: any[] = [];
+  private apiUrl = `${baseUrl}/events`
 
   id = '';
   event_title : string= ' ';
   event_description : string= '';
   event_date : string= ' ';
-  baseUrl = 'http://localhost:3000'
+  
  
 
   //CRUD
@@ -37,7 +39,7 @@ export class EventService {
     formData.append("event_description", event.description);
     formData.append("event_date", event.eventDate);
 
-    this.http.post("http://localhost:3000/api/event",formData).subscribe((resultData: any)=>
+    this.http.post(`${this.apiUrl}/add`,formData).subscribe((resultData: any)=>
     {
         console.log(resultData);
         alert("Event Added Successfully");
@@ -48,7 +50,7 @@ export class EventService {
 
   getAllEvents()
   { 
-    this.http.get("http://localhost:3000/api/events").subscribe((resultData: any)=>{
+    this.http.get(`${this.apiUrl}`).subscribe((resultData: any)=>{
         //this.isResultLoaded = true;
         //console.log(resultData.events);
         this.events = resultData.events;
@@ -68,13 +70,13 @@ export class EventService {
   }*/
 
   getEventsAll(): Observable<{ events: any[]; pictures: { filePath: string }[] }> {
-    return this.http.get<{ events: any[]; pictures: { filePath: string }[] }>("http://localhost:3000/api/events");
+    return this.http.get<{ events: any[]; pictures: { filePath: string }[] }>(`${this.apiUrl}`);
   }
 
   updateEvent(){}
 
   deleteEvent(event_id: any){
-    const url = "http://localhost:3000/api/event/delete" + "/" + event_id;
+    const url = `${this.apiUrl}/delete` + "/" + event_id;
     this.http.delete(url).subscribe((resultData: any) => {
       console.log(resultData);
       alert("Event Deleted")
@@ -94,12 +96,9 @@ export class EventService {
     }
   }
 
-  private apiUrl = 'http://localhost:3000/api/count_event';
-
- 
 
   getEventCount(): Observable<{ event_count: number }> {
-    return this.http.get<{ event_count: number }>(this.apiUrl);
+    return this.http.get<{ event_count: number }>(`${this.apiUrl}/count_event`);
   }
   
 }
