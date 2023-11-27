@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { JobsService } from 'src/app/services/jobs/jobs.service';
+import { baseUrl } from 'config';
 
 @Component({
   selector: 'app-jobs',
@@ -32,6 +33,8 @@ export class JobsComponent {
   constructor(private http: HttpClient, private router: Router, private jobsService: JobsService) { }
 
   //constructor(private jobService: Job) {}
+
+  private apiUrl = `${baseUrl}/jobs`;
 
   ngOnInit() {
     //get all
@@ -100,15 +103,6 @@ export class JobsComponent {
     var date_posted = '2023-11-27';
 
     const formData = { job_type, location, date_posted };
-    /*this.http.post('http://localhost:3000/api/jobs/search', formData).subscribe((response: any) => {
-      console.log("Button clicked");
-      //console.log('Data sent to server:', response);
-      // Fetch jobs using the service
-      this.jobs = response.result;
-      this.num = this.jobs.length;
-
-
-    });*/
 
     this.jobsService.searchJobs(formData).subscribe((response: any) => {
       console.log("Button clicked");
@@ -121,7 +115,7 @@ export class JobsComponent {
   }
 
   getAllJobs(){
-    this.http.get('http://localhost:3000/api/jobs').subscribe((response: any) => {
+    this.http.get(this.apiUrl).subscribe((response: any) => {
       console.log('Data sent to server:', response);
       // Fetch jobs using the service
       this.jobs = response.jobs;
@@ -130,7 +124,7 @@ export class JobsComponent {
   }
 
   autoDelete() {
-    this.http.delete('http://localhost:3000/api/deletejobs').subscribe((response: any) => {
+    this.http.delete(`${this.apiUrl}/deletejobs`).subscribe((response: any) => {
       console.log('Data sent to server:', response);
     });
 

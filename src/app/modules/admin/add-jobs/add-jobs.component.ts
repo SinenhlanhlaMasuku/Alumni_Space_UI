@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JobsService } from 'src/app/services/jobs/jobs.service';
+import { baseUrl } from 'config';
 
 @Component({
   selector: 'app-add-jobs',
@@ -56,10 +57,11 @@ export class AddJobsComponent {
     });
   }
 
+  private apiUrl = `${baseUrl}/jobs`
 
 
   ngOnInit() {
-    this.http.get('http://localhost:3000/api/jobs').subscribe((response: any) => {
+    this.http.get(this.apiUrl).subscribe((response: any) => {
       console.log('Data sent to server:', response);
       // Fetch jobs using the service
       this.StudentArray = response.jobs;
@@ -68,7 +70,7 @@ export class AddJobsComponent {
   }
 
   getAllStudent() {
-    this.http.get("http://localhost:3000/api/newjob")
+    this.http.get(`${this.apiUrl}/newjob`)
       .subscribe((resultData: any) => {
         this.isResultLoaded = true;
         console.log(resultData.data);
@@ -166,7 +168,7 @@ export class AddJobsComponent {
   removeExpiredJobs() {
     const currentTime = new Date();
 
-    this.http.get('http://localhost:3000/api/jobs').subscribe((response: any) => {
+    this.http.get(this.apiUrl).subscribe((response: any) => {
       const jobs = response.jobs;
       const jobsToDelete = jobs.filter((job: Job) => {
         const jobDeadline = new Date(job.deadline);
@@ -175,7 +177,7 @@ export class AddJobsComponent {
 
       if (jobsToDelete.length > 0) {
         // Send a request to delete the expired jobs from the server.
-        this.http.post('http://localhost:3000/api/deletejobs', { jobs: jobsToDelete }).subscribe(() => {
+        this.http.post(`${this.apiUrl}/deletejobs`, { jobs: jobsToDelete }).subscribe(() => {
           console.log('Expired jobs deleted');
         });
       }
