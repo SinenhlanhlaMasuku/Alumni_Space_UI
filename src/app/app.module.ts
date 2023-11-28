@@ -21,6 +21,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { ApplyPageComponent } from './apply-page/apply-page.component';
 import { MyJobApplicationComponent } from './my-job-application/my-job-application.component';
+import { ShareStoryComponent } from './share-story/share-story.component';
 // import {  } from '@fortawesome/fontawesome-free-solid';
 
 
@@ -42,7 +43,8 @@ import { MyJobApplicationComponent } from './my-job-application/my-job-applicati
     YourThoughtsComponent,
     ConfirmationDialogComponent,
     ApplyPageComponent,
-    MyJobApplicationComponent
+    MyJobApplicationComponent,
+    ShareStoryComponent
     
 
 
