@@ -17619,5 +17619,17 @@ a.badge:hover {
 
 .card{
   border: 2px solid gray;
-  background-color: aliceblue;
+  background-color: #fff;
+  width: 45%;
+  margin-left: 27%;
+  margin-top: -400px;
+  height: auto;
+}
+.card p{
+  color: #000;
+  margin-left: 45px;
+}
+.posted-photo{
+  margin-left: 90px;
+  margin-bottom: 10px;
 }
