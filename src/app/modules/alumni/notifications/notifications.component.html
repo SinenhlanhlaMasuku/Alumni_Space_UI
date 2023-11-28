@@ -62,7 +62,7 @@
     <hr />
     <div class="title">All notifications</div>
     <div class="top-content">
-      <p>Notifications: {{ notifications.length }}</p>
+      <p>Notifications: {{ queries.length }}</p>
       <p>Unread notifications: {{ unreadNotificationCount }}</p>
       <button type="button" class="btn btn-success" (click)="markAllAsRead()">Mark All as Read</button>
     </div>
@@ -92,7 +92,7 @@
         </div>
       </div>
     </div>
-    <div class="notification" *ngFor="let notification of notifications; let i = index">
+    <div class="notification" *ngFor="let notification of queries; let i = index">
       <div *ngIf="selectedNotificationIndex === i" class="card">
         <small style="color: green; margin-left: auto;">
           <p>{{ timeReplied }}</p>
@@ -112,7 +112,7 @@
           </div>
 
         <p>From: {{ notification.sender }}</p>
-        <p> {{ notification.message }}</p>
+        <p>message: {{ notification.response }}</p>
         <hr />
         <button type="button" style="width: 100px; margin-left: 40%; margin-bottom: 5%; height: 50px; color:black" class="btn btn-primary" (click)="backtoNot()">back</button>
       </div>

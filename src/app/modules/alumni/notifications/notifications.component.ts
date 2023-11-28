@@ -100,16 +100,16 @@ export class NotificationsComponent {
       isRead: false,
       truncatedMessage: '',
     },
-    {
-      id:2,
-      sender: "Kfefe",
-      subject: "Enquiry response",
-      message: "We have received your enquiry, we will get back to you shortly!",
-      date: "10/11/2023",//replace with real
-      time: this.timeReplied,//replace with real
-      isRead: false,
-      truncatedMessage: '',
-    },
+    // {
+    //   id:2,
+    //   sender: "Kfefe",
+    //   subject: "Enquiry response",
+    //   message: "We have received your enquiry, we will get back to you shortly!",
+    //   date: "10/11/2023",//replace with real
+    //   time: this.timeReplied,//replace with real
+    //   isRead: false,
+    //   truncatedMessage: '',
+    // },
   ];
   // showNotification(){
     
@@ -205,7 +205,7 @@ export class NotificationsComponent {
         return 'assets/Sneh.jpg';
       // Add more cases as needed
       default:
-        return 'assets/Kfentse.jpg';
+        return 'assets/aboutPic.jpg';
     };
   }
 }
