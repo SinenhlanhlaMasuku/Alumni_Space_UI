@@ -66,6 +66,7 @@ export class YourThoughtsComponent {
 
   selectedImage: File | null = null;
   selectedVideo: File | null = null;
+  imageFile: File | null = null;
   submitResponse(index: number) {
     this.data[index].status = 'Answered';
     this.responseForms[index] = false;
@@ -74,16 +75,20 @@ export class YourThoughtsComponent {
 
     // alert( this.postedtext)
 
-    // const post = {
-    //   caption: this.postedtext,
-    //   imageFile: this.selectedImage ? this.selectedImage : null,
-    //   videoFile: this.selectedVideo ? this.selectedVideo : null,
-    // };
     const post = {
       caption: this.postedtext,
-      imageFile: 'assets/Sneh.jpg',
-      videoFile: this.selectedVideo ? this.selectedVideo : null,
+      imageFile: this.selectedImage,
+      //videoFile: this.selectedVideo ? this.selectedVideo : null,
     };
+
+    
+    // const post = {
+    //   caption: this.postedtext,
+    //   imageFile: 'assets/Sneh.jpg',
+    //   videoFile: this.selectedVideo ? this.selectedVideo : null,
+    // };
+
+    console.log(post);
 
     this.storiesService.updatePost(post);
   // Clear the input after posting
@@ -96,6 +101,7 @@ onPhotoUpload(event: any) {
   const file = event.target.files[0];
   this.selectedImage = file;
 }
+
 onVideoUpload(event: any) {
   const file = event.target.files[0];
   this.selectedVideo = file;
