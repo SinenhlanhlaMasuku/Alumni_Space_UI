@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JobsService } from 'src/app/services/jobs/jobs.service';
+import { baseUrl } from 'config';
 
 
 @Component({
@@ -120,7 +121,8 @@ export class ApplyPageComponent implements OnInit {
   getJobInfo() {
     const id = localStorage.getItem('job_id');
 
-    const url = 'http://localhost:3000/api/job/' + id;
+    //const url = 'http://localhost:3000/api/job/' + id;
+    const url = `${baseUrl}/jobs/` + id;
 
     this.http.get(url).subscribe((response: any) => {
       console.log('Data sent to server:', response);
