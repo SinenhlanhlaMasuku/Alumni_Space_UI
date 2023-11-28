@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { imageUrl } from 'config';
 
 @Component({
   selector: 'app-reset-password',
@@ -12,6 +13,8 @@ export class ResetPasswordComponent {
   password = '';
   confirmPassword = '';
   errorMessage = '';
+
+
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -29,7 +32,7 @@ export class ResetPasswordComponent {
     if (formData.confirmPassword != formData.password) {
       this.errorMessage = 'Passwords do not match';
     } else {
-      this.http.put('http://localhost:3000/forgot-password', formData).subscribe((response: any) => {
+      this.http.put(`${imageUrl}/forgot-password`, formData).subscribe((response: any) => {
         console.log('Data sent to server:', response);
         // Clear the form fields after successful submission
         this.email = '';
