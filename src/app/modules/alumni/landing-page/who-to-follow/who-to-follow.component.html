@@ -21,7 +21,7 @@
                   <p class="mb-0 small text-truncate">{{ profile.title }}</p>
                 </div>
                 <!-- Button -->
-                <a class="btn btn-primary-soft rounded-circle icon-md ms-auto" href="#"><i class="fa-solid fa-plus"></i></a>
+                <a class="btn btn-primary-soft rounded-circle icon-md ms-auto" routerLink="/alumni/home"  (click)="increaseFollowingCount(profile.account_id)" ><i class="bi bi-plus"></i></a>
               </div>
               
               
