@@ -63,7 +63,7 @@ public openSuccessDialog(): void {
 }
 
 sendQuery(query: any): void{
-  const accountId = '';
+  const accountId = localStorage.getItem('account_id');
   const status = 'pending';
 
   const requestBody = {

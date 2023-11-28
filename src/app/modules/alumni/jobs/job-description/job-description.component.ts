@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { baseUrl } from 'config';
 
 @Component({
   selector: 'app-job-description',
@@ -43,7 +44,8 @@ export class JobDescriptionComponent {
   ngOnInit() {
     const id = localStorage.getItem('job_id');
 
-    const url = 'http://localhost:3000/api/job/' + id;
+    //const url = 'http://localhost:3000/api/job/' + id;
+    const url = `${baseUrl}/jobs/` + id;
 
     this.http.get(url).subscribe((response: any) => {
       console.log('Data sent to server:', response);

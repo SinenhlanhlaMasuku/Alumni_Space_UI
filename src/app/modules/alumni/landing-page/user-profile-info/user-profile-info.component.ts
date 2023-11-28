@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ProfileService } from '../../profile/profile.service';
+import { ConnectionService } from 'src/app/services/connections/connection.service';
 
 import { imageUrl } from 'config';
 import { baseUrl } from 'config';
@@ -31,13 +32,18 @@ export class UserProfileInfoComponent {
   }
 
   images: File[] = [];
+  followingCount: number = 0;
+  followerCount: number = 0;
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private ProfileService: ProfileService,private router: Router){
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private ProfileService: ProfileService,private router: Router, private followService: ConnectionService){
     this.images = this.ProfileService.getImages();
     this.viewPictures();
   }
   
   ngOnInit() {
+    this.followService.followingCount$.subscribe((count: number) => {
+      this.followingCount = count;
+    });
     const storedName = localStorage.getItem('name');
     const storedName2 = localStorage.getItem('surname');
     
@@ -70,6 +76,28 @@ export class UserProfileInfoComponent {
 
       }
     });
+
+    //get following
+    this.followService.getFollowingCount(user_id).subscribe(
+      (response: any) => {
+        console.log('Following Count:', response.followingCount);
+        this.followingCount = response.followingCount;
+      },
+      (error: any) => {
+        console.error('Error fetching following count:', error);
+      }
+    );
+
+    //get
+    this.followService.getFollowersCount(user_id).subscribe(
+      (response: any) => {
+        console.log('Following Count:', response.followerCount);
+        this.followerCount = response.followerCount;
+      },
+      (error: any) => {
+        console.error('Error fetching following count:', error);
+      }
+    );
   }
 
   getSafeUrl(image: File): SafeUrl {
