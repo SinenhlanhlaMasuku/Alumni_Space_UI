@@ -34,4 +34,8 @@ export class UserPostComponent {
         text_message: "I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.",
         image_message: "assets/Sneh.jpg"}
          }
+
+         onProfilePicChange(){
+          
+         }
 }
