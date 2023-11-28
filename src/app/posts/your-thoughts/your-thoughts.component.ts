@@ -67,6 +67,7 @@ export class YourThoughtsComponent {
   selectedImage: File | null = null;
   selectedVideo: File | null = null;
   imageFile: File | null = null;
+  alumniStoryPic: File | null = null;
   submitResponse(index: number) {
     this.data[index].status = 'Answered';
     this.responseForms[index] = false;
@@ -81,7 +82,7 @@ export class YourThoughtsComponent {
       //videoFile: this.selectedVideo ? this.selectedVideo : null,
     };
 
-    
+    console.log('uploaded image: ' + this.alumniStoryPic)
     // const post = {
     //   caption: this.postedtext,
     //   imageFile: 'assets/Sneh.jpg',
@@ -100,6 +101,7 @@ export class YourThoughtsComponent {
 onPhotoUpload(event: any) {
   const file = event.target.files[0];
   this.selectedImage = file;
+  this.alumniStoryPic = this.selectedImage;
 }
 
 onVideoUpload(event: any) {

@@ -23,8 +23,13 @@
                 <label for="photoUpload" class="nav-link bg-light py-1 mb-0" data-bs-toggle="#feedActionPhoto">
                     <i class="bi bi-image-fill text-success pe-2"></i>Photo
                 </label>
-                <input type="file" accept="image/png, image/jpeg, image/jpg" (change)="onPhotoUpload($event)" style="display: none" id="photoUpload"/>
+                <input type="file" accept="image/png, image/jpeg, image/jpg" [(ngModel)]="alumniStoryPic" name="alumniStoryPic" (change)="onPhotoUpload($event)" id="photoUpload" style="display: none"/>
+                <!-- style="display: none" -->
             </li>
+            <!--imagePreview-->
+            <!-- <img [src]="imageFile ? imageFile : ''" alt="Event Image Preview" style="max-width: 300px;"><br> -->
+          <!-- <img [src]="alumniStoryPic"  alt="Event Image Preview" style="max-width: 300px;"> -->
+
         
             <li class="nav-item">
                 <label for="videoUpload" class="nav-link bg-light py-1 mb-0" data-bs-toggle="#feedActionVideo">
