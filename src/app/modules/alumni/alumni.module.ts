@@ -9,6 +9,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { JobDescriptionComponent } from './jobs/job-description/job-description.component';
 import { ApplyPageComponent } from './jobs/apply-page/apply-page.component';
 import { ChatComponent } from './chat/chat.component';
+import { TractApplicationComponent } from './tract-application/tract-application.component';
 
 
 
@@ -17,6 +18,7 @@ import { ChatComponent } from './chat/chat.component';
   declarations: [
     EventsComponent,
     NotificationsComponent,
+    TractApplicationComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { ChatComponent } from './chat/chat.component';
       { path: 'home', loadChildren: () => import('./landing-page/landing-page.module').then(m => m.LandingPageModule) },
       { path: 'queries', loadChildren: () => import('./queries/queries.module').then(m => m.QueriesModule) },
       
+      
     
       //components
       { path: 'jobs', component: JobsComponent },
@@ -32,7 +35,8 @@ import { ChatComponent } from './chat/chat.component';
       { path: 'notifications', component: NotificationsComponent},
       {path: 'job', component:JobDescriptionComponent},
       {path: 'apply-page', component:ApplyPageComponent},
-      {path: 'chat', component:ChatComponent}
+      {path: 'chat', component:ChatComponent},
+      {path: 'tract-application', component:TractApplicationComponent}
     ]),
   ]
 })

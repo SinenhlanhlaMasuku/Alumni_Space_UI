@@ -41,6 +41,7 @@ import { AcceptApplicationComponent } from './modules/admin/job-applications/acc
 import { RejectApplicationComponent } from './modules/admin/job-applications/reject-application/reject-application.component';
 import { ApplicationStatusComponent } from './modules/admin/job-applications/application-status/application-status.component';
 import { AlumniResumeComponent } from './modules/admin/job-applications/alumni-resume/alumni-resume.component';
+//import { TractApplicationComponent } from './modules/alumni/tract-application/tract-application.component';
 
 
 //Alumni-Module Components
@@ -102,6 +103,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     RejectApplicationComponent,
     ApplicationStatusComponent,
     AlumniResumeComponent,
+    
 
     // ViewProfileComponent,
     // EditProfileComponent

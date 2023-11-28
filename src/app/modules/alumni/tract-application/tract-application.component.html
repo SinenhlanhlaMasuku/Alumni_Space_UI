@@ -1,0 +1,38 @@
+
+<link rel="stylesheet" href="./tract-application.component.css">
+<!-- <app-navbar></app-navbar> -->
+<div class="container-fluid">
+<h1>My Application Status</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Job Title</th>
+      <th>Application Date</th>
+      <th>Status</th>
+
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of appData">
+      
+      <td>{{ row.job_title }}</td>
+    <td>{{ row.application_date }}</td>
+    <td>{{ row.application_status }}</td>
+
+    <span *ngIf="row.timeStamp"> - {{row.timeStamp | date: 'medium'}}</span>
+      <td>
+         <div class="Actions-btns">
+        <button type="button" class="btn btn-outline-primary" (click)="toggleResponseForm(row)"  color="primary">Delete</button>
+        
+         </div>
+      </td>
+    </tr>
+  </tbody>
+
+
+</table>
+
+
