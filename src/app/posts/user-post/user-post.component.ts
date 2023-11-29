@@ -23,7 +23,7 @@ export class UserPostComponent {
   imageFile: File | null = null;
   selectedFile: File | null = null;
   caption?: string;
-
+  imageFilePreview: string | ArrayBuffer | null = null;
   private postSubscription: Subscription;
 
   constructor(private storiesService: StoriesServiceService) {
@@ -69,17 +69,16 @@ export class UserPostComponent {
           //read the image
           this.onImageChange(event);
         }
-         onImageChange(event: Event) {
+        onImageChange(event: Event) {
           const inputElement = event.target as HTMLInputElement;
           if (inputElement.files && inputElement.files.length > 0) {
             const file = inputElement.files[0];
+            this.imageFile = file; // Set the File object directly
             const reader = new FileReader();
             reader.onload = (e: any) => {
-              this.imageFile = e.target.result;
+              this.imageFilePreview = e.target.result;
             };
             reader.readAsDataURL(file);
           }
-          
-          
         }
 }

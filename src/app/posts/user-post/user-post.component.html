@@ -4,7 +4,9 @@
     <p>{{caption}}</p>
     <div class="posted-photo">
         <!-- <input type="file" accept="image/png, image/jpeg, image/jpg" (change)="onProfilePicChange($event)" class="form-control" id="profile_picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload"> -->
-        <img [src]="imageFile ? imageFile : ''" alt="Event Image Preview" style="max-width: 300px;"><br>
+        <!-- <img [src]="imageFile ? imageFile : ''" alt="Event Image Preview" style="max-width: 300px;"><br> -->
+        <img [src]="imageFilePreview ? imageFilePreview : ''" alt="Event Image Preview" style="max-width: 300px;"><br>
+
     </div>
 </div>
 </div>
