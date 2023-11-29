@@ -41,30 +41,15 @@ public openSuccessDialog(): void {
     status: 'Unanswered',
     timestamp: new Date().toDateString,
   };
-  this.queries.push(query);
-  localStorage.setItem('queries', JSON.stringify(this.queries));
+  /*this.queries.push(query);
+  localStorage.setItem('queries', JSON.stringify(this.queries));*/
   
   this.sendQuery(query);
-
-  /*this.http.post<any>('http://localhost:3000/query',this.queryText,{headers}).subscribe(response=>{
-
-  this.queryText ='';
-
-  })
-
-  // Create a new query and send it to the server
-  const newQuery: any = {text:this.queryText, timestamp: new Date()};
-  this.queryService.sendQuery(newQuery).subscribe((response) => {
-    this.dialog.open(SuccessDialogComponent, {
-      data: { message: 'Your message was sent successfully!' },
-      closeOnNavigation: true,
-    });
-  });*/
 }
 
 sendQuery(query: any): void{
   const accountId = localStorage.getItem('account_id');
-  const status = 'pending';
+  const status = 'Unanswered';
 
   const requestBody = {
     account_id: accountId,
@@ -72,8 +57,6 @@ sendQuery(query: any): void{
     status,
     date: new Date().toISOString()
   };
-
-  //console.log(requestBody);
 
   this.http.post<any>(`${this.apiUrl}/send_query`, requestBody).subscribe(response => {
     console.log('Query sent to server:', response);
