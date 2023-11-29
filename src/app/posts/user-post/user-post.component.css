@@ -478,11 +478,11 @@ select:disabled {
   display: none !important;
 }
 
-/* button,
+/*button,
 [type=button],
 [type=reset],
 [type=submit] {
-  /* -webkit-appearance: button; 
+  -webkit-appearance: button;
 } */
 button:not(:disabled),
 [type=button]:not(:disabled),
@@ -540,7 +540,7 @@ legend + * {
 
 [type=search] {
   outline-offset: -2px;
-  /* -webkit-appearance: textfield; */
+ /* -webkit-appearance: textfield;*/
 }
 
 /* rtl:raw:
@@ -566,7 +566,7 @@ legend + * {
 
 ::file-selector-button {
   font: inherit;
-  /* -webkit-appearance: button; */
+  /*-webkit-appearance: button;*/
 }
 
 output {
@@ -17616,20 +17616,3 @@ a.badge:hover {
 
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */
-
-.card{
-  border: 2px solid gray;
-  background-color: #fff;
-  width: 45%;
-  margin-left: 27%;
-  margin-top: -400px;
-  height: auto;
-}
-.card p{
-  color: #000;
-  margin-left: 45px;
-}
-.posted-photo{
-  margin-left: 90px;
-  margin-bottom: 10px;
-}
