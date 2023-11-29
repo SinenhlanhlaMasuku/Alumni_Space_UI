@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { JobAppService } from 'src/app/services/jobApp/job-app.service';
 interface Alumni{
   job_title: string;
@@ -17,7 +18,7 @@ export class TractApplicationComponent {
   responseForms: boolean[] = new Array(this.appData.length).fill(false);
 
 
-  constructor(private changeDetectorRef: ChangeDetectorRef, private jobAppService: JobAppService){}
+  constructor(private changeDetectorRef: ChangeDetectorRef, private jobAppService: JobAppService, private router: Router){}
 
   ngOnInit(){
   
@@ -55,5 +56,8 @@ export class TractApplicationComponent {
   this.appData[index].status = 'Answered';
   this.appData[index].timeStamp = new Date();
   this.responseForms[index] = true;
+  }
+  returnHome(){
+    this.router.navigate(['/alumni/home']);
   }
 }
