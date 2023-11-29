@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { baseUrl } from 'config';
 
+import { QueriesService } from 'src/app/services/queries/queries.service';
+
 @Component({
   selector: 'app-query',
   templateUrl: './query.component.html',
@@ -11,16 +13,16 @@ import { baseUrl } from 'config';
 export class QueryComponent {
 
   private apiUrl = `${baseUrl}/queries`
- 
-  
+
+
   data = [
     { user: 'User 1', query: 'Hello, I have a question.', status: 'Unanswered', response: '' },
     { user: 'User 2', query: 'Need assistance with an order.', status: 'Unanswered', response: '' }
   ];
   queries: any[] = [];
   responseForms: boolean[] = new Array(this.data.length).fill(false);
-  
-  constructor(private http: HttpClient){}
+
+  constructor(private http: HttpClient, private queriesService: QueriesService) { }
 
   toggleResponseForm(index: number) {
     this.responseForms[index] = !this.responseForms[index];
@@ -31,31 +33,39 @@ export class QueryComponent {
     this.responseForms[index] = false;
   }
 
-  submitResponse1(index: number) {
-    this.queries[index].status = 'Answered';
-    this.responseForms[index] = false;
-    
-    localStorage.setItem('queries', JSON.stringify(this.queries));
+  submitResponse1(index: number, query : any) {
+    //this.queries[index].status = 'Answered';
+    //this.responseForms[index] = false;
+
+    //localStorage.setItem('queries', JSON.stringify(this.queries));
 
     //respond
-    this.respondToQuery(this.queries[index]);
+    this.respondToQuery(query);
+    this.responseForms[index] = false;
   }
 
-  ngOnInit(){
-    const storedEvents = localStorage.getItem('queries');
-    if (storedEvents) {
-      this.queries = JSON.parse(storedEvents);
-      console.log(this.queries);
-    }
+  ngOnInit() {
+    //get queries
+    this.fetchQueries();
   }
-  
 
-  //private apiUrl = 'http://localhost:3000/api/respond_query';  
+  fetchQueries(): void {
+    this.queriesService.getQueries().subscribe(
+      (response: any) => {
+        this.queries = response.queries;
+      },
+      (error) => {
+        console.error('Error fetching queries:', error);
+        // Handle error as needed
+      }
+    );
+  }
 
-  respondToQuery(query: any){
+  respondToQuery(query: any) {
+
     const requestBody = {
-      query_id: 1,
-      query_text: query.status
+      query_id: query.query_id,
+      query_response: query.response
     };
     console.log(requestBody);
 
