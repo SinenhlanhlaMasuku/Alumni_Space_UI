@@ -17613,6 +17613,8 @@ a.badge:hover {
 [data-bs-theme=dark] .light-mode-item {
   display: none !important;
 }
-
+.navbar{
+  background-color: #000;
+}
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */
