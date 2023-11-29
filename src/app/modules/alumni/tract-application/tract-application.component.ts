@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { JobAppService } from 'src/app/services/jobApp/job-app.service';
 interface Alumni{
   saved_job_title: string;
@@ -16,7 +17,8 @@ export class TractApplicationComponent {
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
-    private jobAppService: JobAppService
+    private jobAppService: JobAppService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -47,5 +49,8 @@ export class TractApplicationComponent {
     if (index !== -1) {
       this.appData.splice(index, 1);
     }
+  }
+  returnHome(){
+    this.router.navigate(['/alumni/home']);
   }
 }

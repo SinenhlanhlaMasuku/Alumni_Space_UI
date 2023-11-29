@@ -26,7 +26,8 @@ export class NotificationsComponent {
   message: string='';
   fullMessage?: string;
   currentDate: Date = new Date();
- 
+  dateReceived?: Date;
+  sender?: string;
   
   constructor( private router: Router, private notificationService: NotificationsService){}
    
@@ -36,6 +37,8 @@ export class NotificationsComponent {
     if (storedEvents) {
       this.queries = JSON.parse(storedEvents);
       console.log(this.queries);
+      this.dateReceived = this.currentDate;
+      this.sender = "Admin";
     }
 
     this.notificationId = this.notificationService.getNotificationId();
@@ -46,7 +49,7 @@ export class NotificationsComponent {
       
       // this.getCurrentTimeWithAMPM();
       this.unreadNotificationCount = this.notifications.length;
-      this.setTruncatedMessages();
+      // this.setTruncatedMessages();
     });
 
 
@@ -59,16 +62,7 @@ export class NotificationsComponent {
   
 
 
-  // ngOnInit() {
-  //   // this.setWelcomeMessage();
-  //   this.updateTime();
-
-  //   setInterval(() => {
-  //     this.updateTime();
-  //   }, 1000)
-
-   
-  // }
+  
 
   updateTime() {
     let now = new Date();
@@ -95,7 +89,7 @@ export class NotificationsComponent {
       subject: "Career guide",
       message: "you are invited to the annu....",
       //message: this.queries[0].query,
-      date: "12/11/2023",//replace with real
+      date: this.currentDate,//replace with real
       time: this.timeReplied,//replace with real
       isRead: false,
       truncatedMessage: '',
@@ -124,14 +118,14 @@ export class NotificationsComponent {
         ? message.substring(0, maxLength) + '...'
         : message;
     }
-    setTruncatedMessages(): void {
-      for (const notification of this.notifications) {
-        notification.truncatedMessage = this.truncateMessage(
-          notification.message,
-           20
-        );
-      }
-    }
+    // setTruncatedMessages(): void {
+    //   for (const notification of this.queries) {
+    //     notification.message = this.truncateMessage(
+    //       notification.response,
+    //        20
+    //     );
+    //   }
+    // }
     
     onNotificationClick(index: number): void {
       this.selectedNotificationIndex = index;
@@ -151,19 +145,7 @@ export class NotificationsComponent {
     return this.selectedNotificationIndex === index;
   }
   
-  // readNotification(count: number) {
-    // this.notificationService.decreaseNotificationId(count);
-    // this.notificationId = this.notificationService.getNotificationId();
-    // if(this.isReadnotification = true){
-    // this.isHideNotifications = false;
-    // count++;  
-  // }
-    // else{
-      // count = 0;
-    // }
-
-    //  alert('read notification = ' + count);
-  // }
+  
   readNotification(index: number): void {
     if (!this.notifications[index].isRead) {
       this.notifications[index].isRead = true;
@@ -175,7 +157,7 @@ export class NotificationsComponent {
     // Logic to calculate unread notification count
     return this.notifications.filter(notification => !notification.isRead).length;
   }
-
+ 
   markAllAsRead() {
     this.notifications.forEach(notification => {
       if (!notification.isRead) {
