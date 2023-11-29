@@ -17613,6 +17613,12 @@ a.badge:hover {
 [data-bs-theme=dark] .light-mode-item {
   display: none !important;
 }
-
+.card{
+  border: 2px solid #000;
+  width: 40%;
+  margin-left: 30%;
+  margin-top: -30%;
+  height: auto;
+}
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */
