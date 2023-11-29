@@ -11,28 +11,25 @@
       <th>Job Title</th>
       <th>Application Date</th>
       <th>Status</th>
-
-      
+      <th>Time Stamp</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of appData">
-      
-      <td>{{ row.job_title }}</td>
-    <td>{{ row.application_date }}</td>
-    <td>{{ row.application_status }}</td>
-
-    <span *ngIf="row.timeStamp"> - {{row.timeStamp | date: 'medium'}}</span>
+    <tr *ngFor="let row of appData; let i = index; trackBy: trackByFn">
+      <td>{{ row.saved_job_title }}</td>
+      <td>{{ row.application_date }}</td>
+      <td>{{ row.application_status }}</td>
       <td>
-         <div class="Actions-btns">
-        <button type="button" class="btn btn-outline-primary" (click)="toggleResponseForm(row)"  color="primary">Delete</button>
-        
-         </div>
+        <span *ngIf="row.timeStamp"> - {{ row.timeStamp | date: 'medium' }}</span> 
+      </td>
+      <td>
+        <div class="Actions-btns">
+          <button type="button" class="btn btn-outline-primary" (click)="toggleResponseForm(row)" color="primary">Delete</button>
+        </div>
       </td>
     </tr>
   </tbody>
-
-
 </table>
 
 
