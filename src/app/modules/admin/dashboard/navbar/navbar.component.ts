@@ -113,6 +113,12 @@ SaveAdminProfile(){
     this.address = this.newAddress;
     this.adminFnLletter = this.adminFname.substring(0, 1) + this.adminLname.substring(1, 2);
 
+    //1st get account_id from localStorage
+
+    //2nd create a formData using the variables that start with new e.g {name: this.newName}
+
+    //Then Interact with database here
+
   this.showSnackbar('Admin Profile updated successfully!');
   this.isEditAdminProf = !this.isEditAdminProf;
   }else

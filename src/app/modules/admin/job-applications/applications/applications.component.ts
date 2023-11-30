@@ -89,7 +89,9 @@ export class ApplicationsComponent  {
        application.interviewTime = interviewDetails.interviewTime;
        application.shortlisted = true;
        application.applicationStatus = 'waiting for interview';
-    
+
+       //update status
+      
     });
   dialogRef.afterClosed().subscribe(result => {
     if (result) {
