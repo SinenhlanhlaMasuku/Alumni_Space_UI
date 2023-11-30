@@ -5,7 +5,7 @@
     <div class="col">
       <div class="alumni-details2">
       <div class="alumni-pic">
-        <img [src]="getAlumniPicturePath(alumni?.alumnipic)" alt="Alumni Picture">
+        <img [src]="getAlumniPicturePath(alumni?.pic_file)" alt="Alumni Picture">
       </div>
      <div class="Other-info">
       <h2>About Me</h2>
@@ -23,6 +23,8 @@
 
         <h2>Knowledge and Skills</h2>
         <h3>Skills:</h3>
+        <!-- <div>{{alumni?.skills}}</div> -->
+        
         <div *ngFor="let skill of alumni?.skills; let i = index">
           <!-- <p>Skills: </p> -->
                <!-- <ul style="list-style: none;"> -->

@@ -10,7 +10,7 @@ interface Alumni {
   Bio: string;
   name: string;
   surname: string;
-  skills: string[];
+  skills: string;
   location: string;
   email: string;
   experience: string;
@@ -18,7 +18,7 @@ interface Alumni {
   interests: string[];
   certificates: string[];
   certificateNames: string[];
-  alumnipic: string;
+  pic_file: string;
   idCopy: string;
   motivationalLetter: string;
 };
