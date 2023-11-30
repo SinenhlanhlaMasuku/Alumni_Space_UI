@@ -22,6 +22,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { ApplyPageComponent } from './apply-page/apply-page.component';
 import { MyJobApplicationComponent } from './my-job-application/my-job-application.component';
 import { ShareStoryComponent } from './share-story/share-story.component';
+// import{EmojiPickerModule} from 'emoji-picker-react'
+// import EmojiPickerModule from "emoji-picker-react"
 // import {  } from '@fortawesome/fontawesome-free-solid';
 
 
@@ -57,7 +59,7 @@ import { ShareStoryComponent } from './share-story/share-story.component';
    
      FormsModule,
      MatButtonModule,
-    
+     
     //  AuthorsComponent
     
   ],

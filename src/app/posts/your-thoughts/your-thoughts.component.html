@@ -1,6 +1,6 @@
 
 <link rel="stylesheet" href="your-thoughts.component.css">
-<div class="card card-body" style="width: 480px; height: 170px; ;margin-top: -600px; margin-left:29%;">
+<div class="card card-body" style="width: 480px; height: auto; ;margin-top: -600px; margin-left:29%;">
     <div class="d-flex mb-3"> 
         <!-- Avatar -->
         <div class="avatar avatar-xs me-2">
@@ -12,47 +12,140 @@
              [(ngModel)]="postedtext" name="postedtext" placeholder="Share your thoughts..."></textarea>
         </form>
         <div class="nav-link bg-light py-1 mb-0" data-bs-toggle="#feedActionbtn" >
-            <button style="color:blue;"(click)="submitResponse(1)"><i
+            <button style="color:blue;"(click)=" submitResponse(1)"><i
                 class="bi bi-send-fill"></i></button>
+                <!-- submitResponse(1) -->
         </div>
     </div>
     <!-- Share feed toolbar START -->
  
         <ul class="nav nav-pills nav-stack small fw-normal">
             <li class="nav-item">
-                <label for="photoUpload" class="nav-link bg-light py-1 mb-0" data-bs-toggle="#feedActionPhoto">
-                    <i class="bi bi-image-fill text-success pe-2"></i>Photo
+                <label for="photoUpload" class="nav-link bg-light py-1 mb-0" > <!--data-bs-toggle="#feedActionPhoto"-->
+                    <!-- <i class="bi bi-image-fill text-success pe-2"> -->
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" (change)="selectFile($event)" style=" width: 90px; margin-left: 2px; margin-right: 2px;"> 
+                    <!-- </i>-->Photo 
+                    
                 </label>
-                <input type="file" accept="image/png, image/jpeg, image/jpg" [(ngModel)]="alumniStoryPic" name="alumniStoryPic" (change)="onPhotoUpload($event)" id="photoUpload" style="display: none"/>
-                <!-- style="display: none" -->
              </li>
-            <!--imagePreview-->
-            <!-- <img [src]="imageFile ? imageFile : ''" alt="Event Image Preview" style="max-width: 300px;"><br> -->
-          <!-- <img [src]="alumniStoryPic"  alt="Event Image Preview" style="max-width: 300px;"> -->
-
+            
+          
         
-             <li class="nav-item">
+             <!-- <li class="nav-item">
                 <label for="videoUpload" class="nav-link bg-light py-1 mb-0" data-bs-toggle="#feedActionVideo">
                     <i class="bi bi-camera-reels-fill text-info pe-2"></i>Video
                 </label>
                 <input type="file" accept="video/mp4,video/x-m4v,video/*"(change)="onVideoUpload($event)" style="display: none" id="videoUpload"/>
-            </li>
+            </li> -->
       
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <label for="eventUpload" class="nav-link bg-light py-1 mb-0" data-bs-toggle="#feedActionEvent">
                     <i class="bi bi-calendar2-event-fill text-danger pe-2"></i>Event
                 </label>
                 <input type="file" accept="image/*,video/*"(change)="onMediaUpload($event)" style="display: none" id="eventUpload"/>
-            </li>
-            <li class="nav-item">
+            </li> -->
+            <!-- <li class="nav-item">
                 <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal"
                     data-bs-target="#modalCreateFeed"> <i
                         class="bi bi-emoji-smile-fill text-warning pe-2"></i>Feeling /Activity</a>
-            </li>
-        </ul>
-        <img [src]="imageFile ? imageFile : ''" alt="Event Image Preview" style="max-width: 300px;"><br> 
-
+            </li> -->
         
+                 
+        </ul>
+        <!-- <img [src]="imageFile ? imageFile : ''" alt="Event Image Preview" style="max-width: 300px;"><br>  -->
+       <!-- <div class="alumniPost">
+            <div class="caption">
+                <p>{{postedCaption}}</p>
+            </div> -->
+
+        <!-- <div *ngIf="ispostPhoto" class="posted-photo"> 
+            <div style="text-align:center">
+               <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+               <div>
+                <img [src]="url" *ngIf="url" style="width: 400px;  margin-left: 10px; margin-right: 10px;margin-bottom: 5px; ">
+               </div> -->
+               <!-- <p>
+                   <input type="file" (change)="selectFile($event)">
+               </p> -->
+
+               <!-- <div class="alumniPost">
+                <div class="caption">
+                    <p>{{postedCaption}}</p>
+                </div>
+            
+                <div *ngIf="ispostPhoto" class="posted-photo"> 
+                    <div style="text-align:center">
+                        <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+                        <div> -->
+                            <!-- Display the selected image -->
+                            <!-- <img [src]="url" *ngIf="url" style="width: 400px; margin-left: 10px; margin-right: 10px; margin-bottom: 5px; "> -->
+                            <!-- Display the selected video -->
+                            <!-- <video [src]="videoUrl" *ngIf="videoUrl" controls style="width: 400px; margin-left: 10px; margin-right: 10px; margin-bottom: 5px;"></video> -->
+                        <!-- </div> -->
+                        <!-- <p> -->
+                            <!-- Input for selecting both images and videos -->
+                            <!-- <input type="file" (change)="selectFile($event)"> -->
+                        <!-- </p> -->
+                    <!-- </div> -->
+                <!-- </div>
+            </div> -->
+            
+           </div>
+       <!-- </div>
+    </div>  -->
+    <!-- <div class="alumniPost">
+        <div class="caption">
+            <p>{{postedCaption}}</p>
+        </div>
+    
+        <div *ngIf="ispostPhoto" class="posted-photo"> 
+            <div style="text-align:center">
+                <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+                <div> -->
+                    <!-- Display the selected image -->
+                    <!-- <img [src]="url" *ngIf="url" style="width: 400px; margin-left: 10px; margin-right: 10px; margin-bottom: 5px; "> -->
+                    <!-- Display the selected video -->
+                    <!-- <video [src]="videoUrl" *ngIf="videoUrl" controls style="width: 400px; margin-left: 10px; margin-right: 10px; margin-bottom: 5px;"></video> -->
+                <!-- </div>
+            </div> -->
+
+            <!-- Display each post in its own container -->
+<div *ngFor="let post of posts" class="alumniPost">
+    <div class="caption">
+      <p>{{ post.postedCaption }}</p>
+      <p>{{postedtext}}</p>
+    </div>
+    <div class="posted-photo">
+      <div>
+        <!-- Display the selected image -->
+        <img [src]="post.url" *ngIf="post.url" style="width: 400px; margin-left: 10px; margin-right: 10px; margin-bottom: 5px; height: 200px;">
+        <!-- Display the selected video -->
+        <video [src]="post.videoUrl" *ngIf="post.videoUrl" controls style="width: 400px; margin-left: 10px; margin-right: 10px; margin-bottom: 5px; height: 200px;"></video>
+      </div>
+    </div>
+  <!-- Display comments -->
+  <div class="comments">
+    <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+      </svg>comments {{ post.comments.length }}</p>
+    <!-- Display each comment -->
+    <div *ngFor="let comment of post.comments">
+      <p>{{ comment.commenter }}: {{ comment.text }}</p>
+    </div>
+  
+     <!-- Display the comment text field -->
+   <div *ngIf="showCommentField" class="comment-field">
+    <label for="commenter">Your Name:</label>
+    <!-- <input [(ngModel)]="newCommenter" id="commenter" placeholder="Enter your name"> -->
+    <label for="comment">Your Comment:</label>
+    <textarea [(ngModel)]="newCommentText" id="comment" placeholder="Enter your comment"></textarea>
+    <button (click)="addComment()">Add Comment</button>
+  </div>
+  
+  <!-- Button to toggle comment field visibility -->
+  <button type="button" class="btn btn-outline-primary" (click)="toggleCommentField(1)" style="margin-right: 30%;">Comment</button>
+  </div>
         <!-- Dropdown menu -->
         
     <!-- Share feed toolbar END -->

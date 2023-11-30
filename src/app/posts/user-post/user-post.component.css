@@ -17620,5 +17620,13 @@ a.badge:hover {
   margin-top: -30%;
   height: auto;
 }
+.posted-Story{
+   border: 1px solid #000;
+   background-color: #087990;
+}
+.posted-Story p{
+   text-align: center;
+}
+
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */

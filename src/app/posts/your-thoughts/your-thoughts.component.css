@@ -17615,6 +17615,34 @@ a.badge:hover {
 }
 .card{
   border: 2px solid #000;
+  height: auto;
+}
+
+.alumniPost{
+  border: 2px solid #000;
+  height: auto;
+  background-color: #ebe6e6;
+  width: 470px;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 5%;
+  
+}
+.caption p{
+  text-align: center;
+  color: #000;
+  font-size: 15px;
+}
+posted-photo img{
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
+  height: 100px;
+}
+.comments{
+  font-size: 10px;
+  /* text-align: center; */
+ margin-left: 80%;
+
 }
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */
