@@ -45,7 +45,17 @@ export class JobsService {
   //Apply
   submitApplication(applicationData: any): Observable<any> {
     console.log(applicationData);
-    return this.http.post(`${this.apiUrl}/applyjob`, applicationData);
+
+    const formData = new FormData();
+
+    formData.append('id_document', applicationData.id_document);
+    formData.append('additional_document', applicationData.additional_document);
+    formData.append("job_title", applicationData.job_title);
+    formData.append("job_description", applicationData.job_description);
+    formData.append("alumni_id", applicationData.alumni_id);
+
+
+    return this.http.post(`${this.apiUrl}/applyjob`, formData);
   }
 
   //Get Applications

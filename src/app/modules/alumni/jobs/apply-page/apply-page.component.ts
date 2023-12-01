@@ -20,6 +20,9 @@ export class ApplyPageComponent implements OnInit {
   job_title: string = '';
   job_description: string = '';
 
+  idDocument: File | null = null;
+  additionalDocuments: File | null = null;
+
   applicant = {
     name: '',
     email: ''
@@ -28,16 +31,6 @@ export class ApplyPageComponent implements OnInit {
   constructor(private dataService: JobsService, private snackbar: MatSnackBar, private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
-    // Fetch data from the database and populate the form fields
-    /*this.dataService.getUserData().subscribe(
-      (userData: any) => {
-        this.applicant.name = userData.name;
-        this.applicant.email = userData.email;
-      },
-      error => {
-        console.error('Error fetching user data:', error);
-      }
-    );*/
 
     const name = localStorage.getItem('name');
     const surname = localStorage.getItem('surname');
@@ -60,6 +53,21 @@ export class ApplyPageComponent implements OnInit {
     // Handle file input changes
     console.log('File selected:', event.target.files);
     // Add logic to handle file uploads
+    if (event.target.files && event.target.files.length > 0) {
+  
+      //select file
+       this.idDocument = event.target.files[0];
+     }
+  }
+  handleFileInput2(event: any) {
+    // Handle file input changes
+    console.log('File selected:', event.target.files);
+    // Add logic to handle file uploads
+    if (event.target.files && event.target.files.length > 0) {
+  
+      //select file
+       this.additionalDocuments = event.target.files[0];
+     }
   }
 
 
@@ -78,21 +86,18 @@ export class ApplyPageComponent implements OnInit {
       const applicationData = {
         alumni_id: localStorage.getItem('account_id'),
         job_title: this.job_title,
-        job_description: this.job_description
-
+        job_description: this.job_description,
+        id_document: this.idDocument,
+        additional_document: this.additionalDocuments
       };
 
-      console.log(applicationData.job_title);
+      console.log(applicationData.id_document);
 
       this.dataService.submitApplication(applicationData).subscribe(
         (response: any) => {
           console.log('Application submitted successfully:', response);
 
           if (response.message === 'Application successful!') {
-
-
-            //Clear loacalStorage
-            localStorage.removeItem('surname');
 
             //navigate
             this.router.navigate(['/alumni/job']);
