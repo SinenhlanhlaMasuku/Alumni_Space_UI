@@ -22,15 +22,18 @@ export class TractApplicationComponent {
   ) {}
 
   ngOnInit() {
-    this.fetchDataFromApi();
+    //this is how we get acc_id from localStorage
+    const account_id = localStorage.getItem('account_id');
+
+    this.fetchDataFromApi(account_id);
   }
 
-  fetchDataFromApi() {
-    this.jobAppService.getApplications().subscribe(
+  fetchDataFromApi(account_id: any) {
+    this.jobAppService.getApplications(account_id).subscribe(
       (data: any) => {
-        this.appData = data.jobs;
+        this.appData = data.applications;
         console.log(this.appData);
-        
+        this.changeDetectorRef.detectChanges();
       },
       (error) => {
         console.error('Error fetching alumni data:', error);
@@ -39,18 +42,17 @@ export class TractApplicationComponent {
   }
 
   trackByFn(index: number, item: Alumni) {
-    return item.saved_job_title; 
-  
+    return item.saved_job_title;
   }
 
   toggleResponseForm(row: Alumni) {
-    
     const index = this.appData.indexOf(row);
     if (index !== -1) {
       this.appData.splice(index, 1);
     }
   }
-  returnHome(){
+
+  returnHome() {
     this.router.navigate(['/alumni/home']);
   }
 }
