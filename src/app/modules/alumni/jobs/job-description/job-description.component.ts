@@ -45,7 +45,7 @@ export class JobDescriptionComponent {
     const id = localStorage.getItem('job_id');
 
     //const url = 'http://localhost:3000/api/job/' + id;
-    const url = `${baseUrl}/jobs/` + id;
+    const url = `${baseUrl}/jobcareer/` + id;
 
     this.http.get(url).subscribe((response: any) => {
       console.log('Data sent to server:', response);
