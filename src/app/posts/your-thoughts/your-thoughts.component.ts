@@ -40,9 +40,9 @@ export class YourThoughtsComponent {
    shares: string[] = [];
 
    // Properties for handling new comments
-  newCommenter: string = ''; // Alumni's name
+  newCommenter: string = 'Me'; // Alumni's name
   newCommentText: string = ''; // Comment text
-  showCommentField: boolean = false; // Flag to show/hide comment text field
+  showCommentField: boolean = true; // Flag to show/hide comment text field
 
 
   constructor(private storiesService: StoriesServiceService){
@@ -54,7 +54,7 @@ export class YourThoughtsComponent {
     this.shares = [];
     this.newCommenter = '';
     this.newCommentText = '';
-    this.showCommentField = false;
+    // this.showCommentField = false;
   }
 
  
@@ -137,7 +137,7 @@ export class YourThoughtsComponent {
     this.shares = [];
     this.newCommenter = '';
     this.newCommentText = '';
-    this.showCommentField = false;
+    // this.showCommentField = false;
     this.msg = null;
 
 }
@@ -230,11 +230,11 @@ selectFile(event: any): void {
 }
  
   // Method to toggle comment field visibility
-  toggleCommentField(event : any) {
-    this.showCommentField = !this.showCommentField;
-    console.log('toggled!');
+  toggleCommentField() {
+    // this.showCommentField = !this.showCommentField;
+    // console.log('toggled!');
     this.showCommentField= true;
-  
+   alert('commemnt toggled!')
    
 
   }

@@ -17628,16 +17628,36 @@ a.badge:hover {
   margin-top: 5%;
   
 }
+.caption{
+  height: auto;
+  background-color: #75b798;
+  border: 2px solid #000;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 5px;
+}
 .caption p{
   text-align: center;
   color: #000;
   font-size: 15px;
-  border: 2px solid #000;
+  
+  display: flex;
+ 
+ 
 }
 posted-photo img{
   /* margin-left: 10px; */
   /* margin-right: 10px; */
-  height: 100px;
+  /* height: 100px; */
+  /* border: 2px solid blue; */
+  /* border-style: double;
+  width: 250px;
+  margin-left: 100px; 
+  margin-right: 10px; 
+  margin-bottom: 5px; 
+  height: 250px; 
+  border: 2px solid blue; */
+  /* style="width: 250px; margin-left: 100px; margin-right: 10px; margin-bottom: 5px; height: 250px; border: 2px solid blue;" */
 }
 .comments{
   font-size: 10px;

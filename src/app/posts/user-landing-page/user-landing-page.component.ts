@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-landing-page.component.css']
 })
 export class UserLandingPageComponent {
+    isWhotoFollow: boolean = false;
+
 
 }
 const storedTheme: string | null = localStorage.getItem('theme')
