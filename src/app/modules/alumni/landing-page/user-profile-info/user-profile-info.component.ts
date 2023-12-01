@@ -121,12 +121,7 @@ export class UserProfileInfoComponent {
 
   logout(){
     //clear localStorage data
-    localStorage.removeItem('account_id');
-    localStorage.removeItem('name');
-    localStorage.removeItem('surname');
-    localStorage.removeItem('email');
-    localStorage.removeItem('contacts');
-    //localStorage.removeItem('');
+    localStorage.clear();
 
     this.router.navigate(['/']);
   }

@@ -61,8 +61,11 @@ export class JobDescriptionComponent {
       this.salary = response.data.salary;
       this.date_posted = response.data.date_posted;
       this.deadline = response.data.deadline;
-      
-      
+
+      //
+      localStorage.setItem('job_title', this.job_title);
+    localStorage.setItem('job_description', this.job_description);
     });
+    
   }
 }

@@ -17,8 +17,6 @@ export class ApplyPageComponent implements OnInit {
   name: string = '';
   surname: string = '';
   email: string = '';
-  job_title: string = '';
-  job_description: string = '';
 
   idDocument: File | null = null;
   additionalDocuments: File | null = null;
@@ -85,8 +83,8 @@ export class ApplyPageComponent implements OnInit {
     if (form.valid) {
       const applicationData = {
         alumni_id: localStorage.getItem('account_id'),
-        job_title: this.job_title,
-        job_description: this.job_description,
+        job_title: localStorage.getItem('job_title'),
+        job_description: localStorage.getItem('job_description'),
         id_document: this.idDocument,
         additional_document: this.additionalDocuments
       };
@@ -102,7 +100,11 @@ export class ApplyPageComponent implements OnInit {
             //navigate
             this.router.navigate(['/alumni/job']);
           } else {
-            //alert("Invalid Details")
+            //clear localStorage
+            localStorage.removeItem('job_title');
+            localStorage.removeItem('job_description');
+            localStorage.removeItem('job_id');
+
             this.router.navigate(['/alumni/home']);
           }
         });
