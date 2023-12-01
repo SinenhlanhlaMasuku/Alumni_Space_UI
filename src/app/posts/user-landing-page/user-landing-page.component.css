@@ -9,8 +9,18 @@
   padding-right: 10%;
 }
 .small-p{
-  flex: 1;
-  margin-right: 80vh;  
+  /* flex: 1; */
+  margin-right: 80vh; 
+  position:fixed;
+  margin-bottom: 70%;
+  top: auto; /* Adjust as needed */
+  right: 0;
+  width: 300px; /* Adjust the width as needed */
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  overflow-y: auto; /* Add scroll if the content exceeds the height */
+  border-left: 1px solid #ccc; /* Add a border for separation */
+  padding-top: 20px; /* Optional: Add padding if needed */
+  z-index: 1000; 
 }
 
 .big-p{
