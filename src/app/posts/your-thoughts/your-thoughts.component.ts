@@ -240,18 +240,18 @@ selectFile(event: any): void {
   }
 
   // Method to add a new comment
-  addComment(): void {
+  addComment(){
     // Validate that both commenter and comment text are provided
-    if (this.newCommenter && this.newCommentText) {
+    // if (this.newCommenter && this.newCommentText) {
       // Add the new comment to the current post
       this.comments.push({
         commenter: this.newCommenter,
         text: this.newCommentText,
       });
-
+        console.log('' +  this.newCommentText);
       // Reset the comment text field
-      this.newCommentText = '';
-    }
+      // this.newCommentText = '';
+    // }
   }
 
 }

@@ -111,9 +111,12 @@
 
             <!-- Display each post in its own container -->
 <div *ngFor="let post of posts" class="alumniPost">
+    <div class="avatar avatar-xs me-2">
+        <a href="#"> <img class="avatar-img rounded-circle" src="assets/Sneh.jpg" alt=""> </a>
+    </div>
     <div class="caption">
       <p>{{ post.postedCaption }}</p>
-      <p>{{postedtext}}</p>
+      <!-- <p>{{postedtext}}</p> -->
     </div>
     <div class="posted-photo">
       <div>
@@ -135,17 +138,22 @@
     </div>
   
      <!-- Display the comment text field -->
-   <div *ngIf="showCommentField" class="comment-field">
+     <!-- *ngIf="showCommentField" -->
+   <div class="comment-field">
     <label for="commenter">Your Name:</label>
     <!-- <input [(ngModel)]="newCommenter" id="commenter" placeholder="Enter your name"> -->
     <label for="comment">Your Comment:</label>
-    <textarea [(ngModel)]="newCommentText" id="comment" placeholder="Enter your comment"></textarea>
-    <button (click)="addComment()">Add Comment</button>
-  </div>
-  
+    <!-- <textarea [(ngModel)]="newCommentText" id="comment" placeholder="Enter your comment" formGroup="form-control"></textarea> -->
+     </div>
+</div>
+    <div class="comment-btn">
+    <button type="button" class="btn btn-outline-primary" (click)="addComment()">Add Comment</button>
+    </div>
+    <!-- <button (click)="toggleCommentField(1); console.log('Button clicked!')">Comment</button> -->
+ 
   <!-- Button to toggle comment field visibility -->
-  <button type="button" class="btn btn-outline-primary" (click)="toggleCommentField(1)" style="margin-right: 30%;">Comment</button>
-  </div>
+  <!-- <button type="button" class="btn btn-outline-primary" (click)="toggleCommentField(1)" style="margin-right: 30%;">Comment</button> -->
+  
         <!-- Dropdown menu -->
         
     <!-- Share feed toolbar END -->

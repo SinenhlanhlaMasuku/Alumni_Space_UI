@@ -17632,6 +17632,7 @@ a.badge:hover {
   text-align: center;
   color: #000;
   font-size: 15px;
+  border: 2px solid #000;
 }
 posted-photo img{
   /* margin-left: 10px; */
@@ -17643,6 +17644,27 @@ posted-photo img{
   /* text-align: center; */
  margin-left: 80%;
 
+}
+.comment-field{
+  /* border: 2px solid blue;
+   */
+   background-color: #d1d2d4;
+}
+/* .comments button{ */
+  /* padding-left: 80%; */
+  /* margin-left: 20%;
+  width: 50px;
+  height: 30px;
+  font-size: 10px;
+
+} */
+.btn{
+  width: 100px;
+  height: 30px;
+  font-size: 7px;
+  margin-bottom: 10px;
+  color: #fff;
+  background-color: #000;
 }
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */
