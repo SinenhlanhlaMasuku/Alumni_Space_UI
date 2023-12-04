@@ -17616,5 +17616,76 @@ a.badge:hover {
 .stretched-link{
   border: 2px solid #000;
 }
+
+.post {
+  margin-top: 3px;
+  border: 1px solid #000;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+img, video {
+  width: 50px;;
+  height: 50px;
+  border-radius: 85%;
+  border: 2px solid blue;
+}
+.card{
+  border: 2px solid #000;
+  height: 100px;
+  width: 650px;
+  margin-top: -780px;
+  margin-left: 29%;
+}
+.post-story{
+  border: 2px solid #000;
+  width: auto;
+  /* height: 10%; */
+  margin-top: -100px;
+}
+.post-story h6{
+  text-align: center;
+}
+.post-row {
+  display: flex;
+  /* Set flex-direction to row to make the posts display horizontally */
+  flex-direction: row;
+  /* Add any other styles you want for the post row */
+}
+.post-row button{
+  margin-top: 5px;
+  width: 100px;
+  height: 50px;
+  display: block;
+  font-size: 10px;
+}
+.card2{
+  margin-bottom: 10%;
+  /* border: 2px solid #000; */
+
+}
+
+.textarea{
+  /* display: none; */
+  list-style: none;
+  resize: none;
+  border-style: double;
+  border: 2px solid blue;
+}
+.createStory{
+   margin-left: 20%;
+}
+.toggleText button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 40%;
+}
+.btnPost button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 40%;
+}
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */

@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-navbar.component.css']
 })
 export class UserNavbarComponent {
-
+    
 }
 document.addEventListener("DOMContentLoaded", () => {
   const modeSwitchButtons = document.querySelectorAll('.btn-modeswitch');

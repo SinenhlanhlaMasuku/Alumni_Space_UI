@@ -17613,6 +17613,9 @@ a.badge:hover {
 [data-bs-theme=dark] .light-mode-item {
   display: none !important;
 }
-
+.show-whotofollow{
+   top: 0px;
+   margin-top: -65%;
+}
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */

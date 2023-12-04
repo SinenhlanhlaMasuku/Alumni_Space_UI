@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Alumni_Space_UI';
-
+  isWhotoFollow: boolean = false;
   email = '';
   password = '';
   fullname = '';
@@ -37,6 +37,9 @@ export class AppComponent {
       this.password = '';
       this.fullname = '';
     });
+  }
+  toggleFollowers(){
+    this.isWhotoFollow = !this.isWhotoFollow;
   }
 }
 
