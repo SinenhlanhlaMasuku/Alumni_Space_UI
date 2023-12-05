@@ -17686,5 +17686,65 @@ posted-photo img{
   color: #fff;
   background-color: #000;
 }
+.reactions{
+  /* border: 2px solid black; */
+  font-size: 10px;
+  /* text-align: center; */
+ margin-left: 75%;
+ /* padding: 20px; */
+ /* align-content: space-between; */
+ display: flexbox;
+ width: auto;
+
+}
+.reactions li{
+  list-style: none;
+   margin-left: 5px;
+   margin-right: 5px;
+  padding: 10px;
+  /* align-content: space-between; */
+  
+}
+.comments{
+  margin-right: 40%;
+}
+.comments button{
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.comment-field{
+  /* border: 2px solid blue;
+   */
+   background-color: #fff;
+   height: auto;
+   border: 2px solid #000;
+   width:650px;
+   margin-top: 10px;
+   margin-left: 30%;
+   /* margin-right: 60%; */
+   cursor: pointer;
+}
+.comment-field textarea{
+  display: flex;
+}
+
+.comment-field label{
+  display: flex-end;
+}
+.comments-1{
+  margin-right: 10px;
+  margin-left: 70%;
+
+}
+/* .comments button{ */
+  /* padding-left: 80%; */
+  /* margin-left: 20%;
+  width: 50px;
+  height: 30px;
+  font-size: 10px;
+
+} */
+
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */

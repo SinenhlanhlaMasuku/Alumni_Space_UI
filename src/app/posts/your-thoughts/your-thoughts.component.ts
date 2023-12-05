@@ -2,6 +2,7 @@ import { Component,} from '@angular/core';
 import { StoriesServiceService } from '../user-post/stories-service.service';
 import { ChangeDetectionStrategy } from '@angular/core';
 interface Comment {
+  id: number;
   commenter: string;
   text: string;
 }
@@ -13,6 +14,7 @@ interface Post {
   reactions: string[];
   comments: Comment[];
   shares: string[];
+  showComment: boolean;
 }
 
 @Component({
@@ -33,16 +35,20 @@ export class YourThoughtsComponent {
   videoUrl: string | null = null;
   msg: string | null = null;
   posts: Post[] = [];
-   
    // Reactions, comments, and shares for the current post
    reactions: string[] = [];
    comments: Comment[] = [];
    shares: string[] = [];
-
-   // Properties for handling new comments
-  newCommenter: string = 'Me'; // Alumni's name
-  newCommentText: string = ''; // Comment text
-  showCommentField: boolean = true; // Flag to show/hide comment text field
+   noComments: number = 0;
+ // Properties for handling new comments
+ newCommenter: string = 'Me'; // Alumni's name
+ newCommentText: string = ''; // Comment text
+ showComment: boolean = false; // Flag to show/hide comment text field
+ newText: string = ' '; 
+ liked: boolean = false;
+  loved: boolean = false;
+  noLikes: number = 0;
+  noLoves: number = 0;
 
 
   constructor(private storiesService: StoriesServiceService){
@@ -55,6 +61,7 @@ export class YourThoughtsComponent {
     this.newCommenter = '';
     this.newCommentText = '';
     // this.showCommentField = false;
+    this.showComment = false;
   }
 
  
@@ -96,22 +103,14 @@ export class YourThoughtsComponent {
     // this.ispostPhoto = true;
 
     console.log(post);
-    // if (!this.url && !this.videoUrl) {
-    //   this.msg = 'Please select an image or video.';
-    //   return;
-    // }
+    
 
     if (!this.postedCaption && !this.url && !this.videoUrl) {
       this.msg = 'Please enter a caption, or select an image or video.';
       return;
     }
 
-    // Add the current post to the array
-    // this.posts.push({
-    //   postedCaption: this.postedCaption,
-    //   url: this.url,
-    //   videoUrl: this.videoUrl,
-    // });
+    
     // Add the current post to the array
     this.posts.push({
       postedCaption: this.postedCaption,
@@ -120,6 +119,7 @@ export class YourThoughtsComponent {
       reactions: this.reactions,
       comments: this.comments,
       shares: this.shares,
+      showComment: this.showComment,
     });
 
 
@@ -141,28 +141,7 @@ export class YourThoughtsComponent {
     this.msg = null;
 
 }
-  // Method to add a new post
-  // addPost(): void {
-    // Validate that either url or videoUrl is present
-    // if (!this.url && !this.videoUrl) {
-    //   this.msg = 'Please select an image or video.';
-    //   return;
-    // }
-
-    // Add the current post to the array
-    // this.posts.push({
-    //   postedCaption: this.postedCaption,
-    //   url: this.url,
-    //   videoUrl: this.videoUrl,
-    // });
-
-    // Reset properties for the next post
-    // this.postedCaption = '';
-    // this.url = null;
-    // this.videoUrl = null;
-    // this.msg = null;
-  // }
-
+ 
 
 
 onPhotoUpload(event: any) {
@@ -176,34 +155,17 @@ onVideoUpload(event: any) {
   this.selectedVideo = file;
 }
 
+// Method to toggle comment field visibility
+toggleCommentField(event : any) {
+  // this.showCommentField = !this.showCommentField;
+  console.log('toggled!');
+  this.showComment = !this.showComment;
+//  alert('commemnt toggled!')
+ 
 
-//new
-//url; //Angular 8
-// url: any; //Angular 11, for stricter type
-// msg = "";
+}
 
-//selectFile(event) { //Angular 8
-// selectFile(event: any) { //Angular 11, for stricter type
-//   if(!event.target.files[0] || event.target.files[0].length == 0) {
-//     this.msg = 'You must select an image';
-//     return;
-//   }
-  
-//   var mimeType = event.target.files[0].type;
-  
-//   if (mimeType.match(/image\/*/) == null) {
-//     this.msg = "Only images are supported";
-//     return;
-//   }
-  
-//   var reader = new FileReader();
-//   reader.readAsDataURL(event.target.files[0]);
-  
-//   reader.onload = (_event) => {
-//     this.msg = "";
-//     this.url = reader.result; 
-//   }
-// }
+
 
 selectFile(event: any): void {
   const file = event.target.files?.[0];
@@ -229,30 +191,36 @@ selectFile(event: any): void {
   }
 }
  
-  // Method to toggle comment field visibility
-  toggleCommentField() {
-    // this.showCommentField = !this.showCommentField;
-    // console.log('toggled!');
-    this.showCommentField= true;
-   alert('commemnt toggled!')
-   
+
+  addComment(post: Post) {
+    if (this.newCommentText.trim() !== '') {
+      const newComment: Comment = {
+        id: post.comments.length + 1, // Generate a unique id (you may have a better mechanism)
+        commenter: 'Sihle Mhlongo', // You might want to get this from user input or authentication
+        text: this.newCommentText
+      };
+
+      post.comments.push(newComment);
+      this.newCommentText = ''; // Clear the input field after adding a comment
+      this.showComment = false;
+    }
+  }
+  toggleLike() {
+    this.liked = !this.liked;
+    // Add any other logic you need when like is toggled
+    console.log("liked!");
+    this.noLikes++;
 
   }
 
-  // Method to add a new comment
-  addComment(){
-    // Validate that both commenter and comment text are provided
-    // if (this.newCommenter && this.newCommentText) {
-      // Add the new comment to the current post
-      this.comments.push({
-        commenter: this.newCommenter,
-        text: this.newCommentText,
-      });
-        console.log('' +  this.newCommentText);
-      // Reset the comment text field
-      // this.newCommentText = '';
-    // }
+  toggleLove() {
+    this.loved = !this.loved;
+    // Add any other logic you need when love is toggled
+    console.log("loved!");
+    this.noLoves++;
   }
-
+//  remove(posts: string){
+//   confirm(`Are you sure you want to remove the following Post \n "${posts}"`)
+//  }
 }
 
