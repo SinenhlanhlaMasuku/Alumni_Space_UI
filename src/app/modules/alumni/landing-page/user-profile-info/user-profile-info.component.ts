@@ -5,7 +5,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ProfileService } from '../../profile/profile.service';
 import { ConnectionService } from 'src/app/services/connections/connection.service';
 
-import { imageUrl } from 'config';
+import { filesUrl } from 'config';
 import { baseUrl } from 'config';
 
 @Component({
@@ -110,7 +110,7 @@ export class UserProfileInfoComponent {
   
   //imageUrl = 'http://localhost:3000/uploads/pics/profiles';
 
-  imageUrl = `${imageUrl}/uploads/pics/profiles`
+  imageUrl = `${filesUrl}/uploads/pics/profiles`
 
   viewPictures() {
     this.ProfileService.getUploadedPictures().subscribe((data: { filePath: string }[]) => {

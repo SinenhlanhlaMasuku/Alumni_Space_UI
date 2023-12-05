@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../profile/profile.service';
 import { HttpClient } from '@angular/common/http';
 import { ConnectionService } from 'src/app/services/connections/connection.service';
-
-import { imageUrl } from 'config';
+import { NotificationsService } from 'src/app/services/notification/notifications.service';
+import { filesUrl } from 'config';
 
 @Component({
   selector: 'app-who-to-follow',
@@ -12,10 +12,10 @@ import { imageUrl } from 'config';
 })
 export class WhoToFollowComponent implements OnInit {
   profiles: any[] = [];
-  imageUrl = `${imageUrl}/uploads/pics/profiles`
+  imageUrl = `${filesUrl}/uploads/pics/profiles`
   currentAccountId: string | null = null;
 
-  constructor(private profileService: ProfileService, private http: HttpClient, private followService: ConnectionService) {}
+  constructor(private profileService: ProfileService, private http: HttpClient, private followService: ConnectionService, private notificationService: NotificationsService) {}
 
   ngOnInit() {
     // Assuming you store account_id in localStorage when the user logs in
@@ -59,7 +59,22 @@ export class WhoToFollowComponent implements OnInit {
   } 
 
   connect(follower_id: any, following_id: any){
+    //connect
     this.followService.connect(follower_id, following_id);
+
+
+    //send notification
+    const notification = {
+      sender_id :0,
+      receiver_id: following_id,
+      message: localStorage.getItem('name') + ' ' + localStorage.getItem('surname') + ' has Followed You',
+      date: new Date().toISOString()
+    } 
+    this.notificationService.sendNotification(notification).subscribe((response:any) => {
+      //response
+    });
+
+
   }
 
   

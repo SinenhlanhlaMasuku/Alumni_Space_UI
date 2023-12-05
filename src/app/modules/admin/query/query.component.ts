@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { baseUrl } from 'config';
 
 import { QueriesService } from 'src/app/services/queries/queries.service';
+import { NotificationsService } from 'src/app/services/notification/notifications.service';
 
 @Component({
   selector: 'app-query',
@@ -22,7 +23,7 @@ export class QueryComponent {
   queries: any[] = [];
   responseForms: boolean[] = new Array(this.data.length).fill(false);
 
-  constructor(private http: HttpClient, private queriesService: QueriesService) { }
+  constructor(private http: HttpClient, private queriesService: QueriesService, private notificationService: NotificationsService) { }
 
   toggleResponseForm(index: number) {
     this.responseForms[index] = !this.responseForms[index];
@@ -72,6 +73,19 @@ export class QueryComponent {
     this.http.post<any>(`${this.apiUrl}/respond_query`, requestBody).subscribe(response => {
     console.log('Query sent to server:', response);
   });
+
+    //send notifications
+    const notification = {
+      sender_id: 1,
+      receiver_id: query.account_id,
+      message : query.response,
+      date: new Date().toISOString()
+    }
+
+    //this.sendNotification();
+    this.notificationService.sendNotification(notification).subscribe((response:any) => {
+      //response
+    });
   }
 
   

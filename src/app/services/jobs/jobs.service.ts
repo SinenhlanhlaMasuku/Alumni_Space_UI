@@ -9,7 +9,7 @@ import { baseUrl } from 'config';
 })
 export class JobsService {
 
-  private apiUrl  =`${baseUrl}/jobs`
+  private apiUrl  =`${baseUrl}/jobs`;
 
   constructor(private http: HttpClient) { }
 

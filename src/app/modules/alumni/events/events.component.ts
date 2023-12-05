@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { EventService } from 'src/app/services/events/event.service';
 import { Router } from '@angular/router';
-import { imageUrl } from 'config';
+import { filesUrl } from 'config';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { imageUrl } from 'config';
 export class EventsComponent {
   events: any[] = [];
   pictures: { filePath: string }[] = [];
-  imageUrl = `${imageUrl}/uploads/pics/events`
+  imageUrl = `${filesUrl}/uploads/pics/events`
   currentDate: Date = new Date();
 
   constructor(private eventService: EventService,private router: Router,) {

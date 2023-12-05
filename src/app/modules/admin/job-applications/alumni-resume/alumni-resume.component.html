@@ -54,7 +54,7 @@
        </div>
        <div class="other-uploads">
           <h2>Other uploads</h2>
-           <p>Identity Document:<a href="{{alumni!.idCopy}}" target="_blank" style="display: block; width: 80%; text-align: center; height: 25%; margin-left: 10px; margin-right: 10px; border: 1px solid #ddd;">ID of {{alumni!.name}} {{alumni?.surname}}</a></p>
-           <p>Motivational Letter: <a href="{{alumni?.motivationalLetter}}" target="_blank" style="display: block; width: 80%; text-align: center; height: 25%; margin-left: 10px; margin-right: 10px; border: 1px solid #ddd;">Letter of {{alumni!.name}} {{alumni?.surname}}</a></p>
+           <p>Identity Document:<a [href]="getDocuments(alumni!.id_document)" target="_blank" style="display: block; width: 80%; text-align: center; height: 25%; margin-left: 10px; margin-right: 10px; border: 1px solid #ddd;">ID of {{alumni!.name}} {{alumni?.surname}}</a></p>
+           <p>Motivational Letter: <a [href]="getDocuments(alumni!.additional_document)" target="_blank" style="display: block; width: 80%; text-align: center; height: 25%; margin-left: 10px; margin-right: 10px; border: 1px solid #ddd;">Letter of {{alumni!.name}} {{alumni?.surname}}</a></p>
        </div>
     </div>

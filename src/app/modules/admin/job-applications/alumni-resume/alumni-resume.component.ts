@@ -4,7 +4,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProfileService } from 'src/app/modules/alumni/profile/profile.service';
 
-import { imageUrl } from 'config';
+import { filesUrl } from 'config';
 
 interface Alumni {
   Bio: string;
@@ -19,8 +19,8 @@ interface Alumni {
   certificates: string[];
   certificateNames: string[];
   pic_file: string;
-  idCopy: string;
-  motivationalLetter: string;
+  id_document: string;
+  additional_document: string;
 };
 @Component({
   selector: 'app-alumni-resume',
@@ -58,7 +58,7 @@ export class AlumniResumeComponent {
   constructor(private ProfileService: ProfileService) {
   }
 
-  private url = `${imageUrl}/uploads/pics/profiles`
+  private url = `${filesUrl}/uploads/pics/profiles`
 
   getAlumniPicturePath(picFile: string  | undefined): string {
     const defaultPicture = 'default-avatar.jpg';
@@ -68,6 +68,10 @@ export class AlumniResumeComponent {
     } else {
       return `${this.url}/${defaultPicture}`;
     }
+  }
+
+  getDocuments(docFile: String){
+    return `${filesUrl}/uploads/docs/applications/${docFile}`;
   }
   
 
