@@ -22,9 +22,7 @@ export class TractApplicationComponent {
   ) {}
 
   ngOnInit() {
-    //this is how we get acc_id from localStorage
     const account_id = localStorage.getItem('account_id');
-
     this.fetchDataFromApi(account_id);
   }
 

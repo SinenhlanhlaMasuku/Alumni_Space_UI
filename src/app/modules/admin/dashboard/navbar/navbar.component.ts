@@ -5,12 +5,16 @@ import { FormBuilder, FormGroup} from '@angular/forms';
 import { counter } from '@fortawesome/fontawesome-svg-core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY } from 'rxjs';
+import { baseUrl } from 'config';
+import { HttpClient } from '@angular/common/http';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  private apiUrl = `${baseUrl}/profile`
   searchForm: FormGroup;
   adminFname: string ='Sihle';
  adminLname: string ='Mhlongo';
@@ -34,47 +38,21 @@ isSearch: boolean = false;
  notificatinId: number=0;
 
   //alumniList: any[] = [];
-  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar) {
+  constructor(private http: HttpClient, private router: Router,private formBuilder: FormBuilder, private snackBar: MatSnackBar) {
     this.searchForm = this.formBuilder.group({
       searchText: ['']
     });
   }
 
   ngOnInit() {}
-    // this.fetchAlumniList();
-    // this. ShowAdminProfile();
-    // this.editAdminProfile();
-    // this.searchAlumni();
-  
 
-
-  
-  // notification_Date: string ='23-Oct-2023';
-  // getNewNotifaction(){
-  //   if(this.notification_Date == '23-Oct-2023'){
-  //      this.notificatinId = this.notificatinId + 1;
-    // }
-  // }
-   
-
-  
- 
  
   searchAlumni() {
     const searchText = this.searchForm.get('SearchText')?.value;
     if (this.searchText && this.searchText.length !== 0) {
       this.isSearch = true;
-      // this.SearchText = searchText;
-      //this.alumniDetailsService.searchAlumni(this.searchText).subscribe(
-       /* result => {
-          this.searchResults = result;
-        },
-        error => {
-          console.error('Error searching alumni:', error);
-        }*/
-      //);
+   
     } else {
-      // alert('Type alumni name to search something!');
       this.showSnackbar('Type alumni name to search something!');
     }
   }
@@ -85,7 +63,6 @@ isSearch: boolean = false;
  ShowAdminProfile(){
             
     this.isAdminProf = !this.isAdminProf;
-    // this.isEditAdminProf = this.isEditAdminProf;
    
   }
   showSnackbar(message: string) {
@@ -100,7 +77,7 @@ isSearch: boolean = false;
   editAdminProfile(){
     this.isEditAdminProf = !this.isEditAdminProf;
     this.isAdminProf = this.isAdminProf;
-    // this.isAdminProf = !this.isEditAdminProf;
+    //this.isAdminProf = !this.isEditAdminProf;
   }
    
 SaveAdminProfile(){
@@ -113,8 +90,17 @@ SaveAdminProfile(){
     this.address = this.newAddress;
     this.adminFnLletter = this.adminFname.substring(0, 1) + this.adminLname.substring(1, 2);
 
-    
+    const admni_id = localStorage.getItem('account_id');
 
+    const formData = { admni_id, name: this.newName, newcontact_No: this.newcontact_No, address: this.newAddress, email: this.newEmail };
+    
+    //pass data into the server
+    this.http.put(`${this.apiUrl}/update/:admni_id`, formData).subscribe((response: any) => {
+      console.log('Data sent to server:', response);
+    });
+    console.log(formData);
+    console.log(admni_id);
+    
   this.showSnackbar('Admin Profile updated successfully!');
   this.isEditAdminProf = !this.isEditAdminProf;
   }else
