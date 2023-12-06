@@ -8,13 +8,15 @@ interface Comment {
 }
 
 interface Post {
-  postedCaption: string;
+  postedCaption: string | null | undefined;
   url?: string | null | undefined;
   videoUrl?: string | null | undefined;
   reactions: string[];
   comments: Comment[];
   shares: string[];
   showComment: boolean;
+  noLikes: number;
+  noLoves: number;
 }
 
 @Component({
@@ -90,7 +92,7 @@ export class YourThoughtsComponent {
   url: string | null = null;
   // videoUrl: string | null = null;
 
-  submitResponse(index: number) {
+  submitResponse(posts: any, index: number) {
   
     const post = {
       caption: this.postedtext,
@@ -113,13 +115,15 @@ export class YourThoughtsComponent {
     
     // Add the current post to the array
     this.posts.push({
-      postedCaption: this.postedCaption,
+      postedCaption: this.postedtext,
       url: this.url,
       videoUrl: this.videoUrl,
       reactions: this.reactions,
       comments: this.comments,
       shares: this.shares,
       showComment: this.showComment,
+      noLikes: this.noLikes,
+      noLoves: this.noLoves,
     });
 
 
@@ -156,7 +160,7 @@ onVideoUpload(event: any) {
 }
 
 // Method to toggle comment field visibility
-toggleCommentField(event : any) {
+toggleCommentField(posts : any, index: any) {
   // this.showCommentField = !this.showCommentField;
   console.log('toggled!');
   this.showComment = !this.showComment;
@@ -192,7 +196,7 @@ selectFile(event: any): void {
 }
  
 
-  addComment(post: Post) {
+  addComment(post: Post, index: any) {
     if (this.newCommentText.trim() !== '') {
       const newComment: Comment = {
         id: post.comments.length + 1, // Generate a unique id (you may have a better mechanism)
@@ -205,19 +209,21 @@ selectFile(event: any): void {
       this.showComment = false;
     }
   }
-  toggleLike() {
+  toggleLike(post: Post, index: any) {
     this.liked = !this.liked;
     // Add any other logic you need when like is toggled
     console.log("liked!");
-    this.noLikes++;
+    // this.noLikes++;
+    post.noLikes++;
 
   }
 
-  toggleLove() {
+  toggleLove(posts: any, index: any) {
     this.loved = !this.loved;
     // Add any other logic you need when love is toggled
     console.log("loved!");
-    this.noLoves++;
+    // this.noLoves++;
+     posts.noLoves++;
   }
 //  remove(posts: string){
 //   confirm(`Are you sure you want to remove the following Post \n "${posts}"`)
