@@ -208,18 +208,19 @@ export class EditProfileComponent {
     }
   }
   //function to handle certificate selection
-  onCertificateChange(event: any, index: number) {
+  onCertificateChange(event: any, index: number,index2: number) {
 
     // index = 0;
 
     if (event.target.files && event.target.files.length > 0) {
       const file = event.target.files[0] as File;
-      this.certificates[index] = file;
+      //this.certificates[index] = file;
       this.certificateChosen[index] = false;
       this.certificateNames[index] = file.name;
 
       //select file
       this.selectedFile = event.target.files[0];
+      this.certificates[index2] = event.target.files[0];
 
       //save
       const inputElement = event.target as HTMLInputElement;
@@ -309,23 +310,37 @@ export class EditProfileComponent {
     }
   }
 
-  saveCertificate() {
-    let index: number = 0;
+  saveCertificates() {
+  if (this.certificateChosen.every(chosen => chosen && this.certificateNames.every(name => name.length !== 0))) {
+    this.isBtnSaveCertificate = true;
+    this.isSaveClicked = true;
 
-    if (this.certificateChosen[index] = true && this.certificateNames[index].length != 0) {
-      this.isBtnSaveCertificate = true;
-      this.isSaveClicked = true;
-      if (this.selectedFile) {
-        this.profileService.uploadCert(this.selectedFile).subscribe((response) => {
-          // Handle the response from the server
+    // Loop through each certificate
+    for (let index = 0; index < this.certificates.length; index++) {
+      const selectedFile = this.certificates[index];
+      const certificateName = this.certificateNames[index];
+
+      // Assuming you have an account ID available
+      var account_id  = this.getAccountId();
+
+      if (selectedFile && certificateName) {
+        // Use FormData for each certificate
+        const formData = new FormData();
+        formData.append('file_name', selectedFile);
+        formData.append('certificateName', certificateName);
+
+        // Send each certificate to the server
+        this.profileService.uploadCert2(formData, this.getAccountId()).subscribe(response => {
+          // Handle the response from the server for each certificate
+          console.log(`Certificate uploaded successfully: ${response}`);
         });
       }
     }
-    else {
-      this.showSnackbar('Choose a file and fill the certificate name field');
-    }
-    index++;
+  } else {
+    this.showSnackbar('Choose a file and fill the certificate name field for all certificates');
   }
+}
+
   returnHome() {
     this.router.navigate(['/alumni/home']);
   }

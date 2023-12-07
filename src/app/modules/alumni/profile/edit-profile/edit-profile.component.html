@@ -203,7 +203,7 @@
                             <div class="input-group mb-3">
                               <input type="text" [(ngModel)]="certificateNames[i]" name="certificateNames[i]" placeholder="Certificate Name">
                             </div>
-                            <input type="file" accept=".docx, application/pdf" (change)="onCertificateChange($event, -1)" class="form-control" id="certificates[i]" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                            <input type="file" accept=".docx, application/pdf" (change)="onCertificateChange($event, -1,i)" class="form-control" id="certificates[i]" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             <small *ngIf="fileTypeErrorCertif" style="color: red;">{{ fileTypeErrorCertif }}</small>
                             <!-- <input type="checkbox" [(ngModel)]="certificateChosen[i]"> -->
                             
@@ -214,7 +214,7 @@
                              </div>
                           </div>
                           
-                          <button [disabled]="isSaveClicked" class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveCertificate()">Save Certificate(s)</button>
+                          <button [disabled]="isSaveClicked" class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveCertificates()">Save Certificate(s)</button>
                           <!-- <button [disabled]="!certificateChosen" class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" (click)="saveCertificate()">Save</button> -->
                         
 

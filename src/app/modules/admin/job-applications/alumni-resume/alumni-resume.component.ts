@@ -71,6 +71,7 @@ export class AlumniResumeComponent {
   }
 
   getDocuments(docFile: String){
+    console.log(docFile);
     return `${filesUrl}/uploads/docs/applications/${docFile}`;
   }
   

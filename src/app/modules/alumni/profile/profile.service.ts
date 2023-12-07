@@ -45,16 +45,26 @@ export class ProfileService {
     this.certificates.push(document);
   }
   
-  uploadCert(file: File): Observable<any> { // Specify the return type as Observable
+  uploadCert(file: File,account_id: any): Observable<any> { // Specify the return type as Observable
     const formData = new FormData();
     formData.append('file_name', file);
     formData.append('fileType', 'certificate');
+    formData.append('account_id', account_id);
+
+    return this.http.post(`${baseUrl}/upload`, formData);
+  }
+  uploadCert2(formData: any,account_id: any): Observable<any> { // Specify the return type as Observable
+    formData.append('fileType', 'certificate');
+    formData.append('account_id', account_id);
 
     return this.http.post(`${baseUrl}/upload`, formData);
   }
 
   getCertificatess() {
     return [...this.certificates];
+  }
+  getMyCerts(account_id: any): Observable<any>{
+    return this.http.get<any>(`${this.profileUrl}/get_my_certs/${account_id}`);
   }
 
   private images: File[] = [];

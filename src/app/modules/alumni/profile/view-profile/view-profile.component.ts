@@ -5,6 +5,7 @@ import { ProfileService } from '../profile.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { baseUrl } from 'config';
+import { filesUrl } from 'config';
 //import { UserProfileService } from '../user-profile.service';
 // import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
@@ -40,7 +41,9 @@ export class ViewProfileComponent {
     });
   }
   //certificates: string[] =[ 'assets/certificate1.pdf','assets/certificate2.pdf','assets/certifacate3.pdf']; 
-  certificates: File[] = [];
+  //certificates: File[] = [];
+  certificates: any[] =[];
+  
  
  certificateNames: string[] =[];
  //academicTranscripts: any[] = ['transcript1','transcript2', 'transcript3'];
@@ -52,7 +55,7 @@ export class ViewProfileComponent {
 
   constructor(private http: HttpClient, private router: Router, private ProfileService: ProfileService, private sanitizer: DomSanitizer, private snackBar: MatSnackBar) { 
     this.academicTranscripts = this.ProfileService.getDocuments();
-    this.certificates = this.ProfileService.getCertificatess();
+    //this.certificates = this.ProfileService.getCertificatess();
     this.images = this.ProfileService.getImages();
   }
 
@@ -86,6 +89,15 @@ export class ViewProfileComponent {
         this.alumni.Location = response.result[0].location;
         this.alumni.Qualification = response.result[0].qualification;
         this.alumni.Employment_Status = response.result[0].employment_status;
+
+        
+    });
+
+    this.ProfileService.getMyCerts(user_id).subscribe((response: any) => {
+      //certs
+      this.certificates = response.myCerts;
+      console.log(this.certificates);
+
     });
 
 
@@ -120,6 +132,10 @@ export class ViewProfileComponent {
     const fileURL = URL.createObjectURL(document);
     window.open(fileURL, '_blank');
   }
+  getDocuments(docFile: String){
+    return `${filesUrl}/uploads/docs/certs/${docFile}`;
+  }
+
   getSafeUrl(image: File): SafeUrl {
     const objectURL = URL.createObjectURL(image);
     return this.sanitizer.bypassSecurityTrustUrl(objectURL);

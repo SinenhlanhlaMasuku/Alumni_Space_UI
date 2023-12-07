@@ -70,9 +70,10 @@
         </div>
 
         <input [(ngModel)]="newMessage.text" (keyup)="$event.keyCode == 13 && sendMessage()" />
-        <a href="#lastMessage" target="_self">
+        <!-- <a href="#lastMessage" target="_self">
             <button (click)="sendMessage()">Send Message</button>
-        </a>
+        </a> -->
+        <button (click)="sendMessage()">Send Message</button>
 
     </div>
 
