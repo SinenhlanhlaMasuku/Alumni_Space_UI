@@ -21,17 +21,10 @@
       <div class="alumni-details">
 
         <h2>Knowledge and Skills</h2>
-        <h3>Skills:</h3>
-        <!-- <div>{{alumni?.skills}}</div> -->
+        <!-- <h3>Skills:</h3> -->
+        <div>{{alumni?.skills}}</div>
 
-        <div *ngFor="let skill of alumni?.skills; let i = index">
-          <!-- <p>Skills: </p> -->
-          <!-- <ul style="list-style: none;"> -->
-          <li> {{skill}}</li>
-          <!-- <li>{{skill[i]}}</li> -->
-          <!-- </ul> -->
-
-        </div>
+        
 
       </div>
 
@@ -43,11 +36,11 @@
 
       <p>Qualification: {{alumni?.qualification}}</p>
     </div>
-    <div *ngIf="alumni!.certificates && alumni!.certificates.length > 0" class="Achievements">
+    <div *ngIf="alumni!.certificates && alumni!.certificates.length < 0" class="Achievements">
       <h3>List of Achievements</h3>
-      <li *ngFor="let certificate of alumni!.certificates; let i = index">
+      <!-- <li *ngFor="let certificate of alumni!.certificates; let i = index">
         Certicate Name {{certificate.certificateName}}:<a [href]="getDocuments(certificate.filePath)">{{certificate.certificateName}}</a>
-      </li>
+      </li> -->
     </div>
 
   </div>

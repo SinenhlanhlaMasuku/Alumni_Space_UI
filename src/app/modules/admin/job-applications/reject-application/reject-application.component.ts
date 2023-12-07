@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { EventEmitter, Output } from '@angular/core';
 // import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-reject-application',

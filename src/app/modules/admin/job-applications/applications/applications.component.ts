@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JobsService } from 'src/app/services/jobs/jobs.service';
+import { NotificationsService } from 'src/app/services/notification/notifications.service';
 import { AcceptApplicationComponent } from '../accept-application/accept-application.component';
 import { RejectApplicationComponent } from '../reject-application/reject-application.component';
 import { ApplicationStatusComponent } from '../application-status/application-status.component';
@@ -29,6 +30,7 @@ interface Alumni {
   interviewTime?: string;
 }
 
+
 @Component({
   selector: 'app-applications',
   templateUrl: './applications.component.html',
@@ -53,7 +55,7 @@ export class ApplicationsComponent  {
   isInterviewDone: boolean= false;
   updateApplicantStatus: string = '';
 
-  constructor(private dialog: MatDialog, private snackbar: MatSnackBar, private jobTrackService: JobsService){
+  constructor(private dialog: MatDialog, private snackbar: MatSnackBar, private jobTrackService: JobsService,private notificationService: NotificationsService){
 
   }
   showSnackbar(message: string) {
@@ -106,12 +108,12 @@ export class ApplicationsComponent  {
 
   }
 
- openRejectionDialog(application: Alumni): void {
+ openRejectionDialog(application: any): void {
   const dialogRef = this.dialog.open(RejectApplicationComponent, {
     width: '400px', 
     data: {
       application,
-       jobTitle: application.jobAppliedFor,
+       jobTitle: application.saved_job_title,
        
     },
   });
@@ -127,10 +129,14 @@ export class ApplicationsComponent  {
        application.applicationStatus = 'Rejected';
           this.rejectionReason = jobRejectionDetails.rejectionReason;
   console.log(this.rejectionReason);
+
+  var msg ='Your application for '+ application.saved_job_title + ' was Rejected, Reason: ' +jobRejectionDetails.rejectionReason;
+  this.sendNotification(application.account_id, msg);
      
    });
   dialogRef.afterClosed().subscribe(result => {
     if (result) {
+      
     }
     else{
     }
@@ -243,6 +249,20 @@ openSuccessDialog(application: Alumni){
         console.error('Error fetching alumni data:', error);
       }
     );
+  }
+
+  sendNotification(account_id:any,msg:any){
+    const notification = {
+      sender_id: 0,
+      receiver_id: account_id,
+      message : msg,
+      date: new Date().toISOString()
+    }
+
+    //this.sendNotification();
+    this.notificationService.sendNotification(notification).subscribe((response:any) => {
+      //response
+    });
   }
 
 }
