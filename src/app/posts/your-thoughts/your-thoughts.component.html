@@ -3,6 +3,7 @@
 <div class="card card-body" style="width: 650px; height: auto; ;margin-top: -785px; margin-left:29%;">
     <div class="d-flex mb-3"> 
         <!-- Avatar -->
+        <!-- <div *ngFor="let post of posts; let i = index" class="alumniPost"> -->
         <div class="avatar avatar-xs me-2">
             <a href="#"> <img class="avatar-img rounded-circle" src="assets/Sneh.jpg" alt=""> </a>
         </div>
@@ -11,9 +12,9 @@
             <textarea class="form-control pe-4 border-0" rows="2" data-autoresize
              [(ngModel)]="postedtext" name="postedtext" placeholder="Share your thoughts..."></textarea>
         </form>
-        <div class="nav-link bg-light py-1 mb-0" data-bs-toggle="#feedActionbtn" >
-            <button style="color:blue;"(click)=" submitResponse(posts,1)"><i
-                class="bi bi-send-fill"></i></button>
+        <!-- data-bs-toggle="#feedActionbtn" -->
+        <div class="nav-link bg-light py-1 mb-0" >
+            <button style="color:blue;" (click)=" submitResponse()"><i class="bi bi-send-fill"></i></button>
                 <!-- submitResponse(1) -->
         </div>
     </div>
@@ -34,7 +35,22 @@
         
 
             <!-- Display each post in its own container -->
+            *ngIf="posts.length == 1"> 
+            <div class="alumniPost">
+              <!-- Your existing code for displaying the post, modify it accordingly -->
+              <div class="avatar avatar-xs me-2" style="margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">
+                <a href="assets/Sneh.jpg"><img class="avatar-img rounded-circle" src="assets/Sneh.jpg" alt="alumniPic"></a>
+              </div>
+              <!-- Display the selected image -->
+              <img [src]="posts[0].url" *ngIf="posts[0].url" style="width: 250px; margin-left: 100px; margin-right: 10px; margin-bottom: 5px; height: 250px; border: 2px solid blue;">
+              <!-- Display the selected video -->
+              <video [src]="posts[0].videoUrl" *ngIf="posts[0].videoUrl" controls style="width: 400px; margin-left: 10px; margin-right: 10px; margin-bottom: 5px; height: 200px;"></video>
+              <!-- Other content of the post like reactions, comments, etc.-->
+          
+            </div>
+             <!-- *ngIf="posts.length > 1">        -->
 <div *ngFor="let post of posts; let i = index" class="alumniPost">
+  
     <div class="avatar avatar-xs me-2" style="margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">
         <a href="assets/Sneh.jpg"><img class="avatar-img rounded-circle" src="assets/Sneh.jpg" alt="alumniPic"></a>
     </div>
@@ -53,8 +69,17 @@
         <video [src]="post.videoUrl" *ngIf="post.videoUrl" controls style="width: 400px; margin-left: 10px; margin-right: 10px; margin-bottom: 5px; height: 200px;"></video>
       <!-- </div> -->
        
-    </div>
-  <!-- Display comments -->
+    <!-- </div> -->
+   
+
+  <!-- Display reactions and comments -->
+ <div *ngFor="let comments of posts">
+  <div class="reactions">
+    <li><svg xmlns="http://www.w3.org/2000/svg" (click)="toggleCommentField(post,i)" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+         <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+         <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+       </svg>comments {{ post.comments.length }}</li>
+ </div>
   <div class="reactions">
           <li><svg xmlns="http://www.w3.org/2000/svg" (click)="toggleCommentField(post,i)" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
@@ -64,13 +89,13 @@
       <!-- //reactions -->
       <!-- fill="currentColor" -->
       <!-- [ngStyle]="{'fill': post.liked ? 'blue' : 'black'}" -->
-                <li><svg xmlns="http://www.w3.org/2000/svg" (click)="toggleLike(post,i)" width="15" height="15"  [ngStyle]="{ 'color': post.liked ? 'blue' : 'currentColor' }" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                <li><svg xmlns="http://www.w3.org/2000/svg" (click)="toggleLike(post,i)" width="15" height="15"  [ngStyle]="{ 'fill': post.liked ? 'blue' : 'currentColor' }" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
                 <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
                 </svg><br>Like {{post.noLikes}}</li>
       
 
-      <!-- fill="currentColor" -->
-      <li><svg xmlns="http://www.w3.org/2000/svg" (click)="toggleLove(post,i)" width="15" height="15"  [ngStyle]="{ 'color': post.loved ? 'blue' : 'currentColor' }" [ngStyle]="{'fill': loved ? 'blue' : 'black'}" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+      <!-- fill="currentColor" [ngStyle]="{ 'color': post.loved ? 'blue' : 'currentColor' }"-->
+      <li><svg xmlns="http://www.w3.org/2000/svg" (click)="toggleLove(post,i)" width="15" height="15"   [ngStyle]="{'fill': post.loved ? 'blue' : 'currentColor'}"  class="bi bi-heart" viewBox="0 0 16 16">
         <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
       </svg><br>Love {{post.noLoves}}</li> 
   </div>
@@ -79,33 +104,44 @@
     <!-- Display each comment -->
     <div class="comments-1">
         <button type="button" class="btn btn-outline-primary" (click)="toggleCommentField(post ,i)">Comment</button>
-    </div>
-    
-           
-     <!-- </div> -->
-  
-     <!-- Display the comment text field -->
-     <!-- *ngIf="showCommentField" -->
-     <div *ngIf="post.showComment" class="comment-field1">
-        <!-- <div *ngFor="let comment of posts; let i = index"> -->
-
-            <!-- <div class="avatar avatar-xs me-2" style="margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">
-                <a href="assets/Sneh.jpg"><img class="avatar-img rounded-circle" src="assets/Sneh.jpg" alt="alumniPic"></a>
-            </div>    -->
-             <!-- <label for="comment">
-                    <p>comment: {{newText[i]}}<br></p></label> -->
-                    <!-- <div *ngFor="let comment of comments">
-                        <p>{{ comment.commenter }}: {{ comment.text }}</p>
-                  </div> -->
+       
+         <!-- <div *ngIf="post.showComment" class="comment-field1">
+       
                      <h1>Comments</h1>
                   <div *ngFor="let comment of post.comments; let i = index">
                      
                     <div class="avatar avatar-xs me-2" style="margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">
                         <a href="{{comment.commenterPic}}"><img class="avatar-img rounded-circle" src="{{comment.commenterPic}}" alt="alumniPic"></a>
                     </div>
-                    <p>{{ comment.commenter }}</p>
+                    <p style="margin-left: 5px;"> {{ comment.commenter }}</p>
                     <label for="comment">
-                        <p>comment: {{ comment.text}}<br></p></label>
+                        <p style="margin-left: 5px;">comment: {{ comment.text}}<br></p></label>
+                   
+                </div>
+                 <div class="input-group">
+                    <textarea class="form-control" style="margin-left: 20px; margin-right: 20px; margin-bottom: 20px;" [(ngModel)]="newCommentText" id="comment" placeholder="Enter your comment" formGroup="form-control" aria-label="With textarea"></textarea>
+                  </div>
+   
+                <button type="button" class="btn btn-outline-primary" (click)="addComment(post,i)">Add Comment</button>
+      </div> -->
+      </div>
+    
+</div>         
+     <!-- </div> -->
+  
+     <!-- Display the comment text field -->
+     <!-- *ngIf="showCommentField" -->
+     <div *ngIf="post.showComment" class="comment-field1">
+       
+                     <h1>Comments</h1>
+                  <div *ngFor="let comment of post.comments; let i = index">
+                     
+                    <div class="avatar avatar-xs me-2" style="margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">
+                        <a href="{{comment.commenterPic}}"><img class="avatar-img rounded-circle" src="{{comment.commenterPic}}" alt="alumniPic"></a>
+                    </div>
+                    <p style="margin-left: 5px;"> {{ comment.commenter }}</p>
+                    <label for="comment">
+                        <p style="margin-left: 5px;">comment: {{ comment.text}}<br></p></label>
                     <!-- <p>{{ comment.commenter[i] }} : {{ comment.text[i] }}</p> -->
                 </div>
                  <div class="input-group">

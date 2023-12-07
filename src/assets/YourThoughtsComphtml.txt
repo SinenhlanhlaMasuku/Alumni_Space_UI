@@ -138,3 +138,19 @@
     <!-- Share feed toolbar END -->
 <!-- </div> -->
 <!-- Share feed END -->
+
+
+//issues--for posts:
+{
+    "postedCaption": "hmhmhhmhh",
+    "url": "data:OtDK0SpOhufk8EXhQGNIeHBl2DWmBe4W9QrDhCQQ2EKRiHmDjbP//EACoQAQACAgICAQQCAwEBAQEAAAEAESExQVEQYXEggZGhscEw0fDhQPFQ/9k=",
+    "videoUrl": null,
+    "reactions": [],
+    "comments": [],
+    "shares": [],
+    "showComment": false,
+    "noLikes": 0,
+    "noLoves": 0,
+    "liked": false,
+    "loved": false
+} the first post, does not allow me to react(like/love) and comment, what could be the issue?

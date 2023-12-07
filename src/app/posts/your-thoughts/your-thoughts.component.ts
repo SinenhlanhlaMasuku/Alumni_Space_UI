@@ -12,9 +12,9 @@ interface Post {
   postedCaption: string | null | undefined;
   url?: string | null | undefined;
   videoUrl?: string | null | undefined;
-  reactions: string[];
+  // reactions: string[];
   comments: Comment[];
-  shares: string[];
+  // shares: string[];
   showComment: boolean;
   noLikes: number;
   noLoves: number;
@@ -43,12 +43,13 @@ export class YourThoughtsComponent {
   msg: string | null = null;
   posts: Post[] = [];
    // Reactions, comments, and shares for the current post
-   reactions: string[] = [];
+  //  reactions: string[] = [];
    comments: Comment[] = [];
-   shares: string[] = [];
+  //  shares: string[] = [];
    noComments: number = 0;
+   i: number=0;
  // Properties for handling new comments
- newCommenter: string = 'Me'; // Alumni's name
+ newCommenter: string = ''; // Alumni's name
  newCommentText: string = ''; // Comment text
  showComment: boolean = false; // Flag to show/hide comment text field
  newText: string[] = []; 
@@ -57,19 +58,23 @@ export class YourThoughtsComponent {
   noLikes: number = 0;
   noLoves: number = 0;
 
+constructor(){
+   const posts: Post={
+      postedCaption: '',
+      url: '',
+      videoUrl: '',
+  // reactions: string[];
+    comments: [],
+  // shares: string[];
+  showComment: this.showComment,
+  noLikes: 0,
+  noLoves: 0,
+   liked: this.liked,
+   loved: this.loved,
 
-  constructor(private storiesService: StoriesServiceService){
-    this.postedCaption = '';
-    this.url = null;
-    this.videoUrl = null;
-    this.reactions = [];
-    this.comments = [];
-    this.shares = [];
-    this.newCommenter = '';
-    this.newCommentText = '';
-    // this.showCommentField = false;
-    this.showComment = false;
+   }
   }
+  
 
  
   onMediaUpload(event: Event): void {
@@ -80,15 +85,15 @@ export class YourThoughtsComponent {
 
     }
   }
-  data = [
-    { user: 'User 1', query: 'Hello, I have a question.', status: 'Unanswered', response: '' },
-    { user: 'User 2', query: 'Need assistance with an order.', status: 'Unanswered', response: '' }
-  ];
-  responseForms: boolean[] = new Array(this.data.length).fill(false);
+  // data = [
+  //   { user: 'User 1', query: 'Hello, I have a question.', status: 'Unanswered', response: '' },
+  //   { user: 'User 2', query: 'Need assistance with an order.', status: 'Unanswered', response: '' }
+  // ];
+  // responseForms: boolean[] = new Array(this.data.length).fill(false);
 
-  toggleResponseForm(index: number) {
-    this.responseForms[index] = !this.responseForms[index];
-  }
+  // toggleResponseForm(index: number) {
+  //   this.responseForms[index] = !this.responseForms[index];
+  // }
 
   selectedImage: File | null = null;
   selectedVideo: File | null = null;
@@ -97,41 +102,43 @@ export class YourThoughtsComponent {
   url: string | null = null;
   // videoUrl: string | null = null;
 
-  submitResponse(posts: any, index: number) {
-  
-    // if(this.postedCaption.length !== 0 ){
-      // posts.isPostedCaption[index] = true;
-    // }
-    const post = {
-      caption: this.postedtext,
+  // posts: Post, index: any
+
+  submitResponse() {
+    // const post = {
+    //   caption: this.postedtext,
       
-      imageFile: this.selectedImage,
-      videoFile: this.selectedVideo ? this.selectedVideo : null,
-    
+    //   imageFile: this.selectedImage,
+    //   videoFile: this.selectedVideo ? this.selectedVideo : null,
+    //   postedCaption: this.postedtext,
+    //   isPostedCaption: !this.isPostedCaption,
       
-    };
-   
+    // };
+    this.i = this.i+1;
+    // index = this.i;
     this.isPostedCaption = true;
     this.postedCaption = this.postedtext
     // this.ispostPhoto = true;
 
-    console.log(posts);
+    // console.log(posts);
     
 
     if (!this.postedCaption && !this.url && !this.videoUrl) {
       this.msg = 'Please enter a caption, or select an image or video.';
       return;
     }
+    else{
 
+
+    }
     
     // Add the current post to the array
     this.posts.push({
       postedCaption: this.postedtext,
       url: this.url,
       videoUrl: this.videoUrl,
-      reactions: this.reactions,
       comments: this.comments,
-      shares: this.shares,
+      
       showComment: this.showComment,
       noLikes: this.noLikes,
       noLoves: this.noLoves,
@@ -146,12 +153,12 @@ export class YourThoughtsComponent {
   // Reset the selected image
   this.selectedImage = null;
   this.selectedVideo = null;
-  this.postedCaption = '';
+  // this.postedCaption = '';
     this.url = null;
     this.videoUrl = null;
-    this.reactions = [];
+    // this.reactions = [];
     this.comments = [];
-    this.shares = [];
+    // this.shares = [];
     this.newCommenter = '';
     this.newCommentText = '';
     // this.showCommentField = false;
@@ -173,10 +180,10 @@ onVideoUpload(event: any) {
 }
 
 // Method to toggle comment field visibility
-toggleCommentField(posts : Post, index: number) {
+toggleCommentField(post : Post, index: number) {
   // this.showCommentField = !this.showCommentField;
   console.log('toggled!');
-  posts.showComment = !posts.showComment;
+  post.showComment = !post.showComment;
 //  alert('commemnt toggled!')
  
 
@@ -214,7 +221,7 @@ selectFile(event: any): void {
       const newComment: Comment = {
         id: post.comments.length + 1, // Generate a unique id (you may have a better mechanism)
         commenter: 'Sihle Mhlongo', // You might want to get this from user input or authentication
-        text: this.newCommentText[index],
+        text: this.newCommentText,
         commenterPic: 'assets/Sihle.jpg',
       };
 
@@ -223,21 +230,21 @@ selectFile(event: any): void {
       this.showComment = false;
     }
   }
-  toggleLike(posts: any, index: any) {
+  toggleLike(post: Post, index: any) {
     this.liked = !this.liked;
     // Add any other logic you need when like is toggled
     console.log("liked!");
     // this.noLikes++;
-    posts.noLikes++;
+    post.noLikes++;
 
   }
 
-  toggleLove(posts: any, index: any) {
+  toggleLove(post: Post, index: any) {
     this.loved = !this.loved;
     // Add any other logic you need when love is toggled
     console.log("loved!");
     // this.noLoves++;
-     posts.noLoves++;
+     post.noLoves++;
   }
 //  remove(posts: string){
 //   confirm(`Are you sure you want to remove the following Post \n "${posts}"`)
