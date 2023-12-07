@@ -5,6 +5,7 @@ interface Comment {
   id: number;
   commenter: string;
   text: string;
+  commenterPic: string;
 }
 
 interface Post {
@@ -17,6 +18,9 @@ interface Post {
   showComment: boolean;
   noLikes: number;
   noLoves: number;
+ liked: boolean;
+ loved: boolean;
+
 }
 
 @Component({
@@ -32,6 +36,7 @@ export class YourThoughtsComponent {
   
   postedtext: string=''; 
   postedCaption: string ='';
+  isPostedCaption: boolean = false;
   ispostPhoto: boolean = false;
   // videoUrl: string='';
   videoUrl: string | null = null;
@@ -46,7 +51,7 @@ export class YourThoughtsComponent {
  newCommenter: string = 'Me'; // Alumni's name
  newCommentText: string = ''; // Comment text
  showComment: boolean = false; // Flag to show/hide comment text field
- newText: string = ' '; 
+ newText: string[] = []; 
  liked: boolean = false;
   loved: boolean = false;
   noLikes: number = 0;
@@ -94,17 +99,23 @@ export class YourThoughtsComponent {
 
   submitResponse(posts: any, index: number) {
   
+    // if(this.postedCaption.length !== 0 ){
+      // posts.isPostedCaption[index] = true;
+    // }
     const post = {
       caption: this.postedtext,
       
       imageFile: this.selectedImage,
-      //videoFile: this.selectedVideo ? this.selectedVideo : null,
+      videoFile: this.selectedVideo ? this.selectedVideo : null,
+    
+      
     };
-
+   
+    this.isPostedCaption = true;
     this.postedCaption = this.postedtext
     // this.ispostPhoto = true;
 
-    console.log(post);
+    console.log(posts);
     
 
     if (!this.postedCaption && !this.url && !this.videoUrl) {
@@ -124,10 +135,12 @@ export class YourThoughtsComponent {
       showComment: this.showComment,
       noLikes: this.noLikes,
       noLoves: this.noLoves,
+      liked: this.liked,
+      loved: this.loved,
     });
 
-
-    this.storiesService.updatePost(post);
+     console.log('posts: ' + this.posts)
+    // this.storiesService.updatePost(post);
   // Clear the input after posting
   this.postedtext = '';
   // Reset the selected image
@@ -160,10 +173,10 @@ onVideoUpload(event: any) {
 }
 
 // Method to toggle comment field visibility
-toggleCommentField(posts : any, index: any) {
+toggleCommentField(posts : Post, index: number) {
   // this.showCommentField = !this.showCommentField;
   console.log('toggled!');
-  this.showComment = !this.showComment;
+  posts.showComment = !posts.showComment;
 //  alert('commemnt toggled!')
  
 
@@ -201,7 +214,8 @@ selectFile(event: any): void {
       const newComment: Comment = {
         id: post.comments.length + 1, // Generate a unique id (you may have a better mechanism)
         commenter: 'Sihle Mhlongo', // You might want to get this from user input or authentication
-        text: this.newCommentText
+        text: this.newCommentText[index],
+        commenterPic: 'assets/Sihle.jpg',
       };
 
       post.comments.push(newComment);
@@ -209,12 +223,12 @@ selectFile(event: any): void {
       this.showComment = false;
     }
   }
-  toggleLike(post: Post, index: any) {
+  toggleLike(posts: any, index: any) {
     this.liked = !this.liked;
     // Add any other logic you need when like is toggled
     console.log("liked!");
     // this.noLikes++;
-    post.noLikes++;
+    posts.noLikes++;
 
   }
 
