@@ -57,7 +57,7 @@ import { ChatComponent } from './modules/alumni/chat/chat.component';
 // import { EditProfileComponent } from './alumni/profile/edit-profile/edit-profile.component';
 
 //COMPONENTS
-import { AboutComponent } from './components/about/about.component';
+//import { AboutComponent } from './components/home/about/about.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
@@ -113,7 +113,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AddJobsComponent,
     SuccessPasswordChangeComponent,
     SuccessComponent,
-    AboutComponent,
     ContactsComponent,
     ResetPasswordComponent,
     ServicesComponent,

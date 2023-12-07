@@ -30,7 +30,7 @@
 
       <div class="card-text ">
 
-        <div *ngIf="certificates" class="certificates-list">
+        <div *ngIf="certificates && certificates.length > 0" class="certificates-list">
           <h1>Certificates</h1>
           <ul style="list-style: none;">
             <li *ngFor="let certificate of certificates; let i = index">

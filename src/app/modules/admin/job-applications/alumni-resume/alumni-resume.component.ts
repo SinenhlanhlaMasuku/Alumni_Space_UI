@@ -16,7 +16,7 @@ interface Alumni {
   experience: string;
   qualification: string;
   interests: string[];
-  certificates: string[];
+  certificates: any[];
   certificateNames: string[];
   pic_file: string;
   id_document: string;
@@ -56,6 +56,7 @@ export class AlumniResumeComponent {
   //   ];
 
   constructor(private ProfileService: ProfileService) {
+    console.log(this.alumni?.certificates);
   }
 
   private url = `${filesUrl}/uploads/pics/profiles`

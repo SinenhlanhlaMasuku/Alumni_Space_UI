@@ -7,14 +7,17 @@ import { ForgotPasswordComponent } from './components/auth/forgot-password/forgo
 import { ServicesComponent } from './components/services/services.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
-import { AboutComponent } from './components/about/about.component';
+import { AboutComponent } from './components/home/about/about.component';
 import {SuccessComponent} from './components/success/success.component';
 import {SuccessPasswordChangeComponent} from './components/auth/success-password-change/success-password-change.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ApplyPageComponent } from './modules/alumni/jobs/apply-page/apply-page.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+
+  //Home-module Components
+  { path: '', loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule) },
   
   
   //Alumni-module Components
