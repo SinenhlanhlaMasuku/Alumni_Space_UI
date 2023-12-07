@@ -21,6 +21,7 @@ export class ViewProfileComponent {
 
   alumni = {
     Name: "name placeholder",
+    Surname: 'surname',
     Location: "location placeholder",
     Qualification: "Qualification placeholder",
     Skills: "Skills placeholder",
@@ -29,7 +30,7 @@ export class ViewProfileComponent {
     Academic_Transcript: "Academic_Transcript placeholder",
     Interest: "Interest placeholder",
     Bio: "bio placeholder",
-    
+
   }
   //snackbar
   showSnackbar(message: string) {
@@ -40,27 +41,19 @@ export class ViewProfileComponent {
       panelClass: ['snackbar'], // Add your custom class for styling
     });
   }
-  //certificates: string[] =[ 'assets/certificate1.pdf','assets/certificate2.pdf','assets/certifacate3.pdf']; 
-  //certificates: File[] = [];
-  certificates: any[] =[];
-  
- 
- certificateNames: string[] =[];
- //academicTranscripts: any[] = ['transcript1','transcript2', 'transcript3'];
- academicTranscripts: File[] = [];
+  certificates: any[] = [];
   icounter = 0;
 
-  images: File[] = [];
 
-
-  constructor(private http: HttpClient, private router: Router, private ProfileService: ProfileService, private sanitizer: DomSanitizer, private snackBar: MatSnackBar) { 
-    this.academicTranscripts = this.ProfileService.getDocuments();
+  constructor(private http: HttpClient, private router: Router, private ProfileService: ProfileService, private sanitizer: DomSanitizer, private snackBar: MatSnackBar) {
+    //this.academicTranscripts = this.ProfileService.getDocuments();
     //this.certificates = this.ProfileService.getCertificatess();
-    this.images = this.ProfileService.getImages();
+    //this.images = this.ProfileService.getImages();
   }
 
   ngOnInit() {
     const storedName = localStorage.getItem('name');
+    const storedSurname = localStorage.getItem('surname');
     const user_id = localStorage.getItem('account_id');
 
     console.log('User_id:' + user_id);
@@ -72,76 +65,59 @@ export class ViewProfileComponent {
       //this.alumni.Skills = response.userprofile.skills;
       console.log(response.result[0].skills);
 
-      
+
       //check if values are null
-      if (response.result[0].skills === '' || response.result[0].experience === '' || response.result[0].interest === '' || response.result[0].bio === '' ||response.result[0].location === '' ||
-      response.result[0].qualification === '' ||response.result[0].employment_status === '') {
-        
+      if (response.result[0].skills === '' || response.result[0].experience === '' || response.result[0].interest === '' || response.result[0].bio === '' || response.result[0].location === '' ||
+        response.result[0].qualification === '' || response.result[0].employment_status === '') {
+
         this.showSnackbar('Profile Incomplete, Please update profile');
       }
 
       //display profile
       this.alumni.Skills = response.result[0].skills;
-        this.alumni.Experience = response.result[0].experience;
-        this.alumni.Interest = response.result[0].interest;
-        this.alumni.Bio =  response.result[0].bio;
+      this.alumni.Experience = response.result[0].experience;
+      this.alumni.Interest = response.result[0].interest;
+      this.alumni.Bio = response.result[0].bio;
 
-        this.alumni.Location = response.result[0].location;
-        this.alumni.Qualification = response.result[0].qualification;
-        this.alumni.Employment_Status = response.result[0].employment_status;
+      this.alumni.Location = response.result[0].location;
+      this.alumni.Qualification = response.result[0].qualification;
+      this.alumni.Employment_Status = response.result[0].employment_status;
 
-        
+
     });
 
     this.ProfileService.getMyCerts(user_id).subscribe((response: any) => {
       //certs
       this.certificates = response.myCerts;
-      console.log(this.certificates);
-
     });
 
 
 
-    if (storedName) {
+    if (storedName && storedSurname) {
       // Update the 'name' property if 'name' is found in localStorage
       this.alumni.Name = storedName;
+      this.alumni.Surname = storedSurname;
     }
   }
-  deleteCertificate(index: number){
+  deleteCertificate(index: number, certificateId: any) {
     // this.certificateNames[i].delete()
     if (index !== -1) {
       this.certificates.splice(index, 1); // Remove the certificate at the specified index
-      this.certificateNames.splice(index, 1); // Remove the corresponding name at the same index
+      //this.certificateNames.splice(index, 1); // Remove the corresponding name at the same index
+      this.ProfileService.deleteMyCert(certificateId).subscribe((response: any) => {
+        //deleted
+      });
       //this.fileTypeError.splice(index, 1); // Remove the error message at the same index
       this.showSnackbar('Certificate deleted successfully!');
     }
   }
-  deleteAcademicrecord(index: number){
-    if (index !== -1) {
-      this.icounter = this.icounter + 1;
-      this.academicTranscripts.splice(index, this.icounter); // Remove the academic transcript at the specified index
-      this.icounter++;
-    //  alert('deleted successfully!')
-       this.showSnackbar('Academic Record deleted successfully!');
-    }
-  }
-
-  viewDocument(document: File) {
-    // You can implement document viewing logic here.
-    // For simplicity, you can open the document in a new tab.
-    const fileURL = URL.createObjectURL(document);
-    window.open(fileURL, '_blank');
-  }
-  getDocuments(docFile: String){
+ 
+  getDocuments(docFile: String) {
     return `${filesUrl}/uploads/docs/certs/${docFile}`;
   }
 
-  getSafeUrl(image: File): SafeUrl {
-    const objectURL = URL.createObjectURL(image);
-    return this.sanitizer.bypassSecurityTrustUrl(objectURL);
-  }
 
-  returnHome(){
+  returnHome() {
     this.router.navigate(['/alumni/home']);
   }
 }

@@ -17,8 +17,8 @@ export class QueryComponent {
 
 
   data = [
-    { user: 'User 1', query: 'Hello, I have a question.', status: 'Unanswered', response: '' },
-    { user: 'User 2', query: 'Need assistance with an order.', status: 'Unanswered', response: '' }
+    { user: 'Kuhle Mbatha', query: 'Hello, I have a question.', status: 'Unanswered', response: '' },
+    { user: 'Malthus Lidavhu', query: 'Need assistance with an order.', status: 'Unanswered', response: '' }
   ];
   queries: any[] = [];
   responseForms: boolean[] = new Array(this.data.length).fill(false);

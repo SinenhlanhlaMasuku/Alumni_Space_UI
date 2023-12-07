@@ -215,6 +215,7 @@ openSuccessDialog(application: Alumni){
   }
 
   toggleAlumniResume(alumni: any) {
+    console.log('fireee')
   
     if (this.selectedAlumni === alumni) {
       this.removeApplication = !this.removeApplication;
