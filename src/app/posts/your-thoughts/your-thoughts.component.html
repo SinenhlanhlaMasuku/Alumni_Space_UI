@@ -42,15 +42,19 @@
                 <a href="assets/Sneh.jpg"><img class="avatar-img rounded-circle" src="assets/Sneh.jpg" alt="alumniPic"></a>
               </div>
               <!-- Display the selected image -->
-              <img [src]="posts[0].url" *ngIf="posts[0].url" style="width: 250px; margin-left: 100px; margin-right: 10px; margin-bottom: 5px; height: 250px; border: 2px solid blue;">
+              <!-- <img [src]="posts[0].url" *ngIf="posts[0].url" style="width: 250px; margin-left: 100px; margin-right: 10px; margin-bottom: 5px; height: 250px; border: 2px solid blue;"> -->
               <!-- Display the selected video -->
-              <video [src]="posts[0].videoUrl" *ngIf="posts[0].videoUrl" controls style="width: 400px; margin-left: 10px; margin-right: 10px; margin-bottom: 5px; height: 200px;"></video>
+              <!-- <video [src]="posts[0].videoUrl" *ngIf="posts[0].videoUrl" controls style="width: 400px; margin-left: 10px; margin-right: 10px; margin-bottom: 5px; height: 200px;"></video> -->
               <!-- Other content of the post like reactions, comments, etc.-->
           
             </div>
              <!-- *ngIf="posts.length > 1">        -->
 <div *ngFor="let post of posts; let i = index" class="alumniPost">
-  
+  <div class="options">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-reception-0" viewBox="0 0 16 16">
+        <path d="M0 13.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m4 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+      </svg>
+    </div>
     <div class="avatar avatar-xs me-2" style="margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">
         <a href="assets/Sneh.jpg"><img class="avatar-img rounded-circle" src="assets/Sneh.jpg" alt="alumniPic"></a>
     </div>
@@ -73,13 +77,13 @@
    
 
   <!-- Display reactions and comments -->
- <div *ngFor="let comments of posts">
-  <div class="reactions">
+ <!-- <div *ngFor="let comments of posts"> -->
+  <!-- <div class="reactions">
     <li><svg xmlns="http://www.w3.org/2000/svg" (click)="toggleCommentField(post,i)" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
          <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
          <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
        </svg>comments {{ post.comments.length }}</li>
- </div>
+ </div> -->
   <div class="reactions">
           <li><svg xmlns="http://www.w3.org/2000/svg" (click)="toggleCommentField(post,i)" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
