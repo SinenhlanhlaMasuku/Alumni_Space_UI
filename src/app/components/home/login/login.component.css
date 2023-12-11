@@ -275,7 +275,7 @@ z-index: 1;
 
 .form-box h2 {
 font-size: 2em;
-color: #000000;
+color: #fff;
 text-align: center;
 }
 
@@ -335,7 +335,7 @@ justify-content: space-between;
 }
 
 .remember-forgot label input {
-accent-color: #000000;
+accent-color: #fff;
 margin-right: 3px;
 }
 
@@ -363,7 +363,7 @@ font-weight: 500;
 
 .login-register {
 font-size: 0.9em;
-color: #070707;
+color: #000000;
 text-align: center;
 font-weight: 500;
 margin: 25px 0 10px;
