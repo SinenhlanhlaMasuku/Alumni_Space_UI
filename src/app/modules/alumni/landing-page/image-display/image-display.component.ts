@@ -34,10 +34,10 @@ export class ImageDisplayComponent {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     const event:any = {
-      name: "Logaxis",
+      name: "" + localStorage.getItem('name')+' '+localStorage.getItem('surname'),
       description: this.eventForm.get('eventDescription')?.value,
       image: this.imageFile,
-      date: this.getTimeDifference(this.currentDate)
+      date: this.currentDate
 
     };
     this.http.post<any>('http://localhost:3000/posts',event,{headers}).subscribe(response =>{

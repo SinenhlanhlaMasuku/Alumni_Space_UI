@@ -10,9 +10,9 @@ import { ImageDisplayComponent } from '../image-display/image-display.component'
 })
 export class YourThoughtsComponent {
   
-  url='';
+  //url='http://192.168.27.20:3000/uploads/pics/profiles/aboutPic.jpg';
   posts=[];
-  newPost:any ={name:'', imageUrl:'',postData:'',dateTime:''};
+  newPost:any ={name:'', imageUrl:'http://192.168.27.20:3000/uploads/pics/profiles/aboutPic.jpg',postData:'',dateTime:''};
   postData: string = '';
   currentDate:  Date = new Date();
   constructor(private http:HttpClient, public dialog: MatDialog){}
@@ -25,8 +25,9 @@ getPosts() {
 }
 onSubmit() {
   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-  this.newPost.name ='Kabelo Axis';
-  this.newPost.dateTime = this.getTimeDifference(this.currentDate);
+  this.newPost.name = ''+ localStorage.getItem('name')+' '+localStorage.getItem('surname');
+  this.newPost.dateTime = new Date();
+  this.newPost.imageUrl = 'http://192.168.27.20:3000/uploads/pics/profiles/aboutPic.jpg';
   this.http.post<any>('http://localhost:3000/posts', this.newPost, { headers }).subscribe(response => {
     this.getPosts(); // Refresh the posts after a new post is created
     this.newPost = { name:'', imageUrl:'',postData:'',timeDate: ''}; // Reset the new post object

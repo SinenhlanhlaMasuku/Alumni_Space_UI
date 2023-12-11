@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "name": "Elias Mashia",
+      "imageUrl": "http://192.168.27.20:3000/uploads/pics/profiles/aboutPic.jpg",
+      "postData": "test\n",
+      "dateTime": "2023-12-11T13:05:14.480Z",
+      "id": 1
+    },
+    {
+      "name": "Elias Mashia",
+      "imageUrl": "http://192.168.27.20:3000/uploads/pics/profiles/aboutPic.jpg",
+      "postData": "Test 2",
+      "dateTime": "2023-12-11T13:06:20.227Z",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
