@@ -1,8 +1,10 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { JobAppService } from 'src/app/services/jobApp/job-app.service';
+import { HttpClient } from '@angular/common/http';
+import { baseUrl } from 'config';
 interface Alumni{
-  saved_job_title: string;
+  job_title: string;
   application_status: string;
   application_date: string; 
   timeStamp?: Date;
@@ -14,16 +16,21 @@ interface Alumni{
 })
 export class TractApplicationComponent {
   appData: Alumni[] = [];
-
+  jobs: any[] = [];
+  num: number = 0;
   constructor(
+    private http: HttpClient,
     private changeDetectorRef: ChangeDetectorRef,
     private jobAppService: JobAppService,
     private router: Router
   ) {}
 
+  //private apiUrl = `${baseUrl}/trackApp`;
   ngOnInit() {
-    const account_id = localStorage.getItem('account_id');
-    this.fetchDataFromApi(account_id);
+ //   const account_id = localStorage.getItem('account_id');
+    this.fetchDataFromApi(localStorage.getItem('account_id'));
+    //this.getAllJobs();
+    
   }
 
   fetchDataFromApi(account_id: any) {
@@ -40,7 +47,7 @@ export class TractApplicationComponent {
   }
 
   trackByFn(index: number, item: Alumni) {
-    return item.saved_job_title;
+    return item.job_title;
   }
 
   toggleResponseForm(row: Alumni) {
@@ -53,4 +60,14 @@ export class TractApplicationComponent {
   returnHome() {
     this.router.navigate(['/alumni/home']);
   }
+
+  // getAllJobs(){
+  //   this.http.get(this.apiUrl).subscribe((response: any) => {
+  //     console.log('Data sent to server:', response);
+  //     // Fetch jobs using the service
+  //     this.jobs = response.jobs;
+  //     this.num = this.jobs.length;
+      
+  // })
+// }
 }
