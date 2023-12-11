@@ -20,7 +20,7 @@ export class LoginComponent {
   password = '';
   fullname = '';
   surname = '';
-  constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar) {}
+  constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar) { }
 
   private socket = io(`${chatUrl}`);
   httpOptions: { headers: HttpHeaders } = {
@@ -29,50 +29,50 @@ export class LoginComponent {
   private isAuthenticated = false;
 
   onLogin() {
-    
+
     //data to pass to back-end
     const formData = { email: this.email, password: this.password };
     //
-    if(this.email.length == 0 || this.password.length ==  0){
-         this.showSnackbar('Please fill in the missing field(s)');
-    }else{
-       this.showSnackbar('login successfully!');
-       //this.router.navigate(['/alumni/profile/view-profile']);
+    if (this.email.length == 0 || this.password.length == 0) {
+      this.showSnackbar('Please fill in the missing field(s)');
+    } else {
+      this.showSnackbar('login successfully!');
+      //this.router.navigate(['/alumni/profile/view-profile']);
     }
-    if(formData.email !== 'admin@email.com'){
+    if (formData.email !== 'admin@email.com') {
       this.http.post(`${baseUrl}/login`, formData).subscribe((response: any) => {
-      console.log('Data sent to server:', response);
-      // Clear the form fields after successful submission
-      this.email = '';
-      this.password = '';
+        console.log('Data sent to server:', response);
+        // Clear the form fields after successful submission
+        this.email = '';
+        this.password = '';
 
-      
-      if(response.message === 'Login successful!' ){
-        // alert('Login Successfully!');
-        console.log(response.result[0].name);
-        console.log(response.account_id);
-        //store user details to localStorage
-        localStorage.setItem('name',response.result[0].name.toString());
-        localStorage.setItem('surname', response.result[0].surname.toString());
-        localStorage.setItem('email', formData.email);
-        localStorage.setItem('account_id',response.account_id);
 
-        // this.router.navigate(['/alumni/home']);
-        this.page();
+        if (response.message === 'Login successful!') {
+          // alert('Login Successfully!');
+          console.log(response.result[0].name);
+          console.log(response.account_id);
+          //store user details to localStorage
+          localStorage.setItem('name', response.result[0].name.toString());
+          localStorage.setItem('surname', response.result[0].surname.toString());
+          localStorage.setItem('email', formData.email);
+          localStorage.setItem('account_id', response.account_id);
 
-      }else{
-        //alert("Invalid Details")
-        this.router.navigate(['/auth/forgot-password']);
-      }
-    });
-    }else{
+          // this.router.navigate(['/alumni/home']);
+          this.page();
+
+        } else {
+          //alert("Invalid Details")
+          this.router.navigate(['/auth/forgot-password']);
+        }
+      });
+    } else {
       this.router.navigate(['/admin/dashboard']);
     }
   }
 
-  onLogin2(){
+  onLogin2() {
     //socket
-    this.socket.emit('Login',{email: this.email,password: this.password});
+    this.socket.emit('Login', { email: this.email, password: this.password });
     var isFound = false;
     this.socket.on('loginResults', (found) => {
       isFound = found;
@@ -106,72 +106,77 @@ export class LoginComponent {
   }
 
   onLogin3() {
-    
+
     //data to pass to back-end
     const formData = { email: this.email, password: this.password };
     //
-    if(this.email.length == 0 || this.password.length ==  0){
-         this.showSnackbar('Please fill in the missing field(s)');
-    }else{
-       this.showSnackbar('login successfully!');
-       this.router.navigate(['/alumni/profile/view-profile']);
-    }
-    if(formData.email !== 'admin@email.com'){
-      this.http.post(`${baseUrl}/login`, formData).subscribe((response: any) => {
-      console.log('Data sent to server:', response);
-      // Clear the form fields after successful submission
-      this.email = '';
-      this.password = '';
-
-      
-      if(response.message === 'Login successful!' ){
-        // alert('Login Successfully!');
-        console.log(response.result[0].name);
-        console.log(response.account_id);
-        //store user details to localStorage
-        localStorage.setItem('name',response.result[0].name.toString());
-        localStorage.setItem('surname', response.result[0].surname.toString());
-        localStorage.setItem('email', formData.email);
-        localStorage.setItem('account_id',response.account_id);
-
-        this.router.navigate(['/alumni/home']);
-        //this.page();
-
-        //socket
-        this.socket.emit('Login',{email: formData.email,password: formData.password});
-        var isFound = false;
-        this.socket.on('loginResults', (found) => {
-          isFound = found;
-    
-    
-          console.log(isFound);
-          if (isFound) {
-            this.isAuthenticated = true;
-            this.socket.on('userDetails', (userData) => {
-              //this.page()
-    
-    
+    if (this.email.length == 0 || this.password.length == 0) {
+      this.showSnackbar('Please fill in the missing field(s)');
+    } else {
+      if (formData.email !== 'admin@email.com') {
+        this.http.post(`${baseUrl}/login`, formData).subscribe((response: any) => {
+          console.log('Data sent to server:', response);
+          // Clear the form fields after successful submission
+          this.email = '';
+          this.password = '';
+  
+  
+          if (response.message === 'Login successful!') {
+            // alert('Login Successfully!');
+            console.log(response.result[0].name);
+            console.log(response.account_id);
+            //store user details to localStorage
+            localStorage.setItem('name', response.result[0].name.toString());
+            localStorage.setItem('surname', response.result[0].surname.toString());
+            localStorage.setItem('email', formData.email);
+            localStorage.setItem('account_id', response.account_id);
+  
+            this.router.navigate(['/alumni/home']);
+            //this.page();
+  
+            //socket
+            this.socket.emit('Login', { email: formData.email, password: formData.password });
+            var isFound = false;
+            this.socket.on('loginResults', (found) => {
+              isFound = found;
+  
+  
+              console.log(isFound);
+              if (isFound) {
+                this.isAuthenticated = true;
+                this.socket.on('userDetails', (userData) => {
+                  //this.page()
+  
+  
+                });
+              } else {
+                this.isAuthenticated = false;
+              }
+  
             });
+  
+            this.page()
+  
           } else {
-            this.isAuthenticated = false;
+            this.showSnackbar('login successfully!');
+            //alert("Invalid Details")
+            this.router.navigate(['/auth/forgot-password']);
           }
-    
         });
-
-        this.page()
-
-      }else{
-        //alert("Invalid Details")
-        this.router.navigate(['/auth/forgot-password']);
+      } else {
+        this.router.navigate(['/admin/dashboard']);
       }
-    });
-    }else{
-      this.router.navigate(['/admin/dashboard']);
+
+
+
+      //this.showSnackbar('login successfully!');
+      //this.router.navigate(['/alumni/profile/view-profile']);
     }
+    
   }
 
   onSubmit() {
-    const formData = { fullname: this.fullname,surname: this.surname, email: this.email, password: this.password };
+    const formData = { fullname: this.fullname, surname: this.surname, email: this.email, password: this.password };
     this.http.post(`${baseUrl}/register`, formData).subscribe((response: any) => {
       console.log('Data sent to server:', response);
       // Clear the form fields after successful submission
@@ -182,7 +187,7 @@ export class LoginComponent {
 
       this.router.navigate(['/success']);
 
-      
+
       /*if(response.status === 200){
         this.router.navigate(['/success']);
       }*/
@@ -198,7 +203,7 @@ export class LoginComponent {
     });
   }
 
-  page(){
+  page() {
     const apiUrl = `${baseUrl}/profile/get_profile`
 
     //get profile details from server
@@ -209,14 +214,14 @@ export class LoginComponent {
       //this.alumni.Skills = response.userprofile.skills;
       console.log(response.result[0].location);
 
-      
+
       //check if values are null
-      if (response.result[0].skills === '' || response.result[0].experience === '' || response.result[0].interest === '' || response.result[0].bio === '' ||response.result[0].location === '' ||
-      response.result[0].qualification === '' ||response.result[0].employment_status === '') {
-        
-        
+      if (response.result[0].skills === '' || response.result[0].experience === '' || response.result[0].interest === '' || response.result[0].bio === '' || response.result[0].location === '' ||
+        response.result[0].qualification === '' || response.result[0].employment_status === '') {
+
+
         this.router.navigate(['/alumni/profile/view-profile']);
-      }else{
+      } else {
         this.showSnackbar('login successfully!');
         //this.showSnackbar('Profile Incomplete, Please update profile');
         this.router.navigate(['/alumni/home']);

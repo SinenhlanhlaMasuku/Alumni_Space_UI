@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 //models
 import { Message } from 'src/app/models/message';
@@ -45,7 +46,7 @@ export class ChatComponent {
 ];    
 
 
-  constructor(private chatService: ChatServiceService){
+  constructor(private chatService: ChatServiceService, private router: Router){
     chatService.getContact();
  
 
@@ -170,4 +171,9 @@ export class ChatComponent {
     this.groupName='';
     this.gID+=1;
   }
+  
+  returnHome(){
+    this.router.navigate(['/alumni/home']);
+  }
 }
+

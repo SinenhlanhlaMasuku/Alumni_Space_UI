@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-landing-page.component.css']
 })
 export class UserLandingPageComponent {
-
+    title = 'Alumni_Space_UI';
+    isWhotoFollow: boolean = false;
+    toggleFollowers(){
+        this.isWhotoFollow = !this.isWhotoFollow;
+      }
 }
 const storedTheme: string | null = localStorage.getItem('theme')
 
