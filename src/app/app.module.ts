@@ -71,6 +71,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ImageDisplayComponent } from './modules/alumni/landing-page/image-display/image-display.component';
 //services
 
 
@@ -114,6 +115,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ServicesComponent,
     AddPostsComponent,
     SuccessModalComponent,
+    ImageDisplayComponent
     
   ],
   imports: [
