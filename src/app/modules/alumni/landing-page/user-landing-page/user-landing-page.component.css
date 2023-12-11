@@ -26,7 +26,12 @@
   .centerfeed
   {
 
+<<<<<<< Updated upstream
     transform: translateY(-50%);
+=======
+    transform: translateY(-260%);
+>>>>>>> Stashed changes
     margin-left: 30%;
     width: 50%;
+
   }
