@@ -22,7 +22,7 @@ export class YourThoughtsComponent {
 
   
 getPosts() {
-  this.http.get<any>('http://localhost:3000/posts').subscribe(response => {
+  this.http.get<any>(`${filesUrl}/posts`).subscribe(response => {
     this.posts = response;
   });
 }
@@ -30,8 +30,8 @@ onSubmit() {
   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   this.newPost.name = ''+ localStorage.getItem('name')+' '+localStorage.getItem('surname');
   this.newPost.dateTime = new Date();
-  this.newPost.imageUrl = 'http://192.168.27.20:3000/uploads/pics/profiles/aboutPic.jpg';
-  this.http.post<any>('http://localhost:3000/posts', this.newPost, { headers }).subscribe(response => {
+  this.newPost.imageUrl = `${filesUrl}uploads/pics/profiles/${localStorage.getItem('pic')}`;
+  this.http.post<any>(`${filesUrl}/posts`, this.newPost, { headers }).subscribe(response => {
     this.getPosts(); // Refresh the posts after a new post is created
     this.newPost = { name:'', imageUrl:'',postData:'',timeDate: ''}; // Reset the new post object
   });
