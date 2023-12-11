@@ -98,6 +98,12 @@ export class ProfileService {
     const url = `${baseUrl}/getDocument` + '/profile' +'/' + account_id;
     return this.http.get<{ filePath: string }[]>(url);
   }
+  getUploadedPictures2(): Observable<{ filePath: string }[]> {
+    const account_id = localStorage.getItem('account_id');
+    const url = `${baseUrl}/getDocument` + '/profile' +'/' + account_id;
+    return this.http.get<any>(url);
+  }
+
 
 
 

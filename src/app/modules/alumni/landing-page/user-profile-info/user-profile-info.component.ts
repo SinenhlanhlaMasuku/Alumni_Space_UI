@@ -114,9 +114,11 @@ export class UserProfileInfoComponent {
 
   viewPictures() {
     this.ProfileService.getUploadedPictures().subscribe((data: { filePath: string }[]) => {
-      this.pictures = data.map((item) => ({ filePath: `${this.imageUrl}/${item.filePath}` }));
+      this.pictures = data.map((item) => ({ filePath: `${this.imageUrl}/${item.filePath}` }) );
+     //this.pictures = data.;
       console.log(this.pictures);
     });
+    //localStorage.setItem('pic', item.filePath);
   }
 
   logout(){
