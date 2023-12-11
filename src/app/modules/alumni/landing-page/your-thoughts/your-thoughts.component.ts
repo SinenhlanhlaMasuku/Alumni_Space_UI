@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-
+import {HttpClient, HttpHeaders} from '@angular/common/http'
+import { MatDialog } from '@angular/material/dialog';
+import { ImageDisplayComponent } from '../image-display/image-display.component';
+ 
 @Component({
   selector: 'app-your-thoughts',
   templateUrl: './your-thoughts.component.html',
@@ -7,65 +10,58 @@ import { Component } from '@angular/core';
 })
 export class YourThoughtsComponent {
   
-  postedtext: string=''; 
+  url='';
+  posts=[];
+  newPost:any ={name:'', imageUrl:'',postData:'',dateTime:''};
+  postData: string = '';
+  currentDate:  Date = new Date();
+  constructor(private http:HttpClient, public dialog: MatDialog){}
 
-  onPhotoUpload(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const file = input?.files?.[0]; // Get the selected photo file
   
-    if (file) {
-      // Handle the photo file upload here
-      // You might want to handle the file upload using a service or any other logic specific to your application
-      // For example:
-      // this.yourService.uploadPhoto(file);
-      // where file is the image file
-      // Make sure to replace 'yourService' with your actual service
-    }
-  }
+getPosts() {
+  this.http.get<any>('http://localhost:3000/posts').subscribe(response => {
+    this.posts = response;
+  });
+}
+onSubmit() {
+  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  this.newPost.name ='Kabelo Axis';
+  this.newPost.dateTime = this.getTimeDifference(this.currentDate);
+  this.http.post<any>('http://localhost:3000/posts', this.newPost, { headers }).subscribe(response => {
+    this.getPosts(); // Refresh the posts after a new post is created
+    this.newPost = { name:'', imageUrl:'',postData:'',timeDate: ''}; // Reset the new post object
+  });
+  window.location.reload();
+}
 
-  onVideoUpload(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const file = input?.files?.[0]; // Get the selected video file
+ // Custom function to calculate time difference and return the "posted ... ago" message
+ getTimeDifference(datePosted: Date): string {
+  const timeDiff = this.currentDate.getTime() - new Date(datePosted).getTime();
 
-    if (file) {
-      // Handle the video file upload here
-      // You might want to handle the file upload using a service or any other logic specific to your application
-      // For example:
-      // this.yourService.uploadVideo(file);
-      // where file is the video file
-      // Make sure to replace 'yourService' with your actual service
-    }
-  }
-  onMediaUpload(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const file = input?.files?.[0]; // Get the selected video file
+  const seconds = Math.floor(timeDiff / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
 
-    if (file) {
-      // Handle the video file upload here
-      // You might want to handle the file upload using a service or any other logic specific to your application
-      // For example:
-      // this.yourService.uploadVideo(file);
-      // where file is the video file
-      // Make sure to replace 'yourService' with your actual service
-    }
-  }
-  data = [
-    { user: 'User 1', query: 'Hello, I have a question.', status: 'Unanswered', response: '' },
-    { user: 'User 2', query: 'Need assistance with an order.', status: 'Unanswered', response: '' }
-  ];
-  responseForms: boolean[] = new Array(this.data.length).fill(false);
-
-  toggleResponseForm(index: number) {
-    this.responseForms[index] = !this.responseForms[index];
-  }
-
-  submitResponse(index: number) {
-    this.data[index].status = 'Answered';
-    this.responseForms[index] = false;
-
-    // this.postedtext.style.color='red';
-
-    alert( this.postedtext)
+  if (days > 0) {
+    return ` ${days} day${days > 1 ? 's' : ''} ago`;
+  } else if (hours > 0) {
+    return ` ${hours} hour${hours > 1 ? 's' : ''} ago`;
+  } else if (minutes > 0) {
+    return ` ${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+  } else {
+    return ` a few seconds ago`;
   }
 }
 
+openPopup(): void {
+  const dialogRef = this.dialog.open(ImageDisplayComponent, {
+    width: '250px', // Set the width of the pop-up
+  });
+
+  // You can subscribe to the afterClosed event to get data when the pop-up is closed
+  dialogRef.afterClosed().subscribe(result => {
+    console.log(`Dialog result: ${result}`);
+  });
+}
+}

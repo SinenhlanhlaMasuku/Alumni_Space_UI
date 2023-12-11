@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { EventService } from 'service';
+
 
 
 interface PostInfo{
@@ -17,21 +20,77 @@ interface PostInfo{
   styleUrls: ['./user-post.component.css']
 })
 export class UserPostComponent {
-  post_id = [1,2,3,4]
-  posts: { [id: string]: PostInfo } = { 
-    "post_info":{ user_name: "Sinenhlanhla Masuku",
-        user_postion: "Web Developer",
-        institution: "Tshwane University Of Technology",
-        user_image: "assets/Sneh.jpg",
-        post_time: "2hr",
-        text_message: "I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.",
-        image_message: "assets/Sneh.jpg"},
-   "post_info2":{ user_name: "Thoko Masanabo",
-        user_postion: "Fullstack Developer",
-        institution: "Tshwane University Of Technology",
-        user_image: "assets/Sneh.jpg",
-        post_time: "2hr",
-        text_message: "I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.",
-        image_message: "assets/Sneh.jpg"}
-         }
+
+  posts: any[] = [];
+  events: any[] = [];
+  currentDate: Date = new Date();
+  newComment: any;
+  likes: any=0;
+
+
+  constructor(private service: EventService, private http:HttpClient) {
+    this.events = this.service.getEvents();
+  }
+
+  // Custom function to calculate time difference and return the "posted ... ago" message
+  getTimeDifference(datePosted: Date): string {
+    const timeDiff = this.currentDate.getTime() - new Date(datePosted).getTime();
+
+    const seconds = Math.floor(timeDiff / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (days > 0) {
+      return ` ${days} day${days > 1 ? 's' : ''} ago`;
+    } else if (hours > 0) {
+      return ` ${hours} hour${hours > 1 ? 's' : ''} ago`;
+    } else if (minutes > 0) {
+      return ` ${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    } else {
+      return ` a few seconds ago`;
+    }
+  }
+
+
+ 
+  ngOnInit() {
+    this.getLikes();
+    this.getPosts();
+  }
+
+  getPosts() {
+    this.http.get<any>('http://localhost:3000/posts').subscribe(response => {
+      this.posts = response.reverse();
+    });
+  }
+
+
+
+  getLikes() {
+    this.http.get<any>('http://localhost:3000/posts/likes').subscribe(data => {
+      this.likes = data.likes;
+    });
+  }
+
+  incrementLikes() {
+    this.http.patch('http://localhost:3000/posts/likes', { likes: this.likes + 1 }).subscribe(() => {
+      this.getLikes();
+    });
+  }
+
+  addComment(post: any, newComment: any) {
+    // Assign a unique ID to the new comment
+    newComment.id = post.comments.length + 1;
+    newComment.date = new Date().toISOString();
+    
+    // Add the new comment to the post's comments array
+    post.comments.push(newComment);
+
+    // Update the comments on the server
+    this.http.patch(`http://localhost:3000/posts/${post.id}`, { comments: post.comments }).subscribe(() => {
+      this.getPosts();
+    });
+  }
+
 }
