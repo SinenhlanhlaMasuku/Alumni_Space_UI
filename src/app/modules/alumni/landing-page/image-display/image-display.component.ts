@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EventService } from 'src/app/services/events/event.service'; 
+import { filesUrl } from 'config';
 
 @Component({
   selector: 'app-image-display',
@@ -40,7 +41,7 @@ export class ImageDisplayComponent {
       date: this.currentDate
 
     };
-    this.http.post<any>('http://localhost:3000/posts',event,{headers}).subscribe(response =>{
+    this.http.post<any>(`${filesUrl}/posts`,event,{headers}).subscribe(response =>{
     this.service.getEvents();
     this.service.addEvent(event);
     this.eventForm.reset();
@@ -69,7 +70,7 @@ export class ImageDisplayComponent {
   }
 
   getPosts() {
-    this.http.get<any>('http://localhost:3000/posts').subscribe(response => {
+    this.http.get<any>(`${filesUrl}/posts`).subscribe(response => {
       this.posts = response;
     });
   }
