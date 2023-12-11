@@ -7,9 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
-import { RegisterComponent } from './components/register/register.component';
 import { ApplyPageComponent } from './modules/alumni/jobs/apply-page/apply-page.component';
 
 //imports
@@ -80,7 +78,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     ForgotPasswordComponent,
     ConfirmationDialogComponent,
     AuthorsComponent,
@@ -95,7 +92,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LastFewNotificationsComponent,
     TrackAlumniComponent,
     QueryComponent,
-    RegisterComponent,
     ApplyPageComponent,
     ChatComponent,
     ApplicationsComponent,
