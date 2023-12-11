@@ -67,6 +67,9 @@ export class ProfileService {
   getMyCerts(account_id: any): Observable<any>{
     return this.http.get<any>(`${this.profileUrl}/get_my_certs/${account_id}`);
   }
+  getMyPic(account_id: any): Observable<any>{
+    return this.http.get<any>(`${this.profileUrl}/get_my_pic/${account_id}`);
+  }
 
   deleteMyCert(certificateId: any): Observable<any>{
     return this.http.delete(`${this.profileUrl}/delete_my_cert/${certificateId}`);

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { io } from "socket.io-client";
 
+import { ProfileService } from 'src/app/modules/alumni/profile/profile.service';
+
 //URLs
 import { baseUrl } from 'config';
 import { chatUrl } from 'config';
@@ -20,7 +22,7 @@ export class LoginComponent {
   password = '';
   fullname = '';
   surname = '';
-  constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar) { }
+  constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar, private ProfileService: ProfileService) { }
 
   private socket = io(`${chatUrl}`);
   httpOptions: { headers: HttpHeaders } = {
@@ -154,7 +156,8 @@ export class LoginComponent {
               }
   
             });
-  
+            
+            this.getMyImage();
             this.page()
   
           } else {
@@ -226,6 +229,13 @@ export class LoginComponent {
         //this.showSnackbar('Profile Incomplete, Please update profile');
         this.router.navigate(['/alumni/home']);
       }
+    });
+  }
+
+  getMyImage(){
+    this.ProfileService.getMyPic(localStorage.getItem('account_id')).subscribe((response:any) => {
+      console.log('Image :' + response.myPic);
+      localStorage.setItem('pic',response.myPic )
     });
   }
 }

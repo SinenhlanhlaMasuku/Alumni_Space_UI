@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { MatDialog } from '@angular/material/dialog';
 import { ImageDisplayComponent } from '../image-display/image-display.component';
- 
+import { ProfileService } from '../../profile/profile.service';
+import { filesUrl } from 'config';
+
 @Component({
   selector: 'app-your-thoughts',
   templateUrl: './your-thoughts.component.html',
@@ -11,11 +13,12 @@ import { ImageDisplayComponent } from '../image-display/image-display.component'
 export class YourThoughtsComponent {
   
   //url='http://192.168.27.20:3000/uploads/pics/profiles/aboutPic.jpg';
+  //myPic: any = localStorage;
   posts=[];
-  newPost:any ={name:'', imageUrl:'http://192.168.27.20:3000/uploads/pics/profiles/aboutPic.jpg',postData:'',dateTime:''};
+  newPost:any ={name:'', imageUrl:`${filesUrl}/uploads/pics/profiles/${localStorage.getItem('pic')}`,postData:'',dateTime:''};
   postData: string = '';
   currentDate:  Date = new Date();
-  constructor(private http:HttpClient, public dialog: MatDialog){}
+  constructor(private http:HttpClient, public dialog: MatDialog, private ProfileService: ProfileService){}
 
   
 getPosts() {
@@ -34,6 +37,7 @@ onSubmit() {
   });
   window.location.reload();
 }
+
 
  // Custom function to calculate time difference and return the "posted ... ago" message
  getTimeDifference(datePosted: Date): string {
@@ -65,4 +69,6 @@ openPopup(): void {
     console.log(`Dialog result: ${result}`);
   });
 }
+
+
 }
