@@ -15,25 +15,6 @@ import { chatUrl } from 'config';
 })
 export class LoginComponent {
   title = 'Alumni_Space_UI';
-  images: string[] = [
-    'assets/alumni.jpg',
-    'assets/alumni2.jpg',
-    'assets/alumni3.png',
-    'assets/alumni4.png',
-    
-  ];
-
-  currentIndex = 0;
-
-  ngOnInit(): void {
-    this.showSlides();
-  }
-
-  showSlides() {
-    setInterval(() => {
-      this.currentIndex = (this.currentIndex + 1) % this.images.length;
-    }, 3000); // Change slide every 3 seconds (adjust as needed)
-  }
 
   email = '';
   password = '';
