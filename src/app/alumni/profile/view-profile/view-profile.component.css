@@ -1,3 +1,8 @@
+//getting rid of the default page spacing
+*{
+  margin:0;
+  padding:0;
+}
 /* body .h1 {
     color: #000;
     justify-content: center;
