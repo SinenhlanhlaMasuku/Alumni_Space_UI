@@ -3,7 +3,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { MatDialog } from '@angular/material/dialog';
 import { ImageDisplayComponent } from '../image-display/image-display.component';
 import { ProfileService } from '../../profile/profile.service';
-import { filesUrl } from 'config';
+import { postsUrl } from 'config';
+import {filesUrl} from 'config';
 
 @Component({
   selector: 'app-your-thoughts',
@@ -22,7 +23,7 @@ export class YourThoughtsComponent {
 
   
 getPosts() {
-  this.http.get<any>(`${filesUrl}/posts`).subscribe(response => {
+  this.http.get<any>(`${postsUrl}/posts`).subscribe(response => {
     this.posts = response;
   });
 }
@@ -30,8 +31,8 @@ onSubmit() {
   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   this.newPost.name = ''+ localStorage.getItem('name')+' '+localStorage.getItem('surname');
   this.newPost.dateTime = new Date();
-  this.newPost.imageUrl = `${filesUrl}uploads/pics/profiles/${localStorage.getItem('pic')}`;
-  this.http.post<any>(`${filesUrl}/posts`, this.newPost, { headers }).subscribe(response => {
+  this.newPost.imageUrl = `${filesUrl}/uploads/pics/profiles/${localStorage.getItem('pic')}`;
+  this.http.post<any>(`${postsUrl}/posts`, this.newPost, { headers }).subscribe(response => {
     this.getPosts(); // Refresh the posts after a new post is created
     this.newPost = { name:'', imageUrl:'',postData:'',timeDate: ''}; // Reset the new post object
   });

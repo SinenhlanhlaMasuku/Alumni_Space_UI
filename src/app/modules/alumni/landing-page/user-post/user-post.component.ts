@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { EventService } from 'service';
-
+import { postsUrl } from 'config';
 
 
 interface PostInfo{
@@ -60,7 +60,7 @@ export class UserPostComponent {
   }
 
   getPosts() {
-    this.http.get<any>('http://localhost:3000/posts').subscribe(response => {
+    this.http.get<any>(`${postsUrl}/posts`).subscribe(response => {
       this.posts = response.reverse();
     });
   }
@@ -68,13 +68,13 @@ export class UserPostComponent {
 
 
   getLikes() {
-    this.http.get<any>('http://localhost:3000/posts/likes').subscribe(data => {
+    this.http.get<any>(`${postsUrl}/posts/likes`).subscribe(data => {
       this.likes = data.likes;
     });
   }
 
   incrementLikes() {
-    this.http.patch('http://localhost:3000/posts/likes', { likes: this.likes + 1 }).subscribe(() => {
+    this.http.patch(`${postsUrl}/posts/likes`, { likes: this.likes + 1 }).subscribe(() => {
       this.getLikes();
     });
   }
@@ -88,7 +88,7 @@ export class UserPostComponent {
     post.comments.push(newComment);
 
     // Update the comments on the server
-    this.http.patch(`http://localhost:3000/posts/${post.id}`, { comments: post.comments }).subscribe(() => {
+    this.http.patch(`${postsUrl}/posts/${post.id}`, { comments: post.comments }).subscribe(() => {
       this.getPosts();
     });
   }
