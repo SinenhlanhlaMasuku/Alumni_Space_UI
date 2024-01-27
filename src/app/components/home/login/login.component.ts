@@ -161,8 +161,8 @@ export class LoginComponent {
             this.page()
   
           } else {
-            this.showSnackbar('login successfully!');
-            //alert("Invalid Details")
+            //this.showSnackbar('login successfully!');
+            alert("Invalid Details")
             this.router.navigate(['/auth/forgot-password']);
           }
         });

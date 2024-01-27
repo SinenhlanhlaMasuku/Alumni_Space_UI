@@ -14,6 +14,7 @@ interface Profile {
 
 // Then, in your track-alumni.component.ts file
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ProfileService } from '../../alumni/profile/profile.service'; // Adjust the path based on your project structure
 import { HttpClient } from '@angular/common/http';
@@ -31,7 +32,7 @@ export class TrackAlumniComponent implements OnInit {
   showAlumniTable: boolean = false;
   showAlumniStats: boolean = false;
 
-  constructor(private apiService: ProfileService, private http: HttpClient) {}
+  constructor(private apiService: ProfileService, private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.apiService.getProfiles().subscribe((data: any) => {
@@ -75,4 +76,38 @@ export class TrackAlumniComponent implements OnInit {
       return `${this.imageUrl}/${defaultPicture}`;
     }
   }
+
+
+  //Dipono staff
+  Alumnus = [{name:"Manasoe DJ", company:"ICEP", role:"Developer", image:"../../assets/profilejpg.jpg", privious:[{company:"TUT",role:"Lecturer", 
+              startDate:"2017-Mar", endDate:"2017-Dec"},{company:"MLAB",role:"Web and Developer", 
+              startDate:"2018-Jan", endDate:"2019-Dec"},{company:"Sasol",role:"Patrol Attendance", 
+              startDate:"2019-Feb", endDate:"2021-Nov"}]}, 
+
+              {name:"Maluleke T", company:"ICEP", role:"BA", image:"../../assets/profile2png.png", privious:[{company:"TUT",role:"Lecturer", 
+              startDate:"2017-Mar", endDate:"2017-Dec"},{company:"MLAB",role:"Web and Developer", 
+              startDate:"2018-Jan", endDate:"2019-Dec"},{company:"Sasol",role:"Patrol Attendance", 
+              startDate:"2019-Feb", endDate:"2021-Nov"}]},
+
+              {name:"Makena LB", company:"Spar", role:"Cashier", image:"../../assets/profile3png.png", privious:[{company:"TUT",role:"Lecturer", 
+              startDate:"2017-Mar", endDate:"2017-Dec"},{company:"MLAB",role:"Web and Developer", 
+              startDate:"2018-Jan", endDate:"2019-Dec"},{company:"Sasol",role:"Patrol Attendance", 
+              startDate:"2019-Feb", endDate:"2021-Nov"}]}, 
+
+              {name:"Malebane TK", company:"ICEP", role:"Tester", image:"../../../../assets/dipono/profilejpg.jp.", privious:[{company:"TUT",role:"Lecturer", 
+              startDate:"2017-Mar", endDate:"2017-Dec"},{company:"MLAB",role:"Web and Developer", 
+              startDate:"2018-Jan", endDate:"2019-Dec"},{company:"Sasol",role:"Patrol Attendance", 
+              startDate:"2019-Feb", endDate:"2021-Nov"}]}]
+
+
+
+
+  getAlumniInfo(info:any){
+    console.log(info)
+    localStorage.setItem('alumni_info', JSON.stringify(info))
+    this.router.navigate(['/alumni-details'], {state:{info}})
+    
+  }
+
+
 }

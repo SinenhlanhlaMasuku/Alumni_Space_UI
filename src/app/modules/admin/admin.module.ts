@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 //import components
 import { TrackAlumniComponent } from './track-alumni/track-alumni.component';
+import { AlumniDetailsComponent } from './alumni-details/alumni-details.component';
 import { AddJobsComponent } from './add-jobs/add-jobs.component';
 import { AddPostsComponent } from './add-posts/add-posts.component';
 
@@ -23,6 +24,7 @@ import { QueryComponent } from './query/query.component';
 
       //components pages
       { path: 'trackAlumni', component: TrackAlumniComponent},
+      {path: 'alumni-details', component: AlumniDetailsComponent},
       { path: 'post-jobs', component: AddJobsComponent },
       { path: 'post-events', component: AddPostsComponent },
       { path: 'view-report', component: ViewReportComponent},

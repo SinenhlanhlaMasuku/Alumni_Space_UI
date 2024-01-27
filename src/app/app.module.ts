@@ -32,6 +32,8 @@ import { JobsStatsComponent } from './modules/admin/dashboard/jobs-stats/jobs-st
 import { EventsStatsComponent } from './modules/admin/dashboard/events-stats/events-stats.component';
 import { LastFewNotificationsComponent } from './modules/admin/dashboard/last-few-notifications/last-few-notifications.component';
 import { TrackAlumniComponent } from './modules/admin/track-alumni/track-alumni.component';
+import { AlumniDetailsComponent } from './modules/admin/alumni-details/alumni-details.component';
+import { AllAlumnusComponent } from './modules/admin/all-alumnus/all-alumnus.component';
 import { AdminFooterComponent } from './modules/admin/dashboard/admin-footer/admin-footer.component';
 import { ViewReportComponent } from './modules/admin/view-report/view-report.component';
 import { ApplicationsComponent } from './modules/admin/job-applications/applications/applications.component';
@@ -92,6 +94,8 @@ import { ImageDisplayComponent } from './modules/alumni/landing-page/image-displ
     EventsStatsComponent,
     LastFewNotificationsComponent,
     TrackAlumniComponent,
+    AlumniDetailsComponent,
+    AllAlumnusComponent,
     QueryComponent,
     ApplyPageComponent,
     ChatComponent,
